@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Bolt } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
@@ -62,6 +62,16 @@ const NavBar: React.FC = () => {
 
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
+            
+            {/* Quick Action Button */}
+            <Link 
+              to="/dashboard" 
+              className="flex items-center gap-2 bg-mcn-blue text-white px-3 py-2 rounded-md hover:bg-mcn-blue/90 transition-colors"
+            >
+              <Bolt size={16} />
+              <span>Dashboard</span>
+            </Link>
+            
             <Link to="/login" className="outline-button">
               {t('nav.login')}
             </Link>
@@ -116,6 +126,16 @@ const NavBar: React.FC = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.contact')}
+          </Link>
+          
+          {/* Quick Action in Mobile Menu */}
+          <Link 
+            to="/dashboard" 
+            className="flex items-center justify-center gap-2 bg-mcn-blue text-white px-4 py-3 rounded-md"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <Bolt size={18} />
+            <span>Dashboard</span>
           </Link>
           
           <div className="pt-2 pb-4 flex justify-center">

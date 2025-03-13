@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, Menu, User, X } from 'lucide-react';
+import { Bell, Menu, User, X, Bolt } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -10,6 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Link } from 'react-router-dom';
 
 interface DashboardHeaderProps {
   toggleSidebar: () => void;
@@ -36,6 +37,14 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
         </div>
         
         <div className="flex items-center gap-2">
+          {/* Quick Action Button */}
+          <Link to="/">
+            <Button variant="outline" size="sm" className="gap-1">
+              <Bolt size={16} />
+              <span className="hidden sm:inline">Back to Home</span>
+            </Button>
+          </Link>
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="relative">
