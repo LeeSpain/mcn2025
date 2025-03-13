@@ -6,6 +6,7 @@ import ContactHero from '@/components/contact/ContactHero';
 import AIGuardianSection from '@/components/contact/AIGuardianSection';
 import ContactInfoSection from '@/components/contact/ContactInfoSection';
 import GetInTouchSection from '@/components/contact/GetInTouchSection';
+import FAQSection from '@/components/contact/FAQSection';
 
 const ContactPage = () => {
   return (
