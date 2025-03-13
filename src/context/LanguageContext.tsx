@@ -187,7 +187,7 @@ export const translations: Translations = {
   'enterprise.demo.button': {
     en: 'Request Demo',
     nl: 'Demo aanvragen',
-  },
+  }
 };
 
 type LanguageContextType = {
