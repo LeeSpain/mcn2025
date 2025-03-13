@@ -10,7 +10,7 @@ const PricingSection: React.FC = () => {
     title: t('pricing.main.title'),
     price: t('pricing.main.price'),
     description: t('pricing.main.description'),
-    planId: 'membership',
+    planId: 'membership-details',
     isPopular: true,
     highlightColor: 'border-mcn-blue',
     features: [
@@ -39,7 +39,7 @@ const PricingSection: React.FC = () => {
     title: t('pricing.family.title'),
     price: t('pricing.family.price'),
     description: t('pricing.family.description'),
-    planId: 'family',
+    planId: 'family-details',
     highlightColor: 'border-mcn-blue-dark',
     isFamily: true,
     features: [
