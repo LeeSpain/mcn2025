@@ -2,9 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X, Bolt } from 'lucide-react';
+import { Menu, X, Bolt, LayoutDashboard } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const NavBar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -63,14 +71,25 @@ const NavBar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             
-            {/* Quick Action Button */}
-            <Link 
-              to="/dashboard" 
-              className="flex items-center gap-2 bg-mcn-blue text-white px-3 py-2 rounded-md hover:bg-mcn-blue/90 transition-colors"
-            >
-              <Bolt size={16} />
-              <span>Dashboard</span>
-            </Link>
+            {/* Dashboard Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="outline-button flex items-center gap-1.5">
+                  <LayoutDashboard size={16} />
+                  <span>Dashboard</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link to="/dashboard" className="w-full">Member Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link to="/dashboard/staff" className="w-full">Staff Dashboard</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             
             <Link to="/login" className="outline-button">
               {t('nav.login')}
@@ -128,15 +147,25 @@ const NavBar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           
-          {/* Quick Action in Mobile Menu */}
-          <Link 
-            to="/dashboard" 
-            className="flex items-center justify-center gap-2 bg-mcn-blue text-white px-4 py-3 rounded-md"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Bolt size={18} />
-            <span>Dashboard</span>
-          </Link>
+          {/* Dashboard Dropdown in Mobile Menu */}
+          <div className="border-b border-gray-100 pb-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <button className="flex items-center gap-2 text-xl font-medium">
+                  <LayoutDashboard size={20} />
+                  <span>Dashboard</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
+                  <Link to="/dashboard" className="w-full">Member Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
+                  <Link to="/dashboard/staff" className="w-full">Staff Dashboard</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           
           <div className="pt-2 pb-4 flex justify-center">
             <LanguageSwitcher />
