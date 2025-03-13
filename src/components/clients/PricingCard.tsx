@@ -95,7 +95,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       
       <div className="mt-auto">
         <Link 
-          to={`/pricing/${planId}`} 
+          to={planId === 'membership-details' ? '/membership-details' : `/pricing/${planId}`}
           className={`${isPopular ? 'primary-button' : 'outline-button'} w-full justify-center`}
         >
           {t('pricing.choose')} {title}
