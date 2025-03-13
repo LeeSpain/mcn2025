@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'en' | 'nl';
@@ -57,48 +56,48 @@ export const translations: Translations = {
   
   // Pricing section
   'pricing.title': {
-    en: 'Pricing Plans',
-    nl: 'Prijsplannen',
+    en: 'Pricing',
+    nl: 'Prijzen',
   },
   'pricing.description': {
-    en: 'Choose the plan that best fits your needs and lifestyle. All plans include access to our mobile app and web portal.',
-    nl: 'Kies het plan dat het beste past bij uw behoeften en levensstijl. Alle plannen omvatten toegang tot onze mobiele app en webportaal.',
+    en: 'One simple price with all services included. Choose what you need for your package.',
+    nl: 'Eén eenvoudige prijs met alle diensten inbegrepen. Kies wat u nodig heeft voor uw pakket.',
   },
-  'pricing.basic.title': {
-    en: 'Basic',
-    nl: 'Basis',
+  'pricing.main.title': {
+    en: 'Full Membership',
+    nl: 'Volledig Lidmaatschap',
   },
-  'pricing.basic.price': {
-    en: '€8',
-    nl: '€8',
+  'pricing.main.price': {
+    en: '€100.00',
+    nl: '€100,00',
   },
-  'pricing.basic.description': {
-    en: 'Perfect for getting started',
-    nl: 'Perfect om te beginnen',
-  },
-  'pricing.premium.title': {
-    en: 'Premium',
-    nl: 'Premium',
-  },
-  'pricing.premium.price': {
-    en: '€15',
-    nl: '€15',
-  },
-  'pricing.premium.description': {
-    en: 'Enhanced features and connectivity',
-    nl: 'Verbeterde functies en connectiviteit',
+  'pricing.main.description': {
+    en: 'All services included',
+    nl: 'Alle diensten inbegrepen',
   },
   'pricing.family.title': {
-    en: 'Family',
-    nl: 'Familie',
+    en: 'Family Access',
+    nl: 'Familie Toegang',
   },
   'pricing.family.price': {
-    en: '€25',
-    nl: '€25',
+    en: '€10',
+    nl: '€10',
   },
   'pricing.family.description': {
-    en: 'For multiple family members',
-    nl: 'Voor meerdere familieleden',
+    en: 'Per family member per month',
+    nl: 'Per familielid per maand',
+  },
+  'pricing.products.title': {
+    en: 'Products',
+    nl: 'Producten',
+  },
+  'pricing.services.title': {
+    en: 'Services',
+    nl: 'Diensten',
+  },
+  'pricing.limit.text': {
+    en: 'Choose up to 5 items for your package',
+    nl: 'Kies tot 5 items voor uw pakket',
   },
   'pricing.popular': {
     en: 'Most Popular',

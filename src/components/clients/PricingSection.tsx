@@ -6,47 +6,50 @@ import { useLanguage } from '@/context/LanguageContext';
 const PricingSection: React.FC = () => {
   const { t } = useLanguage();
   
-  const pricingPlans = [
-    {
-      title: t('pricing.basic.title'),
-      price: t('pricing.basic.price'),
-      description: t('pricing.basic.description'),
-      planId: 'basic',
-      highlightColor: 'border-mcn-blue-light',
-      features: [
-        { text: 'Care Manager (task tracking)' },
-        { text: 'Safety Monitor (basic)' },
-        { text: 'Health View (manual entries)' }
-      ]
-    },
-    {
-      title: t('pricing.premium.title'),
-      price: t('pricing.premium.price'),
-      description: t('pricing.premium.description'),
-      planId: 'premium',
-      isPopular: true,
-      highlightColor: 'border-mcn-blue',
-      features: [
-        { text: 'All Basic features' },
-        { text: 'Connect Hub (unlimited video calls)' },
-        { text: 'BBrain voice integration' },
-        { text: 'Wearable device integration' }
-      ]
-    },
-    {
-      title: t('pricing.family.title'),
-      price: t('pricing.family.price'),
-      description: t('pricing.family.description'),
-      planId: 'family',
-      highlightColor: 'border-mcn-blue-dark',
-      features: [
-        { text: 'All Premium features' },
-        { text: 'Up to 5 family member accounts' },
-        { text: 'Family dashboard view' },
-        { text: 'Priority support' }
-      ]
-    }
-  ];
+  const mainPlan = {
+    title: t('pricing.main.title'),
+    price: t('pricing.main.price'),
+    description: t('pricing.main.description'),
+    planId: 'membership',
+    isPopular: true,
+    highlightColor: 'border-mcn-blue',
+    features: [
+      // Products
+      { text: 'BBrain Voice Assistant Device', category: 'product' },
+      { text: 'Safety Monitoring Sensors', category: 'product' },
+      { text: 'Wearable Health Tracker', category: 'product' },
+      { text: 'Emergency Alert Button', category: 'product' },
+      { text: 'Smart Medication Dispenser', category: 'product' },
+      { text: 'Home Automation Controls', category: 'product' },
+      { text: 'Digital Photo Frame', category: 'product' },
+      
+      // Services
+      { text: 'Care Manager (task tracking)', category: 'service' },
+      { text: 'Safety Monitor (advanced)', category: 'service' },
+      { text: 'Health View (full integration)', category: 'service' },
+      { text: 'Connect Hub (unlimited video calls)', category: 'service' },
+      { text: 'BBrain voice integration', category: 'service' },
+      { text: 'Provider Connectivity', category: 'service' },
+      { text: 'Remote Setup Assistance', category: 'service' },
+      { text: '24/7 Technical Support', category: 'service' },
+    ]
+  };
+
+  const familyPlan = {
+    title: t('pricing.family.title'),
+    price: t('pricing.family.price'),
+    description: t('pricing.family.description'),
+    planId: 'family',
+    highlightColor: 'border-mcn-blue-dark',
+    isFamily: true,
+    features: [
+      { text: 'Connect to main member account' },
+      { text: 'Monitor health and activity' },
+      { text: 'Access to family dashboard' },
+      { text: 'Video calling and messaging' },
+      { text: 'Emergency notifications' }
+    ]
+  };
 
   return (
     <div className="bg-mcn-gray-light p-8 md:p-12 rounded-2xl mb-20">
@@ -57,19 +60,29 @@ const PricingSection: React.FC = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {pricingPlans.map((plan, index) => (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="lg:col-span-2">
           <PricingCard
-            key={index}
-            title={plan.title}
-            price={plan.price}
-            description={plan.description}
-            features={plan.features}
-            planId={plan.planId}
-            isPopular={plan.isPopular}
-            highlightColor={plan.highlightColor}
+            title={mainPlan.title}
+            price={mainPlan.price}
+            description={mainPlan.description}
+            features={mainPlan.features}
+            planId={mainPlan.planId}
+            isPopular={mainPlan.isPopular}
+            highlightColor={mainPlan.highlightColor}
           />
-        ))}
+        </div>
+        <div>
+          <PricingCard
+            title={familyPlan.title}
+            price={familyPlan.price}
+            description={familyPlan.description}
+            features={familyPlan.features}
+            planId={familyPlan.planId}
+            highlightColor={familyPlan.highlightColor}
+            isFamily={true}
+          />
+        </div>
       </div>
     </div>
   );
