@@ -71,7 +71,7 @@ const NavBar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             
-            {/* Dashboard Dropdown */}
+            {/* Dashboard Dropdown - Updated with correct paths */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="outline-button flex items-center gap-1.5">
@@ -147,7 +147,7 @@ const NavBar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           
-          {/* Dashboard Dropdown in Mobile Menu */}
+          {/* Dashboard Dropdown in Mobile Menu - Updated with correct paths */}
           <div className="border-b border-gray-100 pb-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
