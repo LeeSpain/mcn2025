@@ -46,6 +46,46 @@ export const enterpriseTranslations: TranslationSet = {
     en: 'Access to our dedicated enterprise support team, implementation specialists, and regular training sessions.',
     nl: 'Toegang tot ons toegewijde enterprise-ondersteuningsteam, implementatiespecialisten en regelmatige trainingssessies.',
   },
+  'enterprise.saving1.title': {
+    en: 'Reduced Administrative Costs',
+    nl: 'Verminderde Administratieve Kosten',
+  },
+  'enterprise.saving1.description': {
+    en: 'Save up to 30% on administrative overhead by automating routine tasks and streamlining workflows.',
+    nl: 'Bespaar tot 30% op administratieve overhead door routinetaken te automatiseren en werkstromen te stroomlijnen.',
+  },
+  'enterprise.saving2.title': {
+    en: 'Lower IT Infrastructure Expenses',
+    nl: 'Lagere IT-infrastructuurkosten',
+  },
+  'enterprise.saving2.description': {
+    en: 'Eliminate costly on-premise solutions with our cloud-based platform, reducing hardware and maintenance costs.',
+    nl: 'Elimineer kostbare on-premise oplossingen met ons cloudgebaseerde platform, waardoor hardware- en onderhoudskosten worden verlaagd.',
+  },
+  'enterprise.saving3.title': {
+    en: 'Improved Staff Efficiency',
+    nl: 'Verbeterde Personeelsefficiëntie',
+  },
+  'enterprise.saving3.description': {
+    en: 'Enable your team to handle more cases with the same resources, increasing productivity by up to 25%.',
+    nl: 'Stel uw team in staat om meer gevallen te behandelen met dezelfde middelen, waardoor de productiviteit met wel 25% toeneemt.',
+  },
+  'enterprise.saving4.title': {
+    en: 'Reduced Documentation Time',
+    nl: 'Verminderde Documentatietijd',
+  },
+  'enterprise.saving4.description': {
+    en: 'Cut documentation time by up to 45% with our intuitive forms and AI-assisted note-taking features.',
+    nl: 'Verkort de documentatietijd met maximaal 45% met onze intuïtieve formulieren en AI-ondersteunde notitie-functies.',
+  },
+  'enterprise.savings.title': {
+    en: 'Cost Savings for Your Organization',
+    nl: 'Kostenbesparingen voor uw Organisatie',
+  },
+  'enterprise.savings.description': {
+    en: 'Our enterprise solutions are designed to provide substantial ROI by reducing operational costs while improving care quality.',
+    nl: 'Onze enterprise-oplossingen zijn ontworpen om een aanzienlijk rendement op investering te bieden door operationele kosten te verlagen en tegelijkertijd de zorgkwaliteit te verbeteren.',
+  },
   'enterprise.pricing.title': {
     en: 'Enterprise Solutions',
     nl: 'Zakelijke Oplossingen',

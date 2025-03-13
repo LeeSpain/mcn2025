@@ -6,6 +6,7 @@ import EnterpriseHeader from '@/components/enterprise/EnterpriseHeader';
 import EnterpriseBenefits from '@/components/enterprise/EnterpriseBenefits';
 import EnterpriseDashboard from '@/components/enterprise/EnterpriseDashboard';
 import EnterpriseCallToAction from '@/components/enterprise/EnterpriseCallToAction';
+import EnterpriseSavings from '@/components/enterprise/EnterpriseSavings';
 
 const EnterprisePage = () => {
   return (
@@ -24,6 +25,8 @@ const EnterprisePage = () => {
               <EnterpriseBenefits />
               <EnterpriseDashboard />
             </div>
+            
+            <EnterpriseSavings />
             
             <EnterpriseCallToAction />
           </div>
