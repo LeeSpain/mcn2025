@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import ContactFormInputs from './contact/ContactFormInputs';
-import ContactConnectSection from './contact/ContactConnectSection';
 import SubmitButton from './contact/SubmitButton';
 
 const ContactForm: React.FC = () => {
@@ -57,17 +56,7 @@ const ContactForm: React.FC = () => {
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="mb-3">
-            <div className="chip mx-auto">Get in Touch</div>
-          </div>
-          <h2 className="section-title">Ready to transform care?</h2>
-          <p className="section-subtitle">
-            Whether you're a potential client, caregiver, or partner, we'd love to hear from you and discuss how MCN can support your needs.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="max-w-3xl mx-auto">
           <div className="animate-fade-in-up">
             <div className="glass-card shadow-soft-lg rounded-2xl overflow-hidden">
               <div className="p-6 md:p-8">
@@ -86,10 +75,6 @@ const ContactForm: React.FC = () => {
                 </form>
               </div>
             </div>
-          </div>
-          
-          <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <ContactConnectSection />
           </div>
         </div>
       </div>
