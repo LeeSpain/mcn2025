@@ -1,13 +1,16 @@
 
 import React from 'react';
 import PricingCard from './PricingCard';
+import { useLanguage } from '@/context/LanguageContext';
 
 const PricingSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const pricingPlans = [
     {
-      title: 'Basic',
-      price: '€8',
-      description: 'Perfect for getting started',
+      title: t('pricing.basic.title'),
+      price: t('pricing.basic.price'),
+      description: t('pricing.basic.description'),
       planId: 'basic',
       highlightColor: 'border-mcn-blue-light',
       features: [
@@ -17,9 +20,9 @@ const PricingSection: React.FC = () => {
       ]
     },
     {
-      title: 'Premium',
-      price: '€15',
-      description: 'Enhanced features and connectivity',
+      title: t('pricing.premium.title'),
+      price: t('pricing.premium.price'),
+      description: t('pricing.premium.description'),
       planId: 'premium',
       isPopular: true,
       highlightColor: 'border-mcn-blue',
@@ -31,9 +34,9 @@ const PricingSection: React.FC = () => {
       ]
     },
     {
-      title: 'Family',
-      price: '€25',
-      description: 'For multiple family members',
+      title: t('pricing.family.title'),
+      price: t('pricing.family.price'),
+      description: t('pricing.family.description'),
       planId: 'family',
       highlightColor: 'border-mcn-blue-dark',
       features: [
@@ -48,9 +51,9 @@ const PricingSection: React.FC = () => {
   return (
     <div className="bg-mcn-gray-light p-8 md:p-12 rounded-2xl mb-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-display font-bold mb-4">Pricing Plans</h2>
+        <h2 className="text-3xl font-display font-bold mb-4">{t('pricing.title')}</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Choose the plan that best fits your needs and lifestyle. All plans include access to our mobile app and web portal.
+          {t('pricing.description')}
         </p>
       </div>
       

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface PricingFeature {
   text: string;
@@ -26,11 +27,13 @@ const PricingCard: React.FC<PricingCardProps> = ({
   isPopular = false,
   highlightColor = 'border-mcn-blue-light'
 }) => {
+  const { t } = useLanguage();
+  
   return (
     <div className={`glass-card p-8 flex flex-col border-t-4 ${highlightColor} ${isPopular ? 'relative transform scale-105 z-10 shadow-soft-lg' : ''}`}>
       {isPopular && (
         <div className="absolute -top-4 right-8 bg-mcn-blue text-white text-xs font-medium py-1 px-3 rounded-full">
-          Most Popular
+          {t('pricing.popular')}
         </div>
       )}
       
@@ -52,7 +55,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
           to={`/pricing/${planId}`} 
           className={`${isPopular ? 'primary-button' : 'outline-button'} w-full justify-center`}
         >
-          Choose {title}
+          {t('pricing.choose')} {title}
         </Link>
       </div>
     </div>

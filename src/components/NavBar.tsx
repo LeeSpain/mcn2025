@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const NavBar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,25 +47,29 @@ const NavBar: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link to="/features" className="text-foreground hover:text-mcn-blue transition-colors">
-              Features
+              {t('nav.features')}
             </Link>
             <Link to="/clients" className="text-foreground hover:text-mcn-blue transition-colors">
-              For Clients
+              {t('nav.clients')}
             </Link>
             <Link to="/staff" className="text-foreground hover:text-mcn-blue transition-colors">
-              For Staff
+              {t('nav.staff')}
+            </Link>
+            <Link to="/enterprise" className="text-foreground hover:text-mcn-blue transition-colors">
+              {t('nav.enterprise')}
             </Link>
             <Link to="/contact" className="text-foreground hover:text-mcn-blue transition-colors">
-              Contact
+              {t('nav.contact')}
             </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
             <Link to="/login" className="outline-button">
-              Login
+              {t('nav.login')}
             </Link>
             <Link to="/signup" className="primary-button">
-              Sign Up
+              {t('nav.signup')}
             </Link>
           </div>
 
@@ -90,43 +97,55 @@ const NavBar: React.FC = () => {
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
-            Features
+            {t('nav.features')}
           </Link>
           <Link 
             to="/clients" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
-            For Clients
+            {t('nav.clients')}
           </Link>
           <Link 
             to="/staff" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
-            For Staff
+            {t('nav.staff')}
+          </Link>
+          <Link 
+            to="/enterprise" 
+            className="text-xl font-medium border-b border-gray-100 pb-4"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.enterprise')}
           </Link>
           <Link 
             to="/contact" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact
+            {t('nav.contact')}
           </Link>
-          <div className="pt-6 flex flex-col space-y-4">
+          
+          <div className="pt-2 pb-4 flex justify-center">
+            <LanguageSwitcher />
+          </div>
+          
+          <div className="pt-2 flex flex-col space-y-4">
             <Link 
               to="/login" 
               className="outline-button text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Login
+              {t('nav.login')}
             </Link>
             <Link 
               to="/signup" 
               className="primary-button text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Sign Up
+              {t('nav.signup')}
             </Link>
           </div>
         </nav>
