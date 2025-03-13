@@ -10,27 +10,13 @@ import {
   Mic, 
   Settings, 
   HelpCircle, 
-  Users, 
-  Menu, 
-  X,
-  Bell,
-  User,
+  Users,
   MessageCircle
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
-import MainDashboard from './sections/MainDashboard';
-import CareManager from './sections/CareManager';
-import HealthView from './sections/HealthView';
-import SafetyMonitor from './sections/SafetyMonitor';
-import ConnectHub from './sections/ConnectHub';
-import ShopGateway from './sections/ShopGateway';
-import BbrainAssistant from './sections/BbrainAssistant';
-import AccountSettings from './sections/AccountSettings';
-import HelpSupport from './sections/HelpSupport';
-import FamilyPortal from './sections/FamilyPortal';
-import ChatSection from './sections/ChatSection';
+import DashboardContent from './DashboardContent';
 
 // Define navigation items with their respective icons
 export const dashboardNavItems = [
@@ -54,36 +40,6 @@ const DashboardLayout: React.FC = () => {
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
-  // Render the active section content
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':
-        return <MainDashboard />;
-      case 'care':
-        return <CareManager />;
-      case 'health':
-        return <HealthView />;
-      case 'safety':
-        return <SafetyMonitor />;
-      case 'connect':
-        return <ConnectHub />;
-      case 'chat':
-        return <ChatSection />;
-      case 'shop':
-        return <ShopGateway />;
-      case 'bbrain':
-        return <BbrainAssistant />;
-      case 'account':
-        return <AccountSettings />;
-      case 'help':
-        return <HelpSupport />;
-      case 'family':
-        return <FamilyPortal />;
-      default:
-        return <MainDashboard />;
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <DashboardHeader toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
@@ -98,7 +54,7 @@ const DashboardLayout: React.FC = () => {
         
         <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300">
           <div className="max-w-7xl mx-auto">
-            {renderSection()}
+            <DashboardContent activeSection={activeSection} />
           </div>
         </main>
       </div>
