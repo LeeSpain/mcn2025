@@ -5,6 +5,7 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const ContactPage = () => {
   return (
@@ -80,26 +81,6 @@ const ContactPage = () => {
             </div>
           </div>
         </section>
-        
-        {/* Ready to Transform Section */}
-        <section className="py-16 bg-mcn-blue text-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-display font-semibold mb-6">Ready to Transform Care?</h2>
-              <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                Join thousands of clients and caregivers who are already experiencing the benefits of MCN's connected care platform.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/signup" className="bg-white text-mcn-blue px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors inline-flex items-center justify-center">
-                  Get Started Today <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-                <Link to="/demo" className="bg-transparent border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors inline-flex items-center justify-center">
-                  Request a Demo
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Contact Information Section */}
         <section className="py-16">
@@ -160,9 +141,19 @@ const ContactPage = () => {
           </div>
         </section>
             
-        {/* Contact Form Section */}
-        <section className="py-16">
+        {/* Get in Touch Section with FAQ */}
+        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center mb-16">
+              <div className="mb-3">
+                <div className="chip mx-auto">Get in Touch</div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4">Ready to transform care?</h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Whether you're a potential client, caregiver, or partner, we'd love to hear from you and discuss how MCN can support your needs.
+              </p>
+            </div>
+            
             <div className="flex flex-col lg:flex-row gap-12">
               <div className="w-full lg:w-1/2">
                 <ContactForm />
@@ -172,35 +163,52 @@ const ContactPage = () => {
                 <div className="glass-card p-8 md:p-10 h-full">
                   <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">Frequently Asked Questions</h2>
                   
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-lg font-medium mb-2">How do I get started with MCN?</h4>
-                      <p className="text-muted-foreground">
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="text-lg font-medium">
+                        How do I get started with MCN?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
                         Getting started is easy! Simply sign up for an account on our website or download the mobile app. Follow the setup instructions, and you'll be up and running in no time.
-                      </p>
-                    </div>
+                      </AccordionContent>
+                    </AccordionItem>
                     
-                    <div>
-                      <h4 className="text-lg font-medium mb-2">Is MCN compatible with my existing devices?</h4>
-                      <p className="text-muted-foreground">
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger className="text-lg font-medium">
+                        Is MCN compatible with my existing devices?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
                         MCN works with most modern smartphones and tablets. For the web portal, we support all major browsers. We also integrate with popular wearables like Fitbit and Apple Watch.
-                      </p>
-                    </div>
+                      </AccordionContent>
+                    </AccordionItem>
                     
-                    <div>
-                      <h4 className="text-lg font-medium mb-2">How secure is my data with MCN?</h4>
-                      <p className="text-muted-foreground">
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger className="text-lg font-medium">
+                        How secure is my data with MCN?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
                         We take data security very seriously. All data is encrypted using industry-standard protocols, and we comply with NEN7510 and ISO standards for healthcare data protection.
-                      </p>
-                    </div>
+                      </AccordionContent>
+                    </AccordionItem>
                     
-                    <div>
-                      <h4 className="text-lg font-medium mb-2">Do you offer training for care organizations?</h4>
-                      <p className="text-muted-foreground">
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger className="text-lg font-medium">
+                        Do you offer training for care organizations?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
                         Yes, we provide comprehensive training programs for care organizations adopting MCN. Contact our sales team to learn more about our training options.
-                      </p>
-                    </div>
-                  </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                    
+                    <AccordionItem value="item-5">
+                      <AccordionTrigger className="text-lg font-medium">
+                        What kind of support does MCN provide?
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        MCN offers 24/7 technical support for critical issues. Our standard support hours align with our business hours, and we provide multiple support channels including email, phone, and live chat.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                   
                   <div className="mt-8 p-4 bg-mcn-blue/5 rounded-lg border border-mcn-blue/10">
                     <h4 className="font-medium mb-2">Need urgent assistance?</h4>
