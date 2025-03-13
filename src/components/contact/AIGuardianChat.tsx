@@ -4,6 +4,7 @@ import { Send, Bot, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
+import { Card } from '@/components/ui/card';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -92,98 +93,134 @@ const AIGuardianChat: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="py-16 relative overflow-hidden bg-gradient-to-br from-mcn-blue-light/30 to-white">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <img src="/images/bg-pattern.svg" alt="" className="w-full h-full object-cover" />
+      </div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-mcn-blue/10 animate-float opacity-70 hidden md:block"></div>
+      <div className="absolute bottom-20 right-10 w-24 h-24 rounded-full bg-mcn-blue-light/20 animate-float opacity-70 hidden md:block" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-40 right-20 w-12 h-12 rounded-full bg-mcn-blue/10 animate-float opacity-70 hidden md:block" style={{ animationDelay: '1s' }}></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <div className="p-1 bg-mcn-blue/10 rounded-full inline-block mb-4">
-              <div className="w-12 h-12 rounded-full bg-mcn-blue/20 flex items-center justify-center text-mcn-blue">
-                <Bot size={24} />
+            <div className="p-1 bg-gradient-to-r from-mcn-blue to-mcn-blue-dark/80 rounded-full inline-block mb-4 shadow-md">
+              <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-mcn-blue">
+                <Bot size={28} />
               </div>
             </div>
-            <h2 className="text-3xl font-display font-semibold mb-4">AI Guardian Chat Assistant</h2>
+            <h2 className="text-3xl font-display font-semibold mb-4 bg-gradient-to-r from-mcn-blue-dark to-mcn-blue bg-clip-text text-transparent">AI Guardian Chat Assistant</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Have questions about our services? Our AI Guardian assistant is here to help 24/7. Just type your question below to get started.
             </p>
           </div>
 
-          <div className="glass-card p-6 rounded-xl shadow-soft bg-white mb-6">
-            <div className="h-[400px] overflow-y-auto p-4 space-y-4 mb-4">
-              {messages.map((message, index) => (
-                <div 
-                  key={index} 
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
+          <Card className="shadow-[0_10px_40px_-15px_rgba(0,119,182,0.3)] border-mcn-blue/10 overflow-hidden backdrop-blur-sm bg-white/90">
+            <div className="p-1 bg-gradient-to-r from-mcn-blue-light via-mcn-blue to-mcn-blue-dark rounded-t-xl"></div>
+            <div className="p-6">
+              <div className="h-[400px] overflow-y-auto p-4 space-y-4 mb-4 rounded-lg bg-gray-50/50">
+                {messages.map((message, index) => (
                   <div 
-                    className={`flex max-w-[80%] gap-3 items-start ${
-                      message.role === 'user' 
-                        ? 'bg-mcn-blue text-white' 
-                        : 'bg-gray-100 text-gray-800'
-                    } p-3 rounded-lg`}
+                    key={index} 
+                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <div className="flex-shrink-0 mt-1">
-                      {message.role === 'user' ? (
-                        <User size={18} className="text-white" />
-                      ) : (
-                        <Bot size={18} className="text-mcn-blue" />
-                      )}
-                    </div>
-                    <div>
-                      <div className="text-sm">{message.content}</div>
-                      <div className="text-xs opacity-70 mt-1">
-                        {message.timestamp.toLocaleTimeString(undefined, {
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
+                    <div 
+                      className={`flex max-w-[80%] gap-3 items-start ${
+                        message.role === 'user' 
+                          ? 'bg-gradient-to-r from-mcn-blue to-mcn-blue-dark text-white shadow-md' 
+                          : 'bg-white border border-gray-100 text-gray-800 shadow-sm'
+                      } p-3 rounded-lg animate-fade-in-up`}
+                      style={{ animationDelay: `${index * 0.1}s` }}
+                    >
+                      <div className="flex-shrink-0 mt-1">
+                        {message.role === 'user' ? (
+                          <div className="bg-white/20 p-1 rounded-full">
+                            <User size={16} className="text-white" />
+                          </div>
+                        ) : (
+                          <div className="bg-mcn-blue/10 p-1 rounded-full">
+                            <Bot size={16} className="text-mcn-blue" />
+                          </div>
+                        )}
+                      </div>
+                      <div>
+                        <div className="text-sm">{message.content}</div>
+                        <div className="text-xs opacity-70 mt-1">
+                          {message.timestamp.toLocaleTimeString(undefined, {
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
-              {isTyping && (
-                <div className="flex justify-start">
-                  <div className="bg-gray-100 text-gray-800 p-3 rounded-lg">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce"></div>
-                      <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                ))}
+                {isTyping && (
+                  <div className="flex justify-start animate-fade-in">
+                    <div className="bg-white border border-gray-100 text-gray-800 p-3 rounded-lg shadow-sm">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce"></div>
+                        <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                        <div className="w-2 h-2 rounded-full bg-mcn-blue animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-              <div ref={messagesEndRef} />
+                )}
+                <div ref={messagesEndRef} />
+              </div>
+              
+              <div className="flex items-end gap-2">
+                <Textarea
+                  value={input}
+                  onChange={handleInputChange}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Type your question here..."
+                  className="resize-none min-h-[60px] bg-gray-50/70 border-mcn-blue/10 focus-visible:ring-mcn-blue/30"
+                />
+                <Button 
+                  onClick={handleSendMessage} 
+                  className="bg-gradient-to-r from-mcn-blue to-mcn-blue-dark hover:opacity-90 h-[60px] px-4 shadow-md"
+                  disabled={!input.trim() || isTyping}
+                >
+                  <Send size={20} />
+                </Button>
+              </div>
             </div>
-            
-            <div className="flex items-end gap-2">
-              <Textarea
-                value={input}
-                onChange={handleInputChange}
-                onKeyDown={handleKeyDown}
-                placeholder="Type your question here..."
-                className="resize-none min-h-[60px]"
-              />
-              <Button 
-                onClick={handleSendMessage} 
-                className="bg-mcn-blue hover:bg-mcn-blue-dark h-[60px] px-4"
-                disabled={!input.trim() || isTyping}
-              >
-                <Send size={20} />
-              </Button>
-            </div>
-          </div>
+          </Card>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div className="p-4 rounded-lg bg-gray-50">
-              <div className="font-medium">24/7 Availability</div>
-              <p className="text-sm text-muted-foreground">Get answers anytime, day or night</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mt-8">
+            <div className="p-6 rounded-xl bg-white/80 backdrop-blur-sm border border-mcn-blue/5 shadow-lg shadow-mcn-blue/5">
+              <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mx-auto mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div className="font-medium text-mcn-blue-dark">24/7 Availability</div>
+              <p className="text-sm text-muted-foreground mt-2">Get answers anytime, day or night</p>
             </div>
-            <div className="p-4 rounded-lg bg-gray-50">
-              <div className="font-medium">Instant Responses</div>
-              <p className="text-sm text-muted-foreground">No waiting for customer service</p>
+            <div className="p-6 rounded-xl bg-white/80 backdrop-blur-sm border border-mcn-blue/5 shadow-lg shadow-mcn-blue/5">
+              <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mx-auto mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div className="font-medium text-mcn-blue-dark">Instant Responses</div>
+              <p className="text-sm text-muted-foreground mt-2">No waiting for customer service</p>
             </div>
-            <div className="p-4 rounded-lg bg-gray-50">
-              <div className="font-medium">Personalized Assistance</div>
-              <p className="text-sm text-muted-foreground">Tailored information to your needs</p>
+            <div className="p-6 rounded-xl bg-white/80 backdrop-blur-sm border border-mcn-blue/5 shadow-lg shadow-mcn-blue/5">
+              <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mx-auto mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div className="font-medium text-mcn-blue-dark">Personalized Assistance</div>
+              <p className="text-sm text-muted-foreground mt-2">Tailored information to your needs</p>
             </div>
           </div>
         </div>
