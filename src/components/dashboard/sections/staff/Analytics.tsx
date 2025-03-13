@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BarChart, LineChart, PieChart } from 'lucide-react';
 
@@ -10,6 +10,7 @@ const Analytics: React.FC = () => {
       <Card>
         <CardHeader>
           <CardTitle>Analytics & Reporting Dashboard</CardTitle>
+          <CardDescription>Performance metrics and service quality</CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="performance">
@@ -28,67 +29,16 @@ const Analytics: React.FC = () => {
               </TabsTrigger>
             </TabsList>
             
-            <TabsContent value="performance" className="space-y-4">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">Agent Performance Dashboard</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[300px] flex items-center justify-center bg-gray-100 rounded-md">
-                    <p className="text-muted-foreground">Performance metrics visualization</p>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">Team Performance</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-[200px] flex items-center justify-center bg-gray-100 rounded-md">
-                      <p className="text-muted-foreground">Team stats visualization</p>
-                    </div>
-                  </CardContent>
-                </Card>
-                
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-base">SLA Compliance</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-[200px] flex items-center justify-center bg-gray-100 rounded-md">
-                      <p className="text-muted-foreground">SLA metrics visualization</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+            <TabsContent value="performance">
+              <p>Performance metrics visualization would appear here.</p>
             </TabsContent>
             
             <TabsContent value="quality">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">Customer Satisfaction Metrics</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[300px] flex items-center justify-center bg-gray-100 rounded-md">
-                    <p className="text-muted-foreground">CSAT visualization</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <p>Service quality metrics would appear here.</p>
             </TabsContent>
             
             <TabsContent value="usage">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">Client Usage Patterns</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-[300px] flex items-center justify-center bg-gray-100 rounded-md">
-                    <p className="text-muted-foreground">Usage analytics visualization</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <p>Client usage analytics would appear here.</p>
             </TabsContent>
           </Tabs>
         </CardContent>
