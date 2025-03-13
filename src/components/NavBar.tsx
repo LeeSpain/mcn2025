@@ -60,6 +60,10 @@ const NavBar: React.FC = () => {
             <Link to="/clients" className="text-foreground hover:text-mcn-blue transition-colors">
               {t('nav.clients')}
             </Link>
+            {/* Changed the link to direct to staff dashboard */}
+            <Link to="/dashboard/staff" className="text-foreground hover:text-mcn-blue transition-colors">
+              {t('nav.staff')}
+            </Link>
             <Link to="/enterprise" className="text-foreground hover:text-mcn-blue transition-colors">
               {t('nav.enterprise')}
             </Link>
@@ -131,6 +135,14 @@ const NavBar: React.FC = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             {t('nav.clients')}
+          </Link>
+          {/* Changed the mobile link to direct to staff dashboard */}
+          <Link 
+            to="/dashboard/staff" 
+            className="text-xl font-medium border-b border-gray-100 pb-4"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t('nav.staff')}
           </Link>
           <Link 
             to="/enterprise" 
