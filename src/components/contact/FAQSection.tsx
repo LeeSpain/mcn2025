@@ -6,9 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const FAQSection: React.FC = () => {
   return (
-    <div className="glass-card p-8 md:p-10 h-full">
-      <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">Frequently Asked Questions</h2>
-      
+    <div>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger className="text-lg font-medium">

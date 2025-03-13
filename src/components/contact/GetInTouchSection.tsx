@@ -1,7 +1,6 @@
 
 import React from 'react';
 import ContactForm from '@/components/ContactForm';
-import FAQSection from './FAQSection';
 
 const GetInTouchSection: React.FC = () => {
   return (
@@ -17,14 +16,8 @@ const GetInTouchSection: React.FC = () => {
           </p>
         </div>
         
-        <div className="flex flex-col lg:flex-row gap-12">
-          <div className="w-full lg:w-1/2">
-            <ContactForm />
-          </div>
-          
-          <div className="w-full lg:w-1/2">
-            <FAQSection />
-          </div>
+        <div className="max-w-3xl mx-auto">
+          <ContactForm />
         </div>
       </div>
     </section>
