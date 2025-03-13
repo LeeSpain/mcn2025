@@ -21,11 +21,11 @@ import DashboardContent from './DashboardContent';
 // Define navigation items with their respective icons
 export const dashboardNavItems = [
   { id: 'home', label: 'Dashboard', icon: Home },
+  { id: 'chat', label: 'Chat', icon: MessageCircle },
   { id: 'care', label: 'Care Manager', icon: Calendar },
   { id: 'health', label: 'Health View', icon: Heart },
   { id: 'safety', label: 'Safety Monitor', icon: Shield },
   { id: 'connect', label: 'Connect Hub', icon: MessageSquare },
-  { id: 'chat', label: 'Chat', icon: MessageCircle },
   { id: 'shop', label: 'Shop Gateway', icon: ShoppingBag },
   { id: 'bbrain', label: 'BBrain Assistant', icon: Mic },
   { id: 'account', label: 'Account & Settings', icon: Settings },
