@@ -3,10 +3,10 @@ import React from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import ContactHero from '@/components/contact/ContactHero';
-import AIGuardianSection from '@/components/contact/AIGuardianSection';
 import ContactInfoSection from '@/components/contact/ContactInfoSection';
 import GetInTouchSection from '@/components/contact/GetInTouchSection';
 import FAQSection from '@/components/contact/FAQSection';
+import AIGuardianChat from '@/components/contact/AIGuardianChat';
 
 const ContactPage = () => {
   return (
@@ -16,8 +16,8 @@ const ContactPage = () => {
         {/* Hero Section */}
         <ContactHero />
 
-        {/* AI Guardian Section */}
-        <AIGuardianSection />
+        {/* AI Guardian Chat Section */}
+        <AIGuardianChat />
 
         {/* Get in Touch Section with Contact Form */}
         <GetInTouchSection />
