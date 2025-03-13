@@ -15,23 +15,23 @@ const PricingSection: React.FC = () => {
     highlightColor: 'border-mcn-blue',
     features: [
       // Products
-      { text: 'BBrain Voice Assistant Device', category: 'product' },
-      { text: 'Safety Monitoring Sensors', category: 'product' },
-      { text: 'Wearable Health Tracker', category: 'product' },
-      { text: 'Emergency Alert Button', category: 'product' },
-      { text: 'Smart Medication Dispenser', category: 'product' },
-      { text: 'Home Automation Controls', category: 'product' },
-      { text: 'Digital Photo Frame', category: 'product' },
+      { text: 'BBrain Voice Assistant Device', category: 'product' as const },
+      { text: 'Safety Monitoring Sensors', category: 'product' as const },
+      { text: 'Wearable Health Tracker', category: 'product' as const },
+      { text: 'Emergency Alert Button', category: 'product' as const },
+      { text: 'Smart Medication Dispenser', category: 'product' as const },
+      { text: 'Home Automation Controls', category: 'product' as const },
+      { text: 'Digital Photo Frame', category: 'product' as const },
       
       // Services
-      { text: 'Care Manager (task tracking)', category: 'service' },
-      { text: 'Safety Monitor (advanced)', category: 'service' },
-      { text: 'Health View (full integration)', category: 'service' },
-      { text: 'Connect Hub (unlimited video calls)', category: 'service' },
-      { text: 'BBrain voice integration', category: 'service' },
-      { text: 'Provider Connectivity', category: 'service' },
-      { text: 'Remote Setup Assistance', category: 'service' },
-      { text: '24/7 Technical Support', category: 'service' },
+      { text: 'Care Manager (task tracking)', category: 'service' as const },
+      { text: 'Safety Monitor (advanced)', category: 'service' as const },
+      { text: 'Health View (full integration)', category: 'service' as const },
+      { text: 'Connect Hub (unlimited video calls)', category: 'service' as const },
+      { text: 'BBrain voice integration', category: 'service' as const },
+      { text: 'Provider Connectivity', category: 'service' as const },
+      { text: 'Remote Setup Assistance', category: 'service' as const },
+      { text: '24/7 Technical Support', category: 'service' as const },
     ]
   };
 
