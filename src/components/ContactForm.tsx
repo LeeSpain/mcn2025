@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Check } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import ContactFormInputs from './contact/ContactFormInputs';
+import ContactConnectSection from './contact/ContactConnectSection';
+import SubmitButton from './contact/SubmitButton';
 
 const ContactForm: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -72,174 +74,22 @@ const ContactForm: React.FC = () => {
                 <h3 className="text-2xl font-display font-semibold mb-6">Contact Us</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="userType" className="block text-sm font-medium text-foreground mb-2">
-                      I am a:
-                    </label>
-                    <select
-                      id="userType"
-                      name="userType"
-                      value={formState.userType}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-                      required
-                    >
-                      <option value="client">Client or Family Member</option>
-                      <option value="staff">Healthcare Professional</option>
-                      <option value="partner">Business Partner</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
+                  <ContactFormInputs 
+                    formState={formState} 
+                    handleChange={handleChange} 
+                  />
                   
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Full Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-                      placeholder="your.email@example.com"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number (optional)
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formState.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-                      placeholder="+31 6 12345678"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formState.message}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all resize-none"
-                      placeholder="How can we help you?"
-                      required
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting || isSubmitted}
-                    className={`w-full primary-button flex items-center justify-center py-3 ${
-                      isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                    } ${
-                      isSubmitted ? 'bg-green-600 hover:bg-green-700' : ''
-                    }`}
-                  >
-                    {isSubmitting ? (
-                      <>Sending...</>
-                    ) : isSubmitted ? (
-                      <>
-                        <Check className="mr-2 h-4 w-4" /> Message Sent
-                      </>
-                    ) : (
-                      <>
-                        <Send className="mr-2 h-4 w-4" /> Send Message
-                      </>
-                    )}
-                  </button>
+                  <SubmitButton 
+                    isSubmitting={isSubmitting} 
+                    isSubmitted={isSubmitted} 
+                  />
                 </form>
               </div>
             </div>
           </div>
           
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            <div className="lg:pl-6">
-              <h3 className="text-2xl font-display font-semibold mb-6">Connect With Us</h3>
-              
-              <div className="space-y-8">
-                <div className="glass-card p-6 rounded-xl flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mr-4">
-                    <Mail size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Email</h4>
-                    <p className="text-muted-foreground mb-2">For general inquiries:</p>
-                    <a href="mailto:info@mobile-care.nl" className="text-mcn-blue hover:underline">
-                      info@mobile-care.nl
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="glass-card p-6 rounded-xl flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mr-4">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Phone</h4>
-                    <p className="text-muted-foreground mb-2">Monday to Friday, 9AM-5PM CET:</p>
-                    <a href="tel:+31612345678" className="text-mcn-blue hover:underline">
-                      +31 6 1234 5678
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="glass-card p-6 rounded-xl flex items-start">
-                  <div className="w-12 h-12 rounded-full bg-mcn-blue/10 flex items-center justify-center text-mcn-blue mr-4">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium mb-1">Location</h4>
-                    <p className="text-muted-foreground mb-2">Our head office:</p>
-                    <address className="not-italic">
-                      Delfzijlstraat 123<br />
-                      9933 AA Delfzijl<br />
-                      The Netherlands
-                    </address>
-                  </div>
-                </div>
-                
-                <div className="p-6 rounded-xl bg-mcn-blue text-white">
-                  <h4 className="text-lg font-medium mb-3">Beta Program</h4>
-                  <p className="mb-4 text-white/90">
-                    Join our beta program and be among the first to experience MCN's transformative care platform.
-                  </p>
-                  <a 
-                    href="#contact" 
-                    className="inline-block px-4 py-2 bg-white text-mcn-blue-dark rounded-lg font-medium transition-colors hover:bg-opacity-90"
-                  >
-                    Sign up for beta
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ContactConnectSection />
           </div>
         </div>
       </div>
