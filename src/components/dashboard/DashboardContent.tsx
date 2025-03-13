@@ -11,6 +11,7 @@ import AccountSettings from './sections/AccountSettings';
 import HelpSupport from './sections/HelpSupport';
 import FamilyPortal from './sections/FamilyPortal';
 import ChatSection from './sections/ChatSection';
+import StaffDashboard from './sections/StaffDashboard';
 
 interface DashboardContentProps {
   activeSection: string;
@@ -35,6 +36,8 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
       return <ShopGateway />;
     case 'bbrain':
       return <BbrainAssistant />;
+    case 'staff':
+      return <StaffDashboard />;
     case 'account':
       return <AccountSettings />;
     case 'help':

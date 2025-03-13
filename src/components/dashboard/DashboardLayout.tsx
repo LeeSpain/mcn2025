@@ -11,7 +11,8 @@ import {
   Settings, 
   HelpCircle, 
   Users,
-  MessageCircle
+  MessageCircle,
+  Headphones
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -28,6 +29,7 @@ export const dashboardNavItems = [
   { id: 'connect', label: 'Connect Hub', icon: MessageSquare },
   { id: 'shop', label: 'Shop Gateway', icon: ShoppingBag },
   { id: 'bbrain', label: 'BBrain Assistant', icon: Mic },
+  { id: 'staff', label: 'Staff Dashboard', icon: Headphones },
   { id: 'account', label: 'Account & Settings', icon: Settings },
   { id: 'help', label: 'Help & Support', icon: HelpCircle },
   { id: 'family', label: 'Family Portal', icon: Users },
