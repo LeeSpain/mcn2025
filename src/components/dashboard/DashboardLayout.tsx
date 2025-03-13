@@ -14,7 +14,8 @@ import {
   Menu, 
   X,
   Bell,
-  User
+  User,
+  MessageCircle
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -29,6 +30,7 @@ import BbrainAssistant from './sections/BbrainAssistant';
 import AccountSettings from './sections/AccountSettings';
 import HelpSupport from './sections/HelpSupport';
 import FamilyPortal from './sections/FamilyPortal';
+import ChatSection from './sections/ChatSection';
 
 // Define navigation items with their respective icons
 export const dashboardNavItems = [
@@ -37,6 +39,7 @@ export const dashboardNavItems = [
   { id: 'health', label: 'Health View', icon: Heart },
   { id: 'safety', label: 'Safety Monitor', icon: Shield },
   { id: 'connect', label: 'Connect Hub', icon: MessageSquare },
+  { id: 'chat', label: 'Chat', icon: MessageCircle },
   { id: 'shop', label: 'Shop Gateway', icon: ShoppingBag },
   { id: 'bbrain', label: 'BBrain Assistant', icon: Mic },
   { id: 'account', label: 'Account & Settings', icon: Settings },
@@ -64,6 +67,8 @@ const DashboardLayout: React.FC = () => {
         return <SafetyMonitor />;
       case 'connect':
         return <ConnectHub />;
+      case 'chat':
+        return <ChatSection />;
       case 'shop':
         return <ShopGateway />;
       case 'bbrain':
