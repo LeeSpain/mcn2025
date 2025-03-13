@@ -43,16 +43,16 @@ const NavBar: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/#features" className="text-foreground hover:text-mcn-blue transition-colors">
+            <Link to="/features" className="text-foreground hover:text-mcn-blue transition-colors">
               Features
             </Link>
-            <Link to="/#clients" className="text-foreground hover:text-mcn-blue transition-colors">
+            <Link to="/clients" className="text-foreground hover:text-mcn-blue transition-colors">
               For Clients
             </Link>
-            <Link to="/#staff" className="text-foreground hover:text-mcn-blue transition-colors">
+            <Link to="/staff" className="text-foreground hover:text-mcn-blue transition-colors">
               For Staff
             </Link>
-            <Link to="/#contact" className="text-foreground hover:text-mcn-blue transition-colors">
+            <Link to="/contact" className="text-foreground hover:text-mcn-blue transition-colors">
               Contact
             </Link>
           </nav>
@@ -86,28 +86,28 @@ const NavBar: React.FC = () => {
       >
         <nav className="container mx-auto px-6 py-8 flex flex-col space-y-6">
           <Link 
-            to="/#features" 
+            to="/features" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
             Features
           </Link>
           <Link 
-            to="/#clients" 
+            to="/clients" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
             For Clients
           </Link>
           <Link 
-            to="/#staff" 
+            to="/staff" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
             For Staff
           </Link>
           <Link 
-            to="/#contact" 
+            to="/contact" 
             className="text-xl font-medium border-b border-gray-100 pb-4"
             onClick={() => setIsMenuOpen(false)}
           >
