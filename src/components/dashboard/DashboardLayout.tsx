@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Home, 
   Calendar, 
@@ -18,6 +18,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardContent from './DashboardContent';
+import { useLocation } from 'react-router-dom';
 
 // Define navigation items with their respective icons
 export const dashboardNavItems = [
@@ -36,9 +37,18 @@ export const dashboardNavItems = [
 ];
 
 const DashboardLayout: React.FC = () => {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>('home');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { t } = useLanguage();
+
+  // Set active section based on URL hash if present
+  useEffect(() => {
+    const hash = location.hash.replace('#', '');
+    if (hash && dashboardNavItems.some(item => item.id === hash)) {
+      setActiveSection(hash);
+    }
+  }, [location.hash]);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
