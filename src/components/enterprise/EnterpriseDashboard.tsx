@@ -26,20 +26,24 @@ const EnterpriseDashboard: React.FC = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               <div className="p-4 bg-mcn-blue/5 rounded-lg border border-mcn-blue/10">
-                <h4 className="font-medium mb-1">10-50 Users</h4>
-                <p className="text-3xl font-bold">€450<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                <h4 className="font-medium mb-1">{t('enterprise.tiers.small')}</h4>
+                <p className="text-sm text-muted-foreground">{t('enterprise.tiers.small.description')}</p>
+                <div className="mt-2 text-xs bg-mcn-blue/10 px-2 py-1 inline-block rounded">10-50 Users</div>
               </div>
               <div className="p-4 bg-mcn-blue/5 rounded-lg border border-mcn-blue/10">
-                <h4 className="font-medium mb-1">51-200 Users</h4>
-                <p className="text-3xl font-bold">€750<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                <h4 className="font-medium mb-1">{t('enterprise.tiers.medium')}</h4>
+                <p className="text-sm text-muted-foreground">{t('enterprise.tiers.medium.description')}</p>
+                <div className="mt-2 text-xs bg-mcn-blue/10 px-2 py-1 inline-block rounded">51-200 Users</div>
               </div>
               <div className="p-4 bg-mcn-blue/5 rounded-lg border border-mcn-blue/10">
-                <h4 className="font-medium mb-1">201-500 Users</h4>
-                <p className="text-3xl font-bold">€1250<span className="text-sm font-normal text-muted-foreground">/month</span></p>
+                <h4 className="font-medium mb-1">{t('enterprise.tiers.large')}</h4>
+                <p className="text-sm text-muted-foreground">{t('enterprise.tiers.large.description')}</p>
+                <div className="mt-2 text-xs bg-mcn-blue/10 px-2 py-1 inline-block rounded">201-500 Users</div>
               </div>
               <div className="p-4 bg-mcn-blue/5 rounded-lg border border-mcn-blue/10">
-                <h4 className="font-medium mb-1">500+ Users</h4>
-                <p className="text-lg font-medium">Custom Pricing</p>
+                <h4 className="font-medium mb-1">{t('enterprise.tiers.enterprise')}</h4>
+                <p className="text-sm text-muted-foreground">{t('enterprise.tiers.enterprise.description')}</p>
+                <div className="mt-2 text-xs bg-mcn-blue/10 px-2 py-1 inline-block rounded">500+ Users</div>
               </div>
             </div>
             

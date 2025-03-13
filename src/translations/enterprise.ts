@@ -47,16 +47,48 @@ export const enterpriseTranslations: TranslationSet = {
     nl: 'Toegang tot ons toegewijde enterprise-ondersteuningsteam, implementatiespecialisten en regelmatige trainingssessies.',
   },
   'enterprise.pricing.title': {
-    en: 'Enterprise Pricing',
-    nl: 'Zakelijke Prijzen',
+    en: 'Enterprise Solutions',
+    nl: 'Zakelijke Oplossingen',
   },
   'enterprise.pricing.custom': {
-    en: 'Custom Solutions',
-    nl: 'Aangepaste Oplossingen',
+    en: 'Tailored Packages',
+    nl: 'Op Maat Gemaakte Pakketten',
   },
   'enterprise.pricing.description': {
-    en: 'We offer tailored packages based on organization size and specific requirements.',
-    nl: 'We bieden op maat gemaakte pakketten op basis van organisatiegrootte en specifieke vereisten.',
+    en: 'We offer flexible solutions based on organization size and specific requirements.',
+    nl: 'We bieden flexibele oplossingen op basis van organisatiegrootte en specifieke vereisten.',
+  },
+  'enterprise.tiers.small': {
+    en: 'Small Team',
+    nl: 'Klein Team',
+  },
+  'enterprise.tiers.small.description': {
+    en: 'Ideal for small healthcare practices',
+    nl: 'Ideaal voor kleine zorgpraktijken',
+  },
+  'enterprise.tiers.medium': {
+    en: 'Mid-size Organization',
+    nl: 'Middelgrote Organisatie',
+  },
+  'enterprise.tiers.medium.description': {
+    en: 'Perfect for growing providers',
+    nl: 'Perfect voor groeiende zorgaanbieders',
+  },
+  'enterprise.tiers.large': {
+    en: 'Large Institution',
+    nl: 'Grote Instelling',
+  },
+  'enterprise.tiers.large.description': {
+    en: 'Comprehensive coverage for large operations',
+    nl: 'Uitgebreide dekking voor grote activiteiten',
+  },
+  'enterprise.tiers.enterprise': {
+    en: 'Enterprise Network',
+    nl: 'Enterprise Netwerk',
+  },
+  'enterprise.tiers.enterprise.description': {
+    en: 'Custom solution for healthcare networks',
+    nl: 'Aangepaste oplossing voor zorgnetwerken',
   },
   'enterprise.contact.button': {
     en: 'Contact Sales Team',
