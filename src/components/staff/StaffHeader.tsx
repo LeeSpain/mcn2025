@@ -8,10 +8,11 @@ const StaffHeader: React.FC = () => {
         <div className="chip mx-auto">For Staff</div>
       </div>
       <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">
-        Streamlined Care Management
+        MCN Call Center & Customer Service Dashboard
       </h1>
       <p className="text-xl text-muted-foreground">
-        MCN gives care professionals powerful tools to reduce administrative burden and focus on what matters most: providing quality care.
+        Empower your support team with comprehensive tools to deliver exceptional service. 
+        Streamline client interactions, troubleshoot efficiently, and manage all aspects of service delivery from one intuitive interface.
       </p>
     </div>
   );

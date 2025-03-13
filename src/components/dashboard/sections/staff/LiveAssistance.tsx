@@ -15,7 +15,9 @@ import {
   ScreenShare,
   FileCog,
   ShieldCheck,
-  Headphones
+  Headphones,
+  Globe,
+  UserCog
 } from 'lucide-react';
 
 const LiveAssistance: React.FC = () => {
@@ -23,7 +25,7 @@ const LiveAssistance: React.FC = () => {
     <Card>
       <CardHeader className="pb-2">
         <CardTitle>Live Assistance Tools</CardTitle>
-        <CardDescription>Communication and support options</CardDescription>
+        <CardDescription>Omnichannel communication and support options</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -92,8 +94,12 @@ const LiveAssistance: React.FC = () => {
                 <span>Security Check</span>
               </Button>
               <Button variant="outline" className="w-full justify-start">
-                <Headphones className="mr-2 h-4 w-4" />
-                <span>Escalate Issue</span>
+                <Globe className="mr-2 h-4 w-4" />
+                <span>Network Test</span>
+              </Button>
+              <Button variant="outline" className="w-full justify-start">
+                <UserCog className="mr-2 h-4 w-4" />
+                <span>Account Tools</span>
               </Button>
             </CardContent>
           </Card>

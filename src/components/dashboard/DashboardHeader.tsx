@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface DashboardHeaderProps {
   toggleSidebar: () => void;
@@ -18,6 +18,9 @@ interface DashboardHeaderProps {
 }
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sidebarOpen }) => {
+  const location = useLocation();
+  const isStaffDashboard = location.pathname.includes('/staff');
+  
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
       <div className="px-4 h-16 flex items-center justify-between">
@@ -32,7 +35,9 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
           </Button>
           
           <div className="flex items-center">
-            <h1 className="text-xl font-semibold text-mcn-blue">MCN Members</h1>
+            <h1 className="text-xl font-semibold text-mcn-blue">
+              {isStaffDashboard ? 'MCN Staff Portal' : 'MCN Members'}
+            </h1>
           </div>
         </div>
         
@@ -56,16 +61,33 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
               <DropdownMenuLabel>Notifications</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <div className="max-h-80 overflow-y-auto">
-                <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
-                  <p className="font-medium">Medication Reminder</p>
-                  <p className="text-sm text-muted-foreground">Time to take your morning medication</p>
-                  <p className="text-xs text-muted-foreground mt-1">10 minutes ago</p>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
-                  <p className="font-medium">Doctor Appointment</p>
-                  <p className="text-sm text-muted-foreground">Tomorrow at 10:00 AM</p>
-                  <p className="text-xs text-muted-foreground mt-1">2 hours ago</p>
-                </DropdownMenuItem>
+                {isStaffDashboard ? (
+                  <>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">New Training Available</p>
+                      <p className="text-sm text-muted-foreground">BBrain Hub troubleshooting course</p>
+                      <p className="text-xs text-muted-foreground mt-1">15 minutes ago</p>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">Team Meeting</p>
+                      <p className="text-sm text-muted-foreground">Weekly catchup at 15:00</p>
+                      <p className="text-xs text-muted-foreground mt-1">1 hour ago</p>
+                    </DropdownMenuItem>
+                  </>
+                ) : (
+                  <>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">Medication Reminder</p>
+                      <p className="text-sm text-muted-foreground">Time to take your morning medication</p>
+                      <p className="text-xs text-muted-foreground mt-1">10 minutes ago</p>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">Doctor Appointment</p>
+                      <p className="text-sm text-muted-foreground">Tomorrow at 10:00 AM</p>
+                      <p className="text-xs text-muted-foreground mt-1">2 hours ago</p>
+                    </DropdownMenuItem>
+                  </>
+                )}
               </div>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -80,8 +102,17 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">Profile</DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">Membership</DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer">Settings</DropdownMenuItem>
+              {isStaffDashboard ? (
+                <>
+                  <DropdownMenuItem className="cursor-pointer">Schedule</DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">Performance</DropdownMenuItem>
+                </>
+              ) : (
+                <>
+                  <DropdownMenuItem className="cursor-pointer">Membership</DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">Settings</DropdownMenuItem>
+                </>
+              )}
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">Log out</DropdownMenuItem>
             </DropdownMenuContent>
