@@ -141,7 +141,7 @@ export const translations: Translations = {
     nl: 'Gecentraliseerd Beheer',
   },
   'enterprise.benefit1.description': {
-    en: 'Manage all clients, staff, and resources from a single, secure dashboard tailored to your organization's needs.',
+    en: "Manage all clients, staff, and resources from a single, secure dashboard tailored to your organization's needs.",
     nl: 'Beheer alle cliënten, personeel en middelen vanaf een enkel, veilig dashboard op maat van de behoeften van uw organisatie.',
   },
   'enterprise.benefit2.title': {
