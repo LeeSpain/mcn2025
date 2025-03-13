@@ -162,7 +162,7 @@ const ClientsPage = () => {
                   </ul>
                   
                   <div className="mt-auto">
-                    <Link to="/signup?plan=basic" className="outline-button w-full justify-center">
+                    <Link to="/pricing/basic" className="outline-button w-full justify-center">
                       Choose Basic
                     </Link>
                   </div>
@@ -194,7 +194,7 @@ const ClientsPage = () => {
                   </ul>
                   
                   <div className="mt-auto">
-                    <Link to="/signup?plan=premium" className="primary-button w-full justify-center">
+                    <Link to="/pricing/premium" className="primary-button w-full justify-center">
                       Choose Premium
                     </Link>
                   </div>
@@ -225,7 +225,7 @@ const ClientsPage = () => {
                   </ul>
                   
                   <div className="mt-auto">
-                    <Link to="/signup?plan=family" className="outline-button w-full justify-center">
+                    <Link to="/pricing/family" className="outline-button w-full justify-center">
                       Choose Family
                     </Link>
                   </div>
