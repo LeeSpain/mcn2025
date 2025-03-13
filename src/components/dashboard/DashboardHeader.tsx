@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, Menu, User, X, Bolt } from 'lucide-react';
+import { Bell, Menu, User, X, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -40,7 +40,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
           {/* Home Link */}
           <Link to="/">
             <Button variant="outline" size="sm" className="gap-1">
-              <Bolt size={16} />
+              <Home size={16} />
               <span className="hidden sm:inline">Back to Home</span>
             </Button>
           </Link>
