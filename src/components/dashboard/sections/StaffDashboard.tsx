@@ -29,7 +29,12 @@ import {
   AlertCircle,
   CheckCircle2,
   MessageCircle,
-  PhoneCall
+  PhoneCall,
+  // Add the missing icon imports
+  Mail,
+  Monitor,
+  Eye,
+  MousePointer
 } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { 
