@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Bell, Menu, User, X, Bolt } from 'lucide-react';
+import { Bell, Menu, User, X, Bolt, LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu,
@@ -37,7 +37,27 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
         </div>
         
         <div className="flex items-center gap-2">
-          {/* Quick Action Button */}
+          {/* Dashboard Selection Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="gap-1">
+                <LayoutDashboard size={16} />
+                <span className="hidden sm:inline">Dashboards</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem className="cursor-pointer">
+                <Link to="/dashboard" className="w-full">Member Dashboard</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer">
+                <Link to="/dashboard/staff" className="w-full">Staff Dashboard</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+          
+          {/* Home Link */}
           <Link to="/">
             <Button variant="outline" size="sm" className="gap-1">
               <Bolt size={16} />
