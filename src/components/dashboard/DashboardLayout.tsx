@@ -16,7 +16,7 @@ import {
   Bell,
   User
 } from 'lucide-react';
-import { useTranslation } from '../../../src/context/LanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
 import DashboardSidebar from './DashboardSidebar';
 import MainDashboard from './sections/MainDashboard';
@@ -47,7 +47,7 @@ export const dashboardNavItems = [
 const DashboardLayout: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const { translate } = useTranslation();
+  const { t } = useLanguage();
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
