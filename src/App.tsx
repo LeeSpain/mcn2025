@@ -38,7 +38,16 @@ const App = () => (
             <Route path="/pricing/:planId" element={<PricingPlansPage />} />
             <Route path="/membership-details" element={<MembershipDetailsPage />} />
             <Route path="/dashboard/*" element={<DashboardPage />} />
-            {/* Redirects to staff portal section of dashboard */}
+            {/* Staff Dashboard Routes */}
+            <Route path="/dashboard/staff" element={<Navigate to="/dashboard#staff" replace />} />
+            <Route path="/dashboard/chat" element={<Navigate to="/dashboard#chat" replace />} />
+            <Route path="/dashboard/clients" element={<Navigate to="/dashboard#clients" replace />} />
+            <Route path="/dashboard/support" element={<Navigate to="/dashboard#support" replace />} />
+            <Route path="/dashboard/health-monitoring" element={<Navigate to="/dashboard#health-monitoring" replace />} />
+            <Route path="/dashboard/education" element={<Navigate to="/dashboard#education" replace />} />
+            <Route path="/dashboard/analytics" element={<Navigate to="/dashboard#analytics" replace />} />
+            <Route path="/dashboard/knowledge" element={<Navigate to="/dashboard#knowledge" replace />} />
+            {/* Legacy redirects */}
             <Route path="/staff-portal" element={<Navigate to="/dashboard#staff" replace />} />
             <Route path="/staff-dashboard" element={<Navigate to="/dashboard#staff" replace />} />
             <Route path="/client-management" element={<Navigate to="/dashboard#clients" replace />} />
