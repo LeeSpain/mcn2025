@@ -12,7 +12,7 @@ const VisitSchedule: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Relex Schedule</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Remote Schedule</h1>
           <p className="text-muted-foreground">
             Manage your remote video and call sessions with clients
           </p>
@@ -32,7 +32,7 @@ const VisitSchedule: React.FC = () => {
       <Card>
         <CardHeader className="pb-2">
           <div className="flex justify-between items-center">
-            <CardTitle className="text-xl">Relex Schedule</CardTitle>
+            <CardTitle className="text-xl">Remote Schedule</CardTitle>
             <div className="flex border rounded-md overflow-hidden">
               <button 
                 className={`px-3 py-1.5 text-sm font-medium ${viewType === 'day' ? 'bg-mcn-blue text-white' : 'bg-white'}`}
@@ -62,14 +62,14 @@ const VisitSchedule: React.FC = () => {
           {viewType === 'week' && (
             <div className="text-center p-12 border border-dashed rounded-lg">
               <CalendarIcon className="h-12 w-12 mx-auto text-gray-300" />
-              <h3 className="mt-4 text-lg font-medium">Weekly Relex Calendar</h3>
+              <h3 className="mt-4 text-lg font-medium">Weekly Remote Calendar</h3>
               <p className="text-sm text-gray-500 mt-1">Weekly schedule would be displayed here</p>
             </div>
           )}
           {viewType === 'month' && (
             <div className="text-center p-12 border border-dashed rounded-lg">
               <CalendarIcon className="h-12 w-12 mx-auto text-gray-300" />
-              <h3 className="mt-4 text-lg font-medium">Monthly Relex Calendar</h3>
+              <h3 className="mt-4 text-lg font-medium">Monthly Remote Calendar</h3>
               <p className="text-sm text-gray-500 mt-1">Monthly schedule would be displayed here</p>
             </div>
           )}

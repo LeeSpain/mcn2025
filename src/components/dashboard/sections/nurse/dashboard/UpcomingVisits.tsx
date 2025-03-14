@@ -73,7 +73,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-xl">Today's Relex Schedule</CardTitle>
+            <CardTitle className="text-xl">Today's Remote Schedule</CardTitle>
             <CardDescription>
               {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </CardDescription>
