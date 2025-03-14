@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import ContactFormInputs from './contact/ContactFormInputs';
 import SubmitButton from './contact/SubmitButton';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ContactForm: React.FC = () => {
+  const { t } = useLanguage();
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -60,7 +62,7 @@ const ContactForm: React.FC = () => {
           <div className="animate-fade-in-up">
             <div className="glass-card shadow-soft-lg rounded-2xl overflow-hidden">
               <div className="p-6 md:p-8">
-                <h3 className="text-2xl font-display font-semibold mb-6">Contact Us</h3>
+                <h3 className="text-2xl font-display font-semibold mb-6">{t('contact.title')}</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <ContactFormInputs 

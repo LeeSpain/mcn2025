@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Send, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { CheckCircle, Loader2 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface SubmitButtonProps {
   isSubmitting: boolean;
@@ -8,28 +10,28 @@ interface SubmitButtonProps {
 }
 
 const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, isSubmitted }) => {
+  const { t } = useLanguage();
+  
+  if (isSubmitted) {
+    return (
+      <Button className="w-full" variant="outline" disabled>
+        <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
+        <span className="text-green-600">Sent Successfully</span>
+      </Button>
+    );
+  }
+  
   return (
-    <button
-      type="submit"
-      disabled={isSubmitting || isSubmitted}
-      className={`w-full primary-button flex items-center justify-center py-3 ${
-        isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-      } ${
-        isSubmitted ? 'bg-green-600 hover:bg-green-700' : ''
-      }`}
-    >
+    <Button className="w-full" type="submit" disabled={isSubmitting}>
       {isSubmitting ? (
-        <>Sending...</>
-      ) : isSubmitted ? (
         <>
-          <Check className="mr-2 h-4 w-4" /> Message Sent
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          <span>Sending...</span>
         </>
       ) : (
-        <>
-          <Send className="mr-2 h-4 w-4" /> Send Message
-        </>
+        <span>{t('contact.submit')}</span>
       )}
-    </button>
+    </Button>
   );
 };
 

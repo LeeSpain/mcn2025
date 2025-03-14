@@ -115,4 +115,121 @@ export const dashboardTranslations: TranslationSet = {
     en: 'Provide live assistance through screen sharing',
     nl: 'Bied live ondersteuning via scherm delen',
   },
+  // Home dashboard translations
+  'home.welcome': {
+    en: 'Welcome back',
+    nl: 'Welkom terug',
+  },
+  'home.todayAgenda': {
+    en: 'Today\'s Agenda',
+    nl: 'Agenda van Vandaag',
+  },
+  'home.healthStats': {
+    en: 'Health Statistics',
+    nl: 'Gezondheidsstatistieken',
+  },
+  'home.devices': {
+    en: 'Connected Devices',
+    nl: 'Verbonden Apparaten',
+  },
+  'home.quickAccess': {
+    en: 'Quick Access',
+    nl: 'Snelle Toegang',
+  },
+  'home.notifications': {
+    en: 'Notifications',
+    nl: 'Meldingen',
+  },
+  'home.messages': {
+    en: 'Messages',
+    nl: 'Berichten',
+  },
+  'home.weather': {
+    en: 'Weather Forecast',
+    nl: 'Weersvoorspelling',
+  },
+  // Contact form translations
+  'contact.title': {
+    en: 'Contact Us',
+    nl: 'Neem Contact Op',
+  },
+  'contact.name': {
+    en: 'Your Name',
+    nl: 'Uw Naam',
+  },
+  'contact.email': {
+    en: 'Email Address',
+    nl: 'E-mailadres',
+  },
+  'contact.phone': {
+    en: 'Phone Number',
+    nl: 'Telefoonnummer',
+  },
+  'contact.message': {
+    en: 'Your Message',
+    nl: 'Uw Bericht',
+  },
+  'contact.submit': {
+    en: 'Send Message',
+    nl: 'Bericht Versturen',
+  },
+  'contact.userType': {
+    en: 'I am a',
+    nl: 'Ik ben een',
+  },
+  'contact.client': {
+    en: 'Client',
+    nl: 'Cliënt',
+  },
+  'contact.staff': {
+    en: 'Staff Member',
+    nl: 'Personeelslid',
+  },
+  // Enterprise section translations
+  'enterprise.overview': {
+    en: 'Enterprise Solutions',
+    nl: 'Zakelijke Oplossingen',
+  },
+  'enterprise.analytics': {
+    en: 'Analytics Dashboard',
+    nl: 'Analytisch Dashboard',
+  },
+  'enterprise.management': {
+    en: 'Management Tools',
+    nl: 'Beheerstools',
+  },
+  // Staff section translations
+  'staff.dashboard': {
+    en: 'Staff Dashboard',
+    nl: 'Personeelsdashboard',
+  },
+  'staff.clients': {
+    en: 'Client Management',
+    nl: 'Cliëntenbeheer',
+  },
+  'staff.performance': {
+    en: 'Performance Metrics',
+    nl: 'Prestatiemetingen',
+  },
+  'staff.tools': {
+    en: 'Support Tools',
+    nl: 'Ondersteuningstools',
+  },
+  // Nurse dashboard translations
+  'nurse.dashboard': {
+    en: 'Nurse Dashboard',
+    nl: 'Verpleegkundig Dashboard',
+  },
+  'nurse.overview': {
+    en: 'Overview',
+    nl: 'Overzicht',
+  },
+  'nurse.clients': {
+    en: 'Client Caseload',
+    nl: 'Cliëntbelasting',
+  },
+  'nurse.visits': {
+    en: 'Today\'s Relex',
+    nl: 'Relex van Vandaag',
+  },
 };

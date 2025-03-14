@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ContactHero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-30">
@@ -11,13 +14,13 @@ const ContactHero: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="mb-3">
-            <div className="chip mx-auto">Contact Us</div>
+            <div className="chip mx-auto">{t('contact.title')}</div>
           </div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">
-            Get in Touch
+            {t('contact.getInTouch', 'Get in Touch')}
           </h1>
           <p className="text-xl text-muted-foreground">
-            Have questions about MCN? We're here to help. Reach out to our team and we'll get back to you as soon as possible.
+            {t('contact.description', 'Have questions about MCN? We\'re here to help. Reach out to our team and we\'ll get back to you as soon as possible.')}
           </p>
         </div>
       </div>

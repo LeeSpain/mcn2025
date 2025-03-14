@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 // This would normally check authentication status
 const isAuthenticated = true; // Placeholder for actual auth logic
@@ -21,7 +22,11 @@ const DashboardPage: React.FC = () => {
     }
   }, [location.hash]);
 
-  return <DashboardLayout />;
+  return (
+    <LanguageProvider>
+      <DashboardLayout />
+    </LanguageProvider>
+  );
 };
 
 export default DashboardPage;

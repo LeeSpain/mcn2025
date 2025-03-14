@@ -1,5 +1,16 @@
 
 import React from 'react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface ContactFormInputsProps {
   formState: {
@@ -13,90 +24,85 @@ interface ContactFormInputsProps {
 }
 
 const ContactFormInputs: React.FC<ContactFormInputsProps> = ({ formState, handleChange }) => {
+  const { t } = useLanguage();
+  
   return (
-    <div className="space-y-6">
-      <div>
-        <label htmlFor="userType" className="block text-sm font-medium text-foreground mb-2">
-          I am a:
-        </label>
-        <select
-          id="userType"
-          name="userType"
-          value={formState.userType}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-          required
-        >
-          <option value="client">Client or Family Member</option>
-          <option value="staff">Healthcare Professional</option>
-          <option value="partner">Business Partner</option>
-          <option value="other">Other</option>
-        </select>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <Label htmlFor="name">{t('contact.name')}</Label>
+          <Input
+            id="name"
+            name="name"
+            value={formState.name}
+            onChange={handleChange}
+            placeholder="John Doe"
+            required
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="email">{t('contact.email')}</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+            placeholder="john@example.com"
+            required
+          />
+        </div>
       </div>
       
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-          Full Name
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-          placeholder="Your name"
-          required
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <Label htmlFor="phone">{t('contact.phone')}</Label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={formState.phone}
+            onChange={handleChange}
+            placeholder="+1 (555) 000-0000"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <Label>{t('contact.userType')}</Label>
+          <Select 
+            name="userType" 
+            value={formState.userType}
+            onValueChange={(value) => {
+              handleChange({
+                target: { name: 'userType', value }
+              } as React.ChangeEvent<HTMLSelectElement>)
+            }}
+          >
+            <SelectTrigger>
+              <SelectValue placeholder={t('contact.userType')} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="client">{t('contact.client')}</SelectItem>
+              <SelectItem value="staff">{t('contact.staff')}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
       
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formState.email}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-          placeholder="your.email@example.com"
-          required
-        />
-      </div>
-      
-      <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-          Phone Number (optional)
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formState.phone}
-          onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all"
-          placeholder="+31 6 12345678"
-        />
-      </div>
-      
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-          Message
-        </label>
-        <textarea
+      <div className="space-y-2">
+        <Label htmlFor="message">{t('contact.message')}</Label>
+        <Textarea
           id="message"
           name="message"
-          rows={4}
+          rows={5}
           value={formState.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent transition-all resize-none"
           placeholder="How can we help you?"
           required
         />
       </div>
-    </div>
+    </>
   );
 };
 
