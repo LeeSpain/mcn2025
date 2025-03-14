@@ -58,6 +58,12 @@ const App = () => (
             <Route path="/dashboard/education" element={<Navigate to="/dashboard#education" replace />} />
             <Route path="/dashboard/analytics" element={<Navigate to="/dashboard#analytics" replace />} />
             <Route path="/dashboard/knowledge" element={<Navigate to="/dashboard#knowledge" replace />} />
+            {/* Nurse Dashboard Routes */}
+            <Route path="/dashboard/nurse-dashboard" element={<Navigate to="/dashboard#nurse-dashboard" replace />} />
+            <Route path="/dashboard/client-caseload" element={<Navigate to="/dashboard#client-caseload" replace />} />
+            <Route path="/dashboard/visit-schedule" element={<Navigate to="/dashboard#visit-schedule" replace />} />
+            <Route path="/dashboard/care-plans" element={<Navigate to="/dashboard#care-plans" replace />} />
+            <Route path="/dashboard/clinical-monitoring" element={<Navigate to="/dashboard#clinical-monitoring" replace />} />
             {/* Legacy redirects */}
             <Route path="/staff-portal" element={<Navigate to="/dashboard#staff" replace />} />
             <Route path="/staff-dashboard" element={<Navigate to="/dashboard#staff" replace />} />

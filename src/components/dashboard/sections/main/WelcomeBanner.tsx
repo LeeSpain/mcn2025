@@ -8,7 +8,15 @@ import { useLocation } from 'react-router-dom';
 const WelcomeBanner: React.FC = () => {
   const location = useLocation();
   const isStaffDashboard = location.pathname.includes('staff') || location.hash === '#staff';
-  const userName = isStaffDashboard ? 'Daisy' : 'Sarah';
+  const isNurseDashboard = location.hash === '#nurse-dashboard' || location.hash.includes('nurse');
+  
+  // Set the name based on the dashboard type
+  let userName = 'Sarah'; // Default for member dashboard
+  if (isStaffDashboard) {
+    userName = 'Daisy';
+  } else if (isNurseDashboard) {
+    userName = 'Monique';
+  }
   
   const currentDate = new Date().toLocaleDateString('en-US', { 
     weekday: 'long', 

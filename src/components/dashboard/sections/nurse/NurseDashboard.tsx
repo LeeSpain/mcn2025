@@ -29,7 +29,7 @@ const NurseDashboard: React.FC = () => {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Nurse Dashboard</h1>
           <p className="text-muted-foreground">
-            Manage your client caseload, visits, and clinical interventions
+            Welcome, Monique! Manage your client caseload, visits, and clinical interventions
           </p>
         </div>
         <div className="mt-3 sm:mt-0 flex space-x-2">

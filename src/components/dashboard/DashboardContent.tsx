@@ -18,6 +18,11 @@ import HealthMonitoring from './sections/staff/HealthMonitoring';
 import ClientEducation from './sections/staff/ClientEducation';
 import StaffAnalytics from './sections/staff/StaffAnalytics';
 import KnowledgeLibrary from './sections/staff/KnowledgeLibrary';
+import NurseDashboard from './sections/nurse/NurseDashboard';
+import ClientCaseload from './sections/nurse/ClientCaseload';
+import VisitSchedule from './sections/nurse/VisitSchedule';
+import CarePlans from './sections/nurse/CarePlans';
+import ClinicalMonitoring from './sections/nurse/ClinicalMonitoring';
 
 interface DashboardContentProps {
   activeSection: string;
@@ -66,6 +71,18 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
         return <StaffAnalytics />;
       case 'knowledge':
         return <KnowledgeLibrary />;
+      
+      // Nurse Portal Sections
+      case 'nurse-dashboard':
+        return <NurseDashboard />;
+      case 'client-caseload':
+        return <ClientCaseload />;
+      case 'visit-schedule':
+        return <VisitSchedule />;
+      case 'care-plans':
+        return <CarePlans />;
+      case 'clinical-monitoring':
+        return <ClinicalMonitoring />;
       
       default:
         // Default to the member dashboard if no matching section
