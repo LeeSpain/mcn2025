@@ -8,7 +8,7 @@ const Hero = () => {
   const { t } = useLanguage();
   
   return (
-    <section className="relative pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(0,119,182,0.1),transparent_50%)]"></div>
