@@ -65,64 +65,64 @@ const StaffDashboard: React.FC = () => {
             <span>Admin</span>
           </TabsTrigger>
         </TabsList>
-      </Tabs>
 
-      {/* Tab Content */}
-      <TabsContent value="dashboard" className="m-0">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Left Column - Agent Workspace */}
-          <div className="lg:col-span-3 space-y-6">
-            {/* Agent Workspace Section */}
-            <AgentWorkspaceCard />
+        {/* Tab Content - Each content must be inside the Tabs component */}
+        <TabsContent value="dashboard" className="m-0">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {/* Left Column - Agent Workspace */}
+            <div className="lg:col-span-3 space-y-6">
+              {/* Agent Workspace Section */}
+              <AgentWorkspaceCard />
 
-            {/* Client Management */}
+              {/* Client Management */}
+              <ClientManagementCard />
+            </div>
+
+            {/* Right Column - Performance Stats & Resources */}
+            <div className="space-y-6">
+              {/* Agent Performance */}
+              <AgentPerformanceCard />
+
+              {/* Knowledge Base */}
+              <KnowledgeBaseCard />
+              
+              {/* Agent Status Summary */}
+              <ShiftInformationCard />
+            </div>
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="clients" className="m-0">
+          <div className="grid grid-cols-1 gap-6">
             <ClientManagementCard />
           </div>
-
-          {/* Right Column - Performance Stats & Resources */}
-          <div className="space-y-6">
-            {/* Agent Performance */}
-            <AgentPerformanceCard />
-
-            {/* Knowledge Base */}
-            <KnowledgeBaseCard />
-            
-            {/* Agent Status Summary */}
-            <ShiftInformationCard />
+        </TabsContent>
+        
+        <TabsContent value="support" className="m-0">
+          <div className="grid grid-cols-1 gap-6">
+            <LiveAssistance />
+            <TechnicalSupport />
           </div>
-        </div>
-      </TabsContent>
-      
-      <TabsContent value="clients" className="m-0">
-        <div className="grid grid-cols-1 gap-6">
-          <ClientManagementCard />
-        </div>
-      </TabsContent>
-      
-      <TabsContent value="support" className="m-0">
-        <div className="grid grid-cols-1 gap-6">
-          <LiveAssistance />
-          <TechnicalSupport />
-        </div>
-      </TabsContent>
-      
-      <TabsContent value="health" className="m-0">
-        <div className="grid grid-cols-1 gap-6">
-          <HealthMonitoring />
-        </div>
-      </TabsContent>
-      
-      <TabsContent value="education" className="m-0">
-        <div className="grid grid-cols-1 gap-6">
-          <ClientEducation />
-        </div>
-      </TabsContent>
-      
-      <TabsContent value="admin" className="m-0">
-        <div className="grid grid-cols-1 gap-6">
-          <AdminTools />
-        </div>
-      </TabsContent>
+        </TabsContent>
+        
+        <TabsContent value="health" className="m-0">
+          <div className="grid grid-cols-1 gap-6">
+            <HealthMonitoring />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="education" className="m-0">
+          <div className="grid grid-cols-1 gap-6">
+            <ClientEducation />
+          </div>
+        </TabsContent>
+        
+        <TabsContent value="admin" className="m-0">
+          <div className="grid grid-cols-1 gap-6">
+            <AdminTools />
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
