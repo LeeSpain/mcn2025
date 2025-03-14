@@ -70,7 +70,7 @@ const NavBar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             
-            {/* Dashboard Dropdown - Fixed to go to different dashboards */}
+            {/* Dashboard Dropdown - Updated to include Nurse Dashboard */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="outline-button flex items-center gap-1.5">
@@ -86,6 +86,9 @@ const NavBar: React.FC = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer">
+                  <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -146,7 +149,7 @@ const NavBar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           
-          {/* Dashboard Dropdown in Mobile Menu - Fixed to go to different dashboards */}
+          {/* Dashboard Dropdown in Mobile Menu - Updated to include Nurse Dashboard */}
           <div className="border-b border-gray-100 pb-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -161,6 +164,9 @@ const NavBar: React.FC = () => {
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
                   <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
+                  <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
