@@ -14,10 +14,10 @@ const DashboardPage: React.FC = () => {
     return <Navigate to="/login" replace />;
   }
 
-  // If no hash is present, default to staff dashboard
+  // If no hash is present, default to home (member dashboard)
   useEffect(() => {
     if (!location.hash) {
-      window.location.hash = 'staff';
+      window.location.hash = 'home';
     }
   }, [location.hash]);
 

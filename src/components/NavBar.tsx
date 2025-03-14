@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -71,7 +70,7 @@ const NavBar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             
-            {/* Dashboard Dropdown - Updated with correct paths */}
+            {/* Dashboard Dropdown - Fixed to go to different dashboards */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="outline-button flex items-center gap-1.5">
@@ -83,10 +82,10 @@ const NavBar: React.FC = () => {
                 <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard" className="w-full">Member Dashboard</Link>
+                  <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard/staff" className="w-full">Staff Dashboard</Link>
+                  <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -147,7 +146,7 @@ const NavBar: React.FC = () => {
             {t('nav.contact')}
           </Link>
           
-          {/* Dashboard Dropdown in Mobile Menu - Updated with correct paths */}
+          {/* Dashboard Dropdown in Mobile Menu - Fixed to go to different dashboards */}
           <div className="border-b border-gray-100 pb-4">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -158,10 +157,10 @@ const NavBar: React.FC = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/dashboard" className="w-full">Member Dashboard</Link>
+                  <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/dashboard/staff" className="w-full">Staff Dashboard</Link>
+                  <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

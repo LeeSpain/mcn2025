@@ -38,6 +38,17 @@ const App = () => (
             <Route path="/pricing/:planId" element={<PricingPlansPage />} />
             <Route path="/membership-details" element={<MembershipDetailsPage />} />
             <Route path="/dashboard/*" element={<DashboardPage />} />
+            {/* Member Dashboard Routes */}
+            <Route path="/dashboard/home" element={<Navigate to="/dashboard#home" replace />} />
+            <Route path="/dashboard/care" element={<Navigate to="/dashboard#care" replace />} />
+            <Route path="/dashboard/health" element={<Navigate to="/dashboard#health" replace />} />
+            <Route path="/dashboard/safety" element={<Navigate to="/dashboard#safety" replace />} />
+            <Route path="/dashboard/connect" element={<Navigate to="/dashboard#connect" replace />} />
+            <Route path="/dashboard/shop" element={<Navigate to="/dashboard#shop" replace />} />
+            <Route path="/dashboard/bbrain" element={<Navigate to="/dashboard#bbrain" replace />} />
+            <Route path="/dashboard/account" element={<Navigate to="/dashboard#account" replace />} />
+            <Route path="/dashboard/help" element={<Navigate to="/dashboard#help" replace />} />
+            <Route path="/dashboard/family" element={<Navigate to="/dashboard#family" replace />} />
             {/* Staff Dashboard Routes */}
             <Route path="/dashboard/staff" element={<Navigate to="/dashboard#staff" replace />} />
             <Route path="/dashboard/chat" element={<Navigate to="/dashboard#chat" replace />} />
