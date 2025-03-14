@@ -12,6 +12,12 @@ import HelpSupport from './sections/HelpSupport';
 import FamilyPortal from './sections/FamilyPortal';
 import CareManager from './sections/CareManager';
 import MainDashboard from './sections/MainDashboard';
+import ClientManagement from './sections/staff/ClientManagement';
+import SupportCenter from './sections/staff/SupportCenter';
+import HealthMonitoring from './sections/staff/HealthMonitoring';
+import ClientEducation from './sections/staff/ClientEducation';
+import StaffAnalytics from './sections/staff/StaffAnalytics';
+import KnowledgeLibrary from './sections/staff/KnowledgeLibrary';
 
 interface DashboardContentProps {
   activeSection: string;
@@ -27,17 +33,17 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
       case 'chat':
         return <ChatSection />;
       case 'clients':
-        return <div>Client Management Content</div>;
+        return <ClientManagement />;
       case 'support':
-        return <div>Support Center Content</div>;
+        return <SupportCenter />;
       case 'health-monitoring':
-        return <div>Health Monitoring Content</div>;
+        return <HealthMonitoring />;
       case 'education':
-        return <div>Client Education Content</div>;
+        return <ClientEducation />;
       case 'analytics':
-        return <div>Staff Analytics Content</div>;
+        return <StaffAnalytics />;
       case 'knowledge':
-        return <div>Knowledge Base Content</div>;
+        return <KnowledgeLibrary />;
       
       // Default member sections - should not be used now
       case 'home':

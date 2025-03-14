@@ -3,12 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
   Users, 
-  Shield, 
   MessageSquare, 
   Settings, 
-  HelpCircle,
   MessageCircle,
-  Headphones,
   BarChart,
   BookOpen,
   FileText,
@@ -30,7 +27,7 @@ export const dashboardNavItems = [
   { id: 'health-monitoring', label: 'Health Monitoring', icon: Heart, isStaff: true },
   { id: 'education', label: 'Client Education', icon: BookOpen, isStaff: true },
   { id: 'analytics', label: 'Staff Analytics', icon: BarChart, isStaff: true },
-  { id: 'knowledge', label: 'Knowledge Base', icon: FileText, isStaff: true },
+  { id: 'knowledge', label: 'Knowledge Library', icon: FileText, isStaff: true },
 ];
 
 const DashboardLayout: React.FC = () => {
