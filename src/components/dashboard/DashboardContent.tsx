@@ -27,25 +27,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
   // Render the appropriate section based on the active id
   const renderContent = () => {
     switch(activeSection) {
-      // Staff Portal Sections
-      case 'staff':
-        return <StaffDashboard />;
-      case 'chat':
-        return <ChatSection />;
-      case 'clients':
-        return <ClientManagement />;
-      case 'support':
-        return <SupportCenter />;
-      case 'health-monitoring':
-        return <HealthMonitoring />;
-      case 'education':
-        return <ClientEducation />;
-      case 'analytics':
-        return <StaffAnalytics />;
-      case 'knowledge':
-        return <KnowledgeLibrary />;
-      
-      // Default member sections - should not be used now
+      // Member Portal Sections
       case 'home':
         return <MainDashboard />;
       case 'care':
@@ -66,8 +48,28 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
         return <HelpSupport />;
       case 'family':
         return <FamilyPortal />;
-      default:
+        
+      // Staff Portal Sections
+      case 'staff':
         return <StaffDashboard />;
+      case 'chat':
+        return <ChatSection />;
+      case 'clients':
+        return <ClientManagement />;
+      case 'support':
+        return <SupportCenter />;
+      case 'health-monitoring':
+        return <HealthMonitoring />;
+      case 'education':
+        return <ClientEducation />;
+      case 'analytics':
+        return <StaffAnalytics />;
+      case 'knowledge':
+        return <KnowledgeLibrary />;
+      
+      default:
+        // Default to the member dashboard if no matching section
+        return <MainDashboard />;
     }
   };
 

@@ -15,12 +15,14 @@ import { Link, useLocation } from 'react-router-dom';
 interface DashboardHeaderProps {
   toggleSidebar: () => void;
   sidebarOpen: boolean;
+  isStaffPortal?: boolean;
 }
 
-const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sidebarOpen }) => {
-  const location = useLocation();
-  const isStaffDashboard = location.pathname.includes('staff') || location.hash === '#staff';
-  
+const DashboardHeader: React.FC<DashboardHeaderProps> = ({ 
+  toggleSidebar, 
+  sidebarOpen, 
+  isStaffPortal = false 
+}) => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
       <div className="px-4 h-16 flex items-center justify-between">
@@ -36,7 +38,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
           
           <div className="flex items-center">
             <h1 className="text-xl font-semibold text-mcn-blue">
-              {isStaffDashboard ? 'MCN Staff Portal' : 'MCN Members'}
+              {isStaffPortal ? 'MCN Staff Portal' : 'MCN Member Dashboard'}
             </h1>
           </div>
         </div>
@@ -61,7 +63,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
               <DropdownMenuLabel>Notifications</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <div className="max-h-80 overflow-y-auto">
-                {isStaffDashboard ? (
+                {isStaffPortal ? (
                   <>
                     <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
                       <p className="font-medium">New Training Available</p>
@@ -102,7 +104,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({ toggleSidebar, sideba
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem className="cursor-pointer">Profile</DropdownMenuItem>
-              {isStaffDashboard ? (
+              {isStaffPortal ? (
                 <>
                   <DropdownMenuItem className="cursor-pointer">Schedule</DropdownMenuItem>
                   <DropdownMenuItem className="cursor-pointer">Performance</DropdownMenuItem>

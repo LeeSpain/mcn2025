@@ -8,6 +8,7 @@ interface NavItem {
   label: string;
   icon: LucideIcon;
   isStaff?: boolean;
+  isMember?: boolean;
 }
 
 interface DashboardSidebarProps {
@@ -15,17 +16,16 @@ interface DashboardSidebarProps {
   activeSection: string;
   setActiveSection: (id: string) => void;
   isOpen: boolean;
+  isStaffPortal?: boolean;
 }
 
 const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   navItems,
   activeSection,
   setActiveSection,
-  isOpen
+  isOpen,
+  isStaffPortal = false
 }) => {
-  // Since we're only showing staff items now, no need to separate
-  const staffNavItems = navItems;
-
   return (
     <aside 
       className={cn(
@@ -47,16 +47,20 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </div>
 
         <nav className="space-y-1 px-2">
-          {/* Staff Portal Navigation */}
+          {/* Portal Label */}
           {isOpen && (
             <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              Staff Portal
+              {isStaffPortal ? 'Staff Portal' : 'Member Portal'}
             </div>
           )}
-          {staffNavItems.map((item) => (
+          {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
+              onClick={() => {
+                setActiveSection(item.id);
+                // Update URL hash without full page reload
+                window.location.hash = item.id;
+              }}
               className={cn(
                 "w-full flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors",
                 activeSection === item.id
