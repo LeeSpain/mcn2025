@@ -1,65 +1,48 @@
 
 import React, { useState } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import {
-  CircleUser,
-  Clock,
-  Users,
-  Headphones,
-  FileText,
-  Phone,
-  Heart,
-  ShieldAlert,
-  Wrench,
-  BookOpen,
-  BarChart2,
-  MessageSquare,
-  Settings,
-  TrendingUp,
-  UserCheck,
-  Lightbulb,
-  UserCog,
-  Shield,
-  Network,
-  Globe,
-  DollarSign,
-  Video,
-  AlertCircle,
-  CheckCircle2,
-  MessageCircle,
-  PhoneCall,
-  // Add the missing icon imports
-  Mail,
-  Monitor,
-  Eye,
+import { 
+  Headphones, 
+  Users, 
+  Heart, 
+  Wrench, 
+  BookOpen, 
+  BarChart2, 
+  Settings, 
+  Shield, 
+  MessageSquare, 
+  Clock, 
+  FileText, 
+  User, 
+  BarChart, 
+  ChevronRight, 
+  PhoneCall, 
+  Video, 
+  Mail, 
+  Monitor, 
+  Eye, 
   MousePointer
 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { 
-  BarChart, 
+  BarChart as RechartsBarChart, 
   Bar, 
   XAxis, 
   YAxis, 
   CartesianGrid, 
   ResponsiveContainer, 
-  LineChart, 
-  Line, 
   Tooltip, 
-  Legend, 
-  PieChart, 
-  Pie, 
-  Cell 
+  LineChart, 
+  Line 
 } from 'recharts';
 
-// Import all the required components for agent workspace
-import AgentWorkspace from './staff/AgentWorkspace';
-import ClientProfile from './staff/ClientProfile';
-import InteractionQueue from './staff/queue/InteractionQueue';
-import TeamCommunication from './staff/communication/TeamCommunication';
-import KnowledgeBase from './staff/knowledge/KnowledgeBase';
-import AgentPerformance from './staff/performance/AgentPerformance';
+// Import Staff Dashboard section components
+import AdminTools from './staff/AdminTools';
+import ClientEducation from './staff/ClientEducation';
+import HealthMonitoring from './staff/HealthMonitoring';
 
 // Sample data for charts
 const performanceData = [
@@ -74,15 +57,23 @@ const performanceData = [
 
 // Sample client data
 const clientsList = [
-  { id: 1, name: 'Sarah Johnson', plan: 'Premium', status: 'Active', lastActive: '2 hours ago', health: 'Good' },
-  { id: 2, name: 'Robert Williams', plan: 'Family', status: 'Active', lastActive: '1 day ago', health: 'Attention' },
-  { id: 3, name: 'Emma Davis', plan: 'Basic', status: 'Active', lastActive: '5 hours ago', health: 'Good' },
-  { id: 4, name: 'James Miller', plan: 'Enterprise', status: 'Inactive', lastActive: '5 days ago', health: 'Review' },
-  { id: 5, name: 'Patricia Brown', plan: 'Premium', status: 'Active', lastActive: '1 hour ago', health: 'Good' },
-  { id: 6, name: 'Thomas Wilson', plan: 'Family', status: 'Active', lastActive: '3 hours ago', health: 'Good' },
-  { id: 7, name: 'Linda Moore', plan: 'Basic', status: 'Active', lastActive: '2 days ago', health: 'Attention' },
-  { id: 8, name: 'Michael Taylor', plan: 'Enterprise', status: 'Active', lastActive: '6 hours ago', health: 'Good' },
+  { id: 1, name: 'Sarah Johnson', plan: 'Premium', status: 'Active', lastActive: '2 hours ago', health: 'Good', priority: 'High' },
+  { id: 2, name: 'Robert Williams', plan: 'Family', status: 'Active', lastActive: '1 day ago', health: 'Attention', priority: 'Medium' },
+  { id: 3, name: 'Emma Davis', plan: 'Basic', status: 'Active', lastActive: '5 hours ago', health: 'Good', priority: 'Low' },
+  { id: 4, name: 'James Miller', plan: 'Enterprise', status: 'Inactive', lastActive: '5 days ago', health: 'Review', priority: 'High' },
+  { id: 5, name: 'Patricia Brown', plan: 'Premium', status: 'Active', lastActive: '1 hour ago', health: 'Good', priority: 'Low' },
+  { id: 6, name: 'Thomas Wilson', plan: 'Family', status: 'Active', lastActive: '3 hours ago', health: 'Good', priority: 'Medium' },
+  { id: 7, name: 'Linda Moore', plan: 'Basic', status: 'Active', lastActive: '2 days ago', health: 'Attention', priority: 'High' },
+  { id: 8, name: 'Michael Taylor', plan: 'Enterprise', status: 'Active', lastActive: '6 hours ago', health: 'Good', priority: 'Medium' },
 ];
+
+// Sample queue data
+const queueData = [
+  { id: 1, type: 'Call', client: 'Robert Williams', issue: 'Device Connection', priority: 'High', waitTime: '2:35' },
+  { id: 2, type: 'Chat', client: 'Emma Davis', issue: 'App Navigation', priority: 'Medium', waitTime: '1:14' },
+  { id: 3, type: 'Email', client: 'Thomas Wilson', issue: 'Billing Question', priority: 'Normal', waitTime: '5:22' },
+  { id: 4, type: 'Callback', client: 'Linda Moore', issue: 'Sensor Setup', priority: 'High', waitTime: 'Scheduled 2pm' },
+]
 
 const StaffDashboard: React.FC = () => {
   const [agentStatus, setAgentStatus] = useState<'available' | 'busy' | 'away'>('available');
@@ -113,29 +104,40 @@ const StaffDashboard: React.FC = () => {
     }
   };
 
+  const getPriorityClass = (priority: string) => {
+    switch(priority) {
+      case 'High':
+        return 'text-red-600 bg-red-100 px-2 py-1 rounded-full text-xs';
+      case 'Medium':
+        return 'text-amber-600 bg-amber-100 px-2 py-1 rounded-full text-xs';
+      case 'Low':
+        return 'text-green-600 bg-green-100 px-2 py-1 rounded-full text-xs';
+      default:
+        return 'text-blue-600 bg-blue-100 px-2 py-1 rounded-full text-xs';
+    }
+  };
+
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-4">
+    <div className="staff-portal">
+      {/* Staff Portal Header */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4 bg-white p-4 rounded-lg shadow">
         <div>
           <h1 className="text-2xl font-bold">MCN Staff Portal</h1>
           <p className="text-muted-foreground">Agent Workspace & Client Management</p>
         </div>
         <div className="flex items-center space-x-2">
-          <div className="relative group">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className={getStatusButtonClass(agentStatus)}
-              onClick={() => {
-                // Cycle through statuses: available -> busy -> away -> available
-                const nextStatus = agentStatus === 'available' ? 'busy' : agentStatus === 'busy' ? 'away' : 'available';
-                setAgentStatus(nextStatus);
-              }}
-            >
-              <CircleUser className="mr-2 h-4 w-4" />
-              {agentStatus === 'available' ? 'Available' : agentStatus === 'busy' ? 'Busy' : 'Away'}
-            </Button>
-          </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className={getStatusButtonClass(agentStatus)}
+            onClick={() => {
+              const nextStatus = agentStatus === 'available' ? 'busy' : agentStatus === 'busy' ? 'away' : 'available';
+              setAgentStatus(nextStatus);
+            }}
+          >
+            <User className="mr-2 h-4 w-4" />
+            {agentStatus === 'available' ? 'Available' : agentStatus === 'busy' ? 'Busy' : 'Away'}
+          </Button>
           <Button variant="outline" size="sm">
             <Clock className="mr-2 h-4 w-4" />
             Work Session: 4:25:12
@@ -143,167 +145,55 @@ const StaffDashboard: React.FC = () => {
         </div>
       </div>
 
-      <Tabs defaultValue="agent-workspace" className="w-full">
-        <TabsList className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 mb-4 overflow-x-auto">
-          <TabsTrigger value="agent-workspace" className="flex items-center space-x-1">
-            <Headphones className="h-4 w-4" />
-            <span className="hidden md:inline">Workspace</span>
-          </TabsTrigger>
-          <TabsTrigger value="client-profile" className="flex items-center space-x-1">
-            <Users className="h-4 w-4" />
-            <span className="hidden md:inline">Clients</span>
-          </TabsTrigger>
-          <TabsTrigger value="live-assistance" className="flex items-center space-x-1">
-            <Phone className="h-4 w-4" />
-            <span className="hidden md:inline">Assistance</span>
-          </TabsTrigger>
-          <TabsTrigger value="health-monitoring" className="flex items-center space-x-1">
-            <Heart className="h-4 w-4" />
-            <span className="hidden md:inline">Health</span>
-          </TabsTrigger>
-          <TabsTrigger value="technical-support" className="flex items-center space-x-1">
-            <Wrench className="h-4 w-4" />
-            <span className="hidden md:inline">Tech Support</span>
-          </TabsTrigger>
-          <TabsTrigger value="client-education" className="flex items-center space-x-1">
-            <BookOpen className="h-4 w-4" />
-            <span className="hidden md:inline">Education</span>
-          </TabsTrigger>
-          <TabsTrigger value="analytics" className="flex items-center space-x-1">
-            <BarChart2 className="h-4 w-4" />
-            <span className="hidden md:inline">Analytics</span>
-          </TabsTrigger>
-          <TabsTrigger value="admin" className="flex items-center space-x-1">
-            <Settings className="h-4 w-4" />
-            <span className="hidden md:inline">Admin</span>
-          </TabsTrigger>
-        </TabsList>
-
-        {/* Agent Workspace Tab */}
-        <TabsContent value="agent-workspace" className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-8 space-y-6">
-              {/* Agent Performance */}
-              <AgentPerformance />
-
-              {/* Client Interaction Queue */}
-              <InteractionQueue />
-
-              {/* Team Communication */}
-              <TeamCommunication />
-            </div>
-            <div className="lg:col-span-4 space-y-6">
-              {/* Knowledge Base Quick Access */}
-              <KnowledgeBase />
-              
-              {/* Agent Status Summary */}
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardTitle>Your Status</CardTitle>
-                  <CardDescription>Daily performance and queue metrics</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <p className="text-sm text-gray-500">Handled Today</p>
-                        <p className="text-xl font-semibold">23</p>
-                      </div>
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <p className="text-sm text-gray-500">Avg. Handle Time</p>
-                        <p className="text-xl font-semibold">6:42</p>
-                      </div>
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <p className="text-sm text-gray-500">Resolution Rate</p>
-                        <p className="text-xl font-semibold">88%</p>
-                      </div>
-                      <div className="bg-gray-50 p-3 rounded-lg">
-                        <p className="text-sm text-gray-500">CSAT Score</p>
-                        <p className="text-xl font-semibold">4.7</p>
-                      </div>
-                    </div>
-                    
-                    <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-                      <div className="font-medium mb-1">Shift Information</div>
-                      <div className="text-sm flex justify-between">
-                        <span>Scheduled Break:</span>
-                        <span className="font-medium">15:30 - 16:00</span>
-                      </div>
-                      <div className="text-sm flex justify-between">
-                        <span>Shift Ends:</span>
-                        <span className="font-medium">18:00</span>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </TabsContent>
-
-        {/* Client Profile Tab */}
-        <TabsContent value="client-profile" className="space-y-6">
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* Left Column - Agent Workspace */}
+        <div className="lg:col-span-3 space-y-6">
+          {/* Agent Workspace Section */}
           <Card>
-            <CardHeader>
-              <CardTitle>Client Management</CardTitle>
-              <CardDescription>Overview of all clients and their status</CardDescription>
+            <CardHeader className="pb-2">
+              <CardTitle>Agent Workspace</CardTitle>
+              <CardDescription>Manage client interactions and support tasks</CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="rounded-md border">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Client ID</TableHead>
-                      <TableHead>Name</TableHead>
-                      <TableHead>Plan</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Last Active</TableHead>
-                      <TableHead>Health Status</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {clientsList.map((client) => (
-                      <TableRow key={client.id}>
-                        <TableCell className="font-medium">{client.id}</TableCell>
-                        <TableCell>{client.name}</TableCell>
-                        <TableCell>{client.plan}</TableCell>
-                        <TableCell>
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            client.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
-                          }`}>
-                            {client.status}
-                          </span>
-                        </TableCell>
-                        <TableCell>{client.lastActive}</TableCell>
-                        <TableCell>
-                          <span className={getHealthStatusClass(client.health)}>
-                            {client.health}
-                          </span>
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <Button variant="outline" size="sm" className="mr-2">View</Button>
-                          <Button variant="outline" size="sm">Connect</Button>
-                        </TableCell>
+              {/* Interaction Queue */}
+              <div className="mb-6">
+                <h3 className="text-lg font-medium mb-3">Client Interaction Queue</h3>
+                <div className="overflow-x-auto rounded-md border">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Type</TableHead>
+                        <TableHead>Client</TableHead>
+                        <TableHead>Issue</TableHead>
+                        <TableHead>Priority</TableHead>
+                        <TableHead>Wait Time</TableHead>
+                        <TableHead className="text-right">Action</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {queueData.map((item) => (
+                        <TableRow key={item.id}>
+                          <TableCell>{item.type}</TableCell>
+                          <TableCell>{item.client}</TableCell>
+                          <TableCell>{item.issue}</TableCell>
+                          <TableCell>
+                            <span className={getPriorityClass(item.priority)}>
+                              {item.priority}
+                            </span>
+                          </TableCell>
+                          <TableCell>{item.waitTime}</TableCell>
+                          <TableCell className="text-right">
+                            <Button variant="outline" size="sm">Accept</Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-          
-          <ClientProfile />
-        </TabsContent>
 
-        {/* Live Assistance Tab */}
-        <TabsContent value="live-assistance" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Live Client Assistance</CardTitle>
-              <CardDescription>Communication tools and remote assistance</CardDescription>
-            </CardHeader>
-            <CardContent>
+              {/* Communication Tools */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                 <Card>
                   <CardHeader className="pb-2">
@@ -313,12 +203,12 @@ const StaffDashboard: React.FC = () => {
                     <div className="space-y-4">
                       <div className="flex justify-center">
                         <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
-                          <Phone className="h-8 w-8 text-blue-600" />
+                          <PhoneCall className="h-8 w-8 text-blue-600" />
                         </div>
                       </div>
                       <div className="flex justify-center gap-2">
                         <Button size="sm" variant="outline">
-                          <Phone className="h-4 w-4 mr-2" />
+                          <PhoneCall className="h-4 w-4 mr-2" />
                           Call
                         </Button>
                         <Button size="sm" variant="outline">
@@ -380,73 +270,309 @@ const StaffDashboard: React.FC = () => {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Team Communication */}
+              <div>
+                <h3 className="text-lg font-medium mb-3">Team Communication</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base">Team Chat</CardTitle>
+                    </CardHeader>
+                    <CardContent className="h-[200px] overflow-y-auto">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-2">
+                          <div className="bg-blue-100 text-blue-800 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            JP
+                          </div>
+                          <div className="bg-gray-100 rounded-lg p-2 text-sm flex-1">
+                            <p className="font-medium">John Parker</p>
+                            <p>Anyone available to help with a complex device setup?</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="bg-purple-100 text-purple-800 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            LS
+                          </div>
+                          <div className="bg-gray-100 rounded-lg p-2 text-sm flex-1">
+                            <p className="font-medium">Lisa Smith</p>
+                            <p>I can assist in about 10 minutes, currently on a call.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="bg-green-100 text-green-800 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            ME
+                          </div>
+                          <div className="bg-gray-100 rounded-lg p-2 text-sm flex-1">
+                            <p className="font-medium">Mike Evans</p>
+                            <p>FYI - New feature release notes are in the KB now.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="pt-0">
+                      <div className="flex gap-2 w-full">
+                        <input type="text" placeholder="Type your message..." className="flex-1 px-3 py-1 border rounded-md" />
+                        <Button size="sm">Send</Button>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                  
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base">Supervisor Messages</CardTitle>
+                    </CardHeader>
+                    <CardContent className="h-[200px] overflow-y-auto">
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-2">
+                          <div className="bg-red-100 text-red-800 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            DM
+                          </div>
+                          <div className="bg-gray-100 rounded-lg p-2 text-sm flex-1">
+                            <p className="font-medium">David Martinez (Supervisor)</p>
+                            <p>Team meeting at 2PM today to discuss the new safety protocols.</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="bg-red-100 text-red-800 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0">
+                            DM
+                          </div>
+                          <div className="bg-gray-100 rounded-lg p-2 text-sm flex-1">
+                            <p className="font-medium">David Martinez (Supervisor)</p>
+                            <p>Great job handling the Williams case yesterday!</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="pt-0">
+                      <Button size="sm" variant="outline" className="w-full">Reply to Supervisor</Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Client Management */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle>Client Management</CardTitle>
+              <CardDescription>Overview of all clients and their status</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto rounded-md border">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>ID</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Plan</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Last Active</TableHead>
+                      <TableHead>Health</TableHead>
+                      <TableHead>Priority</TableHead>
+                      <TableHead className="text-right">Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {clientsList.map((client) => (
+                      <TableRow key={client.id}>
+                        <TableCell className="font-medium">{client.id}</TableCell>
+                        <TableCell>{client.name}</TableCell>
+                        <TableCell>{client.plan}</TableCell>
+                        <TableCell>
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            client.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                          }`}>
+                            {client.status}
+                          </span>
+                        </TableCell>
+                        <TableCell>{client.lastActive}</TableCell>
+                        <TableCell>
+                          <span className={getHealthStatusClass(client.health)}>
+                            {client.health}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <span className={getPriorityClass(client.priority)}>
+                            {client.priority}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <Button variant="outline" size="sm" className="mr-2">View</Button>
+                          <Button variant="outline" size="sm">Assist</Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Column - Performance Stats & Resources */}
+        <div className="space-y-6">
+          {/* Agent Performance */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle>Agent Performance</CardTitle>
+              <CardDescription>Your weekly metrics</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-[200px] w-full mb-4">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RechartsBarChart
+                    data={performanceData}
+                    margin={{ top: 5, right: 5, left: 0, bottom: 5 }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="calls" fill="#8884d8" name="Calls" />
+                    <Bar dataKey="chats" fill="#82ca9d" name="Chats" />
+                    <Bar dataKey="resolved" fill="#ffc658" name="Resolved" />
+                  </RechartsBarChart>
+                </ResponsiveContainer>
+              </div>
               
-              <p className="text-center text-muted-foreground">Select a client from the client list to initiate assistance</p>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="p-2 bg-gray-50 rounded-md">
+                  <div className="text-sm text-gray-500">Today's Calls</div>
+                  <div className="text-xl font-semibold">12</div>
+                </div>
+                <div className="p-2 bg-gray-50 rounded-md">
+                  <div className="text-sm text-gray-500">Avg Handle Time</div>
+                  <div className="text-xl font-semibold">8:42</div>
+                </div>
+                <div className="p-2 bg-gray-50 rounded-md">
+                  <div className="text-sm text-gray-500">Resolution Rate</div>
+                  <div className="text-xl font-semibold">92%</div>
+                </div>
+                <div className="p-2 bg-gray-50 rounded-md">
+                  <div className="text-sm text-gray-500">Client Rating</div>
+                  <div className="text-xl font-semibold">4.8/5</div>
+                </div>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
 
-        {/* Placeholder content for other tabs */}
-        <TabsContent value="health-monitoring" className="space-y-6">
+          {/* Knowledge Base */}
           <Card>
-            <CardHeader>
-              <CardTitle>Health & Safety Monitoring</CardTitle>
-              <CardDescription>Client health data and safety alerts</CardDescription>
+            <CardHeader className="pb-2">
+              <CardTitle>Knowledge Base</CardTitle>
+              <CardDescription>Quick access resources</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-3 bg-blue-50 border border-blue-100 rounded-md flex items-center justify-between">
+                <div className="flex items-center">
+                  <FileText className="h-5 w-5 text-blue-500 mr-2" />
+                  <span>Device Troubleshooting Guide</span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-blue-500" />
+              </div>
+              
+              <div className="p-3 bg-blue-50 border border-blue-100 rounded-md flex items-center justify-between">
+                <div className="flex items-center">
+                  <FileText className="h-5 w-5 text-blue-500 mr-2" />
+                  <span>Medication Alert FAQs</span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-blue-500" />
+              </div>
+              
+              <div className="p-3 bg-blue-50 border border-blue-100 rounded-md flex items-center justify-between">
+                <div className="flex items-center">
+                  <FileText className="h-5 w-5 text-blue-500 mr-2" />
+                  <span>App Navigation Tutorial</span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-blue-500" />
+              </div>
+              
+              <div className="p-3 bg-blue-50 border border-blue-100 rounded-md flex items-center justify-between">
+                <div className="flex items-center">
+                  <FileText className="h-5 w-5 text-blue-500 mr-2" />
+                  <span>Service Plan Comparison</span>
+                </div>
+                <ChevronRight className="h-4 w-4 text-blue-500" />
+              </div>
+
+              <Button variant="outline" className="w-full">
+                Search Knowledge Base
+              </Button>
+            </CardContent>
+          </Card>
+          
+          {/* Agent Status Summary */}
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle>Shift Information</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">Health monitoring dashboard content would appear here.</p>
+              <div className="space-y-4">
+                <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                  <div className="text-sm flex justify-between mb-1">
+                    <span>Scheduled Break:</span>
+                    <span className="font-medium">15:30 - 16:00</span>
+                  </div>
+                  <div className="text-sm flex justify-between mb-1">
+                    <span>Shift Ends:</span>
+                    <span className="font-medium">18:00</span>
+                  </div>
+                  <div className="text-sm flex justify-between">
+                    <span>Team Meeting:</span>
+                    <span className="font-medium">14:00 - 14:30</span>
+                  </div>
+                </div>
+                
+                <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
+                  <div className="font-medium mb-1">Team Status</div>
+                  <div className="text-sm flex justify-between">
+                    <span>Available Agents:</span>
+                    <span className="font-medium">8/12</span>
+                  </div>
+                  <div className="text-sm flex justify-between">
+                    <span>Queue Load:</span>
+                    <span className="font-medium">Medium</span>
+                  </div>
+                </div>
+              </div>
             </CardContent>
           </Card>
-        </TabsContent>
+        </div>
+      </div>
 
-        <TabsContent value="technical-support" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Technical Support Tools</CardTitle>
-              <CardDescription>Device troubleshooting and software management</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Technical support dashboard content would appear here.</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
+      {/* Additional Staff Portal Tools */}
+      <div className="mt-6">
+        <Tabs defaultValue="health-monitoring" className="w-full">
+          <TabsList className="grid grid-cols-3 mb-4">
+            <TabsTrigger value="health-monitoring" className="flex items-center space-x-1">
+              <Heart className="h-4 w-4 mr-1" />
+              <span>Health Monitoring</span>
+            </TabsTrigger>
+            <TabsTrigger value="client-education" className="flex items-center space-x-1">
+              <BookOpen className="h-4 w-4 mr-1" />
+              <span>Client Education</span>
+            </TabsTrigger>
+            <TabsTrigger value="admin-tools" className="flex items-center space-x-1">
+              <Settings className="h-4 w-4 mr-1" />
+              <span>Admin Tools</span>
+            </TabsTrigger>
+          </TabsList>
 
-        <TabsContent value="client-education" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Client Education & Onboarding</CardTitle>
-              <CardDescription>Training materials and setup assistance</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Client education dashboard content would appear here.</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
+          <TabsContent value="health-monitoring">
+            <HealthMonitoring />
+          </TabsContent>
 
-        <TabsContent value="analytics" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Analytics & Reporting</CardTitle>
-              <CardDescription>Performance metrics and service quality</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Analytics dashboard content would appear here.</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
+          <TabsContent value="client-education">
+            <ClientEducation />
+          </TabsContent>
 
-        <TabsContent value="admin" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Administrative Tools</CardTitle>
-              <CardDescription>Team management and resource allocation</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Administrative tools dashboard content would appear here.</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+          <TabsContent value="admin-tools">
+            <AdminTools />
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 };

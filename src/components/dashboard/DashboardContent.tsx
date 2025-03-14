@@ -18,7 +18,12 @@ interface DashboardContentProps {
 }
 
 const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) => {
-  // Render the active section content
+  // For the staff section, we'll show the dedicated staff portal
+  if (activeSection === 'staff') {
+    return <StaffDashboard />;
+  }
+  
+  // For all other sections, use the existing switch statement
   switch (activeSection) {
     case 'home':
       return <MainDashboard />;
@@ -36,8 +41,6 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
       return <ShopGateway />;
     case 'bbrain':
       return <BbrainAssistant />;
-    case 'staff':
-      return <StaffDashboard />;
     case 'account':
       return <AccountSettings />;
     case 'help':
