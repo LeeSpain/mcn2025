@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import MemberDashboard from './sections/main/MainDashboard';
-import StaffDashboard from './sections/staff/StaffDashboard';
+import MemberDashboard from '../dashboard/sections/MainDashboard';
+import StaffDashboard from '../dashboard/sections/StaffDashboard';
 import NurseDashboard from './sections/nurse/NurseDashboard';
 import SupportSection from './sections/ChatSection';
 import ChatSection from './sections/ChatSection';
