@@ -4,7 +4,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import MemberDashboard from './sections/main/MainDashboard';
 import StaffDashboard from './sections/staff/StaffDashboard';
 import NurseDashboard from './sections/nurse/NurseDashboard';
-import SettingsSection from './sections/SupportSection';
 import SupportSection from './sections/ChatSection';
 import ChatSection from './sections/ChatSection';
 import ClientManagement from './sections/staff/ClientManagement';
@@ -24,14 +23,63 @@ import HelpSupport from './sections/HelpSupport';
 import VisitSchedule from './sections/nurse/VisitSchedule';
 import CarePlans from './sections/nurse/CarePlans';
 import ClinicalMonitoring from './sections/nurse/ClinicalMonitoring';
-import MedicationMgmt from './sections/nurse/MedicationMgmt';
-import Documentation from './sections/nurse/Documentation';
-import QualitySafety from './sections/nurse/QualitySafety';
-import VitalsTracking from './sections/nurse/VitalsTracking';
-import Appointments from './sections/nurse/Appointments';
-import PatientEducation from './sections/nurse/PatientEducation';
-import ClinicalResources from './sections/nurse/ClinicalResources';
-import NurseAnalytics from './sections/nurse/NurseAnalytics';
+
+// Create placeholder components for the missing modules
+const MedicationMgmt = () => (
+  <div>
+    <h2>Medication Management</h2>
+    <p>Manage medications and prescriptions here.</p>
+  </div>
+);
+
+const Documentation = () => (
+  <div>
+    <h2>Documentation</h2>
+    <p>Access and manage patient documentation here.</p>
+  </div>
+);
+
+const QualitySafety = () => (
+  <div>
+    <h2>Quality & Safety</h2>
+    <p>Monitor quality and safety metrics here.</p>
+  </div>
+);
+
+const VitalsTracking = () => (
+  <div>
+    <h2>Vitals Tracking</h2>
+    <p>Track and monitor patient vitals here.</p>
+  </div>
+);
+
+const Appointments = () => (
+  <div>
+    <h2>Appointments</h2>
+    <p>Manage appointments here.</p>
+  </div>
+);
+
+const PatientEducation = () => (
+  <div>
+    <h2>Patient Education</h2>
+    <p>Access patient education resources here.</p>
+  </div>
+);
+
+const ClinicalResources = () => (
+  <div>
+    <h2>Clinical Resources</h2>
+    <p>Access clinical resources and references here.</p>
+  </div>
+);
+
+const NurseAnalytics = () => (
+  <div>
+    <h2>Nurse Analytics</h2>
+    <p>View nursing performance analytics here.</p>
+  </div>
+);
 
 // Import the NurseChat component
 import NurseChat from './sections/nurse/NurseChat';
