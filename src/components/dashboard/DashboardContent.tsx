@@ -1,19 +1,17 @@
 
 import React from 'react';
-import { 
-  MainDashboard, 
-  HealthView, 
-  SafetyMonitor, 
-  ConnectHub,
-  ShopGateway, 
-  BbrainAssistant, 
-  AccountSettings, 
-  HelpSupport, 
-  FamilyPortal, 
-  CareManager,
-} from './sections';
 import StaffDashboard from './sections/StaffDashboard';
 import ChatSection from './sections/ChatSection';
+import HealthView from './sections/HealthView';
+import SafetyMonitor from './sections/SafetyMonitor';
+import ConnectHub from './sections/ConnectHub';
+import ShopGateway from './sections/ShopGateway';
+import BbrainAssistant from './sections/BbrainAssistant';
+import AccountSettings from './sections/AccountSettings';
+import HelpSupport from './sections/HelpSupport';
+import FamilyPortal from './sections/FamilyPortal';
+import CareManager from './sections/CareManager';
+import MainDashboard from './sections/MainDashboard';
 
 interface DashboardContentProps {
   activeSection: string;
