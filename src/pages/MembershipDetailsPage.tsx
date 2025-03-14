@@ -231,7 +231,7 @@ const faqItems = [
 ];
 
 const MembershipDetailsPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <div className="min-h-screen">
@@ -245,13 +245,13 @@ const MembershipDetailsPage: React.FC = () => {
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="mb-12">
               <Link to="/clients" className="inline-flex items-center text-mcn-blue hover:underline mb-4">
-                <ArrowLeft className="w-4 h-4 mr-1" /> Back to Clients Page
+                <ArrowLeft className="w-4 h-4 mr-1" /> {t('membership.back')}
               </Link>
               <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">
-                Full Membership Details
+                {t('membership.title')}
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl">
-                Our comprehensive membership includes everything you need for enhanced independent living, with seamless integration between hardware and software components.
+                {t('membership.subtitle')}
               </p>
             </div>
             
@@ -259,66 +259,66 @@ const MembershipDetailsPage: React.FC = () => {
               <div className="lg:w-2/3">
                 <Card className="h-full">
                   <CardHeader className="pb-3">
-                    <div className="text-3xl font-bold mb-1">€100<span className="text-lg font-normal text-muted-foreground">/month</span></div>
-                    <CardTitle className="text-2xl">Full Membership</CardTitle>
-                    <CardDescription>Complete care solution</CardDescription>
+                    <div className="text-3xl font-bold mb-1">{t('membership.price')}<span className="text-lg font-normal text-muted-foreground">{t('membership.period')}</span></div>
+                    <CardTitle className="text-2xl">{t('membership.plan.title')}</CardTitle>
+                    <CardDescription>{t('membership.plan.description')}</CardDescription>
                   </CardHeader>
                   <CardContent className="pb-6">
-                    <p className="mb-6">Our Full Membership provides a comprehensive suite of hardware and software solutions designed to enhance independent living while maintaining connections with loved ones and healthcare providers.</p>
+                    <p className="mb-6">{t('membership.plan.fullDescription')}</p>
                     
                     <div className="mb-8">
-                      <h3 className="font-medium text-lg mb-3">Membership includes:</h3>
+                      <h3 className="font-medium text-lg mb-3">{t('membership.includes.title')}</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Choice of up to 5 hardware products</span>
+                          <span>{t('membership.includes.hardware')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>All software services included</span>
+                          <span>{t('membership.includes.software')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Professional installation</span>
+                          <span>{t('membership.includes.installation')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Personalized training</span>
+                          <span>{t('membership.includes.training')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>24/7 technical support</span>
+                          <span>{t('membership.includes.tech')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Full warranty coverage</span>
+                          <span>{t('membership.includes.support')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Regular software updates</span>
+                          <span>{t('membership.includes.updates')}</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Family access for one member</span>
+                          <span>{t('membership.includes.family')}</span>
                         </div>
                       </div>
                     </div>
                     
                     <div className="bg-mcn-blue/5 p-4 rounded-lg border border-mcn-blue/10">
-                      <h4 className="font-medium mb-2">Family Access Add-On</h4>
-                      <p className="text-muted-foreground mb-2">Add additional family members for €10/month each:</p>
+                      <h4 className="font-medium mb-2">{t('membership.family.title')}</h4>
+                      <p className="text-muted-foreground mb-2">{t('membership.family.description')}</p>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Monitor health and activity with proper permissions</span>
+                          <span>{t('membership.family.monitor')}</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Access to family dashboard and coordination tools</span>
+                          <span>{t('membership.family.dashboard')}</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                          <span>Priority video calling and messaging</span>
+                          <span>{t('membership.family.calling')}</span>
                         </li>
                       </ul>
                     </div>
@@ -326,7 +326,7 @@ const MembershipDetailsPage: React.FC = () => {
                   <CardFooter>
                     <Button asChild className="w-full justify-center bg-mcn-blue hover:bg-mcn-blue-dark">
                       <Link to="/signup?plan=membership">
-                        Sign Up for Full Membership
+                        {t('membership.signup')}
                       </Link>
                     </Button>
                   </CardFooter>
@@ -336,29 +336,29 @@ const MembershipDetailsPage: React.FC = () => {
               <div className="lg:w-1/3">
                 <Card className="mb-6 glass-card border-t-4 border-mcn-blue">
                   <CardHeader>
-                    <CardTitle>Why Choose MCN?</CardTitle>
+                    <CardTitle>{t('membership.why.title')}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-2">
                         <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                        <span><strong>Integrated System:</strong> All components work seamlessly together for a cohesive experience</span>
+                        <span>{t('membership.why.integrated')}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                        <span><strong>Designed for Seniors:</strong> Every feature is developed with older adults in mind</span>
+                        <span>{t('membership.why.seniors')}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                        <span><strong>Privacy-Focused:</strong> You control who sees your information</span>
+                        <span>{t('membership.why.privacy')}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                        <span><strong>No Long-Term Contract:</strong> Month-to-month membership with no obligations</span>
+                        <span>{t('membership.why.contract')}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <Check className="mt-1 h-4 w-4 text-mcn-blue flex-shrink-0" />
-                        <span><strong>Personalized Support:</strong> Trained specialists who understand senior needs</span>
+                        <span>{t('membership.why.support')}</span>
                       </li>
                     </ul>
                   </CardContent>
@@ -366,22 +366,22 @@ const MembershipDetailsPage: React.FC = () => {
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle>Ready to get started?</CardTitle>
+                    <CardTitle>{t('membership.ready.title')}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4">Our team makes the setup process simple:</p>
+                    <p className="mb-4">{t('membership.ready.description')}</p>
                     <ol className="space-y-3 list-decimal pl-5">
-                      <li>Schedule a free consultation</li>
-                      <li>Select your hardware products</li>
-                      <li>Professional installation at your home</li>
-                      <li>Personalized training session</li>
-                      <li>Regular check-ins to ensure satisfaction</li>
+                      <li>{t('membership.ready.step1')}</li>
+                      <li>{t('membership.ready.step2')}</li>
+                      <li>{t('membership.ready.step3')}</li>
+                      <li>{t('membership.ready.step4')}</li>
+                      <li>{t('membership.ready.step5')}</li>
                     </ol>
                   </CardContent>
                   <CardFooter>
                     <Button asChild variant="outline" className="w-full justify-center">
                       <Link to="/contact">
-                        Schedule Free Consultation
+                        {t('membership.consultation')}
                       </Link>
                     </Button>
                   </CardFooter>
@@ -452,16 +452,16 @@ const MembershipDetailsPage: React.FC = () => {
             </div>
             
             <div className="bg-mcn-gray-light p-8 md:p-12 rounded-2xl text-center">
-              <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">Ready to enhance your independent living?</h2>
+              <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">{t('membership.cta.title')}</h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join thousands of satisfied members who are enjoying greater independence, safety, and connection with MCN's Full Membership.
+                {t('membership.cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/signup?plan=membership" className="primary-button flex items-center justify-center">
-                  Sign Up Today <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('membership.cta.signup')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link to="/contact" className="outline-button flex items-center justify-center">
-                  Schedule a Consultation
+                  {t('membership.cta.consult')}
                 </Link>
               </div>
             </div>

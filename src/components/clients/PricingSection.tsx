@@ -8,7 +8,7 @@ const PricingSection: React.FC = () => {
   
   const mainPlan = {
     title: t('pricing.main.title'),
-    price: t('pricing.main.price'),
+    price: '€100',
     description: t('pricing.main.description'),
     planId: 'membership-details',
     isPopular: true,
