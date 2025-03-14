@@ -1,99 +1,90 @@
-
 import React from 'react';
-import StaffDashboard from './sections/StaffDashboard';
+import { useLanguage } from '../../context/LanguageContext';
+import MemberDashboard from './sections/member/MemberDashboard';
+import StaffDashboard from './sections/staff/StaffDashboard';
+import NurseDashboard from './sections/nurse/NurseDashboard';
+import SettingsSection from './sections/SettingsSection';
+import SupportSection from './sections/SupportSection';
 import ChatSection from './sections/ChatSection';
-import HealthView from './sections/HealthView';
-import SafetyMonitor from './sections/SafetyMonitor';
-import ConnectHub from './sections/ConnectHub';
-import ShopGateway from './sections/ShopGateway';
-import BbrainAssistant from './sections/BbrainAssistant';
-import AccountSettings from './sections/AccountSettings';
-import HelpSupport from './sections/HelpSupport';
-import FamilyPortal from './sections/FamilyPortal';
-import CareManager from './sections/CareManager';
-import MainDashboard from './sections/MainDashboard';
 import ClientManagement from './sections/staff/ClientManagement';
-import SupportCenter from './sections/staff/SupportCenter';
 import HealthMonitoring from './sections/staff/HealthMonitoring';
 import ClientEducation from './sections/staff/ClientEducation';
 import StaffAnalytics from './sections/staff/StaffAnalytics';
 import KnowledgeLibrary from './sections/staff/KnowledgeLibrary';
-import NurseDashboard from './sections/nurse/NurseDashboard';
-import ClientCaseload from './sections/nurse/ClientCaseload';
+import FamilyPortal from './sections/member/FamilyPortal';
+import CareManager from './sections/member/CareManager';
+import HealthView from './sections/member/HealthView';
+import SafetyMonitor from './sections/member/SafetyMonitor';
+import ConnectHub from './sections/member/ConnectHub';
+import ShopGateway from './sections/member/ShopGateway';
+import BBrainAssistant from './sections/member/BBrainAssistant';
+import AccountSettings from './sections/member/AccountSettings';
+import HelpSupport from './sections/member/HelpSupport';
 import VisitSchedule from './sections/nurse/VisitSchedule';
 import CarePlans from './sections/nurse/CarePlans';
 import ClinicalMonitoring from './sections/nurse/ClinicalMonitoring';
+import MedicationMgmt from './sections/nurse/MedicationMgmt';
+import Documentation from './sections/nurse/Documentation';
+import QualitySafety from './sections/nurse/QualitySafety';
+import VitalsTracking from './sections/nurse/VitalsTracking';
+import Appointments from './sections/nurse/Appointments';
+import PatientEducation from './sections/nurse/PatientEducation';
+import ClinicalResources from './sections/nurse/ClinicalResources';
+import NurseAnalytics from './sections/nurse/NurseAnalytics';
 
-interface DashboardContentProps {
-  activeSection: string;
-}
+// Import the new NurseChat component
+import NurseChat from './sections/nurse/NurseChat';
 
-const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) => {
-  // Render the appropriate section based on the active id
-  const renderContent = () => {
-    switch(activeSection) {
-      // Member Portal Sections
-      case 'home':
-        return <MainDashboard />;
-      case 'care':
-        return <CareManager />;
-      case 'health':
-        return <HealthView />;
-      case 'safety':
-        return <SafetyMonitor />;
-      case 'connect':
-        return <ConnectHub />;
-      case 'shop':
-        return <ShopGateway />;
-      case 'bbrain':
-        return <BbrainAssistant />;
-      case 'account':
-        return <AccountSettings />;
-      case 'help':
-        return <HelpSupport />;
-      case 'family':
-        return <FamilyPortal />;
-        
-      // Staff Portal Sections
-      case 'staff':
-        return <StaffDashboard />;
-      case 'chat':
-        return <ChatSection />;
-      case 'clients':
-        return <ClientManagement />;
-      case 'support':
-        return <SupportCenter />;
-      case 'health-monitoring':
-        return <HealthMonitoring />;
-      case 'education':
-        return <ClientEducation />;
-      case 'analytics':
-        return <StaffAnalytics />;
-      case 'knowledge':
-        return <KnowledgeLibrary />;
-      
-      // Nurse Portal Sections
-      case 'nurse-dashboard':
-        return <NurseDashboard />;
-      case 'client-caseload':
-        return <ClientCaseload />;
-      case 'visit-schedule':
-        return <VisitSchedule />;
-      case 'care-plans':
-        return <CarePlans />;
-      case 'clinical-monitoring':
-        return <ClinicalMonitoring />;
-      
-      default:
-        // Default to the member dashboard if no matching section
-        return <MainDashboard />;
-    }
-  };
+const ClientCaseload = () => (
+  <div>
+    <h2>Client Caseload</h2>
+    <p>Manage client caseload here.</p>
+  </div>
+);
+
+const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }) => {
+  const { t } = useLanguage();
 
   return (
-    <div className="dashboard-content">
-      {renderContent()}
-    </div>
+    <>
+      {/* Member Portal Sections */}
+      {activeSection === 'home' && <MemberDashboard />}
+      {activeSection === 'care' && <CareManager />}
+      {activeSection === 'health' && <HealthView />}
+      {activeSection === 'safety' && <SafetyMonitor />}
+      {activeSection === 'connect' && <ConnectHub />}
+      {activeSection === 'shop' && <ShopGateway />}
+      {activeSection === 'bbrain' && <BBrainAssistant />}
+      {activeSection === 'account' && <AccountSettings />}
+      {activeSection === 'help' && <HelpSupport />}
+      {activeSection === 'family' && <FamilyPortal />}
+
+      {/* Staff Portal Sections */}
+      {activeSection === 'staff' && <StaffDashboard />}
+      {activeSection === 'chat' && <ChatSection />}
+      {activeSection === 'clients' && <ClientManagement />}
+      {activeSection === 'support' && <SupportSection />}
+      {activeSection === 'health-monitoring' && <HealthMonitoring />}
+      {activeSection === 'education' && <ClientEducation />}
+      {activeSection === 'analytics' && <StaffAnalytics />}
+      {activeSection === 'knowledge' && <KnowledgeLibrary />}
+
+      {/* Nurse Portal Sections */}
+      {activeSection === 'nurse-dashboard' && <NurseDashboard />}
+      {activeSection === 'client-caseload' && <ClientCaseload />}
+      {activeSection === 'nurse-chat' && <NurseChat />}
+      {activeSection === 'visit-schedule' && <VisitSchedule />}
+      {activeSection === 'care-plans' && <CarePlans />}
+      {activeSection === 'clinical-monitoring' && <ClinicalMonitoring />}
+      {activeSection === 'medication-mgmt' && <MedicationMgmt />}
+      {activeSection === 'documentation' && <Documentation />}
+      {activeSection === 'quality-safety' && <QualitySafety />}
+      {activeSection === 'vitals' && <VitalsTracking />}
+      {activeSection === 'appointments' && <Appointments />}
+      {activeSection === 'patient-education' && <PatientEducation />}
+      {activeSection === 'clinical-resources' && <ClinicalResources />}
+      {activeSection === 'nurse-analytics' && <NurseAnalytics />}
+    </>
   );
 };
 

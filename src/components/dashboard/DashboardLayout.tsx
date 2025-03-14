@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
@@ -66,6 +67,7 @@ export const dashboardNavItems = [
   // Nurse Portal items
   { id: 'nurse-dashboard', label: 'Nurse Dashboard', icon: Stethoscope, isNurse: true },
   { id: 'client-caseload', label: 'Client Caseload', icon: Users, isNurse: true },
+  { id: 'nurse-chat', label: 'Chat', icon: MessageCircle, isNurse: true },
   { id: 'visit-schedule', label: 'Relex Schedule', icon: Video, isNurse: true },
   { id: 'care-plans', label: 'Care Plans', icon: Clipboard, isNurse: true },
   { id: 'clinical-monitoring', label: 'Clinical Monitoring', icon: Activity, isNurse: true },
