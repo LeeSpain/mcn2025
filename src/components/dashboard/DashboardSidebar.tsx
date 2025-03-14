@@ -9,6 +9,7 @@ interface NavItem {
   icon: LucideIcon;
   isStaff?: boolean;
   isMember?: boolean;
+  isNurse?: boolean;
 }
 
 interface DashboardSidebarProps {
@@ -17,6 +18,7 @@ interface DashboardSidebarProps {
   setActiveSection: (id: string) => void;
   isOpen: boolean;
   isStaffPortal?: boolean;
+  isNursePortal?: boolean;
 }
 
 const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
@@ -24,7 +26,8 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   activeSection,
   setActiveSection,
   isOpen,
-  isStaffPortal = false
+  isStaffPortal = false,
+  isNursePortal = false
 }) => {
   return (
     <aside 
@@ -50,7 +53,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           {/* Portal Label */}
           {isOpen && (
             <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              {isStaffPortal ? 'Staff Portal' : 'Member Portal'}
+              {isStaffPortal ? 'Staff Portal' : isNursePortal ? 'Nurse Portal' : 'Member Portal'}
             </div>
           )}
           {navItems.map((item) => (

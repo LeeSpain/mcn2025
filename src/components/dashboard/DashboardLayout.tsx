@@ -17,7 +17,15 @@ import {
   Brain,
   UserCog,
   HelpCircle,
-  UsersRound
+  UsersRound,
+  Stethoscope,
+  Calendar,
+  Clipboard,
+  Activity,
+  AlarmClock,
+  AlertTriangle,
+  BarChart2,
+  BookOpen
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -48,6 +56,18 @@ export const dashboardNavItems = [
   { id: 'education', label: 'Client Education', icon: BookOpen, isStaff: true },
   { id: 'analytics', label: 'Staff Analytics', icon: BarChart, isStaff: true },
   { id: 'knowledge', label: 'Knowledge Library', icon: FileText, isStaff: true },
+  
+  // Nurse Portal items
+  { id: 'nurse-dashboard', label: 'Nurse Dashboard', icon: Stethoscope, isNurse: true },
+  { id: 'client-caseload', label: 'Client Caseload', icon: Users, isNurse: true },
+  { id: 'visit-schedule', label: 'Visit Schedule', icon: Calendar, isNurse: true },
+  { id: 'care-plans', label: 'Care Plans', icon: Clipboard, isNurse: true },
+  { id: 'clinical-monitoring', label: 'Clinical Monitoring', icon: Activity, isNurse: true },
+  { id: 'medication-mgmt', label: 'Medication Management', icon: FileText, isNurse: true },
+  { id: 'documentation', label: 'Documentation', icon: BookOpen, isNurse: true },
+  { id: 'quality-safety', label: 'Quality & Safety', icon: Shield, isNurse: true },
+  { id: 'clinical-resources', label: 'Clinical Resources', icon: BookOpen, isNurse: true },
+  { id: 'nurse-analytics', label: 'Analytics', icon: BarChart2, isNurse: true },
 ];
 
 const DashboardLayout: React.FC = () => {
@@ -55,6 +75,7 @@ const DashboardLayout: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isStaffPortal, setIsStaffPortal] = useState(false);
+  const [isNursePortal, setIsNursePortal] = useState(false);
   const { t } = useLanguage();
 
   // Set active section based on URL hash if present
@@ -63,17 +84,20 @@ const DashboardLayout: React.FC = () => {
     if (hash) {
       setActiveSection(hash);
       
-      // Determine if we're in staff portal
+      // Determine if we're in staff portal or nurse portal
       const isStaff = dashboardNavItems.find(item => item.id === hash)?.isStaff || false;
+      const isNurse = dashboardNavItems.find(item => item.id === hash)?.isNurse || false;
+      
       setIsStaffPortal(isStaff);
+      setIsNursePortal(isNurse);
     }
   }, [location.hash]);
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
-  // Filter nav items based on whether we're in the staff or member portal
+  // Filter nav items based on whether we're in the staff, nurse or member portal
   const filteredNavItems = dashboardNavItems.filter(item => 
-    isStaffPortal ? item.isStaff : item.isMember
+    isStaffPortal ? item.isStaff : isNursePortal ? item.isNurse : item.isMember
   );
 
   return (
@@ -82,6 +106,7 @@ const DashboardLayout: React.FC = () => {
         toggleSidebar={toggleSidebar} 
         sidebarOpen={sidebarOpen} 
         isStaffPortal={isStaffPortal}
+        isNursePortal={isNursePortal}
       />
       
       <div className="flex flex-1 overflow-hidden">
@@ -91,6 +116,7 @@ const DashboardLayout: React.FC = () => {
           setActiveSection={setActiveSection}
           isOpen={sidebarOpen}
           isStaffPortal={isStaffPortal}
+          isNursePortal={isNursePortal}
         />
         
         <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300">

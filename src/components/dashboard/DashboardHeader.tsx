@@ -16,12 +16,14 @@ interface DashboardHeaderProps {
   toggleSidebar: () => void;
   sidebarOpen: boolean;
   isStaffPortal?: boolean;
+  isNursePortal?: boolean;
 }
 
 const DashboardHeader: React.FC<DashboardHeaderProps> = ({ 
   toggleSidebar, 
   sidebarOpen, 
-  isStaffPortal = false 
+  isStaffPortal = false,
+  isNursePortal = false 
 }) => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
@@ -38,7 +40,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           
           <div className="flex items-center">
             <h1 className="text-xl font-semibold text-mcn-blue">
-              {isStaffPortal ? 'MCN Staff Portal' : 'MCN Member Dashboard'}
+              {isStaffPortal ? 'MCN Staff Portal' : isNursePortal ? 'MCN Nurse Portal' : 'MCN Member Dashboard'}
             </h1>
           </div>
         </div>
@@ -76,6 +78,24 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                       <p className="text-xs text-muted-foreground mt-1">1 hour ago</p>
                     </DropdownMenuItem>
                   </>
+                ) : isNursePortal ? (
+                  <>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">High-Priority Client</p>
+                      <p className="text-sm text-muted-foreground">Jan de Vries - Missed medication (2)</p>
+                      <p className="text-xs text-muted-foreground mt-1">10 minutes ago</p>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">New Care Plan Assignment</p>
+                      <p className="text-sm text-muted-foreground">3 care plans pending review</p>
+                      <p className="text-xs text-muted-foreground mt-1">1 hour ago</p>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
+                      <p className="font-medium">Hospital Discharge</p>
+                      <p className="text-sm text-muted-foreground">Anna Koster - Scheduled for follow-up</p>
+                      <p className="text-xs text-muted-foreground mt-1">3 hours ago</p>
+                    </DropdownMenuItem>
+                  </>
                 ) : (
                   <>
                     <DropdownMenuItem className="cursor-pointer flex flex-col items-start">
@@ -108,6 +128,12 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
                 <>
                   <DropdownMenuItem className="cursor-pointer">Schedule</DropdownMenuItem>
                   <DropdownMenuItem className="cursor-pointer">Performance</DropdownMenuItem>
+                </>
+              ) : isNursePortal ? (
+                <>
+                  <DropdownMenuItem className="cursor-pointer">Clinical Schedule</DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">Documentation</DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">Certifications</DropdownMenuItem>
                 </>
               ) : (
                 <>
