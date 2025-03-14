@@ -6,6 +6,7 @@ import { pricingTranslations } from './pricing';
 import { ctaTranslations } from './cta';
 import { enterpriseTranslations } from './enterprise';
 import { nurseTranslations } from './nurse';
+import { dashboardTranslations } from './dashboard';
 
 // Combine all translation sets into one
 export const translations: TranslationSet = {
@@ -15,6 +16,7 @@ export const translations: TranslationSet = {
   ...ctaTranslations,
   ...enterpriseTranslations,
   ...nurseTranslations,
+  ...dashboardTranslations,
 };
 
 export * from './types';

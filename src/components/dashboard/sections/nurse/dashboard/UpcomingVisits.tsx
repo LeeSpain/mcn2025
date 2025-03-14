@@ -69,7 +69,17 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
     ? upcomingVisits 
     : upcomingVisits.filter(v => !v.isCompleted).slice(0, 3);
   
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  // Get today's date in the current language format
+  const getTodayFormatted = () => {
+    const today = new Date();
+    return today.toLocaleDateString(language === 'nl' ? 'nl-NL' : 'en-US', { 
+      weekday: 'long', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+  };
   
   return (
     <Card>
@@ -78,7 +88,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
           <div>
             <CardTitle className="text-xl">{t('nurse.today.schedule')}</CardTitle>
             <CardDescription>
-              {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+              {getTodayFormatted()}
             </CardDescription>
           </div>
           {!fullView && (
