@@ -14,7 +14,7 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
   const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: string, fallback?: string): string => {
-    if (translations[key]) {
+    if (translations[key] && translations[key][language]) {
       return translations[key][language];
     }
     console.warn(`Translation key not found: ${key}`);

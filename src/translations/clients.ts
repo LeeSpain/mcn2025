@@ -4,162 +4,86 @@ import { TranslationSet } from './types';
 export const clientsTranslations: TranslationSet = {
   'clients.header.chip': {
     en: 'For Clients',
-    nl: 'Voor Cliënten',
+    nl: 'Voor Cliënten'
   },
   'clients.header.title': {
-    en: 'Independent Living Made Simple',
-    nl: 'Zelfstandig Wonen Eenvoudig Gemaakt',
+    en: 'Empowering Independence Through Smart Care Technology',
+    nl: 'Zelfstandigheid Bevorderen Door Slimme Zorgtechnologie'
   },
   'clients.header.description': {
-    en: 'MCN provides easy-to-use tools that support independent living while maintaining connections with loved ones and caregivers.',
-    nl: 'MCN biedt gebruiksvriendelijke tools die zelfstandig wonen ondersteunen en tegelijkertijd verbindingen met dierbaren en zorgverleners behouden.',
+    en: 'Our connected care platform combines hardware and software to help seniors live independently and with dignity.',
+    nl: 'Ons verbonden zorgplatform combineert hardware en software om ouderen te helpen zelfstandig en met waardigheid te leven.'
   },
   'clients.empowerment.title': {
-    en: 'How MCN Empowers You',
-    nl: 'Hoe MCN U Ondersteunt',
+    en: 'Technology That Empowers',
+    nl: 'Technologie Die Kracht Geeft'
   },
   'clients.empowerment.description': {
-    en: 'Our platform is designed to help you maintain your independence while providing peace of mind to you and your loved ones.',
-    nl: 'Ons platform is ontworpen om u te helpen uw onafhankelijkheid te behouden terwijl het gemoedsrust biedt aan u en uw dierbaren.',
+    en: 'Our system is designed with seniors in mind, providing intuitive technology that enhances independence while ensuring safety and wellbeing.',
+    nl: 'Ons systeem is ontworpen met ouderen in gedachten, met intuïtieve technologie die zelfstandigheid bevordert en tegelijkertijd veiligheid en welzijn waarborgt.'
   },
   'clients.features.comfort': {
-    en: 'Designed for All Comfort Levels',
-    nl: 'Ontworpen voor Alle Comfortniveaus',
+    en: 'Comfort & Ease',
+    nl: 'Comfort & Gemak'
   },
   'clients.features.comfort.description': {
-    en: 'Whether you\'re tech-savvy or new to digital tools, MCN\'s intuitive interface makes it easy to navigate and use.',
-    nl: 'Of u nu technisch onderlegd bent of nieuw bent met digitale tools, de intuïtieve interface van MCN maakt het gemakkelijk te navigeren en te gebruiken.',
+    en: 'Voice-controlled technology that's easy to use, even for those unfamiliar with computers.',
+    nl: 'Spraakgestuurde technologie die gemakkelijk te gebruiken is, zelfs voor mensen die niet bekend zijn met computers.'
   },
   'clients.features.hardware': {
-    en: 'No Extra Hardware Required',
-    nl: 'Geen Extra Hardware Vereist',
+    en: 'Discreet Hardware',
+    nl: 'Discrete Hardware'
   },
   'clients.features.hardware.description': {
-    en: 'Works with your existing devices and can integrate with popular wearables you might already own.',
-    nl: 'Werkt met uw bestaande apparaten en kan integreren met populaire wearables die u mogelijk al bezit.',
+    en: 'Devices that blend seamlessly into your home without looking institutional.',
+    nl: 'Apparaten die naadloos in uw huis passen zonder er institutioneel uit te zien.'
   },
   'clients.features.privacy': {
-    en: 'Privacy-Focused Design',
-    nl: 'Privacy-Gericht Ontwerp',
+    en: 'Privacy First',
+    nl: 'Privacy Voorop'
   },
   'clients.features.privacy.description': {
-    en: 'You control what information is shared and with whom, ensuring your privacy is always respected.',
-    nl: 'U controleert welke informatie wordt gedeeld en met wie, zodat uw privacy altijd wordt gerespecteerd.',
+    en: 'Full control over your data and who can access your information.',
+    nl: 'Volledige controle over uw gegevens en wie toegang heeft tot uw informatie.'
   },
   'clients.experience.title': {
-    en: 'Client Experience',
-    nl: 'Client Ervaring',
+    en: 'The MCN Experience',
+    nl: 'De MCN Ervaring'
   },
   'clients.experience.subtitle': {
-    en: 'How MCN works in your daily life',
-    nl: 'Hoe MCN werkt in uw dagelijks leven',
+    en: 'How our technology integrates into daily life',
+    nl: 'Hoe onze technologie integreert in het dagelijks leven'
   },
   'clients.experience.morning': {
     en: 'Morning Routine',
-    nl: 'Ochtendroutine',
+    nl: 'Ochtendroutine'
   },
   'clients.experience.morning.description': {
-    en: 'Receive gentle reminders about medications and appointments for the day',
-    nl: 'Ontvang vriendelijke herinneringen over medicijnen en afspraken voor de dag',
+    en: 'Wake up to gentle reminders about medications and appointments.',
+    nl: 'Word wakker met vriendelijke herinneringen aan medicijnen en afspraken.'
   },
   'clients.experience.day': {
-    en: 'Throughout Your Day',
-    nl: 'Gedurende Uw Dag',
+    en: 'Throughout the Day',
+    nl: 'Gedurende de Dag'
   },
   'clients.experience.day.description': {
-    en: 'Your activity is monitored in the background, ensuring you\'re safe and active',
-    nl: 'Uw activiteit wordt op de achtergrond gecontroleerd, zodat u veilig en actief blijft',
+    en: 'Sensors monitor activity patterns while respecting privacy.',
+    nl: 'Sensoren monitoren activiteitspatronen met respect voor privacy.'
   },
   'clients.experience.connected': {
-    en: 'Staying Connected',
-    nl: 'Verbonden Blijven',
+    en: 'Stay Connected',
+    nl: 'Blijf Verbonden'
   },
   'clients.experience.connected.description': {
-    en: 'Video call family members or message your care team with the tap of a button',
-    nl: 'Video-bel familieleden of stuur berichten naar uw zorgteam met een druk op de knop',
+    en: 'Easy video calls to family, friends, and healthcare providers.',
+    nl: 'Eenvoudige videogesprekken met familie, vrienden en zorgverleners.'
   },
   'clients.experience.health': {
-    en: 'Health Tracking',
-    nl: 'Gezondheidsmonitoring',
+    en: 'Health Monitoring',
+    nl: 'Gezondheidsmonitoring'
   },
   'clients.experience.health.description': {
-    en: 'Record and monitor your health metrics, sharing them with healthcare providers when needed',
-    nl: 'Registreer en monitor uw gezondheidsgegevens en deel deze indien nodig met zorgverleners',
-  },
-  'pricing.title': {
-    en: 'Pricing',
-    nl: 'Prijzen',
-  },
-  'pricing.description': {
-    en: 'One simple price with all services included. Choose what you need for your care journey.',
-    nl: 'Een eenvoudige prijs met alle diensten inbegrepen. Kies wat u nodig heeft voor uw zorgtraject.',
-  },
-  'pricing.main.title': {
-    en: 'Full Membership',
-    nl: 'Volledig Lidmaatschap',
-  },
-  'pricing.main.price': {
-    en: '€100.00',
-    nl: '€100,00',
-  },
-  'pricing.main.description': {
-    en: 'All services included',
-    nl: 'Alle diensten inbegrepen',
-  },
-  'pricing.family.title': {
-    en: 'Family Access',
-    nl: 'Familie Toegang',
-  },
-  'pricing.family.price': {
-    en: '€10',
-    nl: '€10',
-  },
-  'pricing.family.description': {
-    en: 'Per family member per month',
-    nl: 'Per familielid per maand',
-  },
-  'pricing.popular': {
-    en: 'Most Popular',
-    nl: 'Meest Populair',
-  },
-  'pricing.limit.text': {
-    en: 'Unlimited usage',
-    nl: 'Onbeperkt gebruik',
-  },
-  'pricing.products.title': {
-    en: 'Products',
-    nl: 'Producten',
-  },
-  'pricing.services.title': {
-    en: 'Services',
-    nl: 'Diensten',
-  },
-  'pricing.choose': {
-    en: 'Choose',
-    nl: 'Kies',
-  },
-  'pricing.simple.description': {
-    en: 'One simple price with all services included. Choose what you need for your care package.',
-    nl: 'Een eenvoudige prijs met alle diensten inbegrepen. Kies wat u nodig heeft voor uw pakket.',
-  },
-  'pricing.family.connect': {
-    en: 'Connect to main member account',
-    nl: 'Verbinden met hoofdlid account',
-  },
-  'pricing.family.monitor': {
-    en: 'Monitor health and activity',
-    nl: 'Monitor gezondheid en activiteit',
-  },
-  'pricing.family.dashboard': {
-    en: 'Access to family dashboard',
-    nl: 'Toegang tot familie dashboard',
-  },
-  'pricing.family.video': {
-    en: 'Video calling and messaging',
-    nl: 'Video bellen en berichten sturen',
-  },
-  'pricing.family.emergency': {
-    en: 'Emergency notifications',
-    nl: 'Noodmeldingen',
+    en: 'Track vital signs and share with your care team if you choose.',
+    nl: 'Volg vitale functies en deel ze met uw zorgteam als u dat wilt.'
   }
 };

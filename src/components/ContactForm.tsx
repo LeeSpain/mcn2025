@@ -33,8 +33,8 @@ const ContactForm: React.FC = () => {
       setIsSubmitted(true);
       
       toast({
-        title: "Message sent!",
-        description: "We've received your message and will get back to you soon.",
+        title: t('contact.messageSent'),
+        description: t('contact.messageReceived'),
       });
       
       // Reset after showing success state

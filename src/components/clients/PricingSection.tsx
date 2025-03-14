@@ -15,23 +15,23 @@ const PricingSection: React.FC = () => {
     highlightColor: 'border-mcn-blue',
     features: [
       // Products
-      { text: t('BBrain Voice Assistant Device', 'BBrain Voice Assistant Device'), category: 'product' as const },
-      { text: t('Safety Monitoring Sensors', 'Safety Monitoring Sensors'), category: 'product' as const },
-      { text: t('Wearable Health Tracker', 'Wearable Health Tracker'), category: 'product' as const },
-      { text: t('Emergency Alert Button', 'Emergency Alert Button'), category: 'product' as const },
-      { text: t('Smart Medication Dispenser', 'Smart Medication Dispenser'), category: 'product' as const },
-      { text: t('Home Automation Controls', 'Home Automation Controls'), category: 'product' as const },
-      { text: t('Digital Photo Frame', 'Digital Photo Frame'), category: 'product' as const },
+      { text: t('pricing.products.voiceAssistant'), category: 'product' as const },
+      { text: t('pricing.products.safetyMonitoring'), category: 'product' as const },
+      { text: t('pricing.products.wearableTracker'), category: 'product' as const },
+      { text: t('pricing.products.emergencyButton'), category: 'product' as const },
+      { text: t('pricing.products.medicationDispenser'), category: 'product' as const },
+      { text: t('pricing.products.homeAutomation'), category: 'product' as const },
+      { text: t('pricing.products.photoFrame'), category: 'product' as const },
       
       // Services
-      { text: t('Care Manager (task tracking)', 'Care Manager (task tracking)'), category: 'service' as const },
-      { text: t('Safety Monitor (advanced)', 'Safety Monitor (advanced)'), category: 'service' as const },
-      { text: t('Health View (full integration)', 'Health View (full integration)'), category: 'service' as const },
-      { text: t('Connect Hub (unlimited video calls)', 'Connect Hub (unlimited video calls)'), category: 'service' as const },
-      { text: t('BBrain voice integration', 'BBrain voice integration'), category: 'service' as const },
-      { text: t('Provider Connectivity', 'Provider Connectivity'), category: 'service' as const },
-      { text: t('Remote Setup Assistance', 'Remote Setup Assistance'), category: 'service' as const },
-      { text: t('24/7 Technical Support', '24/7 Technical Support'), category: 'service' as const },
+      { text: t('pricing.services.careManager'), category: 'service' as const },
+      { text: t('pricing.services.safetyMonitor'), category: 'service' as const },
+      { text: t('pricing.services.healthView'), category: 'service' as const },
+      { text: t('pricing.services.connectHub'), category: 'service' as const },
+      { text: t('pricing.services.voiceIntegration'), category: 'service' as const },
+      { text: t('pricing.services.providerConnectivity'), category: 'service' as const },
+      { text: t('pricing.services.remoteSetup'), category: 'service' as const },
+      { text: t('pricing.services.techSupport'), category: 'service' as const },
     ]
   };
 

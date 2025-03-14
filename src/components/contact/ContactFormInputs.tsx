@@ -36,7 +36,7 @@ const ContactFormInputs: React.FC<ContactFormInputsProps> = ({ formState, handle
             name="name"
             value={formState.name}
             onChange={handleChange}
-            placeholder="John Doe"
+            placeholder={t('contact.namePlaceholder')}
             required
           />
         </div>
@@ -49,7 +49,7 @@ const ContactFormInputs: React.FC<ContactFormInputsProps> = ({ formState, handle
             type="email"
             value={formState.email}
             onChange={handleChange}
-            placeholder="john@example.com"
+            placeholder={t('contact.emailPlaceholder')}
             required
           />
         </div>
@@ -64,7 +64,7 @@ const ContactFormInputs: React.FC<ContactFormInputsProps> = ({ formState, handle
             type="tel"
             value={formState.phone}
             onChange={handleChange}
-            placeholder="+1 (555) 000-0000"
+            placeholder={t('contact.phonePlaceholder')}
           />
         </div>
         
@@ -98,7 +98,7 @@ const ContactFormInputs: React.FC<ContactFormInputsProps> = ({ formState, handle
           rows={5}
           value={formState.message}
           onChange={handleChange}
-          placeholder="How can we help you?"
+          placeholder={t('contact.messagePlaceholder')}
           required
         />
       </div>
