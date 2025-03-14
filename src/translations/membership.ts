@@ -151,7 +151,7 @@ export const membershipTranslations: TranslationSet = {
     nl: 'Klaar om uw zelfstandig wonen te verbeteren?'
   },
   'membership.cta.description': {
-    en: 'Join thousands of satisfied members who are enjoying greater independence, safety, and connection with MCN's Full Membership.',
+    en: 'Join thousands of satisfied members who are enjoying greater independence, safety, and connection with MCN\'s Full Membership.',
     nl: 'Sluit u aan bij duizenden tevreden leden die genieten van meer onafhankelijkheid, veiligheid en verbinding met het Volledige Lidmaatschap van MCN.'
   },
   'membership.cta.signup': {
