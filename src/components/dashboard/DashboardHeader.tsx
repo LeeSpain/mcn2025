@@ -3,6 +3,7 @@ import React from 'react';
 import { Menu, Bell, X, LogOut } from 'lucide-react';
 import LanguageSwitcher from '../LanguageSwitcher';
 import { useLanguage } from '@/context/LanguageContext';
+import { useNavigate } from 'react-router-dom';
 
 interface DashboardHeaderProps {
   toggleSidebar: () => void;
@@ -18,7 +19,14 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   isNursePortal = false
 }) => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const portalType = isStaffPortal ? t('header.staffPortal') : isNursePortal ? t('header.nursePortal') : t('header.memberPortal');
+  
+  const handleLogout = () => {
+    // In a real app, you would clear authentication tokens here
+    // For now, we'll just navigate to the home page
+    navigate('/');
+  };
   
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-white px-4 md:px-6">
@@ -42,7 +50,10 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           <span className="sr-only">{t('header.notifications')}</span>
         </button>
         
-        <button className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900">
+        <button 
+          onClick={handleLogout}
+          className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
+        >
           <LogOut className="h-4 w-4" />
           <span>{t('header.logout')}</span>
         </button>

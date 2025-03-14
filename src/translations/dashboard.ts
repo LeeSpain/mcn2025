@@ -26,4 +26,60 @@ export const dashboardTranslations: TranslationSet = {
     en: 'Logout',
     nl: 'Uitloggen',
   },
+  'staff.portal.title': {
+    en: 'MCN Staff Portal',
+    nl: 'MCN Personeelsportaal',
+  },
+  'staff.portal.subtitle': {
+    en: 'Manage clients, support, and admin tasks',
+    nl: 'Beheer cliënten, ondersteuning en administratieve taken',
+  },
+  'staff.status.available': {
+    en: 'Available',
+    nl: 'Beschikbaar',
+  },
+  'staff.status.busy': {
+    en: 'Busy',
+    nl: 'Bezet',
+  },
+  'staff.status.away': {
+    en: 'Away',
+    nl: 'Afwezig',
+  },
+  'staff.workSession': {
+    en: 'Work Session',
+    nl: 'Werksessie',
+  },
+  'dashboard.loading': {
+    en: 'Loading...',
+    nl: 'Laden...',
+  },
+  'dashboard.analytics.title': {
+    en: 'Analytics & Reporting Dashboard',
+    nl: 'Analyse & Rapportage Dashboard',
+  },
+  'dashboard.analytics.description': {
+    en: 'Performance metrics and service quality',
+    nl: 'Prestatiemetingen en servicekwaliteit',
+  },
+  'dashboard.performance': {
+    en: 'Performance',
+    nl: 'Prestaties',
+  },
+  'dashboard.quality': {
+    en: 'Service Quality',
+    nl: 'Servicekwaliteit',
+  },
+  'dashboard.usage': {
+    en: 'Client Usage',
+    nl: 'Cliëntgebruik',
+  },
+  'dashboard.technical.title': {
+    en: 'Technical Support Tools',
+    nl: 'Technische Ondersteuningstools',
+  },
+  'dashboard.technical.description': {
+    en: 'Device troubleshooting and software management',
+    nl: 'Probleemoplossing voor apparaten en softwarebeheer',
+  },
 };

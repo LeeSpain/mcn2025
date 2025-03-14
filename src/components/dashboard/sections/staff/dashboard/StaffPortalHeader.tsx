@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { User, Clock, Bell, HelpCircle } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface StaffPortalHeaderProps {
   agentStatus: 'available' | 'busy' | 'away';
@@ -12,6 +13,8 @@ const StaffPortalHeader: React.FC<StaffPortalHeaderProps> = ({
   agentStatus, 
   setAgentStatus 
 }) => {
+  const { t } = useLanguage();
+  
   const getStatusButtonClass = (status: string) => {
     switch(status) {
       case 'available':
@@ -25,11 +28,24 @@ const StaffPortalHeader: React.FC<StaffPortalHeaderProps> = ({
     }
   };
 
+  const getStatusText = (status: string) => {
+    switch(status) {
+      case 'available':
+        return t('staff.status.available');
+      case 'busy':
+        return t('staff.status.busy');
+      case 'away':
+        return t('staff.status.away');
+      default:
+        return '';
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4 bg-white p-4 rounded-lg shadow">
       <div>
-        <h1 className="text-2xl font-bold">MCN Staff Portal</h1>
-        <p className="text-muted-foreground">Manage clients, support, and admin tasks</p>
+        <h1 className="text-2xl font-bold">{t('staff.portal.title')}</h1>
+        <p className="text-muted-foreground">{t('staff.portal.subtitle')}</p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <Button 
@@ -42,11 +58,11 @@ const StaffPortalHeader: React.FC<StaffPortalHeaderProps> = ({
           }}
         >
           <User className="mr-2 h-4 w-4" />
-          {agentStatus === 'available' ? 'Available' : agentStatus === 'busy' ? 'Busy' : 'Away'}
+          {getStatusText(agentStatus)}
         </Button>
         <Button variant="outline" size="sm">
           <Clock className="mr-2 h-4 w-4" />
-          Work Session: 4:25:12
+          {t('staff.workSession')}: 4:25:12
         </Button>
         <Button variant="outline" size="sm" className="relative">
           <Bell className="h-4 w-4" />
