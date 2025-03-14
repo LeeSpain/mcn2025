@@ -7,7 +7,7 @@ import ClientSection from '@/components/ClientSection';
 import StaffSection from '@/components/StaffSection';
 import EnterpriseBenefits from '@/components/enterprise/EnterpriseBenefits';
 import EnterpriseDashboard from '@/components/enterprise/EnterpriseDashboard';
-import ContactForm from '@/components/ContactForm';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
 
@@ -31,7 +31,7 @@ const Index = () => {
           </div>
         </section>
         
-        <ContactForm />
+        <TestimonialsSection />
         <Footer />
       </div>
     </LanguageProvider>
