@@ -12,7 +12,10 @@ import {
   HelpCircle, 
   Users,
   MessageCircle,
-  Headphones
+  Headphones,
+  BarChart,
+  BookOpen,
+  FileText
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -22,6 +25,16 @@ import { useLocation } from 'react-router-dom';
 
 // Define navigation items with their respective icons
 export const dashboardNavItems = [
+  // Staff Portal items
+  { id: 'staff', label: 'Staff Portal', icon: Headphones, isStaff: true },
+  { id: 'clients', label: 'Client Management', icon: Users, isStaff: true },
+  { id: 'support', label: 'Support Center', icon: MessageSquare, isStaff: true },
+  { id: 'health-monitoring', label: 'Health Monitoring', icon: Heart, isStaff: true },
+  { id: 'education', label: 'Client Education', icon: BookOpen, isStaff: true },
+  { id: 'analytics', label: 'Staff Analytics', icon: BarChart, isStaff: true },
+  { id: 'knowledge', label: 'Knowledge Base', icon: FileText, isStaff: true },
+  
+  // Member Dashboard items
   { id: 'home', label: 'Dashboard', icon: Home },
   { id: 'chat', label: 'Chat', icon: MessageCircle },
   { id: 'care', label: 'Care Manager', icon: Calendar },
@@ -30,7 +43,6 @@ export const dashboardNavItems = [
   { id: 'connect', label: 'Connect Hub', icon: MessageSquare },
   { id: 'shop', label: 'Shop Gateway', icon: ShoppingBag },
   { id: 'bbrain', label: 'BBrain Assistant', icon: Mic },
-  { id: 'staff', label: 'Staff Dashboard', icon: Headphones },
   { id: 'account', label: 'Account & Settings', icon: Settings },
   { id: 'help', label: 'Help & Support', icon: HelpCircle },
   { id: 'family', label: 'Family Portal', icon: Users },

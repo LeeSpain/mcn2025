@@ -7,6 +7,7 @@ interface NavItem {
   id: string;
   label: string;
   icon: LucideIcon;
+  isStaff?: boolean;
 }
 
 interface DashboardSidebarProps {
@@ -22,6 +23,10 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   setActiveSection,
   isOpen
 }) => {
+  // Separate staff and member navigation items
+  const staffNavItems = navItems.filter(item => item.isStaff);
+  const memberNavItems = navItems.filter(item => !item.isStaff);
+
   return (
     <aside 
       className={cn(
@@ -43,7 +48,46 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </div>
 
         <nav className="space-y-1 px-2">
-          {navItems.map((item) => (
+          {/* Staff Portal Section */}
+          {staffNavItems.length > 0 && (
+            <>
+              {isOpen && (
+                <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Staff Portal
+                </div>
+              )}
+              {staffNavItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveSection(item.id)}
+                  className={cn(
+                    "w-full flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors",
+                    activeSection === item.id
+                      ? "bg-mcn-blue text-white"
+                      : "text-gray-700 hover:bg-gray-100"
+                  )}
+                >
+                  <item.icon className={cn(
+                    "mr-3 h-5 w-5",
+                    !isOpen && "mx-auto"
+                  )} />
+                  {isOpen && <span>{item.label}</span>}
+                </button>
+              ))}
+              
+              {isOpen && (
+                <div className="my-2 border-t border-gray-200"></div>
+              )}
+            </>
+          )}
+
+          {/* Member Dashboard Navigation */}
+          {isOpen && memberNavItems.length > 0 && (
+            <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+              Member Dashboard
+            </div>
+          )}
+          {memberNavItems.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveSection(item.id)}

@@ -12,18 +12,75 @@ import HelpSupport from './sections/HelpSupport';
 import FamilyPortal from './sections/FamilyPortal';
 import ChatSection from './sections/ChatSection';
 import StaffDashboard from './sections/StaffDashboard';
+import HealthMonitoring from './sections/staff/HealthMonitoring';
+import ClientEducation from './sections/staff/ClientEducation';
+import AdminTools from './sections/staff/AdminTools';
+import LiveAssistance from './sections/staff/LiveAssistance';
+import TechnicalSupport from './sections/staff/TechnicalSupport';
+import ClientManagementCard from './sections/staff/dashboard/ClientManagementCard';
 
 interface DashboardContentProps {
   activeSection: string;
 }
 
 const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) => {
-  // For the staff section, we'll show the dedicated staff portal
-  if (activeSection === 'staff') {
-    return <StaffDashboard />;
+  // Staff portal routes
+  const staffRoutes = ['staff', 'clients', 'support', 'health-monitoring', 'education', 'analytics', 'knowledge'];
+  
+  // If we're on a staff route, check which specific section to show
+  if (staffRoutes.includes(activeSection)) {
+    switch (activeSection) {
+      case 'staff':
+        return <StaffDashboard />;
+      case 'clients':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Client Management</h1>
+            <ClientManagementCard />
+          </div>
+        );
+      case 'support':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Support Center</h1>
+            <LiveAssistance />
+            <TechnicalSupport />
+          </div>
+        );
+      case 'health-monitoring':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Health Monitoring</h1>
+            <HealthMonitoring />
+          </div>
+        );
+      case 'education':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Client Education</h1>
+            <ClientEducation />
+          </div>
+        );
+      case 'analytics':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Staff Analytics</h1>
+            <p>Staff performance analytics will appear here.</p>
+          </div>
+        );
+      case 'knowledge':
+        return (
+          <div className="space-y-6">
+            <h1 className="text-2xl font-bold">Knowledge Base</h1>
+            <p>Support documentation and articles will appear here.</p>
+          </div>
+        );
+      default:
+        return <StaffDashboard />;
+    }
   }
   
-  // For all other sections, use the existing switch statement
+  // For member dashboard routes, use the existing switch statement
   switch (activeSection) {
     case 'home':
       return <MainDashboard />;

@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import InteractionQueue from '../queue/InteractionQueue';
 import { 
   Phone, 
   Video, 
@@ -9,7 +8,8 @@ import {
   Mail, 
   Eye, 
   Monitor, 
-  MousePointer 
+  MousePointer,
+  Users
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -21,17 +21,11 @@ const AgentWorkspaceCard: React.FC = () => {
         <CardDescription>Manage client interactions and support tasks</CardDescription>
       </CardHeader>
       <CardContent>
-        {/* Interaction Queue */}
-        <div className="mb-6">
-          <h3 className="text-lg font-medium mb-3">Client Interaction Queue</h3>
-          <InteractionQueue />
-        </div>
-
-        {/* Communication Tools */}
+        {/* Client Management Tools */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Voice Communication</CardTitle>
+              <CardTitle className="text-lg">Voice Support</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -43,11 +37,11 @@ const AgentWorkspaceCard: React.FC = () => {
                 <div className="flex justify-center gap-2">
                   <Button size="sm" variant="outline">
                     <Phone className="h-4 w-4 mr-2" />
-                    Call
+                    Call Client
                   </Button>
                   <Button size="sm" variant="outline">
                     <Video className="h-4 w-4 mr-2" />
-                    Video
+                    Video Call
                   </Button>
                 </div>
               </div>
@@ -56,7 +50,7 @@ const AgentWorkspaceCard: React.FC = () => {
           
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-lg">Text Communication</CardTitle>
+              <CardTitle className="text-lg">Client Communication</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -68,7 +62,7 @@ const AgentWorkspaceCard: React.FC = () => {
                 <div className="flex justify-center gap-2">
                   <Button size="sm" variant="outline">
                     <MessageSquare className="h-4 w-4 mr-2" />
-                    Chat
+                    Message
                   </Button>
                   <Button size="sm" variant="outline">
                     <Mail className="h-4 w-4 mr-2" />
@@ -93,11 +87,11 @@ const AgentWorkspaceCard: React.FC = () => {
                 <div className="flex justify-center gap-2">
                   <Button size="sm" variant="outline">
                     <Eye className="h-4 w-4 mr-2" />
-                    View
+                    View Device
                   </Button>
                   <Button size="sm" variant="outline">
                     <MousePointer className="h-4 w-4 mr-2" />
-                    Control
+                    Remote Control
                   </Button>
                 </div>
               </div>

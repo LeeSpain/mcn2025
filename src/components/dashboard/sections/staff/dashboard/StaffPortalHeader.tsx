@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { User, Clock } from 'lucide-react';
+import { User, Clock, Bell, HelpCircle } from 'lucide-react';
 
 interface StaffPortalHeaderProps {
   agentStatus: 'available' | 'busy' | 'away';
@@ -29,9 +29,9 @@ const StaffPortalHeader: React.FC<StaffPortalHeaderProps> = ({
     <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-6 gap-4 bg-white p-4 rounded-lg shadow">
       <div>
         <h1 className="text-2xl font-bold">MCN Staff Portal</h1>
-        <p className="text-muted-foreground">Agent Workspace & Client Management</p>
+        <p className="text-muted-foreground">Manage clients, support, and admin tasks</p>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex flex-wrap items-center gap-2">
         <Button 
           variant="outline" 
           size="sm" 
@@ -47,6 +47,13 @@ const StaffPortalHeader: React.FC<StaffPortalHeaderProps> = ({
         <Button variant="outline" size="sm">
           <Clock className="mr-2 h-4 w-4" />
           Work Session: 4:25:12
+        </Button>
+        <Button variant="outline" size="sm" className="relative">
+          <Bell className="h-4 w-4" />
+          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">3</span>
+        </Button>
+        <Button variant="outline" size="sm">
+          <HelpCircle className="h-4 w-4" />
         </Button>
       </div>
     </div>

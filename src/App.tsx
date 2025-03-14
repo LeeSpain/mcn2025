@@ -38,8 +38,11 @@ const App = () => (
             <Route path="/pricing/:planId" element={<PricingPlansPage />} />
             <Route path="/membership-details" element={<MembershipDetailsPage />} />
             <Route path="/dashboard/*" element={<DashboardPage />} />
-            {/* Redirect to staff section of dashboard */}
+            {/* Redirects to staff portal section of dashboard */}
+            <Route path="/staff-portal" element={<Navigate to="/dashboard#staff" replace />} />
             <Route path="/staff-dashboard" element={<Navigate to="/dashboard#staff" replace />} />
+            <Route path="/client-management" element={<Navigate to="/dashboard#clients" replace />} />
+            <Route path="/support-center" element={<Navigate to="/dashboard#support" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
