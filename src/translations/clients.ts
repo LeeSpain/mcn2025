@@ -27,7 +27,7 @@ export const clientsTranslations: TranslationSet = {
     nl: 'Comfort & Gemak'
   },
   'clients.features.comfort.description': {
-    en: 'Voice-controlled technology that's easy to use, even for those unfamiliar with computers.',
+    en: "Voice-controlled technology that's easy to use, even for those unfamiliar with computers.",
     nl: 'Spraakgestuurde technologie die gemakkelijk te gebruiken is, zelfs voor mensen die niet bekend zijn met computers.'
   },
   'clients.features.hardware': {
