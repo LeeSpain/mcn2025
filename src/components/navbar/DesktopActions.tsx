@@ -25,20 +25,20 @@ const DesktopActions: React.FC = () => {
         <DropdownMenuTrigger asChild>
           <button className="outline-button flex items-center gap-1.5">
             <LayoutDashboard size={16} />
-            <span>{t('nav.dashboard')}</span>
+            <span>Dashboard</span>
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>{t('nav.selectDashboard')}</DropdownMenuLabel>
+          <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem className="cursor-pointer">
-            <Link to="/dashboard#home" className="w-full">{t('nav.memberDashboard')}</Link>
+            <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer">
-            <Link to="/dashboard#staff" className="w-full">{t('nav.staffDashboard')}</Link>
+            <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer">
-            <Link to="/dashboard#nurse-dashboard" className="w-full">{t('nav.nurseDashboard')}</Link>
+            <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -8,7 +8,6 @@ import {
   Activity, 
   ClipboardCheck
 } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 
 interface FeatureProps {
   icon: React.ReactNode;
@@ -33,8 +32,6 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description, delay = 0 }
 );
 
 const Features: React.FC = () => {
-  const { t } = useLanguage();
-  
   return (
     <section id="features" className="section-padding bg-mcn-gray-light relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-30">
@@ -44,11 +41,11 @@ const Features: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="mb-3">
-            <div className="chip mx-auto">{t('features.chip')}</div>
+            <div className="chip mx-auto">Core Features</div>
           </div>
-          <h2 className="section-title">{t('features.title')}</h2>
+          <h2 className="section-title">One Platform, Complete Care Solution</h2>
           <p className="section-subtitle">
-            {t('features.subtitle')}
+            MCN brings together essential tools for independent living and efficient care management in a single intuitive platform.
           </p>
         </div>
         
@@ -56,8 +53,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up">
             <Feature 
               icon={<Calendar size={24} />}
-              title={t('features.careManager.title')}
-              description={t('features.careManager.description')}
+              title="Care Manager"
+              description="Track medications, appointments, and daily tasks with smart voice reminders through BBrain integration."
               delay={0.1}
             />
           </div>
@@ -65,8 +62,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <Feature 
               icon={<ShieldCheck size={24} />}
-              title={t('features.safetyMonitor.title')}
-              description={t('features.safetyMonitor.description')}
+              title="Safety Monitor"
+              description="Keep track of activity patterns and vitals with automatic alerts for caregivers if abnormal patterns are detected."
               delay={0.2}
             />
           </div>
@@ -74,8 +71,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             <Feature 
               icon={<Phone size={24} />}
-              title={t('features.connectHub.title')}
-              description={t('features.connectHub.description')}
+              title="Connect Hub"
+              description="Stay connected through high-quality video calls and messaging with family members and care professionals."
               delay={0.3}
             />
           </div>
@@ -83,8 +80,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <Feature 
               icon={<ShoppingBag size={24} />}
-              title={t('features.shopGateway.title')}
-              description={t('features.shopGateway.description')}
+              title="Shop Gateway"
+              description="Access essential safety equipment and services through an integrated shopping experience with Nettie."
               delay={0.4}
             />
           </div>
@@ -92,8 +89,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             <Feature 
               icon={<Activity size={24} />}
-              title={t('features.healthView.title')}
-              description={t('features.healthView.description')}
+              title="Health View"
+              description="Monitor vital health statistics with beautiful visualizations and easy sharing with healthcare providers."
               delay={0.5}
             />
           </div>
@@ -101,8 +98,8 @@ const Features: React.FC = () => {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
             <Feature 
               icon={<ClipboardCheck size={24} />}
-              title={t('features.taskMaster.title')}
-              description={t('features.taskMaster.description')}
+              title="TaskMaster"
+              description="AI-powered smart task prioritization for caregivers to optimize client care and reduce administrative burden."
               delay={0.6}
             />
           </div>

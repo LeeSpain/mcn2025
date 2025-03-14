@@ -63,18 +63,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-2 text-xl font-medium">
                 <LayoutDashboard size={20} />
-                <span>{t('nav.dashboard')}</span>
+                <span>Dashboard</span>
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
-                <Link to="/dashboard#home" className="w-full">{t('nav.memberDashboard')}</Link>
+                <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
-                <Link to="/dashboard#staff" className="w-full">{t('nav.staffDashboard')}</Link>
+                <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
-                <Link to="/dashboard#nurse-dashboard" className="w-full">{t('nav.nurseDashboard')}</Link>
+                <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
