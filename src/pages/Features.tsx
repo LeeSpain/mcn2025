@@ -21,11 +21,19 @@ interface FeatureCardProps {
   description: string;
   details: string[];
   delay?: number;
+  colorClass?: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, details, delay = 0 }) => (
+const FeatureCard: React.FC<FeatureCardProps> = ({ 
+  icon, 
+  title, 
+  description, 
+  details, 
+  delay = 0,
+  colorClass = "from-mcn-blue/10 to-transparent" 
+}) => (
   <div 
-    className="p-6 glass-card hover:shadow-soft-lg transform transition-all duration-300 hover:translate-y-[-5px] flex flex-col"
+    className={`p-6 glass-card hover:shadow-soft-lg transform transition-all duration-300 hover:translate-y-[-5px] flex flex-col bg-gradient-to-br ${colorClass} border border-gray-100`}
     style={{ 
       animationDelay: `${delay}s`,
     }}
@@ -54,13 +62,22 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, det
 const FeaturesPage = () => {
   const { t } = useLanguage();
   
+  const gradientClasses = [
+    "from-blue-50 to-transparent",
+    "from-green-50 to-transparent",
+    "from-purple-50 to-transparent",
+    "from-orange-50 to-transparent",
+    "from-pink-50 to-transparent",
+    "from-yellow-50 to-transparent",
+  ];
+  
   return (
     <div className="min-h-screen">
       <NavBar />
       <div className="pt-20 md:pt-24">
-        <section className="py-20 bg-mcn-gray-light relative overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none opacity-30">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(0,119,182,0.1),transparent_70%)]"></div>
+        <section className="py-20 bg-gradient-to-b from-white to-mcn-gray-light relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none opacity-40">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(0,119,182,0.15),transparent_70%)]"></div>
           </div>
           
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -86,6 +103,7 @@ const FeaturesPage = () => {
                   t('features.careManager.benefit3', 'Caregiver sharing for immediate status updates'),
                   t('features.careManager.benefit4', 'Medication history and compliance tracking')
                 ]}
+                colorClass={gradientClasses[0]}
                 delay={0.1}
               />
               
@@ -100,6 +118,7 @@ const FeaturesPage = () => {
                   t('features.safetyMonitor.benefit3', 'Real-time caregiver alerts for safety concerns'),
                   t('features.safetyMonitor.benefit4', 'Historical activity analysis for trend identification')
                 ]}
+                colorClass={gradientClasses[1]}
                 delay={0.2}
               />
               
@@ -114,6 +133,7 @@ const FeaturesPage = () => {
                   t('features.connectHub.benefit3', 'Media sharing for photos and documents'),
                   t('features.connectHub.benefit4', 'Invite system for adding family members to care circle')
                 ]}
+                colorClass={gradientClasses[2]}
                 delay={0.3}
               />
               
@@ -128,6 +148,7 @@ const FeaturesPage = () => {
                   t('features.shopGateway.benefit3', 'Add-on BBrain services for enhanced functionality'),
                   t('features.shopGateway.benefit4', 'Order tracking and delivery updates')
                 ]}
+                colorClass={gradientClasses[3]}
                 delay={0.4}
               />
               
@@ -142,6 +163,7 @@ const FeaturesPage = () => {
                   t('features.healthView.benefit3', 'Integration with medical devices and wearables'),
                   t('features.healthView.benefit4', 'Customizable health goals and progress tracking')
                 ]}
+                colorClass={gradientClasses[4]}
                 delay={0.5}
               />
               
@@ -156,11 +178,12 @@ const FeaturesPage = () => {
                   t('features.taskMaster.benefit3', 'Streamlined documentation and reporting'),
                   t('features.taskMaster.benefit4', 'Time-saving templates for common care tasks')
                 ]}
+                colorClass={gradientClasses[5]}
                 delay={0.6}
               />
             </div>
             
-            <div className="text-center">
+            <div className="text-center p-8 bg-mcn-blue/5 rounded-xl shadow-sm border border-mcn-blue/10">
               <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">{t('features.cta.title', 'Ready to experience MCN?')}</h2>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/signup" className="primary-button flex items-center justify-center">
