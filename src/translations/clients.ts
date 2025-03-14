@@ -90,4 +90,137 @@ export const clientsTranslations: TranslationSet = {
     en: 'Learn More',
     nl: 'Meer Informatie',
   },
+  // Adding the missing translation keys for ClientExperienceCard
+  'clients.experience.title': {
+    en: 'Daily Client Experience',
+    nl: 'Dagelijkse Cliëntervaring',
+  },
+  'clients.experience.subtitle': {
+    en: 'See how MCN makes daily life easier',
+    nl: 'Zie hoe MCN het dagelijks leven gemakkelijker maakt',
+  },
+  'clients.experience.morning': {
+    en: 'Morning Routine',
+    nl: 'Ochtendroutine',
+  },
+  'clients.experience.morning.description': {
+    en: 'Medication reminders and agenda overview for the day ahead',
+    nl: 'Medicatieherinneringen en agenda-overzicht voor de dag',
+  },
+  'clients.experience.day': {
+    en: 'Daily Safety',
+    nl: 'Dagelijkse Veiligheid',
+  },
+  'clients.experience.day.description': {
+    en: 'Passive monitoring ensures safety while maintaining independence',
+    nl: 'Passieve monitoring zorgt voor veiligheid met behoud van zelfstandigheid',
+  },
+  'clients.experience.connected': {
+    en: 'Always Connected',
+    nl: 'Altijd Verbonden',
+  },
+  'clients.experience.connected.description': {
+    en: 'One-touch video calls to family members and care providers',
+    nl: 'Video-oproepen met één aanraking naar familieleden en zorgverleners',
+  },
+  'clients.experience.health': {
+    en: 'Health Tracking',
+    nl: 'Gezondheidsmonitoring',
+  },
+  'clients.experience.health.description': {
+    en: 'Simple tracking of vital signs and health metrics',
+    nl: 'Eenvoudige tracking van vitale functies en gezondheidsgegevens',
+  },
+  'clients.empowerment.title': {
+    en: 'Empowering Independence',
+    nl: 'Zelfstandigheid Versterken',
+  },
+  'clients.empowerment.description': {
+    en: 'MCN provides tools that help seniors live independently while maintaining connections with loved ones and caregivers.',
+    nl: 'MCN biedt hulpmiddelen die ouderen helpen zelfstandig te leven terwijl ze verbonden blijven met dierbaren en zorgverleners.',
+  },
+  'cta.title': {
+    en: 'Ready to experience MCN?',
+    nl: 'Klaar om MCN te ervaren?',
+  },
+  'cta.signup': {
+    en: 'Sign Up Now',
+    nl: 'Nu Aanmelden',
+  },
+  'cta.contact': {
+    en: 'Contact Us',
+    nl: 'Neem Contact Op',
+  },
+  'pricing.title': {
+    en: 'Simple, Transparent Pricing',
+    nl: 'Eenvoudige, Transparante Prijzen',
+  },
+  'pricing.simple.description': {
+    en: 'Choose the plan that best fits your needs with no hidden fees or long-term contracts.',
+    nl: 'Kies het plan dat het beste bij uw behoeften past zonder verborgen kosten of langlopende contracten.',
+  },
+  'pricing.limit.text': {
+    en: 'Includes all required safety equipment and digital services',
+    nl: 'Inclusief alle benodigde veiligheidsapparatuur en digitale diensten',
+  },
+  'pricing.products.title': {
+    en: 'Included Products',
+    nl: 'Inbegrepen Producten',
+  },
+  'pricing.services.title': {
+    en: 'Included Services',
+    nl: 'Inbegrepen Diensten',
+  },
+  'pricing.choose': {
+    en: 'Choose',
+    nl: 'Kies',
+  },
+  'pricing.popular': {
+    en: 'Most Popular',
+    nl: 'Meest Gekozen',
+  },
+  'pricing.main.title': {
+    en: 'Complete Care',
+    nl: 'Complete Zorg',
+  },
+  'pricing.main.price': {
+    en: '€89',
+    nl: '€89',
+  },
+  'pricing.main.description': {
+    en: 'Our comprehensive package with all safety equipment and services included',
+    nl: 'Ons uitgebreide pakket met alle veiligheidsapparatuur en diensten inbegrepen',
+  },
+  'pricing.family.title': {
+    en: 'Family Connect',
+    nl: 'Familie Verbinding',
+  },
+  'pricing.family.price': {
+    en: '€19',
+    nl: '€19',
+  },
+  'pricing.family.description': {
+    en: 'Stay connected with your loved ones using the MCN family portal',
+    nl: 'Blijf verbonden met uw dierbaren via het MCN familieportaal',
+  },
+  'pricing.family.connect': {
+    en: 'Connect with loved ones via video calls',
+    nl: 'Verbind met dierbaren via videogesprekken',
+  },
+  'pricing.family.monitor': {
+    en: 'Monitor health and activity updates',
+    nl: 'Monitor gezondheids- en activiteitsupdates',
+  },
+  'pricing.family.dashboard': {
+    en: 'Access family dashboard',
+    nl: 'Toegang tot familie dashboard',
+  },
+  'pricing.family.video': {
+    en: 'Unlimited video calls',
+    nl: 'Onbeperkt videobellen',
+  },
+  'pricing.family.emergency': {
+    en: 'Emergency notifications',
+    nl: 'Noodmeldingen',
+  },
 };
