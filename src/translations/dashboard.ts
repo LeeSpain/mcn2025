@@ -82,7 +82,7 @@ export const dashboardTranslations: TranslationSet = {
     en: 'Device troubleshooting and software management',
     nl: 'Probleemoplossing voor apparaten en softwarebeheer',
   },
-  // New technical support tool translations
+  // Technical support tool translations
   'dashboard.technical.tools.deviceTroubleshooting': {
     en: 'Device Troubleshooting',
     nl: 'Apparaat Probleemoplossing',
@@ -147,43 +147,6 @@ export const dashboardTranslations: TranslationSet = {
   'home.weather': {
     en: 'Weather Forecast',
     nl: 'Weersvoorspelling',
-  },
-  // Contact form translations
-  'contact.title': {
-    en: 'Contact Us',
-    nl: 'Neem Contact Op',
-  },
-  'contact.name': {
-    en: 'Your Name',
-    nl: 'Uw Naam',
-  },
-  'contact.email': {
-    en: 'Email Address',
-    nl: 'E-mailadres',
-  },
-  'contact.phone': {
-    en: 'Phone Number',
-    nl: 'Telefoonnummer',
-  },
-  'contact.message': {
-    en: 'Your Message',
-    nl: 'Uw Bericht',
-  },
-  'contact.submit': {
-    en: 'Send Message',
-    nl: 'Bericht Versturen',
-  },
-  'contact.userType': {
-    en: 'I am a',
-    nl: 'Ik ben een',
-  },
-  'contact.client': {
-    en: 'Client',
-    nl: 'Cliënt',
-  },
-  'contact.staff': {
-    en: 'Staff Member',
-    nl: 'Personeelslid',
   },
   // Enterprise section translations
   'enterprise.overview': {

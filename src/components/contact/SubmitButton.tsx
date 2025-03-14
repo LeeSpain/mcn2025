@@ -16,7 +16,7 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, isSubmitted }
     return (
       <Button className="w-full" variant="outline" disabled>
         <CheckCircle className="mr-2 h-4 w-4 text-green-500" />
-        <span className="text-green-600">Sent Successfully</span>
+        <span className="text-green-600">{t('contact.sent', 'Sent Successfully')}</span>
       </Button>
     );
   }
@@ -26,10 +26,10 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ isSubmitting, isSubmitted }
       {isSubmitting ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          <span>Sending...</span>
+          <span>{t('contact.sending', 'Sending...')}</span>
         </>
       ) : (
-        <span>{t('contact.submit')}</span>
+        <span>{t('contact.submit', 'Send Message')}</span>
       )}
     </Button>
   );

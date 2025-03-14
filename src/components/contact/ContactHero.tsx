@@ -17,10 +17,10 @@ const ContactHero: React.FC = () => {
             <div className="chip mx-auto">{t('contact.title')}</div>
           </div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">
-            {t('contact.getInTouch', 'Get in Touch')}
+            {t('contact.getInTouch')}
           </h1>
           <p className="text-xl text-muted-foreground">
-            {t('contact.description', 'Have questions about MCN? We\'re here to help. Reach out to our team and we\'ll get back to you as soon as possible.')}
+            {t('contact.description')}
           </p>
         </div>
       </div>
