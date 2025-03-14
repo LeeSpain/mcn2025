@@ -15,23 +15,23 @@ const PricingSection: React.FC = () => {
     highlightColor: 'border-mcn-blue',
     features: [
       // Products
-      { text: 'BBrain Voice Assistant Device', category: 'product' as const },
-      { text: 'Safety Monitoring Sensors', category: 'product' as const },
-      { text: 'Wearable Health Tracker', category: 'product' as const },
-      { text: 'Emergency Alert Button', category: 'product' as const },
-      { text: 'Smart Medication Dispenser', category: 'product' as const },
-      { text: 'Home Automation Controls', category: 'product' as const },
-      { text: 'Digital Photo Frame', category: 'product' as const },
+      { text: t('BBrain Voice Assistant Device', 'BBrain Voice Assistant Device'), category: 'product' as const },
+      { text: t('Safety Monitoring Sensors', 'Safety Monitoring Sensors'), category: 'product' as const },
+      { text: t('Wearable Health Tracker', 'Wearable Health Tracker'), category: 'product' as const },
+      { text: t('Emergency Alert Button', 'Emergency Alert Button'), category: 'product' as const },
+      { text: t('Smart Medication Dispenser', 'Smart Medication Dispenser'), category: 'product' as const },
+      { text: t('Home Automation Controls', 'Home Automation Controls'), category: 'product' as const },
+      { text: t('Digital Photo Frame', 'Digital Photo Frame'), category: 'product' as const },
       
       // Services
-      { text: 'Care Manager (task tracking)', category: 'service' as const },
-      { text: 'Safety Monitor (advanced)', category: 'service' as const },
-      { text: 'Health View (full integration)', category: 'service' as const },
-      { text: 'Connect Hub (unlimited video calls)', category: 'service' as const },
-      { text: 'BBrain voice integration', category: 'service' as const },
-      { text: 'Provider Connectivity', category: 'service' as const },
-      { text: 'Remote Setup Assistance', category: 'service' as const },
-      { text: '24/7 Technical Support', category: 'service' as const },
+      { text: t('Care Manager (task tracking)', 'Care Manager (task tracking)'), category: 'service' as const },
+      { text: t('Safety Monitor (advanced)', 'Safety Monitor (advanced)'), category: 'service' as const },
+      { text: t('Health View (full integration)', 'Health View (full integration)'), category: 'service' as const },
+      { text: t('Connect Hub (unlimited video calls)', 'Connect Hub (unlimited video calls)'), category: 'service' as const },
+      { text: t('BBrain voice integration', 'BBrain voice integration'), category: 'service' as const },
+      { text: t('Provider Connectivity', 'Provider Connectivity'), category: 'service' as const },
+      { text: t('Remote Setup Assistance', 'Remote Setup Assistance'), category: 'service' as const },
+      { text: t('24/7 Technical Support', '24/7 Technical Support'), category: 'service' as const },
     ]
   };
 
@@ -43,11 +43,11 @@ const PricingSection: React.FC = () => {
     highlightColor: 'border-mcn-blue-dark',
     isFamily: true,
     features: [
-      { text: 'Connect to main member account' },
-      { text: 'Monitor health and activity' },
-      { text: 'Access to family dashboard' },
-      { text: 'Video calling and messaging' },
-      { text: 'Emergency notifications' }
+      { text: t('pricing.family.connect') },
+      { text: t('pricing.family.monitor') },
+      { text: t('pricing.family.dashboard') },
+      { text: t('pricing.family.video') },
+      { text: t('pricing.family.emergency') }
     ]
   };
 
@@ -56,7 +56,7 @@ const PricingSection: React.FC = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl font-display font-bold mb-4">{t('pricing.title')}</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          {t('pricing.description')}
+          {t('pricing.simple.description')}
         </p>
       </div>
       

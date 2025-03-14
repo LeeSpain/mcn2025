@@ -30,7 +30,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   highlightColor = 'border-mcn-blue-light',
   isFamily = false
 }) => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <div className={`glass-card p-8 flex flex-col border-t-4 ${highlightColor} ${isPopular ? 'relative transform scale-105 z-10 shadow-soft-lg' : ''}`}>
@@ -41,7 +41,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
       )}
       
       <h3 className="text-2xl font-display font-semibold mb-2">{title}</h3>
-      <div className="text-3xl font-bold mb-1">{price}<span className="text-lg font-normal text-muted-foreground">/month</span></div>
+      <div className="text-3xl font-bold mb-1">{price}<span className="text-lg font-normal text-muted-foreground">/{language === 'en' ? 'month' : 'maand'}</span></div>
       <p className="text-muted-foreground mb-6">{description}</p>
       
       {!isFamily && (

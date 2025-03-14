@@ -1,28 +1,31 @@
 
 import React from 'react';
 import { Calendar, ShieldCheck, User, Activity } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ClientExperienceCard: React.FC = () => {
+  const { t } = useLanguage();
+  
   const experienceItems = [
     {
       icon: <Calendar size={16} />,
-      title: 'Morning Routine',
-      description: 'Receive gentle reminders about medications and appointments for the day'
+      title: t('clients.experience.morning'),
+      description: t('clients.experience.morning.description')
     },
     {
       icon: <ShieldCheck size={16} />,
-      title: 'Throughout Your Day',
-      description: 'Your activity is monitored in the background, ensuring you\'re safe and active'
+      title: t('clients.experience.day'),
+      description: t('clients.experience.day.description')
     },
     {
       icon: <User size={16} />,
-      title: 'Staying Connected',
-      description: 'Video call family members or message your care team with the tap of a button'
+      title: t('clients.experience.connected'),
+      description: t('clients.experience.connected.description')
     },
     {
       icon: <Activity size={16} />,
-      title: 'Health Tracking',
-      description: 'Record and monitor your health metrics, sharing them with healthcare providers when needed'
+      title: t('clients.experience.health'),
+      description: t('clients.experience.health.description')
     }
   ];
 
@@ -33,8 +36,8 @@ const ClientExperienceCard: React.FC = () => {
         
         <div className="flex flex-col h-full">
           <div className="mb-8">
-            <h3 className="text-2xl font-display font-semibold mb-2">Client Experience</h3>
-            <p className="text-muted-foreground">How MCN works in your daily life</p>
+            <h3 className="text-2xl font-display font-semibold mb-2">{t('clients.experience.title')}</h3>
+            <p className="text-muted-foreground">{t('clients.experience.subtitle')}</p>
           </div>
           
           <div className="space-y-6 flex-grow">

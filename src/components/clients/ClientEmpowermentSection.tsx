@@ -2,20 +2,23 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import ClientExperienceCard from './ClientExperienceCard';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ClientEmpowermentSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const empowermentFeatures = [
     {
-      title: 'Designed for All Comfort Levels',
-      description: 'Whether you\'re tech-savvy or new to digital tools, MCN\'s intuitive interface makes it easy to navigate and use.'
+      title: t('clients.features.comfort'),
+      description: t('clients.features.comfort.description')
     },
     {
-      title: 'No Extra Hardware Required',
-      description: 'Works with your existing devices and can integrate with popular wearables you might already own.'
+      title: t('clients.features.hardware'),
+      description: t('clients.features.hardware.description')
     },
     {
-      title: 'Privacy-Focused Design',
-      description: 'You control what information is shared and with whom, ensuring your privacy is always respected.'
+      title: t('clients.features.privacy'),
+      description: t('clients.features.privacy.description')
     }
   ];
 
@@ -26,9 +29,9 @@ const ClientEmpowermentSection: React.FC = () => {
       </div>
       
       <div className="w-full lg:w-1/2 order-1 lg:order-2 animate-fade-in-up">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight mb-6">How MCN Empowers You</h2>
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight mb-6">{t('clients.empowerment.title')}</h2>
         <p className="text-lg text-muted-foreground mb-8">
-          Our platform is designed to help you maintain your independence while providing peace of mind to you and your loved ones.
+          {t('clients.empowerment.description')}
         </p>
         
         <div className="space-y-4 mb-8">
