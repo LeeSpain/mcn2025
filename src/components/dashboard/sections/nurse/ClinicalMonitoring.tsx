@@ -4,7 +4,7 @@ import {
   Activity, 
   HeartPulse, 
   Thermometer, 
-  Drop, 
+  Droplets, // Changed from Drop to Droplets which is available in lucide
   Dumbbell, 
   Pill, 
   Scale,
@@ -95,7 +95,7 @@ const ClinicalMonitoring: React.FC = () => {
             <span>Vital Signs</span>
           </TabsTrigger>
           <TabsTrigger value="glucose" className="flex items-center gap-1">
-            <Drop className="h-4 w-4" />
+            <Droplets className="h-4 w-4" /> {/* Changed from Drop to Droplets */}
             <span>Blood Glucose</span>
           </TabsTrigger>
           <TabsTrigger value="medications" className="flex items-center gap-1">

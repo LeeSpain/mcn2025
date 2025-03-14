@@ -25,7 +25,7 @@ import {
   AlarmClock,
   AlertTriangle,
   BarChart2,
-  BookOpen
+  BookText,  // Changed from the duplicate BookOpen
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -64,7 +64,7 @@ export const dashboardNavItems = [
   { id: 'care-plans', label: 'Care Plans', icon: Clipboard, isNurse: true },
   { id: 'clinical-monitoring', label: 'Clinical Monitoring', icon: Activity, isNurse: true },
   { id: 'medication-mgmt', label: 'Medication Management', icon: FileText, isNurse: true },
-  { id: 'documentation', label: 'Documentation', icon: BookOpen, isNurse: true },
+  { id: 'documentation', label: 'Documentation', icon: BookText, isNurse: true }, // Changed from the duplicate BookOpen
   { id: 'quality-safety', label: 'Quality & Safety', icon: Shield, isNurse: true },
   { id: 'clinical-resources', label: 'Clinical Resources', icon: BookOpen, isNurse: true },
   { id: 'nurse-analytics', label: 'Analytics', icon: BarChart2, isNurse: true },

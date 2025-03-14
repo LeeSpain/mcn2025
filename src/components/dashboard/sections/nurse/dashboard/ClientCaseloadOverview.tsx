@@ -8,7 +8,7 @@ import {
   AlertCircle, 
   Users,
   HeartPulse,
-  HospitalSquare 
+  Building2, // Changed from HospitalSquare to Building2 which is available in lucide
 } from 'lucide-react';
 
 // Mock data
@@ -109,7 +109,7 @@ const ClientCaseloadOverview: React.FC<ClientCaseloadOverviewProps> = ({ fullVie
                 <p className="text-xs text-gray-500">Recent Discharges</p>
                 <p className="text-xl font-semibold">{clientStats.recentDischarges}</p>
               </div>
-              <HospitalSquare className="h-8 w-8 text-green-600 opacity-70" />
+              <Building2 className="h-8 w-8 text-green-600 opacity-70" /> {/* Changed from HospitalSquare to Building2 */}
             </div>
           </div>
         </div>
