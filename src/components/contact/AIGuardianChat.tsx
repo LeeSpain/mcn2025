@@ -7,7 +7,7 @@ import BackgroundElements from './chat/BackgroundElements';
 
 const AIGuardianChat: React.FC = () => {
   return (
-    <section className="py-16 relative overflow-hidden bg-gradient-to-br from-mcn-blue-light/30 to-white">
+    <section className="py-16 relative overflow-hidden bg-gradient-to-br from-mcn-blue-light/30 via-white/80 to-white">
       <BackgroundElements />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">

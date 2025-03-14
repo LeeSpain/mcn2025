@@ -52,17 +52,17 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-white">
+    <section id="contact" className="relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_0%,rgba(0,119,182,0.05),transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(0,119,182,0.08),transparent_60%)]"></div>
       </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="max-w-3xl mx-auto">
           <div className="animate-fade-in-up">
-            <div className="glass-card shadow-soft-lg rounded-2xl overflow-hidden">
+            <div className="glass-card shadow-lg rounded-2xl overflow-hidden border border-mcn-blue/10 bg-gradient-to-br from-white to-gray-50">
               <div className="p-6 md:p-8">
-                <h3 className="text-2xl font-display font-semibold mb-6">{t('contact.title')}</h3>
+                <h3 className="text-2xl font-display font-semibold mb-6 text-mcn-blue-dark">{t('contact.title')}</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <ContactFormInputs 

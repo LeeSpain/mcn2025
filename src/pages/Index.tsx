@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -12,6 +12,11 @@ import Footer from '@/components/Footer';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const Index = () => {
+  // Ensure scroll to top on initial load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <LanguageProvider>
       <div className="min-h-screen">
