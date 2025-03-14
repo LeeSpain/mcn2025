@@ -1,25 +1,26 @@
+
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import MemberDashboard from './sections/member/MemberDashboard';
+import MemberDashboard from './sections/main/MainDashboard';
 import StaffDashboard from './sections/staff/StaffDashboard';
 import NurseDashboard from './sections/nurse/NurseDashboard';
-import SettingsSection from './sections/SettingsSection';
-import SupportSection from './sections/SupportSection';
+import SettingsSection from './sections/SupportSection';
+import SupportSection from './sections/ChatSection';
 import ChatSection from './sections/ChatSection';
 import ClientManagement from './sections/staff/ClientManagement';
 import HealthMonitoring from './sections/staff/HealthMonitoring';
 import ClientEducation from './sections/staff/ClientEducation';
 import StaffAnalytics from './sections/staff/StaffAnalytics';
 import KnowledgeLibrary from './sections/staff/KnowledgeLibrary';
-import FamilyPortal from './sections/member/FamilyPortal';
-import CareManager from './sections/member/CareManager';
-import HealthView from './sections/member/HealthView';
-import SafetyMonitor from './sections/member/SafetyMonitor';
-import ConnectHub from './sections/member/ConnectHub';
-import ShopGateway from './sections/member/ShopGateway';
-import BBrainAssistant from './sections/member/BBrainAssistant';
-import AccountSettings from './sections/member/AccountSettings';
-import HelpSupport from './sections/member/HelpSupport';
+import FamilyPortal from './sections/FamilyPortal';
+import CareManager from './sections/CareManager';
+import HealthView from './sections/HealthView';
+import SafetyMonitor from './sections/SafetyMonitor';
+import ConnectHub from './sections/ConnectHub';
+import ShopGateway from './sections/ShopGateway';
+import BBrainAssistant from './sections/BbrainAssistant';
+import AccountSettings from './sections/AccountSettings';
+import HelpSupport from './sections/HelpSupport';
 import VisitSchedule from './sections/nurse/VisitSchedule';
 import CarePlans from './sections/nurse/CarePlans';
 import ClinicalMonitoring from './sections/nurse/ClinicalMonitoring';
@@ -32,7 +33,7 @@ import PatientEducation from './sections/nurse/PatientEducation';
 import ClinicalResources from './sections/nurse/ClinicalResources';
 import NurseAnalytics from './sections/nurse/NurseAnalytics';
 
-// Import the new NurseChat component
+// Import the NurseChat component
 import NurseChat from './sections/nurse/NurseChat';
 
 const ClientCaseload = () => (
