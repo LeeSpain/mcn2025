@@ -2,8 +2,10 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
   const heroRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -54,20 +56,22 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="w-full lg:w-1/2 space-y-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <div className="mb-6">
-              <span className="chip">Revolutionizing Home Care</span>
+              <span className="chip">{t('hero.chip', 'Revolutionizing Home Care')}</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight text-balance">
-              Unifying Care for <span className="text-mcn-blue">Independence</span> & <span className="text-mcn-blue">Connection</span>
+              {t('hero.title.part1', 'Unifying Care for ')}
+              <span className="text-mcn-blue">{t('hero.title.part2', 'Independence')}</span> & 
+              <span className="text-mcn-blue">{t('hero.title.part3', 'Connection')}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mt-6 text-balance">
-              MCN combines monitoring, communication, and support in one seamless platform, helping clients live independently while giving caregivers powerful tools to provide better care.
+              {t('hero.description', 'MCN combines monitoring, communication, and support in one seamless platform, helping clients live independently while giving caregivers powerful tools to provide better care.')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link to="/signup" className="primary-button flex items-center justify-center group">
-                Get Started <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {t('hero.cta.getStarted', 'Get Started')} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link to="/#features" className="outline-button flex items-center justify-center">
-                Learn More
+                {t('hero.cta.learnMore', 'Learn More')}
               </Link>
             </div>
           </div>
@@ -88,7 +92,7 @@ const Hero: React.FC = () => {
                       <div className="mt-8 space-y-4">
                         {/* Header with time */}
                         <div className="flex justify-between items-center">
-                          <h3 className="font-medium">Today's Tasks</h3>
+                          <h3 className="font-medium">{t('hero.dashboard.tasks', 'Today\'s Tasks')}</h3>
                           <div className="text-sm text-mcn-gray-dark">9:41 AM</div>
                         </div>
                         
@@ -99,8 +103,8 @@ const Hero: React.FC = () => {
                               <div className="w-3 h-3 rounded-full bg-green-500"></div>
                             </div>
                             <div className="ml-3">
-                              <div className="font-medium">Aspirin</div>
-                              <div className="text-sm text-mcn-gray-dark">8:00 AM - Completed</div>
+                              <div className="font-medium">{t('hero.dashboard.medication', 'Aspirin')}</div>
+                              <div className="text-sm text-mcn-gray-dark">{t('hero.dashboard.completed', '8:00 AM - Completed')}</div>
                             </div>
                           </div>
                           
@@ -109,8 +113,8 @@ const Hero: React.FC = () => {
                               <div className="w-3 h-3 rounded-full bg-mcn-blue"></div>
                             </div>
                             <div className="ml-3">
-                              <div className="font-medium">Blood Pressure Check</div>
-                              <div className="text-sm text-mcn-gray-dark">10:30 AM - Upcoming</div>
+                              <div className="font-medium">{t('hero.dashboard.bloodPressure', 'Blood Pressure Check')}</div>
+                              <div className="text-sm text-mcn-gray-dark">{t('hero.dashboard.upcoming', '10:30 AM - Upcoming')}</div>
                             </div>
                           </div>
                           
@@ -119,8 +123,8 @@ const Hero: React.FC = () => {
                               <div className="w-3 h-3 rounded-full bg-mcn-blue"></div>
                             </div>
                             <div className="ml-3">
-                              <div className="font-medium">Doctor Appointment</div>
-                              <div className="text-sm text-mcn-gray-dark">2:00 PM - Upcoming</div>
+                              <div className="font-medium">{t('hero.dashboard.appointment', 'Doctor Appointment')}</div>
+                              <div className="text-sm text-mcn-gray-dark">{t('hero.dashboard.afternoon', '2:00 PM - Upcoming')}</div>
                             </div>
                           </div>
                         </div>
@@ -130,19 +134,19 @@ const Hero: React.FC = () => {
                           <div className="flex justify-around items-center">
                             <div className="flex flex-col items-center opacity-60">
                               <div className="w-6 h-6 rounded-full bg-mcn-blue mb-1"></div>
-                              <span className="text-xs">Tasks</span>
+                              <span className="text-xs">{t('hero.dashboard.nav.tasks', 'Tasks')}</span>
                             </div>
                             <div className="flex flex-col items-center opacity-40">
                               <div className="w-6 h-6 rounded-full bg-mcn-gray-dark mb-1"></div>
-                              <span className="text-xs">Health</span>
+                              <span className="text-xs">{t('hero.dashboard.nav.health', 'Health')}</span>
                             </div>
                             <div className="flex flex-col items-center opacity-40">
                               <div className="w-6 h-6 rounded-full bg-mcn-gray-dark mb-1"></div>
-                              <span className="text-xs">Connect</span>
+                              <span className="text-xs">{t('hero.dashboard.nav.connect', 'Connect')}</span>
                             </div>
                             <div className="flex flex-col items-center opacity-40">
                               <div className="w-6 h-6 rounded-full bg-mcn-gray-dark mb-1"></div>
-                              <span className="text-xs">Shop</span>
+                              <span className="text-xs">{t('hero.dashboard.nav.shop', 'Shop')}</span>
                             </div>
                           </div>
                         </div>
