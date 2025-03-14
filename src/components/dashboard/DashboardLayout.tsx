@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
@@ -25,7 +24,15 @@ import {
   AlarmClock,
   AlertTriangle,
   BarChart2,
-  BookText,  // Changed from the duplicate BookOpen
+  BookText,
+  Pill,
+  HeartPulse,
+  FileClock,
+  FileCheck,
+  GraduationCap,
+  LineChart,
+  Microscope,
+  Bed
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -63,11 +70,17 @@ export const dashboardNavItems = [
   { id: 'visit-schedule', label: 'Visit Schedule', icon: Calendar, isNurse: true },
   { id: 'care-plans', label: 'Care Plans', icon: Clipboard, isNurse: true },
   { id: 'clinical-monitoring', label: 'Clinical Monitoring', icon: Activity, isNurse: true },
-  { id: 'medication-mgmt', label: 'Medication Management', icon: FileText, isNurse: true },
-  { id: 'documentation', label: 'Documentation', icon: BookText, isNurse: true }, // Changed from the duplicate BookOpen
+  { id: 'medication-mgmt', label: 'Medication Management', icon: Pill, isNurse: true },
+  { id: 'documentation', label: 'Documentation', icon: BookText, isNurse: true },
   { id: 'quality-safety', label: 'Quality & Safety', icon: Shield, isNurse: true },
+  { id: 'vitals', label: 'Vitals Tracking', icon: HeartPulse, isNurse: true },
+  { id: 'lab-results', label: 'Lab Results', icon: Microscope, isNurse: true },
+  { id: 'wound-care', label: 'Wound Care', icon: FileCheck, isNurse: true },
+  { id: 'appointments', label: 'Appointments', icon: FileClock, isNurse: true },
+  { id: 'patient-education', label: 'Patient Education', icon: GraduationCap, isNurse: true },
   { id: 'clinical-resources', label: 'Clinical Resources', icon: BookOpen, isNurse: true },
-  { id: 'nurse-analytics', label: 'Analytics', icon: BarChart2, isNurse: true },
+  { id: 'hospital-admissions', label: 'Hospital Admissions', icon: Bed, isNurse: true },
+  { id: 'nurse-analytics', label: 'Analytics', icon: LineChart, isNurse: true },
 ];
 
 const DashboardLayout: React.FC = () => {
