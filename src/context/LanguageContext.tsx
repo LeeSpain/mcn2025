@@ -5,7 +5,7 @@ import { Language, translations } from '../translations';
 type LanguageContextType = {
   language: Language;
   setLanguage: (language: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, fallback?: string) => string;
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -13,12 +13,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
 
-  const t = (key: string): string => {
+  const t = (key: string, fallback?: string): string => {
     if (translations[key]) {
       return translations[key][language];
     }
     console.warn(`Translation key not found: ${key}`);
-    return key;
+    return fallback || key;
   };
 
   return (
