@@ -9,6 +9,7 @@ import {
   CheckCircle,
   Video
 } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 // Mock data for upcoming remote sessions
 const upcomingVisits = [
@@ -68,19 +69,21 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
     ? upcomingVisits 
     : upcomingVisits.filter(v => !v.isCompleted).slice(0, 3);
   
+  const { t } = useLanguage();
+  
   return (
     <Card>
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-xl">Today's Remote Schedule</CardTitle>
+            <CardTitle className="text-xl">{t('nurse.today.schedule')}</CardTitle>
             <CardDescription>
               {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </CardDescription>
           </div>
           {!fullView && (
             <button className="text-sm text-mcn-blue hover:underline">
-              View full schedule
+              {t('nurse.viewFull.schedule')}
             </button>
           )}
         </div>
@@ -123,17 +126,17 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
                       ? 'bg-gray-100 text-gray-800' 
                       : 'bg-blue-100 text-blue-800'}`}
                   >
-                    {visit.status}
+                    {visit.isCompleted ? t('nurse.visit.completed') : t('nurse.visit.scheduled')}
                   </span>
                 </div>
               </div>
               {!visit.isCompleted && (
                 <div className="mt-3 pt-3 border-t border-gray-100 flex justify-end space-x-2">
                   <button className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded hover:bg-blue-100 transition-colors">
-                    Start {visit.isVideo ? 'Video' : 'Call'}
+                    {t(visit.isVideo ? 'nurse.visit.startVideo' : 'nurse.visit.startCall')}
                   </button>
                   <button className="text-xs bg-gray-50 text-gray-700 px-2 py-1 rounded hover:bg-gray-100 transition-colors">
-                    Reschedule
+                    {t('nurse.visit.reschedule')}
                   </button>
                 </div>
               )}
@@ -144,7 +147,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
             <div className="flex justify-center mt-4">
               <button className="flex items-center gap-2 text-sm text-mcn-blue border border-mcn-blue rounded-md px-4 py-2 hover:bg-mcn-blue/5 transition-colors">
                 <Calendar className="h-4 w-4" />
-                <span>View Weekly Schedule</span>
+                <span>{t('nurse.viewWeekly')}</span>
               </button>
             </div>
           )}
