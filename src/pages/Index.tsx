@@ -9,32 +9,29 @@ import EnterpriseBenefits from '@/components/enterprise/EnterpriseBenefits';
 import EnterpriseDashboard from '@/components/enterprise/EnterpriseDashboard';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
-import { LanguageProvider } from '@/context/LanguageContext';
 
 const Index = () => {
   return (
-    <LanguageProvider>
-      <div className="min-h-screen">
-        <NavBar />
-        <Hero />
-        <Features />
-        <ClientSection />
-        <StaffSection />
-        
-        {/* Enterprise Section */}
-        <section id="enterprise" className="section-padding">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-              <EnterpriseBenefits />
-              <EnterpriseDashboard />
-            </div>
+    <div className="min-h-screen">
+      <NavBar />
+      <Hero />
+      <Features />
+      <ClientSection />
+      <StaffSection />
+      
+      {/* Enterprise Section */}
+      <section id="enterprise" className="section-padding">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+            <EnterpriseBenefits />
+            <EnterpriseDashboard />
           </div>
-        </section>
-        
-        <ContactForm />
-        <Footer />
-      </div>
-    </LanguageProvider>
+        </div>
+      </section>
+      
+      <ContactForm />
+      <Footer />
+    </div>
   );
 };
 
