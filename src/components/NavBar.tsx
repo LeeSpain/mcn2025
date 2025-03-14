@@ -1,22 +1,15 @@
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import { Menu, X, Bolt, LayoutDashboard } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import LanguageSwitcher from './LanguageSwitcher';
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+import { Menu, X } from 'lucide-react';
+import NavbarLogo from './navbar/NavbarLogo';
+import DesktopNavigation from './navbar/DesktopNavigation';
+import DesktopActions from './navbar/DesktopActions';
+import MobileMenu from './navbar/MobileMenu';
 
 const NavBar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,65 +34,13 @@ const NavBar: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link 
-            to="/" 
-            className="flex items-center space-x-2"
-          >
-            <div className="w-8 h-8 rounded-lg bg-mcn-blue flex items-center justify-center">
-              <span className="text-white font-bold text-lg">M</span>
-            </div>
-            <span className="font-display font-bold text-xl">MCN</span>
-          </Link>
+          <NavbarLogo />
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/features" className="text-foreground hover:text-mcn-blue transition-colors">
-              {t('nav.features')}
-            </Link>
-            <Link to="/clients" className="text-foreground hover:text-mcn-blue transition-colors">
-              {t('nav.clients')}
-            </Link>
-            <Link to="/enterprise" className="text-foreground hover:text-mcn-blue transition-colors">
-              {t('nav.enterprise')}
-            </Link>
-            <Link to="/contact" className="text-foreground hover:text-mcn-blue transition-colors">
-              {t('nav.contact')}
-            </Link>
-          </nav>
+          <DesktopNavigation />
 
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageSwitcher />
-            
-            {/* Dashboard Dropdown - Updated to include Nurse Dashboard */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="outline-button flex items-center gap-1.5">
-                  <LayoutDashboard size={16} />
-                  <span>Dashboard</span>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
-            <Link to="/login" className="outline-button">
-              {t('nav.login')}
-            </Link>
-            <Link to="/signup" className="primary-button">
-              {t('nav.signup')}
-            </Link>
-          </div>
+          {/* Desktop Actions */}
+          <DesktopActions />
 
           {/* Mobile Menu Button */}
           <button 
@@ -113,87 +54,7 @@ const NavBar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div 
-        className={cn(
-          "md:hidden fixed inset-0 z-40 bg-white w-full h-screen transition-all duration-300 ease-smooth pt-20",
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-      >
-        <nav className="container mx-auto px-6 py-8 flex flex-col space-y-6">
-          <Link 
-            to="/features" 
-            className="text-xl font-medium border-b border-gray-100 pb-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.features')}
-          </Link>
-          <Link 
-            to="/clients" 
-            className="text-xl font-medium border-b border-gray-100 pb-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.clients')}
-          </Link>
-          <Link 
-            to="/enterprise" 
-            className="text-xl font-medium border-b border-gray-100 pb-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.enterprise')}
-          </Link>
-          <Link 
-            to="/contact" 
-            className="text-xl font-medium border-b border-gray-100 pb-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('nav.contact')}
-          </Link>
-          
-          {/* Dashboard Dropdown in Mobile Menu - Updated to include Nurse Dashboard */}
-          <div className="border-b border-gray-100 pb-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-2 text-xl font-medium">
-                  <LayoutDashboard size={20} />
-                  <span>Dashboard</span>
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer" onClick={() => setIsMenuOpen(false)}>
-                  <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-          
-          <div className="pt-2 pb-4 flex justify-center">
-            <LanguageSwitcher />
-          </div>
-          
-          <div className="pt-2 flex flex-col space-y-4">
-            <Link 
-              to="/login" 
-              className="outline-button text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.login')}
-            </Link>
-            <Link 
-              to="/signup" 
-              className="primary-button text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              {t('nav.signup')}
-            </Link>
-          </div>
-        </nav>
-      </div>
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 };
