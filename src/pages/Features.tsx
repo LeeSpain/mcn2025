@@ -13,6 +13,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -35,9 +36,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, det
     <h3 className="text-xl font-display font-semibold mb-2">{title}</h3>
     <p className="text-muted-foreground mb-4">{description}</p>
     <div className="mt-auto space-y-2">
-      <h4 className="font-medium text-sm text-mcn-blue">Key Benefits:</h4>
+      <h4 className="font-medium text-sm text-mcn-blue">{details[0]}</h4>
       <ul className="space-y-1">
-        {details.map((detail, index) => (
+        {details.slice(1).map((detail, index) => (
           <li key={index} className="flex items-start gap-2 text-sm">
             <div className="mt-1 text-mcn-blue flex-shrink-0">
               <Zap size={14} />
@@ -51,6 +52,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description, det
 );
 
 const FeaturesPage = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       <NavBar />
@@ -63,102 +66,108 @@ const FeaturesPage = () => {
           <div className="container mx-auto px-4 md:px-6 relative z-10">
             <div className="text-center mb-16 max-w-3xl mx-auto">
               <div className="mb-3">
-                <div className="chip mx-auto">MCN Platform</div>
+                <div className="chip mx-auto">{t('features.chip', 'MCN Platform')}</div>
               </div>
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">Complete Care Management Solution</h1>
+              <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">{t('features.title', 'Complete Care Management Solution')}</h1>
               <p className="text-xl text-muted-foreground">
-                MCN brings together essential tools for independent living and efficient care management in a single intuitive platform.
+                {t('features.subtitle', 'MCN brings together essential tools for independent living and efficient care management in a single intuitive platform.')}
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               <FeatureCard 
                 icon={<Calendar size={24} />}
-                title="Care Manager"
-                description="Track medications, appointments, and daily tasks with smart voice reminders through BBrain integration."
+                title={t('features.careManager.title', 'Care Manager')}
+                description={t('features.careManager.description', 'Track medications, appointments, and daily tasks with smart voice reminders through BBrain integration.')}
                 details={[
-                  "Voice-activated reminders for medication and appointments",
-                  "Customizable daily task schedules with priority settings",
-                  "Caregiver sharing for immediate status updates",
-                  "Medication history and compliance tracking"
+                  t('features.careManager.benefits', 'Key Benefits:'),
+                  t('features.careManager.benefit1', 'Voice-activated reminders for medication and appointments'),
+                  t('features.careManager.benefit2', 'Customizable daily task schedules with priority settings'),
+                  t('features.careManager.benefit3', 'Caregiver sharing for immediate status updates'),
+                  t('features.careManager.benefit4', 'Medication history and compliance tracking')
                 ]}
                 delay={0.1}
               />
               
               <FeatureCard 
                 icon={<ShieldCheck size={24} />}
-                title="Safety Monitor"
-                description="Keep track of activity patterns and vitals with automatic alerts for caregivers if abnormal patterns are detected."
+                title={t('features.safetyMonitor.title', 'Safety Monitor')}
+                description={t('features.safetyMonitor.description', 'Keep track of activity patterns and vitals with automatic alerts for caregivers if abnormal patterns are detected.')}
                 details={[
-                  "Automatic detection of unusual activity patterns",
-                  "Integration with popular wearable devices",
-                  "Real-time caregiver alerts for safety concerns",
-                  "Historical activity analysis for trend identification"
+                  t('features.safetyMonitor.benefits', 'Key Benefits:'),
+                  t('features.safetyMonitor.benefit1', 'Automatic detection of unusual activity patterns'),
+                  t('features.safetyMonitor.benefit2', 'Integration with popular wearable devices'),
+                  t('features.safetyMonitor.benefit3', 'Real-time caregiver alerts for safety concerns'),
+                  t('features.safetyMonitor.benefit4', 'Historical activity analysis for trend identification')
                 ]}
                 delay={0.2}
               />
               
               <FeatureCard 
                 icon={<Phone size={24} />}
-                title="Connect Hub"
-                description="Stay connected through high-quality video calls and messaging with family members and care professionals."
+                title={t('features.connectHub.title', 'Connect Hub')}
+                description={t('features.connectHub.description', 'Stay connected through high-quality video calls and messaging with family members and care professionals.')}
                 details={[
-                  "HD video calls with multiple participants",
-                  "Text and voice messaging with read receipts",
-                  "Media sharing for photos and documents",
-                  "Invite system for adding family members to care circle"
+                  t('features.connectHub.benefits', 'Key Benefits:'),
+                  t('features.connectHub.benefit1', 'HD video calls with multiple participants'),
+                  t('features.connectHub.benefit2', 'Text and voice messaging with read receipts'),
+                  t('features.connectHub.benefit3', 'Media sharing for photos and documents'),
+                  t('features.connectHub.benefit4', 'Invite system for adding family members to care circle')
                 ]}
                 delay={0.3}
               />
               
               <FeatureCard 
                 icon={<ShoppingBag size={24} />}
-                title="Shop Gateway"
-                description="Access essential safety equipment and services through an integrated shopping experience with Nettie."
+                title={t('features.shopGateway.title', 'Shop Gateway')}
+                description={t('features.shopGateway.description', 'Access essential safety equipment and services through an integrated shopping experience with Nettie.')}
                 details={[
-                  "Curated safety equipment recommendations",
-                  "Seamless checkout process with saved payment methods",
-                  "Add-on BBrain services for enhanced functionality",
-                  "Order tracking and delivery updates"
+                  t('features.shopGateway.benefits', 'Key Benefits:'),
+                  t('features.shopGateway.benefit1', 'Curated safety equipment recommendations'),
+                  t('features.shopGateway.benefit2', 'Seamless checkout process with saved payment methods'),
+                  t('features.shopGateway.benefit3', 'Add-on BBrain services for enhanced functionality'),
+                  t('features.shopGateway.benefit4', 'Order tracking and delivery updates')
                 ]}
                 delay={0.4}
               />
               
               <FeatureCard 
                 icon={<Activity size={24} />}
-                title="Health View"
-                description="Monitor vital health statistics with beautiful visualizations and easy sharing with healthcare providers."
+                title={t('features.healthView.title', 'Health View')}
+                description={t('features.healthView.description', 'Monitor vital health statistics with beautiful visualizations and easy sharing with healthcare providers.')}
                 details={[
-                  "Visual tracking of key health metrics over time",
-                  "Secure sharing with healthcare providers",
-                  "Integration with medical devices and wearables",
-                  "Customizable health goals and progress tracking"
+                  t('features.healthView.benefits', 'Key Benefits:'),
+                  t('features.healthView.benefit1', 'Visual tracking of key health metrics over time'),
+                  t('features.healthView.benefit2', 'Secure sharing with healthcare providers'),
+                  t('features.healthView.benefit3', 'Integration with medical devices and wearables'),
+                  t('features.healthView.benefit4', 'Customizable health goals and progress tracking')
                 ]}
                 delay={0.5}
               />
               
               <FeatureCard 
                 icon={<ClipboardCheck size={24} />}
-                title="TaskMaster"
-                description="AI-powered smart task prioritization for caregivers to optimize client care and reduce administrative burden."
+                title={t('features.taskMaster.title', 'TaskMaster')}
+                description={t('features.taskMaster.description', 'AI-powered smart task prioritization for caregivers to optimize client care and reduce administrative burden.')}
                 details={[
-                  "AI-driven priority scoring of client tasks",
-                  "Automatic task creation based on client data",
-                  "Streamlined documentation and reporting",
-                  "Time-saving templates for common care tasks"
+                  t('features.taskMaster.benefits', 'Key Benefits:'),
+                  t('features.taskMaster.benefit1', 'AI-driven priority scoring of client tasks'),
+                  t('features.taskMaster.benefit2', 'Automatic task creation based on client data'),
+                  t('features.taskMaster.benefit3', 'Streamlined documentation and reporting'),
+                  t('features.taskMaster.benefit4', 'Time-saving templates for common care tasks')
                 ]}
                 delay={0.6}
               />
             </div>
             
             <div className="text-center">
-              <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">Ready to experience MCN?</h2>
+              <h2 className="text-2xl md:text-3xl font-display font-semibold mb-6">{t('features.cta.title', 'Ready to experience MCN?')}</h2>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/signup" className="primary-button flex items-center justify-center">
-                  Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  {t('features.cta.getStarted', 'Get Started')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
                 <Link to="/contact" className="outline-button flex items-center justify-center">
-                  Contact Sales
+                  {t('features.cta.contact', 'Contact Sales')}
                 </Link>
               </div>
             </div>
