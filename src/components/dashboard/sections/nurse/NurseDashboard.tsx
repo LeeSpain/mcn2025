@@ -12,7 +12,8 @@ import {
   BarChart2,
   AlertTriangle,
   Bell,
-  Heart
+  Heart,
+  Video
 } from 'lucide-react';
 import ClientCaseloadOverview from './dashboard/ClientCaseloadOverview';
 import UpcomingVisits from './dashboard/UpcomingVisits';
@@ -29,7 +30,7 @@ const NurseDashboard: React.FC = () => {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Nurse Dashboard</h1>
           <p className="text-muted-foreground">
-            Welcome, Monique! Manage your client caseload, visits, and clinical interventions
+            Welcome, Monique! Manage your client caseload, remote sessions, and clinical interventions
           </p>
         </div>
         <div className="mt-3 sm:mt-0 flex space-x-2">
@@ -53,8 +54,8 @@ const NurseDashboard: React.FC = () => {
             <span>Client Caseload</span>
           </TabsTrigger>
           <TabsTrigger value="visits" className="flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
-            <span>Today's Visits</span>
+            <Video className="h-4 w-4" />
+            <span>Today's Relex</span>
           </TabsTrigger>
         </TabsList>
 

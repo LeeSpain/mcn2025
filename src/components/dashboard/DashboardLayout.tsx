@@ -31,8 +31,7 @@ import {
   FileCheck,
   GraduationCap,
   LineChart,
-  Microscope,
-  Bed
+  Video
 } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import DashboardHeader from './DashboardHeader';
@@ -67,19 +66,16 @@ export const dashboardNavItems = [
   // Nurse Portal items
   { id: 'nurse-dashboard', label: 'Nurse Dashboard', icon: Stethoscope, isNurse: true },
   { id: 'client-caseload', label: 'Client Caseload', icon: Users, isNurse: true },
-  { id: 'visit-schedule', label: 'Visit Schedule', icon: Calendar, isNurse: true },
+  { id: 'visit-schedule', label: 'Relex Schedule', icon: Video, isNurse: true },
   { id: 'care-plans', label: 'Care Plans', icon: Clipboard, isNurse: true },
   { id: 'clinical-monitoring', label: 'Clinical Monitoring', icon: Activity, isNurse: true },
   { id: 'medication-mgmt', label: 'Medication Management', icon: Pill, isNurse: true },
   { id: 'documentation', label: 'Documentation', icon: BookText, isNurse: true },
   { id: 'quality-safety', label: 'Quality & Safety', icon: Shield, isNurse: true },
   { id: 'vitals', label: 'Vitals Tracking', icon: HeartPulse, isNurse: true },
-  { id: 'lab-results', label: 'Lab Results', icon: Microscope, isNurse: true },
-  { id: 'wound-care', label: 'Wound Care', icon: FileCheck, isNurse: true },
   { id: 'appointments', label: 'Appointments', icon: FileClock, isNurse: true },
   { id: 'patient-education', label: 'Patient Education', icon: GraduationCap, isNurse: true },
   { id: 'clinical-resources', label: 'Clinical Resources', icon: BookOpen, isNurse: true },
-  { id: 'hospital-admissions', label: 'Hospital Admissions', icon: Bed, isNurse: true },
   { id: 'nurse-analytics', label: 'Analytics', icon: LineChart, isNurse: true },
 ];
 

@@ -6,50 +6,55 @@ import {
   MapPin, 
   ChevronRight, 
   Calendar,
-  CheckCircle
+  CheckCircle,
+  Video
 } from 'lucide-react';
 
-// Mock data for upcoming visits
+// Mock data for upcoming remote sessions
 const upcomingVisits = [
   {
     id: 1,
     clientName: 'Jan de Vries',
     time: '10:00 AM',
     duration: '45 min',
-    address: 'Amstelstraat 34, Amsterdam',
+    address: 'Video Session',
     visitType: 'Medication Review',
     status: 'Scheduled',
-    isCompleted: false
+    isCompleted: false,
+    isVideo: true
   },
   {
     id: 2,
     clientName: 'Anna Koster',
     time: '2:00 PM',
     duration: '60 min',
-    address: 'Herengracht 112, Amsterdam',
+    address: 'Phone Call',
     visitType: 'Hospital Discharge Follow-up',
     status: 'Scheduled',
-    isCompleted: false
+    isCompleted: false,
+    isVideo: false
   },
   {
     id: 3,
     clientName: 'Willem Janssen',
     time: '8:30 AM',
     duration: '30 min',
-    address: 'Prinsengracht 55, Amsterdam',
+    address: 'Video Session',
     visitType: 'Vital Signs Check',
     status: 'Completed',
-    isCompleted: true
+    isCompleted: true,
+    isVideo: true
   },
   {
     id: 4,
     clientName: 'Sofia Peters',
     time: '4:30 PM',
     duration: '45 min',
-    address: 'Keizersgracht 231, Amsterdam',
+    address: 'Video Session',
     visitType: 'Wound Care',
     status: 'Scheduled',
-    isCompleted: false
+    isCompleted: false,
+    isVideo: true
   }
 ];
 
@@ -68,7 +73,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-xl">Today's Visit Schedule</CardTitle>
+            <CardTitle className="text-xl">Today's Relex Schedule</CardTitle>
             <CardDescription>
               {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
             </CardDescription>
@@ -98,7 +103,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
                     {visit.isCompleted ? (
                       <CheckCircle className="h-5 w-5" />
                     ) : (
-                      <Clock className="h-5 w-5" />
+                      <Video className="h-5 w-5" />
                     )}
                   </div>
                   <div>
@@ -125,7 +130,7 @@ const UpcomingVisits: React.FC<UpcomingVisitsProps> = ({ fullView = false }) => 
               {!visit.isCompleted && (
                 <div className="mt-3 pt-3 border-t border-gray-100 flex justify-end space-x-2">
                   <button className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded hover:bg-blue-100 transition-colors">
-                    Start Visit
+                    Start {visit.isVideo ? 'Video' : 'Call'}
                   </button>
                   <button className="text-xs bg-gray-50 text-gray-700 px-2 py-1 rounded hover:bg-gray-100 transition-colors">
                     Reschedule
