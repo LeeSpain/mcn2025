@@ -127,7 +127,7 @@ const SolutionsPage: React.FC = () => {
               <div className="bg-white rounded-xl p-8 border border-gray-100">
                 <h3 className="text-xl font-semibold mb-4">{t('solutions.page.experience', 'Consistent Experience')}</h3>
                 <p className="text-muted-foreground">
-                  {t('solutions.page.experienceDescription', 'Clients, caregivers, and administrators enjoy a unified interface that's intuitive and consistent across all services.')}
+                  {t('solutions.page.experienceDescription', 'Clients, caregivers, and administrators enjoy a unified interface that is intuitive and consistent across all services.')}
                 </p>
               </div>
               <div className="bg-white rounded-xl p-8 border border-gray-100">
@@ -145,7 +145,7 @@ const SolutionsPage: React.FC = () => {
           <div className="container mx-auto max-w-5xl text-center">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">{t('solutions.page.transform', 'Ready to Transform Your Healthcare Delivery?')}</h2>
             <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto">
-              {t('solutions.page.transformDescription', 'Contact our team to learn how MCN's integrated solutions can enhance your organization's healthcare services and improve client outcomes.')}
+              {t('solutions.page.transformDescription', 'Contact our team to learn how MCN\'s integrated solutions can enhance your organization\'s healthcare services and improve client outcomes.')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/contact">

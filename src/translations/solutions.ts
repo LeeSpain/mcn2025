@@ -52,7 +52,7 @@ export const solutionsTranslations: TranslationSet = {
     nl: 'Consistente Ervaring'
   },
   'solutions.page.experienceDescription': {
-    en: 'Clients, caregivers, and administrators enjoy a unified interface that's intuitive and consistent across all services.',
+    en: 'Clients, caregivers, and administrators enjoy a unified interface that is intuitive and consistent across all services.',
     nl: 'Cliënten, zorgverleners en beheerders genieten van een uniforme interface die intuïtief en consistent is in alle diensten.'
   },
   'solutions.page.insights': {
@@ -68,7 +68,7 @@ export const solutionsTranslations: TranslationSet = {
     nl: 'Klaar om uw zorgverlening te transformeren?'
   },
   'solutions.page.transformDescription': {
-    en: 'Contact our team to learn how MCN's integrated solutions can enhance your organization's healthcare services and improve client outcomes.',
+    en: 'Contact our team to learn how MCN\'s integrated solutions can enhance your organization\'s healthcare services and improve client outcomes.',
     nl: 'Neem contact op met ons team om te leren hoe de geïntegreerde oplossingen van MCN de gezondheidszorgdiensten van uw organisatie kunnen verbeteren en de resultaten voor cliënten kunnen optimaliseren.'
   },
   'solutions.page.contactUs': {
