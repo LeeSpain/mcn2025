@@ -10,6 +10,7 @@ import StaffingEfficiencySection from '@/components/ai-agents/StaffingEfficiency
 import HowItWorksSection from '@/components/ai-agents/HowItWorksSection';
 import CallRecordingSection from '@/components/ai-agents/CallRecordingSection';
 import CTASection from '@/components/ai-agents/CTASection';
+import MemberDashboardAI from '@/components/ai-agents/MemberDashboardAI';
 
 const AIAgentsPage: React.FC = () => {
   return (
@@ -27,6 +28,9 @@ const AIAgentsPage: React.FC = () => {
 
           {/* AI Call Agents Section with Flow Diagram */}
           <AICallAgentsSection />
+
+          {/* Member Dashboard AI Chat Section - NEW */}
+          <MemberDashboardAI />
 
           {/* Staffing Efficiency Section */}
           <StaffingEfficiencySection />
