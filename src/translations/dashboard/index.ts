@@ -1,5 +1,5 @@
 
-import { TranslationSet } from '../types';
+// Re-export all dashboard translations from their respective files
 import { dashboardNavigationTranslations } from './navigation';
 import { dashboardWelcomeTranslations } from './welcome';
 import { dashboardTasksTranslations } from './tasks';
@@ -10,8 +10,8 @@ import { dashboardStaffTranslations } from './staff';
 import { dashboardTechnicalTranslations } from './technical';
 import { dashboardAnalyticsTranslations } from './analytics';
 
-// Combine all dashboard translations
-export const dashboardTranslations: TranslationSet = {
+// Export all dashboard translations
+export const dashboardTranslations = {
   ...dashboardNavigationTranslations,
   ...dashboardWelcomeTranslations,
   ...dashboardTasksTranslations,
