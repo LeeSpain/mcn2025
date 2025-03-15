@@ -1,44 +1,56 @@
 
-import { TranslationSet } from './types';
-import { navigationTranslations } from './navigation';
-import { clientsTranslations } from './clients';
-import { pricingTranslations } from './pricing';
-import { ctaTranslations } from './cta';
-import { enterpriseTranslations } from './enterprise';
-import { nurseTranslations } from './nurse';
-import { dashboardTranslations } from './dashboard';
-import { staffTranslations } from './staff';
-import { featuresTranslations } from './features';
 import { heroTranslations } from './hero';
-import { patientEducationTranslations } from './patient-education';
-import { authTranslations } from './auth';
+import { navigationTranslations } from './navigation';
+import { featuresTranslations } from './features';
+import { clientsTranslations } from './clients';
+import { staffTranslations } from './staff';
+import { enterpriseTranslations } from './enterprise';
 import { testimonialsTranslations } from './testimonials';
-import { clientPricingTranslations } from './client-pricing';
 import { footerTranslations } from './footer';
+import { ctaTranslations } from './cta';
+import { authTranslations } from './auth';
 import { solutionsTranslations } from './solutions';
-import { blogTranslations } from './blog';
+import { dashboardTranslations } from './dashboard';
 import { companyTranslations } from './company';
+import { clientBenefitsTranslations } from './client-benefits';
+import { clientExperienceTranslations } from './client-experience';
+import { clientPricingTranslations } from './client-pricing';
+import { clientFeaturesTranslations } from './client-features';
+import { clientFamilyTranslations } from './client-family';
+import { clientCtaTranslations } from './client-cta';
+import { clientHeaderTranslations } from './client-header';
+import { pricingTranslations } from './pricing';
+import { blogTranslations } from './blog';
+import { nurseTranslations } from './nurse';
+import { patientEducationTranslations } from './patient-education';
+import { popupTranslations } from './popup';
 
-// Combine all translation sets into one
+import { TranslationSet } from './types';
+
 export const translations: TranslationSet = {
-  ...navigationTranslations,
-  ...clientsTranslations,
-  ...pricingTranslations,
-  ...ctaTranslations,
-  ...enterpriseTranslations,
-  ...nurseTranslations,
-  ...dashboardTranslations,
-  ...staffTranslations,
-  ...featuresTranslations,
   ...heroTranslations,
-  ...patientEducationTranslations,
-  ...authTranslations,
+  ...navigationTranslations,
+  ...featuresTranslations,
+  ...clientsTranslations,
+  ...staffTranslations,
+  ...enterpriseTranslations,
   ...testimonialsTranslations,
-  ...clientPricingTranslations,
   ...footerTranslations,
+  ...ctaTranslations,
+  ...authTranslations,
   ...solutionsTranslations,
-  ...blogTranslations,
+  ...dashboardTranslations,
   ...companyTranslations,
+  ...clientBenefitsTranslations,
+  ...clientExperienceTranslations,
+  ...clientPricingTranslations,
+  ...clientFeaturesTranslations,
+  ...clientFamilyTranslations,
+  ...clientCtaTranslations,
+  ...clientHeaderTranslations,
+  ...pricingTranslations,
+  ...blogTranslations,
+  ...nurseTranslations,
+  ...patientEducationTranslations,
+  ...popupTranslations,
 };
-
-export * from './types';
