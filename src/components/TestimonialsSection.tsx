@@ -12,41 +12,41 @@ import {
 import { useLanguage } from '@/context/LanguageContext';
 import { Quote } from 'lucide-react';
 
-// Testimonial data
+// Testimonial data with translation keys
 const testimonials = [
   {
     id: 1,
-    content: "MCN has completely transformed how I stay connected with my family. The app is so intuitive, even for someone my age who isn't tech-savvy.",
-    author: "Maria van den Berg",
-    role: "Client, 78",
+    contentKey: 'testimonials.1.content',
+    authorKey: 'testimonials.1.author',
+    roleKey: 'testimonials.1.role',
     avatar: "/placeholder.svg"
   },
   {
     id: 2,
-    content: "As a caregiver, MCN has made coordinating care so much easier. I can check in on my clients remotely and prioritize in-person visits based on actual needs.",
-    author: "Thomas Visser",
-    role: "Professional Caregiver",
+    contentKey: 'testimonials.2.content',
+    authorKey: 'testimonials.2.author',
+    roleKey: 'testimonials.2.role',
     avatar: "/placeholder.svg"
   },
   {
     id: 3,
-    content: "The peace of mind this system gives me is priceless. I can see that my mother is active and following her routine, without having to call and potentially disturb her.",
-    author: "Sophia Jansen",
-    role: "Family Member",
+    contentKey: 'testimonials.3.content',
+    authorKey: 'testimonials.3.author',
+    roleKey: 'testimonials.3.role',
     avatar: "/placeholder.svg"
   },
   {
     id: 4,
-    content: "Implementing MCN across our care network has improved efficiency by 35% and significantly increased client satisfaction ratings.",
-    author: "Dr. Hendrik Meyer",
-    role: "Healthcare Director",
+    contentKey: 'testimonials.4.content',
+    authorKey: 'testimonials.4.author',
+    roleKey: 'testimonials.4.role',
     avatar: "/placeholder.svg"
   },
   {
     id: 5,
-    content: "The AI assistant helps me remember my medication schedule and even suggests when I should rest. It feels like having a friendly nurse at home.",
-    author: "Jan de Vries",
-    role: "Client, 82",
+    contentKey: 'testimonials.5.content',
+    authorKey: 'testimonials.5.author',
+    roleKey: 'testimonials.5.role',
     avatar: "/placeholder.svg"
   }
 ];
@@ -86,17 +86,17 @@ const TestimonialsSection: React.FC = () => {
                         <div className="mb-4 text-mcn-blue">
                           <Quote size={28} className="opacity-80" />
                         </div>
-                        <p className="text-foreground mb-6 italic">"{testimonial.content}"</p>
+                        <p className="text-foreground mb-6 italic">"{t(testimonial.contentKey, '')}"</p>
                         <div className="mt-auto flex items-center">
                           <Avatar className="h-10 w-10 border border-gray-200">
-                            <AvatarImage src={testimonial.avatar} alt={testimonial.author} />
+                            <AvatarImage src={testimonial.avatar} alt={t(testimonial.authorKey, '')} />
                             <AvatarFallback className="bg-mcn-blue/10 text-mcn-blue">
-                              {testimonial.author.split(' ').map(name => name[0]).join('')}
+                              {t(testimonial.authorKey, '').split(' ').map(name => name[0]).join('')}
                             </AvatarFallback>
                           </Avatar>
                           <div className="ml-3">
-                            <h5 className="font-medium">{testimonial.author}</h5>
-                            <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                            <h5 className="font-medium">{t(testimonial.authorKey, '')}</h5>
+                            <p className="text-sm text-muted-foreground">{t(testimonial.roleKey, '')}</p>
                           </div>
                         </div>
                       </CardContent>
