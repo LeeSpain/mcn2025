@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Dialog, 
@@ -108,31 +107,6 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
                     <li>Competitive differentiation in an increasingly digital marketplace</li>
                   </ul>
                 </div>
-                
-                <p className="font-semibold text-lg">{t('popup.terms.welcome', 'Welcome to Mobile Care Nexus')}</p>
-                
-                <p>{t('popup.terms.paragraph1', 'These terms and conditions outline the rules and regulations for the use of Mobile Care Nexus\'s Website and Services.')}</p>
-                
-                <p>{t('popup.terms.paragraph2', 'By accessing this website we assume you accept these terms and conditions. Do not continue to use Mobile Care Nexus if you do not agree to take all of the terms and conditions stated on this page.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.terms.section1', 'License to Use')}</h3>
-                <p>{t('popup.terms.section1Text', 'Unless otherwise stated, Mobile Care Nexus and/or its licensors own the intellectual property rights for all material on Mobile Care Nexus. All intellectual property rights are reserved. You may access this from Mobile Care Nexus for your own personal use subjected to restrictions set in these terms and conditions.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.terms.section2', 'Restrictions')}</h3>
-                <p>{t('popup.terms.section2Text', 'You are specifically restricted from all of the following:')}</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>{t('popup.terms.restriction1', 'Publishing any Mobile Care Nexus material in any other media')}</li>
-                  <li>{t('popup.terms.restriction2', 'Selling, sublicensing and/or otherwise commercializing any Mobile Care Nexus material')}</li>
-                  <li>{t('popup.terms.restriction3', 'Publicly performing and/or showing any Mobile Care Nexus material')}</li>
-                  <li>{t('popup.terms.restriction4', 'Using this website in any way that is or may be damaging to this website')}</li>
-                  <li>{t('popup.terms.restriction5', 'Using this website in any way that impacts user access to this website')}</li>
-                </ul>
-                
-                <h3 className="font-semibold mt-4">{t('popup.terms.section3', 'Your Account')}</h3>
-                <p>{t('popup.terms.section3Text', 'If you create an account on the website, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.terms.section4', 'Limitation of Liability')}</h3>
-                <p>{t('popup.terms.section4Text', 'In no event shall Mobile Care Nexus, nor any of its officers, directors and employees, be held liable for anything arising out of or in any way connected with your use of this website.')}</p>
                 
                 <div className="h-20 flex items-end justify-center text-center text-muted-foreground">
                   <p>{t('popup.scrollPrompt', 'Please scroll to the bottom to continue')}</p>
