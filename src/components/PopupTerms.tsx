@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   Dialog, 
@@ -56,8 +57,8 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl font-display">
             {currentPage === 1 
-              ? t('popup.terms.title', 'Terms & Conditions') 
-              : t('popup.privacy.title', 'Privacy Policy')}
+              ? t('popup.terms.title', 'The Future Is Now') 
+              : t('popup.privacy.title', 'Understand The Platform')}
           </DialogTitle>
         </DialogHeader>
         
@@ -173,32 +174,6 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
                   <p className="italic text-center">MCN combines monitoring, communication, and support in one seamless platform, helping clients live independently while giving caregivers powerful tools to provide better care.</p>
                 </div>
                 
-                <p className="font-semibold text-lg">{t('popup.privacy.welcome', 'Privacy Policy')}</p>
-                
-                <p>{t('popup.privacy.paragraph1', 'At Mobile Care Nexus, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Mobile Care Nexus and how we use it.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.privacy.section1', 'Information We Collect')}</h3>
-                <p>{t('popup.privacy.section1Text', 'When you register for an account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.privacy.section2', 'How We Use Your Information')}</h3>
-                <p>{t('popup.privacy.section2Text', 'We use the information we collect in various ways, including to:')}</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>{t('popup.privacy.use1', 'Provide, operate, and maintain our website')}</li>
-                  <li>{t('popup.privacy.use2', 'Improve, personalize, and expand our website')}</li>
-                  <li>{t('popup.privacy.use3', 'Understand and analyze how you use our website')}</li>
-                  <li>{t('popup.privacy.use4', 'Develop new products, services, features, and functionality')}</li>
-                  <li>{t('popup.privacy.use5', 'Communicate with you, either directly or through one of our partners, for customer service, updates and other website related purposes')}</li>
-                </ul>
-                
-                <h3 className="font-semibold mt-4">{t('popup.privacy.section3', 'Log Files')}</h3>
-                <p>{t('popup.privacy.section3Text', 'Mobile Care Nexus follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.privacy.section4', 'Cookies and Web Beacons')}</h3>
-                <p>{t('popup.privacy.section4Text', 'Like any other website, Mobile Care Nexus uses "cookies". These cookies are used to store information including visitors\' preferences, and the pages on the website that the visitor accessed or visited.')}</p>
-                
-                <h3 className="font-semibold mt-4">{t('popup.privacy.section5', 'Children\'s Information')}</h3>
-                <p>{t('popup.privacy.section5Text', 'Mobile Care Nexus does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will promptly remove such information from our records.')}</p>
-                
                 <div className="h-20 flex items-end justify-center text-center text-muted-foreground">
                   <p>{t('popup.scrollPrompt', 'Please scroll to the bottom to continue')}</p>
                 </div>
@@ -214,7 +189,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
             className="w-full sm:w-auto"
           >
             {currentPage === 1 
-              ? t('popup.next', 'Next: Privacy Policy') 
+              ? t('popup.next', 'Next: Understand The Platform') 
               : t('popup.accept', 'I Accept & Continue')}
           </Button>
         </DialogFooter>

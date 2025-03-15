@@ -1,14 +1,13 @@
-
 import { TranslationSet } from './types';
 
 export const popupTranslations: TranslationSet = {
   'popup.terms.title': {
-    en: 'Terms & Conditions',
-    nl: 'Algemene voorwaarden',
+    en: 'The Future Is Now',
+    nl: 'De Toekomst Is Nu',
   },
   'popup.privacy.title': {
-    en: 'Privacy Policy',
-    nl: 'Privacybeleid',
+    en: 'Understand The Platform',
+    nl: 'Begrijp Het Platform',
   },
   'popup.terms.welcome': {
     en: 'Welcome to Mobile Care Nexus',
@@ -147,8 +146,8 @@ export const popupTranslations: TranslationSet = {
     nl: 'Scroll naar beneden om door te gaan',
   },
   'popup.next': {
-    en: 'Next: Privacy Policy',
-    nl: 'Volgende: Privacybeleid',
+    en: 'Next: Understand The Platform',
+    nl: 'Volgende: Begrijp Het Platform',
   },
   'popup.accept': {
     en: 'I Accept & Continue',
