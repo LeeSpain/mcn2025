@@ -17,6 +17,7 @@ import { clientPricingTranslations } from './client-pricing';
 import { footerTranslations } from './footer';
 import { solutionsTranslations } from './solutions';
 import { blogTranslations } from './blog';
+import { companyTranslations } from './company';
 
 // Combine all translation sets into one
 export const translations: TranslationSet = {
@@ -37,6 +38,7 @@ export const translations: TranslationSet = {
   ...footerTranslations,
   ...solutionsTranslations,
   ...blogTranslations,
+  ...companyTranslations,
 };
 
 export * from './types';

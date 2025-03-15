@@ -158,5 +158,47 @@ export const solutionsTranslations: TranslationSet = {
   'shopGateway.feature.subscriptions': {
     en: 'Subscription options for regular supplies',
     nl: 'Abonnementsopties voor regelmatige benodigdheden'
+  },
+  
+  // Footer sections
+  'footer.solutions': {
+    en: 'Solutions',
+    nl: 'Oplossingen'
+  },
+  'footer.solutions.careManager': {
+    en: 'Care Manager',
+    nl: 'Zorgbeheerder'
+  },
+  'footer.solutions.safetyMonitor': {
+    en: 'Safety Monitor',
+    nl: 'Veiligheidsmonitor'
+  },
+  'footer.solutions.connectHub': {
+    en: 'Connect Hub',
+    nl: 'Verbindingshub'
+  },
+  'footer.solutions.shopGateway': {
+    en: 'Shop Gateway',
+    nl: 'Winkelportaal'
+  },
+  'footer.company': {
+    en: 'Company',
+    nl: 'Bedrijf'
+  },
+  'footer.company.about': {
+    en: 'About Us',
+    nl: 'Over Ons'
+  },
+  'footer.company.careers': {
+    en: 'Careers',
+    nl: 'Carrières'
+  },
+  'footer.company.blog': {
+    en: 'Blog',
+    nl: 'Blog'
+  },
+  'footer.company.contact': {
+    en: 'Contact',
+    nl: 'Contact'
   }
 };
