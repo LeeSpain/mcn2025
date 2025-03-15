@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import MemberDashboard from '../dashboard/sections/MainDashboard';
@@ -27,6 +26,7 @@ import ClientCaseload from './sections/nurse/ClientCaseload';
 import MedicationManagement from './sections/nurse/MedicationManagement';
 import DocumentManagement from './sections/nurse/DocumentManagement';
 import QualitySafety from './sections/nurse/QualitySafety';
+import VitalsTracking from './sections/nurse/VitalsTracking';
 
 // Create placeholder components for the missing modules
 const Documentation = () => (
@@ -40,13 +40,6 @@ const QualitySafetyPlaceholder = () => (
   <div>
     <h2>Quality & Safety</h2>
     <p>Monitor quality and safety metrics here.</p>
-  </div>
-);
-
-const VitalsTracking = () => (
-  <div>
-    <h2>Vitals Tracking</h2>
-    <p>Track and monitor patient vitals here.</p>
   </div>
 );
 
