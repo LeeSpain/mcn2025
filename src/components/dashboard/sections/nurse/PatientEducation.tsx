@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -18,10 +19,13 @@ import {
   ArrowUpRight,
   ThumbsUp,
   Award,
-  Bookmark
+  Bookmark,
+  GraduationCap,
+  Lightbulb,
+  Heart
 } from 'lucide-react';
 import {
-  BarChart as RechartsBarChart,
+  BarChart,
   Bar,
   XAxis,
   YAxis,
@@ -30,6 +34,8 @@ import {
   Legend,
   ResponsiveContainer
 } from 'recharts';
+import { toast } from 'sonner';
+import { useLanguage } from '@/context/LanguageContext';
 
 // Sample education materials
 const educationMaterials = [
@@ -157,10 +163,33 @@ const clientHealthTopics = [
   },
 ];
 
+// Sample data for charts
+const topicTrendsData = [
+  { topic: 'Diabetes', count: 4 },
+  { topic: 'Heart Health', count: 3 },
+  { topic: 'Medication', count: 5 },
+  { topic: 'Fall Prevention', count: 2 },
+  { topic: 'Nutrition', count: 3 },
+  { topic: 'Exercise', count: 2 }
+];
+
 const PatientEducation: React.FC = () => {
   const [activeTab, setActiveTab] = useState('library');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const { t } = useLanguage();
+
+  const handleAssignResource = (title: string) => {
+    toast.success(`Resource Assigned: ${title}`, {
+      description: "The resource has been assigned to the client.",
+    });
+  };
+
+  const handleViewResource = (title: string) => {
+    toast.info(`Viewing Resource: ${title}`, {
+      description: "Opening resource viewer...",
+    });
+  };
 
   const getTypeIcon = (type: string) => {
     switch(type) {
@@ -169,7 +198,7 @@ const PatientEducation: React.FC = () => {
       case 'Article':
         return <FileText className="h-5 w-5 text-green-500" />;
       case 'Interactive':
-        return <Users className="h-5 w-5 text-purple-500" />;
+        return <Lightbulb className="h-5 w-5 text-purple-500" />;
       case 'PDF Guide':
         return <BookOpen className="h-5 w-5 text-red-500" />;
       default:
@@ -309,11 +338,21 @@ const PatientEducation: React.FC = () => {
                         <span>Updated: {material.lastUpdated}</span>
                       </div>
                       <div className="flex justify-between mt-2">
-                        <Button variant="outline" size="sm" className="gap-1">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="gap-1"
+                          onClick={() => handleViewResource(material.title)}
+                        >
                           <ArrowUpRight className="h-4 w-4" />
                           View
                         </Button>
-                        <Button variant="outline" size="sm" className="gap-1">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="gap-1"
+                          onClick={() => handleAssignResource(material.title)}
+                        >
                           <Share2 className="h-4 w-4" />
                           Assign
                         </Button>
@@ -683,15 +722,8 @@ const PatientEducation: React.FC = () => {
               <CardContent>
                 <div className="h-[300px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <RechartsBarChart
-                      data={[
-                        { topic: 'Diabetes', count: 4 },
-                        { topic: 'Heart Health', count: 3 },
-                        { topic: 'Medication', count: 5 },
-                        { topic: 'Fall Prevention', count: 2 },
-                        { topic: 'Nutrition', count: 3 },
-                        { topic: 'Exercise', count: 2 }
-                      ]}
+                    <BarChart
+                      data={topicTrendsData}
                       margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
                     >
                       <CartesianGrid strokeDasharray="3 3" />
@@ -699,7 +731,7 @@ const PatientEducation: React.FC = () => {
                       <YAxis />
                       <Tooltip />
                       <Bar dataKey="count" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                    </RechartsBarChart>
+                    </BarChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-2">

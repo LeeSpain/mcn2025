@@ -27,6 +27,7 @@ import {
 } from '@/components/ui/popover';
 import { format, addDays, subDays, startOfWeek, endOfWeek, eachDayOfInterval, isToday, isSameDay } from 'date-fns';
 import { useLanguage } from '@/context/LanguageContext';
+import { toast } from 'sonner';
 
 // Sample appointments data
 const upcomingAppointments = [
@@ -158,6 +159,19 @@ const Appointments: React.FC = () => {
   const nextWeek = () => setWeekStart(addDays(weekStart, 7));
   const currentWeek = () => setWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
 
+  const handleStartAppointment = (appointmentType: string) => {
+    toast.success(`Starting ${appointmentType}`, {
+      description: "Connecting to your appointment...",
+      position: "top-center",
+    });
+  };
+
+  const handleNewAppointment = () => {
+    toast.info("Opening new appointment form", {
+      description: "You can schedule a new appointment here.",
+    });
+  };
+
   // Generate the schedule grid data
   const scheduleGrid = timeSlots.map(time => {
     const row: any = { time };
@@ -221,7 +235,7 @@ const Appointments: React.FC = () => {
             <Filter className="h-4 w-4" />
             Filter
           </Button>
-          <Button size="sm" className="gap-1">
+          <Button size="sm" className="gap-1" onClick={handleNewAppointment}>
             <Plus className="h-4 w-4" />
             New Appointment
           </Button>
@@ -279,6 +293,7 @@ const Appointments: React.FC = () => {
                         size="sm" 
                         className="gap-1"
                         disabled={appointment.status !== 'Confirmed'}
+                        onClick={() => handleStartAppointment(appointment.type)}
                       >
                         {appointment.type === 'Video Call' ? (
                           <>
@@ -298,9 +313,9 @@ const Appointments: React.FC = () => {
                 
                 {getTodaysAppointments().length === 0 && (
                   <div className="text-center p-8 text-gray-500">
-                    <Calendar className="h-12 w-12 mx-auto text-gray-300 mb-2" />
+                    <CalendarIcon className="h-12 w-12 mx-auto text-gray-300 mb-2" />
                     <p>No appointments scheduled for {date ? format(date, 'MMMM d, yyyy') : 'today'}</p>
-                    <Button variant="outline" size="sm" className="mt-4 gap-1">
+                    <Button variant="outline" size="sm" className="mt-4 gap-1" onClick={handleNewAppointment}>
                       <Plus className="h-4 w-4" />
                       Schedule Appointment
                     </Button>
@@ -425,7 +440,11 @@ const Appointments: React.FC = () => {
                         <TableCell>
                           <div className="flex space-x-1">
                             {appointment.status === 'Confirmed' && (
-                              <Button variant="outline" size="sm">
+                              <Button 
+                                variant="outline" 
+                                size="sm"
+                                onClick={() => handleStartAppointment(appointment.type)}
+                              >
                                 {appointment.type === 'Video Call' ? 'Start' : 'Call'}
                               </Button>
                             )}
@@ -585,7 +604,7 @@ const Appointments: React.FC = () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full gap-1">
+              <Button className="w-full gap-1" onClick={handleNewAppointment}>
                 <Plus className="h-4 w-4" />
                 Add Appointment
               </Button>

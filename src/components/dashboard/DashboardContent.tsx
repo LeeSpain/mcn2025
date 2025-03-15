@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import MemberDashboard from '../dashboard/sections/MainDashboard';
@@ -28,6 +29,11 @@ import DocumentManagement from './sections/nurse/DocumentManagement';
 import QualitySafety from './sections/nurse/QualitySafety';
 import VitalsTracking from './sections/nurse/VitalsTracking';
 
+// Import the needed components
+import Appointments from './sections/nurse/Appointments';
+import PatientEducation from './sections/nurse/PatientEducation';
+import ClinicalResources from './sections/nurse/ClinicalResources';
+
 // Create placeholder components for the missing modules
 const Documentation = () => (
   <div>
@@ -40,27 +46,6 @@ const QualitySafetyPlaceholder = () => (
   <div>
     <h2>Quality & Safety</h2>
     <p>Monitor quality and safety metrics here.</p>
-  </div>
-);
-
-const Appointments = () => (
-  <div>
-    <h2>Appointments</h2>
-    <p>Manage appointments here.</p>
-  </div>
-);
-
-const PatientEducation = () => (
-  <div>
-    <h2>Patient Education</h2>
-    <p>Access patient education resources here.</p>
-  </div>
-);
-
-const ClinicalResources = () => (
-  <div>
-    <h2>Clinical Resources</h2>
-    <p>Access clinical resources and references here.</p>
   </div>
 );
 
