@@ -49,7 +49,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-3xl">
         <DialogHeader>
-          <DialogTitle className="text-xl md:text-2xl font-display">
+          <DialogTitle className="text-xl md:text-2xl font-display text-mcn-blue-dark">
             {currentPage === 1 
               ? t('popup.terms.title', 'The Future Is Now') 
               : t('popup.privacy.title', 'Understand The Platform')}
@@ -64,7 +64,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
           <Button 
             onClick={handleNext} 
             disabled={!canProceed}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto bg-mcn-blue hover:bg-mcn-blue-dark text-white"
           >
             {currentPage === 1 
               ? t('popup.next', 'Next: Understand The Platform') 
