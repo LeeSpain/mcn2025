@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
@@ -111,7 +112,7 @@ const DashboardLayout: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col w-full">
+    <div className="flex flex-col min-h-screen bg-gray-50 w-full">
       <DashboardHeader 
         toggleSidebar={toggleSidebar} 
         sidebarOpen={sidebarOpen} 

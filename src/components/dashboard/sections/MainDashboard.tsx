@@ -11,7 +11,7 @@ import WeatherForecast from './main/WeatherForecast';
 
 const MainDashboard: React.FC = () => {
   return (
-    <div className="space-y-6 w-full">
+    <div className="space-y-6 w-full max-w-full">
       {/* Welcome Banner */}
       <WelcomeBanner />
 

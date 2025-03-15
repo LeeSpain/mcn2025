@@ -30,7 +30,7 @@ const StaffDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   
   return (
-    <div className="staff-portal w-full">
+    <div className="staff-portal w-full max-w-full">
       {/* Staff Portal Header */}
       <StaffPortalHeader 
         agentStatus={agentStatus} 
@@ -67,7 +67,7 @@ const StaffDashboard: React.FC = () => {
         </TabsList>
 
         {/* Tab Content - Each content must be inside the Tabs component */}
-        <TabsContent value="dashboard" className="m-0">
+        <TabsContent value="dashboard" className="m-0 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
             {/* Left Column - Agent Workspace */}
             <div className="lg:col-span-3 space-y-6">
@@ -92,33 +92,33 @@ const StaffDashboard: React.FC = () => {
           </div>
         </TabsContent>
         
-        <TabsContent value="clients" className="m-0">
-          <div className="grid grid-cols-1 gap-6">
+        <TabsContent value="clients" className="m-0 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <ClientManagementCard />
           </div>
         </TabsContent>
         
-        <TabsContent value="support" className="m-0">
-          <div className="grid grid-cols-1 gap-6">
+        <TabsContent value="support" className="m-0 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <LiveAssistance />
             <TechnicalSupport />
           </div>
         </TabsContent>
         
-        <TabsContent value="health" className="m-0">
-          <div className="grid grid-cols-1 gap-6">
+        <TabsContent value="health" className="m-0 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <HealthMonitoring />
           </div>
         </TabsContent>
         
-        <TabsContent value="education" className="m-0">
-          <div className="grid grid-cols-1 gap-6">
+        <TabsContent value="education" className="m-0 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <ClientEducation />
           </div>
         </TabsContent>
         
-        <TabsContent value="admin" className="m-0">
-          <div className="grid grid-cols-1 gap-6">
+        <TabsContent value="admin" className="m-0 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <AdminTools />
           </div>
         </TabsContent>
