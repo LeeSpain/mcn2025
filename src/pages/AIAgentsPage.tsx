@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -13,6 +13,11 @@ import CTASection from '@/components/ai-agents/CTASection';
 import MemberDashboardAI from '@/components/ai-agents/MemberDashboardAI';
 
 const AIAgentsPage: React.FC = () => {
+  // Effect to scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <ScrollToTop />
