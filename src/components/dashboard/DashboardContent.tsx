@@ -18,6 +18,7 @@ import SafetyMonitor from './sections/SafetyMonitor';
 import ConnectHub from './sections/ConnectHub';
 import ShopGateway from './sections/ShopGateway';
 import BBrainAssistant from './sections/BbrainAssistant';
+import AIAgentDashboard from './sections/AIAgentDashboard';
 import AccountSettings from './sections/AccountSettings';
 import HelpSupport from './sections/HelpSupport';
 import VisitSchedule from './sections/nurse/VisitSchedule';
@@ -72,6 +73,7 @@ const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }
       {activeSection === 'connect' && <ConnectHub />}
       {activeSection === 'shop' && <ShopGateway />}
       {activeSection === 'bbrain' && <BBrainAssistant />}
+      {activeSection === 'ai-agent' && <AIAgentDashboard />}
       {activeSection === 'account' && <AccountSettings />}
       {activeSection === 'help' && <HelpSupport />}
       {activeSection === 'family' && <FamilyPortal />}
