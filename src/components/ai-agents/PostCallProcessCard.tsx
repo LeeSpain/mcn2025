@@ -14,7 +14,7 @@ const PostCallProcessCard: React.FC<PostCallProcessCardProps> = ({
   description
 }) => {
   return (
-    <div className="bg-indigo-50 p-5 rounded-lg border border-indigo-100">
+    <div className="bg-indigo-50 p-5 rounded-lg border border-indigo-100 h-full">
       <div className="flex items-center mb-3">
         <div className="bg-indigo-100 p-2 rounded-full mr-3">
           <Icon className="h-5 w-5 text-indigo-600" />

@@ -18,7 +18,7 @@ const CallScenarioCard: React.FC<CallScenarioCardProps> = ({
   iconColor
 }) => {
   return (
-    <div className="flex bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+    <div className="flex bg-white p-4 rounded-lg border border-gray-200 shadow-sm h-full">
       <div className="mr-4">
         <div className={`${bgColor} p-2 rounded-full`}>
           <Icon className={`h-5 w-5 ${iconColor}`} />

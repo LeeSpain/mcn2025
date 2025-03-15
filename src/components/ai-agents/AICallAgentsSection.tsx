@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PhoneCall, FileText, BarChart3, ArrowRight, Stethoscope, BadgeCheck, CalendarClock, AlertCircle, UserCog, UserCircle, Heart, MessageSquare, Headphones } from 'lucide-react';
+import { PhoneCall, FileText, BarChart3, ArrowRight, CheckSquare, BadgeCheck, CalendarClock, AlertCircle, UserCog, UserCircle, MessageSquare, Headphones } from 'lucide-react';
 import CallFlowStep from './CallFlowStep';
 import PostCallProcessCard from './PostCallProcessCard';
 import CallScenarioCard from './CallScenarioCard';
@@ -26,9 +26,9 @@ const AICallAgentsSection: React.FC = () => {
             </div>
           </div>
           <div className="md:w-3/5">
-            <h2 className="text-3xl font-bold mb-6 text-indigo-800">AI Call Agents: Revolutionizing Care</h2>
+            <h2 className="text-3xl font-bold mb-6 text-indigo-800">AI Call Agents: Revolutionizing Customer Service</h2>
             <p className="text-gray-700 mb-6">
-              Our AI call agents provide 24/7 support for patients and healthcare providers, handling routine inquiries, appointment scheduling, medication reminders, and emergency triage—all while maintaining the human touch that's essential in healthcare.
+              Our AI call agents provide 24/7 support for your customers, handling routine inquiries, appointment scheduling, order status updates, and technical troubleshooting—all while maintaining the professional touch that's essential for customer satisfaction.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-start space-x-3">
@@ -46,7 +46,7 @@ const AICallAgentsSection: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Analytics</h4>
-                  <p className="text-sm text-gray-600">Gain insights from call patterns to improve care delivery.</p>
+                  <p className="text-sm text-gray-600">Gain insights from call patterns to improve service delivery.</p>
                 </div>
               </div>
             </div>
@@ -65,8 +65,8 @@ const AICallAgentsSection: React.FC = () => {
               <CallFlowStep 
                 stepNumber={1}
                 title="Call Initiation"
-                description="Patient calls in and is greeted by our AI system, which identifies them and accesses their records."
-                example="Hello, thank you for calling MCN Healthcare. May I have your name and date of birth to access your records?"
+                description="Customer calls in and is greeted by our AI system, which identifies them and accesses their account information."
+                example="Hello, thank you for calling MCN Services. May I have your account number or the phone number associated with your account?"
                 icon={PhoneCall}
                 bgColor="bg-blue-50"
                 iconBgColor="bg-blue-100"
@@ -83,10 +83,10 @@ const AICallAgentsSection: React.FC = () => {
               {/* Step 2: Assessment & Routing */}
               <CallFlowStep 
                 stepNumber={2}
-                title="Assessment & Triage"
-                description="AI assistant assesses the patient's needs and determines the appropriate action or service."
-                example="I understand you're experiencing chest pain. I need to ask you some questions to determine the severity..."
-                icon={Stethoscope}
+                title="Issue Identification"
+                description="AI assistant determines the nature of the customer's inquiry and collects the necessary details to assist them."
+                example="I see you're calling about your recent order #12345. How can I help you with this order today?"
+                icon={CheckSquare}
                 bgColor="bg-purple-50"
                 iconBgColor="bg-purple-100"
                 iconColor="text-purple-600"
@@ -103,8 +103,8 @@ const AICallAgentsSection: React.FC = () => {
               <CallFlowStep 
                 stepNumber={3}
                 title="Resolution/Escalation"
-                description="AI either resolves the issue or seamlessly escalates to a human healthcare professional if needed."
-                example="I've scheduled your appointment for Tuesday at 2 PM. Would you like a calendar invitation sent to your email?"
+                description="AI either resolves the issue or seamlessly escalates to a human customer service representative if needed."
+                example="I've updated your shipping address. Your order will now be delivered to 123 Main Street on Friday. Is there anything else I can help with?"
                 icon={BadgeCheck}
                 bgColor="bg-green-50"
                 iconBgColor="bg-green-100"
@@ -122,21 +122,21 @@ const AICallAgentsSection: React.FC = () => {
                 <PostCallProcessCard 
                   icon={FileText}
                   title="Documentation"
-                  description="Call is automatically transcribed, summarized, and added to the patient's electronic health record."
+                  description="Call is automatically transcribed, summarized, and added to the customer's account history for future reference."
                 />
                 
                 {/* Analysis */}
                 <PostCallProcessCard 
                   icon={BarChart3}
                   title="Analysis"
-                  description="AI extracts key data points and patterns to improve service and identify potential health concerns."
+                  description="AI extracts key data points and patterns to improve service and identify potential customer satisfaction issues."
                 />
                 
                 {/* Follow-up */}
                 <PostCallProcessCard 
                   icon={CalendarClock}
                   title="Follow-up"
-                  description="System schedules any necessary follow-ups and sends automated reminders to patients and providers."
+                  description="System schedules any necessary follow-ups and sends automated confirmations to customers and representatives."
                 />
               </div>
             </div>
@@ -149,7 +149,7 @@ const AICallAgentsSection: React.FC = () => {
                 <CallScenarioCard 
                   icon={CalendarClock}
                   title="Appointment Scheduling"
-                  description="The AI agent checks provider availability, patient preferences, and schedules appointments with confirmation."
+                  description="The AI agent checks availability, customer preferences, and schedules appointments with instant confirmation."
                   bgColor="bg-blue-100"
                   iconColor="text-blue-600"
                 />
@@ -157,8 +157,8 @@ const AICallAgentsSection: React.FC = () => {
                 {/* Scenario 2 */}
                 <CallScenarioCard 
                   icon={FileText}
-                  title="Prescription Refills"
-                  description="Verifies patient identity, medication history, and processes refill requests that meet criteria."
+                  title="Order Status Updates"
+                  description="Verifies customer identity, checks order database, and provides accurate shipping and delivery information."
                   bgColor="bg-purple-100"
                   iconColor="text-purple-600"
                 />
@@ -166,8 +166,8 @@ const AICallAgentsSection: React.FC = () => {
                 {/* Scenario 3 */}
                 <CallScenarioCard 
                   icon={AlertCircle}
-                  title="Symptom Assessment"
-                  description="Conducts initial assessment of symptoms and provides guidance or escalates to emergency services if needed."
+                  title="Technical Support"
+                  description="Conducts initial troubleshooting for common issues and provides step-by-step resolution guidance."
                   bgColor="bg-red-100"
                   iconColor="text-red-600"
                 />
@@ -175,8 +175,8 @@ const AICallAgentsSection: React.FC = () => {
                 {/* Scenario 4 */}
                 <CallScenarioCard 
                   icon={UserCog}
-                  title="Insurance Inquiries"
-                  description="Checks coverage details, explains benefits, and answers common insurance-related questions."
+                  title="Account Management"
+                  description="Helps customers update their information, manage preferences, and navigate account settings securely."
                   bgColor="bg-green-100"
                   iconColor="text-green-600"
                 />
@@ -198,11 +198,11 @@ const AICallAgentsSection: React.FC = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="p-2 bg-indigo-800 rounded-full">
-                    <Heart className="h-5 w-5 text-indigo-300" />
+                    <MessageSquare className="h-5 w-5 text-indigo-300" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Emotion Detection</h4>
-                    <p className="text-sm text-indigo-200">Recognizes patient distress signals and adjusts response accordingly.</p>
+                    <h4 className="font-semibold">Sentiment Analysis</h4>
+                    <p className="text-sm text-indigo-200">Recognizes customer satisfaction signals and adjusts response accordingly.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -211,7 +211,7 @@ const AICallAgentsSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold">Natural Language</h4>
-                    <p className="text-sm text-indigo-200">Understands context, medical terminology, and conversational nuances.</p>
+                    <p className="text-sm text-indigo-200">Understands context, industry terminology, and conversational nuances.</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
