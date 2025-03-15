@@ -129,6 +129,26 @@ export const solutionsTranslations: TranslationSet = {
     en: 'Communication platform that connects clients with caregivers, family members, and healthcare providers.',
     nl: 'Communicatieplatform dat cliënten verbindt met zorgverleners, familieleden en zorgaanbieders.'
   },
+  'connectHub.section.title': {
+    en: 'Seamless Communication for Better Care',
+    nl: 'Naadloze Communicatie voor Betere Zorg'
+  },
+  'connectHub.section.description': {
+    en: 'Our Connect Hub solution enables seamless communication between clients, family members, and care providers, ensuring everyone stays informed and connected.',
+    nl: 'Onze Verbindingshub-oplossing maakt naadloze communicatie mogelijk tussen cliënten, familieleden en zorgverleners, zodat iedereen geïnformeerd en verbonden blijft.'
+  },
+  'connectHub.feature.videoCall': {
+    en: 'Secure video calling with family and caregivers',
+    nl: 'Beveiligd videobellen met familie en zorgverleners'
+  },
+  'connectHub.feature.messaging': {
+    en: 'Encrypted messaging for sensitive communications',
+    nl: 'Versleutelde berichten voor gevoelige communicatie'
+  },
+  'connectHub.feature.updates': {
+    en: 'Automated care updates and notifications',
+    nl: 'Geautomatiseerde zorgupdates en meldingen'
+  },
   
   // Shop Gateway page
   'shopGateway.page.title': {

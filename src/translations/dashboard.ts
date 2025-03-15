@@ -1,266 +1,6 @@
-
 import { TranslationSet } from './types';
 
 export const dashboardTranslations: TranslationSet = {
-  'dashboard.analytics.title': {
-    en: 'Analytics',
-    nl: 'Analyses',
-  },
-  'dashboard.analytics.description': {
-    en: 'Track performance metrics and KPIs',
-    nl: 'Volg prestatiemetingen en KPIs',
-  },
-  'dashboard.performance': {
-    en: 'Performance',
-    nl: 'Prestaties',
-  },
-  'dashboard.quality': {
-    en: 'Quality',
-    nl: 'Kwaliteit',
-  },
-  'dashboard.usage': {
-    en: 'Usage',
-    nl: 'Gebruik',
-  },
-  'dashboard.loading': {
-    en: 'Loading data...',
-    nl: 'Gegevens laden...',
-  },
-  'dashboard.technical.title': {
-    en: 'Technical Support Tools',
-    nl: 'Technische Ondersteuningstools',
-  },
-  'dashboard.technical.description': {
-    en: 'Troubleshooting and system diagnostics',
-    nl: 'Probleemoplossing en systeemdiagnostiek',
-  },
-  'dashboard.technical.tools.deviceTroubleshooting': {
-    en: 'Device Troubleshooting',
-    nl: 'Apparaatprobleemoplossing',
-  },
-  'dashboard.technical.tools.deviceDescription': {
-    en: 'Diagnose and fix client device issues',
-    nl: 'Diagnose en fix cliënt apparaatproblemen',
-  },
-  'dashboard.technical.tools.softwareManagement': {
-    en: 'Software Management',
-    nl: 'Softwarebeheer',
-  },
-  'dashboard.technical.tools.softwareDescription': {
-    en: 'Update and manage client software',
-    nl: 'Update en beheer cliëntsoftware',
-  },
-  'dashboard.technical.tools.systemDiagnostics': {
-    en: 'System Diagnostics',
-    nl: 'Systeemdiagnostiek',
-  },
-  'dashboard.technical.tools.diagnosticsDescription': {
-    en: 'Run system checks and generate reports',
-    nl: 'Voer systeemcontroles uit en genereer rapporten',
-  },
-  'dashboard.technical.tools.remoteSupport': {
-    en: 'Remote Support',
-    nl: 'Externe Ondersteuning',
-  },
-  'dashboard.technical.tools.remoteSupportDescription': {
-    en: 'Connect to client devices for remote assistance',
-    nl: 'Verbind met cliëntapparaten voor externe hulp',
-  },
-  'header.staffPortal': {
-    en: 'Customer Service Portal',
-    nl: 'Klantenservice Portaal',
-  },
-  'header.nursePortal': {
-    en: 'Nurse Portal',
-    nl: 'Verpleegkundige Portaal',
-  },
-  'header.memberPortal': {
-    en: 'Member Portal',
-    nl: 'Leden Portaal',
-  },
-  'header.toggleMenu': {
-    en: 'Toggle Menu',
-    nl: 'Menu Schakelen',
-  },
-  'header.notifications': {
-    en: 'Notifications',
-    nl: 'Meldingen',
-  },
-  'header.logout': {
-    en: 'Logout',
-    nl: 'Uitloggen',
-  },
-  'staff.status.available': {
-    en: 'Available',
-    nl: 'Beschikbaar',
-  },
-  'staff.status.busy': {
-    en: 'Busy',
-    nl: 'Bezet',
-  },
-  'staff.status.away': {
-    en: 'Away',
-    nl: 'Afwezig',
-  },
-  'staff.portal.title': {
-    en: 'Customer Service Portal',
-    nl: 'Klantenservice Portaal',
-  },
-  'staff.portal.subtitle': {
-    en: 'Manage client interactions and service requests',
-    nl: 'Beheer cliëntinteracties en serviceverzoeken',
-  },
-  'staff.workSession': {
-    en: 'Work Session',
-    nl: 'Werksessie',
-  },
-  // New dashboard navigation translations
-  'dashboard.nav.home': {
-    en: 'Home Dashboard',
-    nl: 'Home Dashboard',
-  },
-  'dashboard.nav.care': {
-    en: 'Care Manager',
-    nl: 'Zorgmanager',
-  },
-  'dashboard.nav.health': {
-    en: 'Health View',
-    nl: 'Gezondheidsoverzicht',
-  },
-  'dashboard.nav.safety': {
-    en: 'Safety Monitor',
-    nl: 'Veiligheidsmonitor',
-  },
-  'dashboard.nav.connect': {
-    en: 'Connect Hub',
-    nl: 'Verbindingshub',
-  },
-  'dashboard.nav.shop': {
-    en: 'Shop Gateway',
-    nl: 'Winkelportaal',
-  },
-  'dashboard.nav.bbrain': {
-    en: 'BBrain Assistant',
-    nl: 'BBrain Assistent',
-  },
-  'dashboard.nav.account': {
-    en: 'Account Settings',
-    nl: 'Accountinstellingen',
-  },
-  'dashboard.nav.help': {
-    en: 'Help & Support',
-    nl: 'Hulp & Ondersteuning',
-  },
-  'dashboard.nav.family': {
-    en: 'Family Portal',
-    nl: 'Familieportaal',
-  },
-  'dashboard.nav.staff': {
-    en: 'Dashboard',
-    nl: 'Dashboard',
-  },
-  'dashboard.nav.chat': {
-    en: 'Chat',
-    nl: 'Chat',
-  },
-  'dashboard.nav.clients': {
-    en: 'Client Management',
-    nl: 'Cliëntbeheer',
-  },
-  'dashboard.nav.support': {
-    en: 'Support Center',
-    nl: 'Ondersteuningscentrum',
-  },
-  'dashboard.nav.healthMonitoring': {
-    en: 'Health Monitoring',
-    nl: 'Gezondheidsbewaking',
-  },
-  'dashboard.nav.education': {
-    en: 'Client Education',
-    nl: 'Cliënteducatie',
-  },
-  'dashboard.nav.analytics': {
-    en: 'Service Analytics',
-    nl: 'Service-analyses',
-  },
-  'dashboard.nav.knowledge': {
-    en: 'Knowledge Library',
-    nl: 'Kennisbibliotheek',
-  },
-  'dashboard.nav.nurseDashboard': {
-    en: 'Nurse Dashboard',
-    nl: 'Verpleegkundig Dashboard',
-  },
-  'dashboard.nav.clientCaseload': {
-    en: 'Client Caseload',
-    nl: 'Cliëntbelasting',
-  },
-  'dashboard.nav.nurseChat': {
-    en: 'Chat',
-    nl: 'Chat',
-  },
-  'dashboard.nav.visitSchedule': {
-    en: 'Remote Schedule',
-    nl: 'Afstandsplanning',
-  },
-  'dashboard.nav.carePlans': {
-    en: 'Care Plans',
-    nl: 'Zorgplannen',
-  },
-  'dashboard.nav.clinicalMonitoring': {
-    en: 'Clinical Monitoring',
-    nl: 'Klinische Monitoring',
-  },
-  'dashboard.nav.medicationMgmt': {
-    en: 'Medication Management',
-    nl: 'Medicatiebeheer',
-  },
-  'dashboard.nav.documentation': {
-    en: 'Documentation',
-    nl: 'Documentatie',
-  },
-  'dashboard.nav.qualitySafety': {
-    en: 'Quality & Safety',
-    nl: 'Kwaliteit & Veiligheid',
-  },
-  'dashboard.nav.vitals': {
-    en: 'Vitals Tracking',
-    nl: 'Vitale Waarden Bijhouden',
-  },
-  'dashboard.nav.appointments': {
-    en: 'Appointments',
-    nl: 'Afspraken',
-  },
-  'dashboard.nav.patientEducation': {
-    en: 'Patient Education',
-    nl: 'Patiënteducatie',
-  },
-  'dashboard.nav.clinicalResources': {
-    en: 'Clinical Resources',
-    nl: 'Klinische Bronnen',
-  },
-  'dashboard.nav.nurseAnalytics': {
-    en: 'Analytics',
-    nl: 'Analyses',
-  },
-  // Dashboard sidebar translations
-  'dashboard.sidebar.customerServicePortal': {
-    en: 'Customer Service Portal',
-    nl: 'Klantenservice Portaal',
-  },
-  'dashboard.sidebar.nursePortal': {
-    en: 'Nurse Portal',
-    nl: 'Verpleegkundige Portaal',
-  },
-  'dashboard.sidebar.memberPortal': {
-    en: 'Member Portal',
-    nl: 'Leden Portaal',
-  },
-  'dashboard.sidebar.version': {
-    en: 'MCN Healthcare v1.0.2',
-    nl: 'MCN Gezondheidszorg v1.0.2',
-  },
-  // Welcome banner translations
   'dashboard.greeting.morning': {
     en: 'Good Morning',
     nl: 'Goedemorgen',
@@ -301,89 +41,329 @@ export const dashboardTranslations: TranslationSet = {
     en: 'All systems operational',
     nl: 'Alle systemen operationeel',
   },
-  // AI Dashboard translations
-  'dashboard.ai.title': {
-    en: 'AI Agent Dashboard',
-    nl: 'AI Agent Dashboard',
+  'dashboard.tasks.title': {
+    en: 'Today\'s Tasks',
+    nl: 'Taken van Vandaag',
   },
-  'dashboard.ai.subtitle': {
-    en: 'Intelligent assistance for your healthcare needs',
-    nl: 'Intelligente ondersteuning voor uw zorgbehoeften',
+  'dashboard.tasks.upcoming': {
+    en: 'Upcoming',
+    nl: 'Aankomend',
   },
-  'dashboard.ai.chatAssistant.title': {
-    en: 'AI Chat Assistant',
-    nl: 'AI Chat Assistent',
+  'dashboard.tasks.completed': {
+    en: 'Completed',
+    nl: 'Voltooid',
   },
-  'dashboard.ai.chatAssistant.description': {
-    en: 'Get instant answers to your health questions and assistance with daily tasks.',
-    nl: 'Krijg directe antwoorden op uw gezondheidsvragen en hulp bij dagelijkse taken.',
+  'dashboard.tasks.medication': {
+    en: 'Take Medication',
+    nl: 'Neem Medicatie',
   },
-  'dashboard.ai.chatAssistant.button': {
-    en: 'Start Conversation',
+  'dashboard.tasks.exercise': {
+    en: 'Daily Exercise',
+    nl: 'Dagelijkse Beweging',
+  },
+  'dashboard.tasks.appointment': {
+    en: 'Doctor Appointment',
+    nl: 'Doktersafspraak',
+  },
+  'dashboard.tasks.bloodPressure': {
+    en: 'Check Blood Pressure',
+    nl: 'Controleer Bloeddruk',
+  },
+  'dashboard.tasks.markComplete': {
+    en: 'Mark Complete',
+    nl: 'Markeer als Voltooid',
+  },
+  'dashboard.tasks.viewAll': {
+    en: 'View All Tasks',
+    nl: 'Bekijk Alle Taken',
+  },
+  'dashboard.health.title': {
+    en: 'Health Metrics',
+    nl: 'Gezondheidsmetingen',
+  },
+  'dashboard.health.bloodPressure': {
+    en: 'Blood Pressure',
+    nl: 'Bloeddruk',
+  },
+  'dashboard.health.heartRate': {
+    en: 'Heart Rate',
+    nl: 'Hartslag',
+  },
+  'dashboard.health.bloodGlucose': {
+    en: 'Blood Glucose',
+    nl: 'Bloedglucose',
+  },
+  'dashboard.health.weight': {
+    en: 'Weight',
+    nl: 'Gewicht',
+  },
+  'dashboard.health.viewTrends': {
+    en: 'View Trends',
+    nl: 'Bekijk Trends',
+  },
+  'dashboard.health.lastUpdated': {
+    en: 'Last Updated',
+    nl: 'Laatst Bijgewerkt',
+  },
+  'dashboard.health.normal': {
+    en: 'Normal',
+    nl: 'Normaal',
+  },
+  'dashboard.health.elevated': {
+    en: 'Elevated',
+    nl: 'Verhoogd',
+  },
+  'dashboard.health.low': {
+    en: 'Low',
+    nl: 'Laag',
+  },
+  'dashboard.health.high': {
+    en: 'High',
+    nl: 'Hoog',
+  },
+  'dashboard.connect.title': {
+    en: 'Connect',
+    nl: 'Verbinden',
+  },
+  'dashboard.connect.family': {
+    en: 'Family',
+    nl: 'Familie',
+  },
+  'dashboard.connect.careTeam': {
+    en: 'Care Team',
+    nl: 'Zorgteam',
+  },
+  'dashboard.connect.startCall': {
+    en: 'Start Call',
     nl: 'Start Gesprek',
   },
-  'dashboard.ai.companion.title': {
-    en: 'Virtual Health Companion',
-    nl: 'Virtuele Gezondheidscompanion',
+  'dashboard.connect.message': {
+    en: 'Message',
+    nl: 'Bericht',
   },
-  'dashboard.ai.companion.description': {
-    en: 'Your 24/7 companion for medication reminders, wellness tips, and emotional support.',
-    nl: 'Uw 24/7 metgezel voor medicatieherinneringen, wellnesstips en emotionele ondersteuning.',
+  'dashboard.connect.schedule': {
+    en: 'Schedule',
+    nl: 'Plan',
   },
-  'dashboard.ai.companion.button': {
-    en: 'Access Companion',
-    nl: 'Toegang Tot Companion',
+  'dashboard.connect.lastCall': {
+    en: 'Last Call',
+    nl: 'Laatste Gesprek',
   },
-  'dashboard.ai.insights.title': {
-    en: 'Health Insights',
-    nl: 'Gezondheidsinzichten',
+  'dashboard.connect.yesterday': {
+    en: 'Yesterday',
+    nl: 'Gisteren',
   },
-  'dashboard.ai.insights.description': {
-    en: 'AI-powered analysis of your health data with personalized recommendations.',
-    nl: 'AI-gestuurde analyse van uw gezondheidsgegevens met gepersonaliseerde aanbevelingen.',
+  'dashboard.connect.daysAgo': {
+    en: 'days ago',
+    nl: 'dagen geleden',
   },
-  'dashboard.ai.insights.button': {
-    en: 'View Insights',
-    nl: 'Bekijk Inzichten',
+  'dashboard.shop.title': {
+    en: 'Shop',
+    nl: 'Winkel',
   },
-  'dashboard.ai.recentInteractions': {
-    en: 'Recent AI Interactions',
-    nl: 'Recente AI-interacties',
+  'dashboard.shop.recommended': {
+    en: 'Recommended for You',
+    nl: 'Aanbevolen voor Jou',
   },
-  'dashboard.ai.interaction.medication': {
-    en: 'Medication Reminder',
-    nl: 'Medicatieherinnering',
+  'dashboard.shop.viewAll': {
+    en: 'View All Products',
+    nl: 'Bekijk Alle Producten',
   },
-  'dashboard.ai.interaction.today': {
-    en: 'Today, 9:30 AM',
-    nl: 'Vandaag, 9:30',
+  'dashboard.shop.addToCart': {
+    en: 'Add to Cart',
+    nl: 'Toevoegen aan Winkelwagen',
   },
-  'dashboard.ai.interaction.medicationMessage': {
-    en: '"Remember to take your morning medication with breakfast"',
-    nl: '"Vergeet niet uw ochtendemedicatie met ontbijt in te nemen"',
+  'dashboard.shop.subscribe': {
+    en: 'Subscribe',
+    nl: 'Abonneren',
   },
-  'dashboard.ai.interaction.health': {
-    en: 'Health Query',
-    nl: 'Gezondheidsvraag',
+  'dashboard.shop.price': {
+    en: 'Price',
+    nl: 'Prijs',
   },
-  'dashboard.ai.interaction.yesterday': {
-    en: 'Yesterday, 2:15 PM',
-    nl: 'Gisteren, 14:15',
+  'dashboard.shop.monthly': {
+    en: 'monthly',
+    nl: 'maandelijks',
   },
-  'dashboard.ai.interaction.healthMessage': {
-    en: '"Based on your symptoms, I recommend resting and increasing your fluid intake"',
-    nl: '"Op basis van uw symptomen raad ik aan om te rusten en meer vocht in te nemen"',
+  'dashboard.shop.oneTime': {
+    en: 'one-time',
+    nl: 'eenmalig',
   },
-  'dashboard.ai.interaction.wellness': {
-    en: 'Wellness Tip',
-    nl: 'Wellnesstip',
+  'dashboard.staff.title': {
+    en: 'Staff Dashboard',
+    nl: 'Personeelsdashboard',
   },
-  'dashboard.ai.interaction.yesterdayMorning': {
-    en: 'Yesterday, 10:00 AM',
-    nl: 'Gisteren, 10:00',
+  'dashboard.staff.clients': {
+    en: 'Clients',
+    nl: 'Cliënten',
   },
-  'dashboard.ai.interaction.wellnessMessage': {
-    en: '"Consider a 10-minute breathing exercise to help reduce your stress levels"',
-    nl: '"Overweeg een 10-minuten ademhalingsoefening om uw stressniveau te verlagen"',
+  'dashboard.staff.schedule': {
+    en: 'Schedule',
+    nl: 'Planning',
+  },
+  'dashboard.staff.reports': {
+    en: 'Reports',
+    nl: 'Rapporten',
+  },
+  'dashboard.staff.support': {
+    en: 'Support',
+    nl: 'Ondersteuning',
+  },
+  'dashboard.staff.clientList': {
+    en: 'Client List',
+    nl: 'Cliëntenlijst',
+  },
+  'dashboard.staff.search': {
+    en: 'Search clients...',
+    nl: 'Zoek cliënten...',
+  },
+  'dashboard.staff.status': {
+    en: 'Status',
+    nl: 'Status',
+  },
+  'dashboard.staff.lastContact': {
+    en: 'Last Contact',
+    nl: 'Laatste Contact',
+  },
+  'dashboard.staff.alerts': {
+    en: 'Alerts',
+    nl: 'Waarschuwingen',
+  },
+  'dashboard.staff.actions': {
+    en: 'Actions',
+    nl: 'Acties',
+  },
+  'dashboard.staff.viewProfile': {
+    en: 'View Profile',
+    nl: 'Bekijk Profiel',
+  },
+  'dashboard.staff.contact': {
+    en: 'Contact',
+    nl: 'Contact',
+  },
+  'dashboard.staff.stable': {
+    en: 'Stable',
+    nl: 'Stabiel',
+  },
+  'dashboard.staff.needsAttention': {
+    en: 'Needs Attention',
+    nl: 'Heeft Aandacht Nodig',
+  },
+  'dashboard.staff.critical': {
+    en: 'Critical',
+    nl: 'Kritiek',
+  },
+  'dashboard.staff.todayVisits': {
+    en: 'Today\'s Visits',
+    nl: 'Bezoeken Vandaag',
+  },
+  'dashboard.staff.upcoming': {
+    en: 'Upcoming',
+    nl: 'Aankomend',
+  },
+  'dashboard.staff.completed': {
+    en: 'Completed',
+    nl: 'Voltooid',
+  },
+  'dashboard.staff.time': {
+    en: 'Time',
+    nl: 'Tijd',
+  },
+  'dashboard.staff.client': {
+    en: 'Client',
+    nl: 'Cliënt',
+  },
+  'dashboard.staff.type': {
+    en: 'Type',
+    nl: 'Type',
+  },
+  'dashboard.staff.inPerson': {
+    en: 'In-Person',
+    nl: 'Persoonlijk',
+  },
+  'dashboard.staff.remote': {
+    en: 'Remote',
+    nl: 'Op Afstand',
+  },
+  'dashboard.staff.startVisit': {
+    en: 'Start Visit',
+    nl: 'Start Bezoek',
+  },
+  'dashboard.staff.reschedule': {
+    en: 'Reschedule',
+    nl: 'Herplannen',
+  },
+  'dashboard.staff.alertsTitle': {
+    en: 'Recent Alerts',
+    nl: 'Recente Waarschuwingen',
+  },
+  'dashboard.staff.viewAll': {
+    en: 'View All',
+    nl: 'Bekijk Alles',
+  },
+  'dashboard.staff.priority': {
+    en: 'Priority',
+    nl: 'Prioriteit',
+  },
+  'dashboard.staff.high': {
+    en: 'High',
+    nl: 'Hoog',
+  },
+  'dashboard.staff.medium': {
+    en: 'Medium',
+    nl: 'Gemiddeld',
+  },
+  'dashboard.staff.low': {
+    en: 'Low',
+    nl: 'Laag',
+  },
+  'dashboard.staff.resolve': {
+    en: 'Resolve',
+    nl: 'Oplossen',
+  },
+  'dashboard.staff.assign': {
+    en: 'Assign',
+    nl: 'Toewijzen',
+  },
+  // Technical support section translations
+  'dashboard.technical.title': {
+    en: 'Technical Support Tools',
+    nl: 'Technische Ondersteuningstools'
+  },
+  'dashboard.technical.description': {
+    en: 'Access tools to troubleshoot and manage technical aspects of the platform',
+    nl: 'Toegang tot tools om technische aspecten van het platform op te lossen en te beheren'
+  },
+  'dashboard.technical.tools.deviceTroubleshooting': {
+    en: 'Device Troubleshooting',
+    nl: 'Apparaat Probleemoplossing'
+  },
+  'dashboard.technical.tools.deviceDescription': {
+    en: 'Diagnose and fix issues with connected devices',
+    nl: 'Diagnosticeer en los problemen op met verbonden apparaten'
+  },
+  'dashboard.technical.tools.softwareManagement': {
+    en: 'Software Management',
+    nl: 'Softwarebeheer'
+  },
+  'dashboard.technical.tools.softwareDescription': {
+    en: 'Update and manage software versions',
+    nl: 'Update en beheer softwareversies'
+  },
+  'dashboard.technical.tools.systemDiagnostics': {
+    en: 'System Diagnostics',
+    nl: 'Systeemdiagnose'
+  },
+  'dashboard.technical.tools.diagnosticsDescription': {
+    en: 'Run comprehensive system checks',
+    nl: 'Voer uitgebreide systeemcontroles uit'
+  },
+  'dashboard.technical.tools.remoteSupport': {
+    en: 'Remote Support',
+    nl: 'Ondersteuning op Afstand'
+  },
+  'dashboard.technical.tools.remoteSupportDescription': {
+    en: 'Connect with technical support team',
+    nl: 'Maak verbinding met het technische ondersteuningsteam'
   }
 };
