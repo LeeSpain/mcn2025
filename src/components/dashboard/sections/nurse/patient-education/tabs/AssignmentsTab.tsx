@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CheckCircle, Search, Plus, Award, Clock } from 'lucide-react';
+import { CheckCircle, Search, Plus, Award, Clock, LucideIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -170,7 +170,8 @@ const AssignmentsTab: React.FC = () => {
   );
 };
 
-// Export tab icon component for use in tab headers
-AssignmentsTab.Icon = () => <CheckCircle className="h-4 w-4" />;
+// Properly define the Icon property with a type
+AssignmentsTab.Icon = CheckCircle as LucideIcon;
 
 export default AssignmentsTab;
+

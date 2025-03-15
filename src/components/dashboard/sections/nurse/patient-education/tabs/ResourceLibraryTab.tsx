@@ -1,11 +1,34 @@
 
 import React, { useState } from 'react';
-import { BookOpen, Search, Plus, Download, ThumbsUp } from 'lucide-react';
+import { BookOpen, Search, Plus, Download, ThumbsUp, LucideIcon } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import ResourcesGrid from '../components/ResourceCard';
+import ResourceCard from '../components/ResourceCard';
 import { educationMaterials } from '../utils/data';
 import { getTypeIcon } from '../utils/helpers';
+import { EducationMaterial } from '../utils/types';
+
+// Fix the ResourcesGrid import and create an interface for it
+interface ResourcesGridProps {
+  materials: EducationMaterial[];
+}
+
+const ResourcesGrid: React.FC<ResourcesGridProps> = ({ materials }) => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {materials.map(material => (
+        <ResourceCard key={material.id} material={material} />
+      ))}
+
+      {materials.length === 0 && (
+        <div className="col-span-full text-center p-8 text-gray-500">
+          <BookOpen className="h-12 w-12 mx-auto text-gray-300 mb-2" />
+          <p>No resources found matching your search criteria</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const ResourceLibraryTab: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -132,7 +155,8 @@ const ResourceLibraryTab: React.FC = () => {
   );
 };
 
-// Export tab icon component for use in tab headers
-ResourceLibraryTab.Icon = () => <BookOpen className="h-4 w-4" />;
+// Properly define the Icon property with a type
+ResourceLibraryTab.Icon = BookOpen as LucideIcon;
 
 export default ResourceLibraryTab;
+

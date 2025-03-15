@@ -67,3 +67,4 @@ const PatientEducation: React.FC = () => {
 };
 
 export default PatientEducation;
+
