@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -22,7 +21,7 @@ import {
   Droplets, 
   Thermometer, 
   Dumbbell, 
-  Lungs, 
+  Lung, 
   Activity, 
   Scale,
   ArrowUp,
@@ -139,7 +138,7 @@ const VitalsTracking: React.FC = () => {
         
         <Card className="bg-white">
           <CardContent className="p-4 flex flex-col items-center justify-center">
-            <Lungs className="h-8 w-8 text-purple-500 mb-2" />
+            <Lung className="h-8 w-8 text-purple-500 mb-2" />
             <div className="text-sm text-gray-500">Oxygen Saturation</div>
             <div className="text-2xl font-bold">98%</div>
             <div className="text-xs text-green-600 flex items-center">

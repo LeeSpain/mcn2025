@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,6 +20,16 @@ import {
   Award,
   Bookmark
 } from 'lucide-react';
+import {
+  BarChart as RechartsBarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from 'recharts';
 
 // Sample education materials
 const educationMaterials = [
@@ -674,7 +683,7 @@ const PatientEducation: React.FC = () => {
               <CardContent>
                 <div className="h-[300px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
+                    <RechartsBarChart
                       data={[
                         { topic: 'Diabetes', count: 4 },
                         { topic: 'Heart Health', count: 3 },
@@ -690,7 +699,7 @@ const PatientEducation: React.FC = () => {
                       <YAxis />
                       <Tooltip />
                       <Bar dataKey="count" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                    </BarChart>
+                    </RechartsBarChart>
                   </ResponsiveContainer>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-2">
