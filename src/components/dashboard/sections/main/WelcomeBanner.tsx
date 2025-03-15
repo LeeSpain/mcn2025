@@ -11,7 +11,7 @@ const WelcomeBanner: React.FC = () => {
   const isNurseDashboard = location.hash === '#nurse-dashboard' || location.hash.includes('nurse');
   
   // Set the name based on the dashboard type
-  let userName = 'Sarah'; // Default for member dashboard
+  let userName = 'Anna'; // Changed from Sarah to Anna for member dashboard
   if (isStaffDashboard) {
     userName = 'Daisy';
   } else if (isNurseDashboard) {

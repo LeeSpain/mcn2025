@@ -1,10 +1,9 @@
-
 import { TranslationSet } from './types';
 
 export const dashboardTranslations: TranslationSet = {
   'header.staffPortal': {
-    en: 'Staff Portal',
-    nl: 'Personeelsportaal',
+    en: 'Customer Service Portal',
+    nl: 'Klantenserviceportaal',
   },
   'header.nursePortal': {
     en: 'Nurse Portal',
@@ -27,8 +26,8 @@ export const dashboardTranslations: TranslationSet = {
     nl: 'Uitloggen',
   },
   'staff.portal.title': {
-    en: 'MCN Staff Portal',
-    nl: 'MCN Personeelsportaal',
+    en: 'MCN Customer Service Portal',
+    nl: 'MCN Klantenserviceportaal',
   },
   'staff.portal.subtitle': {
     en: 'Manage clients, support, and admin tasks',
@@ -163,8 +162,8 @@ export const dashboardTranslations: TranslationSet = {
   },
   // Staff section translations
   'staff.dashboard': {
-    en: 'Staff Dashboard',
-    nl: 'Personeelsdashboard',
+    en: 'Customer Service Dashboard',
+    nl: 'Klantenservicedashboard',
   },
   'staff.clients': {
     en: 'Client Management',

@@ -16,7 +16,7 @@ const StaffSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="mb-3">
-            <div className="chip mx-auto">{t('staff.header.chip', 'For Staff')}</div>
+            <div className="chip mx-auto">{t('staff.header.chip', 'For Customer Service')}</div>
           </div>
           <h2 className="section-title">{t('staff.header.title', 'Streamline Care Management')}</h2>
           <p className="section-subtitle">

@@ -53,7 +53,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           {/* Portal Label */}
           {isOpen && (
             <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              {isStaffPortal ? 'Staff Portal' : isNursePortal ? 'Nurse Portal' : 'Member Portal'}
+              {isStaffPortal ? 'Customer Service Portal' : isNursePortal ? 'Nurse Portal' : 'Member Portal'}
             </div>
           )}
           

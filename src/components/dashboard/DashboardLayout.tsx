@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
@@ -53,14 +54,14 @@ export const dashboardNavItems = [
   { id: 'help', label: 'Help & Support', icon: HelpCircle, isMember: true },
   { id: 'family', label: 'Family Portal', icon: UsersRound, isMember: true },
   
-  // Staff Portal items
+  // Customer Service Portal items (renamed from Staff Portal)
   { id: 'staff', label: 'Dashboard', icon: LayoutDashboard, isStaff: true },
   { id: 'chat', label: 'Chat', icon: MessageCircle, isStaff: true },
   { id: 'clients', label: 'Client Management', icon: Users, isStaff: true },
   { id: 'support', label: 'Support Center', icon: MessageSquare, isStaff: true },
   { id: 'health-monitoring', label: 'Health Monitoring', icon: Heart, isStaff: true },
   { id: 'education', label: 'Client Education', icon: BookOpen, isStaff: true },
-  { id: 'analytics', label: 'Staff Analytics', icon: BarChart, isStaff: true },
+  { id: 'analytics', label: 'Service Analytics', icon: BarChart, isStaff: true },
   { id: 'knowledge', label: 'Knowledge Library', icon: FileText, isStaff: true },
   
   // Nurse Portal items

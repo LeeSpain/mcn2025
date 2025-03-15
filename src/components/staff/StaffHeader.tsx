@@ -8,7 +8,7 @@ const StaffHeader: React.FC = () => {
   return (
     <div className="text-center mb-16 max-w-3xl mx-auto">
       <div className="mb-3">
-        <div className="chip mx-auto">For Staff</div>
+        <div className="chip mx-auto">For Customer Service</div>
       </div>
       <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground tracking-tight mb-6">
         MCN Call Center & Customer Service Dashboard
@@ -19,7 +19,7 @@ const StaffHeader: React.FC = () => {
       </p>
       <Link to="/dashboard/staff">
         <Button className="primary-button">
-          Access Staff Dashboard <ArrowRight className="ml-2 h-4 w-4" />
+          Access Customer Service Dashboard <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
       </Link>
     </div>

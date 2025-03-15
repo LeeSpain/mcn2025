@@ -63,7 +63,7 @@ const StaffPage = () => {
                 
                 <div className="mt-8">
                   <Link to="/staff-demo" className="primary-button inline-flex items-center">
-                    See Staff Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
+                    See Customer Service Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
               </div>

@@ -2,12 +2,15 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Filter, Plus } from 'lucide-react';
+import { Filter, Plus, LucideIcon } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 import ResourceLibraryTab from './tabs/ResourceLibraryTab';
 import AssignmentsTab from './tabs/AssignmentsTab';
 import ClientTopicsTab from './tabs/ClientTopicsTab';
+
+// Import the icon components directly
+import { BookOpen, CheckCircle, Users } from 'lucide-react';
 
 const PatientEducation: React.FC = () => {
   const [activeTab, setActiveTab] = useState('library');
@@ -37,15 +40,15 @@ const PatientEducation: React.FC = () => {
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="mb-4">
           <TabsTrigger value="library" className="flex items-center gap-1">
-            <ResourceLibraryTab.Icon />
+            <BookOpen className="h-4 w-4" />
             Resource Library
           </TabsTrigger>
           <TabsTrigger value="assignments" className="flex items-center gap-1">
-            <AssignmentsTab.Icon />
+            <CheckCircle className="h-4 w-4" />
             Assignments
           </TabsTrigger>
           <TabsTrigger value="clients" className="flex items-center gap-1">
-            <ClientTopicsTab.Icon />
+            <Users className="h-4 w-4" />
             Client Topics
           </TabsTrigger>
         </TabsList>
@@ -67,4 +70,3 @@ const PatientEducation: React.FC = () => {
 };
 
 export default PatientEducation;
-

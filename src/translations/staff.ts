@@ -3,8 +3,8 @@ import { TranslationSet } from './types';
 
 export const staffTranslations: TranslationSet = {
   'staff.header.chip': {
-    en: 'For Staff',
-    nl: 'Voor Personeel',
+    en: 'For Customer Service',
+    nl: 'Voor Klantenservice',
   },
   'staff.header.title': {
     en: 'Streamline Care Management',
