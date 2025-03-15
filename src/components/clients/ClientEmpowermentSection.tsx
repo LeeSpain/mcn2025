@@ -9,15 +9,15 @@ const ClientEmpowermentSection: React.FC = () => {
   
   const empowermentFeatures = [
     {
-      title: t('clients.features.comfort'),
+      title: t('clients.features.comfort.title'),
       description: t('clients.features.comfort.description')
     },
     {
-      title: t('clients.features.hardware'),
+      title: t('clients.features.hardware.title'),
       description: t('clients.features.hardware.description')
     },
     {
-      title: t('clients.features.privacy'),
+      title: t('clients.features.privacy.title'),
       description: t('clients.features.privacy.description')
     }
   ];
