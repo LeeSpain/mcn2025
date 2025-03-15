@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -40,16 +39,22 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   html {
     @apply scroll-smooth selection:bg-mcn-blue selection:text-white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    max-width: 100%;
   }
 
   body {
-    @apply bg-background text-foreground font-sans overflow-x-hidden;
+    @apply bg-background text-foreground font-sans;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* Custom scrollbar */

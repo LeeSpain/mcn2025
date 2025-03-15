@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import MemberDashboard from '../dashboard/sections/MainDashboard';
@@ -95,7 +94,7 @@ const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }
   const { t } = useLanguage();
 
   return (
-    <div className="w-full max-w-full">
+    <div className="w-full">
       {/* Member Portal Sections */}
       {activeSection === 'home' && <MemberDashboard />}
       {activeSection === 'care' && <CareManager />}

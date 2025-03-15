@@ -23,7 +23,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       return (
         <div
           className={cn(
-            "flex h-full flex-col bg-sidebar text-sidebar-foreground w-full max-w-full",
+            "flex h-full flex-col bg-sidebar text-sidebar-foreground",
             className
           )}
           ref={ref}
@@ -48,7 +48,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
             }
             side={side}
           >
-            <div className="flex h-full w-full flex-col">{children}</div>
+            <div className="flex h-full flex-col">{children}</div>
           </SheetContent>
         </Sheet>
       )

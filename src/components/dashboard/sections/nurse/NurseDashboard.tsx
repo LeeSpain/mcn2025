@@ -25,7 +25,7 @@ const NurseDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="nurse-dashboard space-y-6 w-full max-w-full">
+    <div className="nurse-dashboard space-y-6 w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Nurse Dashboard</h1>
@@ -43,7 +43,7 @@ const NurseDashboard: React.FC = () => {
       </div>
 
       {/* Main Content Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full max-w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid grid-cols-3 mb-6 w-full">
           <TabsTrigger value="overview" className="flex items-center gap-1">
             <Activity className="h-4 w-4" />
@@ -59,8 +59,8 @@ const NurseDashboard: React.FC = () => {
           </TabsTrigger>
         </TabsList>
 
-        <TabsContent value="overview" className="space-y-6 w-full max-w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full max-w-full">
+        <TabsContent value="overview" className="space-y-6 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 w-full">
             {/* Left Column */}
             <div className="lg:col-span-2 space-y-6">
               {/* Client Caseload Overview */}
@@ -84,14 +84,14 @@ const NurseDashboard: React.FC = () => {
           </div>
         </TabsContent>
         
-        <TabsContent value="clients" className="space-y-6 w-full max-w-full">
-          <div className="grid grid-cols-1 gap-6 w-full max-w-full">
+        <TabsContent value="clients" className="space-y-6 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <ClientCaseloadOverview fullView={true} />
           </div>
         </TabsContent>
         
-        <TabsContent value="visits" className="space-y-6 w-full max-w-full">
-          <div className="grid grid-cols-1 gap-6 w-full max-w-full">
+        <TabsContent value="visits" className="space-y-6 w-full">
+          <div className="grid grid-cols-1 gap-6 w-full">
             <UpcomingVisits fullView={true} />
           </div>
         </TabsContent>
