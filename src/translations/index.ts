@@ -55,5 +55,5 @@ export const translations: TranslationSet = {
   ...popupTranslations,
 };
 
-// Export Language type from types.ts
-export { Language } from './types';
+// Export Language type from types.ts using 'export type'
+export type { Language } from './types';
