@@ -454,6 +454,23 @@ export const dashboardTranslations: TranslationSet = {
     en: 'Analytics',
     nl: 'Analyses',
   },
+  // Dashboard sidebar specific translations
+  'dashboard.sidebar.memberPortal': {
+    en: 'Member Portal',
+    nl: 'Ledenportaal',
+  },
+  'dashboard.sidebar.customerServicePortal': {
+    en: 'Customer Service Portal',
+    nl: 'Klantenserviceportaal',
+  },
+  'dashboard.sidebar.nursePortal': {
+    en: 'Nurse Portal',
+    nl: 'Verpleegkundigenportaal',
+  },
+  'dashboard.sidebar.version': {
+    en: 'MCN Healthcare v1.0.2',
+    nl: 'MCN Gezondheidszorg v1.0.2',
+  },
   // Technical support section translations
   'dashboard.technical.title': {
     en: 'Technical Support Tools',

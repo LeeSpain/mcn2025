@@ -85,7 +85,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   "h-5 w-5",
                   isOpen ? "mr-3" : "mx-auto"
                 )} />
-                {isOpen && <span className="truncate">{t(item.label, item.label)}</span>}
+                {isOpen && <span className="truncate">{t(item.label)}</span>}
               </button>
             ))}
           </div>
