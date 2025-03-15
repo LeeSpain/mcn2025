@@ -45,7 +45,7 @@ export const dashboardNavItems = [
   // Member Portal items
   { id: 'home', label: 'Home Dashboard', icon: Home, isMember: true },
   { id: 'care', label: 'Care Manager', icon: Heart, isMember: true },
-  { id: 'health', label: 'Health View', icon: LayoutDashboard, isMember: true },
+  { id: 'health', label: 'Health View', icon: HeartPulse, isMember: true },
   { id: 'safety', label: 'Safety Monitor', icon: Shield, isMember: true },
   { id: 'connect', label: 'Connect Hub', icon: Link2, isMember: true },
   { id: 'shop', label: 'Shop Gateway', icon: ShoppingCart, isMember: true },
@@ -130,8 +130,8 @@ const DashboardLayout: React.FC = () => {
           isNursePortal={isNursePortal}
         />
         
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300 max-w-full">
-          <div className="mx-auto w-full">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300 w-full">
+          <div className="mx-auto max-w-[1200px] w-full">
             <DashboardContent activeSection={activeSection} />
           </div>
         </main>
