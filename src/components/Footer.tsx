@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
@@ -82,11 +83,6 @@ const Footer: React.FC = () => {
                   Shop Gateway
                 </Link>
               </li>
-              <li>
-                <Link to="/solutions" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  All Solutions
-                </Link>
-              </li>
             </ul>
           </div>
           
@@ -106,11 +102,6 @@ const Footer: React.FC = () => {
               <li>
                 <Link to="/blog" className="text-muted-foreground hover:text-mcn-blue transition-colors">
                   Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/press" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Press
                 </Link>
               </li>
               <li>
