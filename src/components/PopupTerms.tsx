@@ -50,6 +50,12 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
   const handleNext = () => {
     if (currentPage === 1) {
       setCurrentPage(2);
+      // Explicitly ensure scroll position is reset when moving to page 2
+      setTimeout(() => {
+        if (scrollAreaRef.current) {
+          scrollAreaRef.current.scrollTop = 0;
+        }
+      }, 0);
     } else {
       onClose();
     }
