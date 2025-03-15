@@ -11,8 +11,6 @@ import { staffTranslations } from './staff';
 import { featuresTranslations } from './features';
 import { heroTranslations } from './hero';
 import { patientEducationTranslations } from './patient-education';
-import { authTranslations } from './auth';
-import { aiAgentTranslations } from './aiagent';
 
 // Combine all translation sets into one
 export const translations: TranslationSet = {
@@ -27,8 +25,6 @@ export const translations: TranslationSet = {
   ...featuresTranslations,
   ...heroTranslations,
   ...patientEducationTranslations,
-  ...authTranslations,
-  ...aiAgentTranslations,
 };
 
 export * from './types';

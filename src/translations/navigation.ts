@@ -18,10 +18,6 @@ export const navigationTranslations: TranslationSet = {
     en: 'Enterprise',
     nl: 'Zakelijk',
   },
-  'nav.aiAgent': {
-    en: 'AI Agent',
-    nl: 'AI Agent',
-  },
   'nav.contact': {
     en: 'Contact',
     nl: 'Contact',
