@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Heart, TrendingUp, Footprints, Target, Activity, Droplet, Thermometer, Lungs } from 'lucide-react';
+import { Heart, TrendingUp, Footprints, Target, Activity, Droplet, Thermometer, Wind } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend } from 'recharts';
 
 const HealthView: React.FC = () => {
@@ -94,7 +94,7 @@ const HealthView: React.FC = () => {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-lg font-medium">
-              <Lungs className="h-5 w-5 text-teal-500" />
+              <Wind className="h-5 w-5 text-teal-500" />
               Oxygen Level
             </CardTitle>
           </CardHeader>
@@ -162,7 +162,7 @@ const HealthView: React.FC = () => {
                     </div>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center">
-                        <Lungs className="h-5 w-5 mr-2 text-teal-500" />
+                        <Wind className="h-5 w-5 mr-2 text-teal-500" />
                         <span>Oxygen Saturation</span>
                       </div>
                       <div className="font-medium">98%</div>
@@ -203,7 +203,7 @@ const HealthView: React.FC = () => {
                     </div>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center">
-                        <Lungs className="h-5 w-5 mr-2 text-teal-500" />
+                        <Wind className="h-5 w-5 mr-2 text-teal-500" />
                         <span>Oxygen Level</span>
                       </div>
                       <div className="text-sm">As needed</div>
