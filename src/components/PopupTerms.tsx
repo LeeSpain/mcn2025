@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Dialog, 
   DialogContent,
@@ -22,6 +22,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
   const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState<1 | 2>(1);
   const [canProceed, setCanProceed] = useState(false);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   // Reset states when dialog opens
   useEffect(() => {
@@ -31,6 +32,14 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen]);
 
+  // Scroll to top when changing pages
+  useEffect(() => {
+    if (scrollAreaRef.current) {
+      scrollAreaRef.current.scrollTop = 0;
+      setCanProceed(false);
+    }
+  }, [currentPage]);
+
   // Handler for when user scrolls to bottom
   const handleScrollToBottom = () => {
     setCanProceed(true);
@@ -39,7 +48,6 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
   const handleNext = () => {
     if (currentPage === 1) {
       setCurrentPage(2);
-      setCanProceed(false);
     } else {
       onClose();
     }
@@ -56,7 +64,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
           </DialogTitle>
         </DialogHeader>
         
-        <ScrollableContent onScroll={handleScrollToBottom}>
+        <ScrollableContent onScroll={handleScrollToBottom} ref={scrollAreaRef}>
           {currentPage === 1 ? <PageOneContent /> : <PageTwoContent />}
         </ScrollableContent>
         
@@ -68,7 +76,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
           >
             {currentPage === 1 
               ? t('popup.next', 'Next: Understand The Platform') 
-              : t('popup.accept', 'I Accept & Continue')}
+              : t('popup.accept', 'Discover MCN Now')}
           </Button>
         </DialogFooter>
       </DialogContent>

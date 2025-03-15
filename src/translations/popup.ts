@@ -150,7 +150,7 @@ export const popupTranslations: TranslationSet = {
     nl: 'Volgende: Begrijp Het Platform',
   },
   'popup.accept': {
-    en: 'I Accept & Continue',
-    nl: 'Ik accepteer & ga verder',
-  }
+    en: 'Discover MCN Now',
+    nl: 'Ontdek MCN Nu',
+  },
 };
