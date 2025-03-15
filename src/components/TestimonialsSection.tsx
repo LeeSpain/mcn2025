@@ -63,9 +63,9 @@ const TestimonialsSection: React.FC = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">What Our Users Say</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-3">{t('testimonials.title', 'What Our Users Say')}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Read about real experiences from clients, healthcare professionals, and family members who use MCN daily.
+            {t('testimonials.subtitle', 'Read about real experiences from clients, healthcare professionals, and family members who use MCN daily.')}
           </p>
         </div>
         
@@ -114,7 +114,7 @@ const TestimonialsSection: React.FC = () => {
         
         <div className="mt-16 text-center">
           <a href="/contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-mcn-blue text-white font-medium hover:bg-mcn-blue-dark transition-colors">
-            Connect With Us
+            {t('testimonials.cta', 'Connect With Us')}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

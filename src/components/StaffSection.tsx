@@ -16,11 +16,11 @@ const StaffSection: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <div className="mb-3">
-            <div className="chip mx-auto">{t('staff.header.chip', 'For Customer Service')}</div>
+            <div className="chip mx-auto">{t('staff.header.chip')}</div>
           </div>
-          <h2 className="section-title">{t('staff.header.title', 'Streamline Care Management')}</h2>
+          <h2 className="section-title">{t('staff.header.title')}</h2>
           <p className="section-subtitle">
-            {t('staff.header.description', 'MCN gives care professionals powerful tools to reduce administrative burden and focus on what matters most: providing quality care.')}
+            {t('staff.header.description')}
           </p>
         </div>
         

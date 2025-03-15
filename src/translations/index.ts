@@ -12,6 +12,7 @@ import { featuresTranslations } from './features';
 import { heroTranslations } from './hero';
 import { patientEducationTranslations } from './patient-education';
 import { authTranslations } from './auth';
+import { testimonialsTranslations } from './testimonials';
 
 // Combine all translation sets into one
 export const translations: TranslationSet = {
@@ -27,6 +28,7 @@ export const translations: TranslationSet = {
   ...heroTranslations,
   ...patientEducationTranslations,
   ...authTranslations,
+  ...testimonialsTranslations,
 };
 
 export * from './types';
