@@ -2,15 +2,12 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Filter, Plus, LucideIcon } from 'lucide-react';
+import { Filter, Plus, BookOpen, CheckCircle, Users } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 import ResourceLibraryTab from './tabs/ResourceLibraryTab';
 import AssignmentsTab from './tabs/AssignmentsTab';
 import ClientTopicsTab from './tabs/ClientTopicsTab';
-
-// Import the icon components directly
-import { BookOpen, CheckCircle, Users } from 'lucide-react';
 
 const PatientEducation: React.FC = () => {
   const [activeTab, setActiveTab] = useState('library');

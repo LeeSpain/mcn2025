@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Users, Bookmark, GraduationCap, LucideIcon } from 'lucide-react';
+import { Users, Bookmark, GraduationCap } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
@@ -143,8 +143,4 @@ const ClientTopicsTab: React.FC = () => {
   );
 };
 
-// Properly define the Icon property with a type
-ClientTopicsTab.Icon = Users as LucideIcon;
-
 export default ClientTopicsTab;
-

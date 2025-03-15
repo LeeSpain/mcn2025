@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { BookOpen, Search, Plus, Download, ThumbsUp, LucideIcon } from 'lucide-react';
+import { BookOpen, Search, Plus, Download, ThumbsUp } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import ResourceCard from '../components/ResourceCard';
@@ -8,7 +8,7 @@ import { educationMaterials } from '../utils/data';
 import { getTypeIcon } from '../utils/helpers';
 import { EducationMaterial } from '../utils/types';
 
-// Fix the ResourcesGrid import and create an interface for it
+// Define the ResourcesGrid component with its props
 interface ResourcesGridProps {
   materials: EducationMaterial[];
 }
@@ -155,8 +155,4 @@ const ResourceLibraryTab: React.FC = () => {
   );
 };
 
-// Properly define the Icon property with a type
-ResourceLibraryTab.Icon = BookOpen as LucideIcon;
-
 export default ResourceLibraryTab;
-
