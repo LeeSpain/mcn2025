@@ -112,7 +112,7 @@ const DashboardLayout: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col w-full">
       <DashboardHeader 
         toggleSidebar={toggleSidebar} 
         sidebarOpen={sidebarOpen} 
@@ -120,7 +120,7 @@ const DashboardLayout: React.FC = () => {
         isNursePortal={isNursePortal}
       />
       
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 overflow-hidden w-full">
         <DashboardSidebar 
           navItems={filteredNavItems} 
           activeSection={activeSection}
@@ -130,8 +130,8 @@ const DashboardLayout: React.FC = () => {
           isNursePortal={isNursePortal}
         />
         
-        <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300">
-          <div className="max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300 max-w-full">
+          <div className="mx-auto w-full">
             <DashboardContent activeSection={activeSection} />
           </div>
         </main>

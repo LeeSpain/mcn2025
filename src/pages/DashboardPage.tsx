@@ -20,11 +20,15 @@ const DashboardPage: React.FC = () => {
     if (!location.hash) {
       window.location.hash = 'home';
     }
+    // Scroll to top when dashboard page loads
+    window.scrollTo(0, 0);
   }, [location.hash]);
 
   return (
     <LanguageProvider>
-      <DashboardLayout />
+      <div className="w-full">
+        <DashboardLayout />
+      </div>
     </LanguageProvider>
   );
 };
