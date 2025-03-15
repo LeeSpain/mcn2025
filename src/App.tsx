@@ -3,6 +3,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '@/context/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
+import './App.css'; // Make sure CSS is imported
 
 // Lazy load pages to reduce initial bundle size
 const Index = lazy(() => import('./pages/Index'));
