@@ -148,4 +148,29 @@ export const dashboardNavigationTranslations: TranslationSet = {
     en: 'MCN Healthcare v1.0.2',
     nl: 'MCN Gezondheidszorg v1.0.2',
   },
+  // Header translations
+  'header.memberPortal': {
+    en: 'Member Portal',
+    nl: 'Ledenportaal',
+  },
+  'header.staffPortal': {
+    en: 'Staff Portal',
+    nl: 'Personeelsportaal',
+  },
+  'header.nursePortal': {
+    en: 'Nurse Portal',
+    nl: 'Verpleegkundigenportaal',
+  },
+  'header.toggleMenu': {
+    en: 'Toggle Menu',
+    nl: 'Menu Schakelen',
+  },
+  'header.notifications': {
+    en: 'Notifications',
+    nl: 'Meldingen',
+  },
+  'header.logout': {
+    en: 'Logout',
+    nl: 'Uitloggen',
+  },
 };

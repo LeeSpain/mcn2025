@@ -20,7 +20,16 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 }) => {
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const portalType = isStaffPortal ? t('header.staffPortal') : isNursePortal ? t('header.nursePortal') : t('header.memberPortal');
+  
+  // Determine portal type based on props
+  let portalType = '';
+  if (isStaffPortal) {
+    portalType = t('header.staffPortal', 'Staff Portal');
+  } else if (isNursePortal) {
+    portalType = t('header.nursePortal', 'Nurse Portal');
+  } else {
+    portalType = t('header.memberPortal', 'Member Portal');
+  }
   
   const handleLogout = () => {
     // In a real app, you would clear authentication tokens here
@@ -35,7 +44,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring h-9 w-9"
       >
         {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        <span className="sr-only">{t('header.toggleMenu')}</span>
+        <span className="sr-only">{t('header.toggleMenu', 'Toggle Menu')}</span>
       </button>
       
       <div className="flex-1">
@@ -47,7 +56,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         
         <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring h-9 w-9">
           <Bell className="h-5 w-5" />
-          <span className="sr-only">{t('header.notifications')}</span>
+          <span className="sr-only">{t('header.notifications', 'Notifications')}</span>
         </button>
         
         <button 
@@ -55,7 +64,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
         >
           <LogOut className="h-4 w-4" />
-          <span>{t('header.logout')}</span>
+          <span>{t('header.logout', 'Logout')}</span>
         </button>
         
         <div className="h-8 w-8 rounded-full bg-mcn-blue-light flex items-center justify-center text-white font-medium">
