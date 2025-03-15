@@ -11,14 +11,14 @@ import WeatherForecast from './main/WeatherForecast';
 
 const MainDashboard: React.FC = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full">
       {/* Welcome Banner */}
       <WelcomeBanner />
 
       {/* Quick Access Section */}
       <QuickAccess />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {/* Daily Agenda */}
         <DailyAgenda />
 
