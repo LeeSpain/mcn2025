@@ -1,3 +1,4 @@
+
 import { TranslationSet } from './types';
 
 export const staffTranslations: TranslationSet = {
@@ -8,6 +9,58 @@ export const staffTranslations: TranslationSet = {
   'staff.subtitle': {
     en: 'Equip your team with the tools they need to provide exceptional care and improve client outcomes.',
     nl: 'Rust uw team uit met de tools die ze nodig hebben om uitzonderlijke zorg te verlenen en de resultaten voor cliënten te verbeteren.',
+  },
+  'staff.header.chip': {
+    en: 'For Staff',
+    nl: 'Voor Personeel',
+  },
+  'staff.header.title': {
+    en: 'Empower Your Staff with MCN',
+    nl: 'Versterk Uw Personeel met MCN',
+  },
+  'staff.header.description': {
+    en: 'Equip your team with the tools they need to provide exceptional care and improve client outcomes.',
+    nl: 'Rust uw team uit met de tools die ze nodig hebben om uitzonderlijke zorg te verlenen en cliëntresultaten te verbeteren.',
+  },
+  'staff.page.chip': {
+    en: 'For Customer Service',
+    nl: 'Voor Klantenservice',
+  },
+  'staff.page.title': {
+    en: 'MCN Call Center & Customer Service Dashboard',
+    nl: 'MCN Callcenter & Klantenservice Dashboard',
+  },
+  'staff.page.description': {
+    en: 'Empower your support team with comprehensive tools to deliver exceptional service. Streamline client interactions, troubleshoot efficiently, and manage all aspects of service delivery from one intuitive interface.',
+    nl: 'Versterk uw ondersteuningsteam met uitgebreide tools om uitzonderlijke service te leveren. Stroomlijn klantinteracties, los problemen efficiënt op en beheer alle aspecten van dienstverlening vanuit één intuïtieve interface.',
+  },
+  'staff.page.button': {
+    en: 'Access Customer Service Dashboard',
+    nl: 'Toegang tot Klantenservice Dashboard',
+  },
+  'staff.portal.title': {
+    en: 'Customer Service Portal',
+    nl: 'Klantenservice Portaal',
+  },
+  'staff.portal.subtitle': {
+    en: 'Manage client interactions and service requests',
+    nl: 'Beheer klantinteracties en serviceverzoeken',
+  },
+  'staff.status.available': {
+    en: 'Available',
+    nl: 'Beschikbaar',
+  },
+  'staff.status.busy': {
+    en: 'Busy',
+    nl: 'Bezet',
+  },
+  'staff.status.away': {
+    en: 'Away',
+    nl: 'Afwezig',
+  },
+  'staff.workSession': {
+    en: 'Work Session',
+    nl: 'Werksessie',
   },
   'staff.onboarding.title': {
     en: 'Seamless Onboarding',
