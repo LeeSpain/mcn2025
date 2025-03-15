@@ -18,6 +18,9 @@ import CareManagerPage from './pages/CareManagerPage';
 import SafetyMonitorPage from './pages/SafetyMonitorPage';
 import ConnectHubPage from './pages/ConnectHubPage';
 import ShopGatewayPage from './pages/ShopGatewayPage';
+import AboutPage from './pages/AboutPage';
+import CareersPage from './pages/CareersPage';
+import BlogPage from './pages/BlogPage';
 
 const App = () => {
   return (
@@ -39,6 +42,9 @@ const App = () => {
           <Route path="/safety-monitor" element={<SafetyMonitorPage />} />
           <Route path="/connect-hub" element={<ConnectHubPage />} />
           <Route path="/shop-gateway" element={<ShopGatewayPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
