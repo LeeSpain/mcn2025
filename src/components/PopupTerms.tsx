@@ -72,7 +72,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
               <>
                 <p className="font-semibold text-lg">{t('popup.terms.welcome', 'Welcome to Mobile Care Nexus')}</p>
                 
-                <p>{t('popup.terms.paragraph1', 'These terms and conditions outline the rules and regulations for the use of Mobile Care Nexus's Website and Services.')}</p>
+                <p>{t('popup.terms.paragraph1', 'These terms and conditions outline the rules and regulations for the use of Mobile Care Nexus\'s Website and Services.')}</p>
                 
                 <p>{t('popup.terms.paragraph2', 'By accessing this website we assume you accept these terms and conditions. Do not continue to use Mobile Care Nexus if you do not agree to take all of the terms and conditions stated on this page.')}</p>
                 
