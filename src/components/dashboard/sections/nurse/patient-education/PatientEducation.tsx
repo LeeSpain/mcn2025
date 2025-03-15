@@ -17,19 +17,19 @@ const PatientEducation: React.FC = () => {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Patient Education</h1>
+          <h1 className="text-2xl font-bold tracking-tight">{t('patientEd.title')}</h1>
           <p className="text-muted-foreground">
-            Manage and assign educational resources to clients
+            {t('patientEd.subtitle')}
           </p>
         </div>
         <div className="mt-3 sm:mt-0 flex items-center space-x-2">
           <Button variant="outline" size="sm" className="gap-1">
             <Filter className="h-4 w-4" />
-            Filter
+            {t('patientEd.filter')}
           </Button>
           <Button size="sm" className="gap-1">
             <Plus className="h-4 w-4" />
-            New Resource
+            {t('patientEd.newResource')}
           </Button>
         </div>
       </div>
@@ -38,15 +38,15 @@ const PatientEducation: React.FC = () => {
         <TabsList className="mb-4">
           <TabsTrigger value="library" className="flex items-center gap-1">
             <BookOpen className="h-4 w-4" />
-            Resource Library
+            {t('patientEd.tab.library')}
           </TabsTrigger>
           <TabsTrigger value="assignments" className="flex items-center gap-1">
             <CheckCircle className="h-4 w-4" />
-            Assignments
+            {t('patientEd.tab.assignments')}
           </TabsTrigger>
           <TabsTrigger value="clients" className="flex items-center gap-1">
             <Users className="h-4 w-4" />
-            Client Topics
+            {t('patientEd.tab.clientTopics')}
           </TabsTrigger>
         </TabsList>
 

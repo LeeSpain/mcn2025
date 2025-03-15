@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Language, translations } from '../translations';
 
 type LanguageContextType = {
@@ -11,10 +11,21 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>(() => {
+    // Try to get the language from localStorage
+    const savedLanguage = localStorage.getItem('mcn-language');
+    return (savedLanguage === 'nl' || savedLanguage === 'en') ? savedLanguage : 'en';
+  });
+
+  // Persist language choice to localStorage
+  useEffect(() => {
+    localStorage.setItem('mcn-language', language);
+    // Update html lang attribute for accessibility
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = (key: string, fallback?: string): string => {
-    if (translations[key]) {
+    if (translations[key] && translations[key][language]) {
       return translations[key][language];
     }
     console.warn(`Translation key not found: ${key}`);

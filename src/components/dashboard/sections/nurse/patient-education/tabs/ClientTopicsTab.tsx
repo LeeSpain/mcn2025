@@ -7,15 +7,18 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { clientHealthTopics, topicTrendsData, clientRecommendations } from '../utils/data';
 import { getTypeIcon } from '../utils/helpers';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ClientTopicsTab: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Client Health Topics</CardTitle>
+          <CardTitle>{t('patientEd.clientTopics.title')}</CardTitle>
           <CardDescription>
-            Manage educational topics based on client health needs
+            {t('patientEd.clientTopics.subtitle')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -23,11 +26,11 @@ const ClientTopicsTab: React.FC = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Client</TableHead>
-                  <TableHead>Health Topics</TableHead>
-                  <TableHead>Recent Assignments</TableHead>
-                  <TableHead>Preferred Format</TableHead>
-                  <TableHead>Actions</TableHead>
+                  <TableHead>{t('patientEd.clientTopics.client')}</TableHead>
+                  <TableHead>{t('patientEd.clientTopics.healthTopics')}</TableHead>
+                  <TableHead>{t('patientEd.clientTopics.recentAssignments')}</TableHead>
+                  <TableHead>{t('patientEd.clientTopics.preferredFormat')}</TableHead>
+                  <TableHead>{t('patientEd.clientTopics.actions')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -59,8 +62,8 @@ const ClientTopicsTab: React.FC = () => {
                     </TableCell>
                     <TableCell>
                       <div className="flex space-x-1">
-                        <Button variant="outline" size="sm">Recommend</Button>
-                        <Button variant="outline" size="sm">Edit Topics</Button>
+                        <Button variant="outline" size="sm">{t('patientEd.clientTopics.recommend')}</Button>
+                        <Button variant="outline" size="sm">{t('patientEd.clientTopics.editTopics')}</Button>
                       </div>
                     </TableCell>
                   </TableRow>
@@ -74,9 +77,9 @@ const ClientTopicsTab: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Recommended Resources</CardTitle>
+            <CardTitle>{t('patientEd.clientTopics.recommendedResources')}</CardTitle>
             <CardDescription>
-              Based on client health profiles
+              {t('patientEd.clientTopics.basedOnProfiles')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -97,7 +100,7 @@ const ClientTopicsTab: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" size="sm" className="mt-2 w-full">Assign All</Button>
+                  <Button variant="outline" size="sm" className="mt-2 w-full">{t('patientEd.clientTopics.assignAll')}</Button>
                 </div>
               ))}
             </div>
@@ -106,9 +109,9 @@ const ClientTopicsTab: React.FC = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Topic Trends</CardTitle>
+            <CardTitle>{t('patientEd.clientTopics.topicTrends')}</CardTitle>
             <CardDescription>
-              Most common health education topics
+              {t('patientEd.clientTopics.mostCommon')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -129,11 +132,11 @@ const ClientTopicsTab: React.FC = () => {
             <div className="mt-4 grid grid-cols-2 gap-2">
               <div className="p-2 border rounded-md flex items-center">
                 <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                <span className="text-sm">Educational Resources</span>
+                <span className="text-sm">{t('patientEd.clientTopics.educationalResources')}</span>
               </div>
               <div className="p-2 border rounded-md flex items-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span className="text-sm">Assigned Topics</span>
+                <span className="text-sm">{t('patientEd.clientTopics.assignedTopics')}</span>
               </div>
             </div>
           </CardContent>
