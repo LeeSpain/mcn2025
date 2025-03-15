@@ -25,7 +25,7 @@ const NurseDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="nurse-dashboard space-y-6">
+    <div className="nurse-dashboard space-y-6 w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Nurse Dashboard</h1>

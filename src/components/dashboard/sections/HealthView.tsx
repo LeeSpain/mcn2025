@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -35,7 +34,7 @@ const HealthView: React.FC = () => {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 w-full">
       <div className="flex flex-col space-y-1.5">
         <h2 className="text-2xl font-semibold tracking-tight">Health View</h2>
         <p className="text-muted-foreground">Monitor your health metrics and track progress</p>
