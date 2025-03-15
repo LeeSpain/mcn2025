@@ -4,8 +4,11 @@ import ChatInterface from './chat/ChatInterface';
 import ChatHeader from './chat/ChatHeader';
 import ChatFeatures from './chat/ChatFeatures';
 import BackgroundElements from './chat/BackgroundElements';
+import { useLanguage } from '@/context/LanguageContext';
 
 const AIGuardianChat: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-16 relative overflow-hidden bg-gradient-to-br from-mcn-blue-light/30 via-white/80 to-white">
       <BackgroundElements />

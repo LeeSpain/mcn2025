@@ -7,8 +7,11 @@ import ContactInfoSection from '@/components/contact/ContactInfoSection';
 import GetInTouchSection from '@/components/contact/GetInTouchSection';
 import FAQSection from '@/components/contact/FAQSection';
 import AIGuardianChat from '@/components/contact/AIGuardianChat';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ContactPage = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       <NavBar />
@@ -33,9 +36,11 @@ const ContactPage = () => {
                 <div className="mb-3">
                   <div className="chip mx-auto">FAQ</div>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4">Frequently Asked Questions</h2>
+                <h2 className="text-3xl md:text-4xl font-display font-semibold mb-4">
+                  {t('contact.faq.title', 'Frequently Asked Questions')}
+                </h2>
                 <p className="text-xl text-muted-foreground">
-                  Find answers to common questions about MCN and our services.
+                  {t('contact.faq.description', 'Find answers to common questions about MCN and our services.')}
                 </p>
               </div>
               <div className="glass-card p-8 rounded-xl">

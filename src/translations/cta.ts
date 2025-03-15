@@ -67,4 +67,12 @@ export const ctaTranslations: TranslationSet = {
     en: 'Send Message',
     nl: 'Bericht Versturen',
   },
+  'contact.chat.title': {
+    en: 'AI Guardian Chat Assistant',
+    nl: 'AI Guardian Chat Assistent',
+  },
+  'contact.chat.description': {
+    en: 'Have questions about our services? Our AI Guardian assistant is here to help 24/7. Just type your question below to get started.',
+    nl: 'Heeft u vragen over onze diensten? Onze AI Guardian assistent is er om 24/7 te helpen. Typ uw vraag hieronder om te beginnen.',
+  },
 };
