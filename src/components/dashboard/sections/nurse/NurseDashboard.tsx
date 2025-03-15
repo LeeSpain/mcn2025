@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { 
   Users, 
   Calendar, 
@@ -15,14 +16,27 @@ import {
   Heart,
   Video
 } from 'lucide-react';
+import { Calendar as CalendarComponent } from '@/components/ui/calendar';
+import { Button } from '@/components/ui/button';
 import ClientCaseloadOverview from './dashboard/ClientCaseloadOverview';
 import UpcomingVisits from './dashboard/UpcomingVisits';
 import ClinicalAlerts from './dashboard/ClinicalAlerts';
 import PendingTasks from './dashboard/PendingTasks';
 import QuickActions from './dashboard/QuickActions';
+import { format } from 'date-fns';
 
 const NurseDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState('overview');
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+
+  // Handle calendar date selection
+  const handleDateSelect = (date: Date | undefined) => {
+    if (date) {
+      setSelectedDate(date);
+      // Navigate to visit schedule with the selected date
+      window.location.hash = 'visit-schedule';
+    }
+  };
 
   return (
     <div className="nurse-dashboard space-y-6 w-full">
@@ -72,6 +86,54 @@ const NurseDashboard: React.FC = () => {
             
             {/* Right Column */}
             <div className="space-y-6">
+              {/* Quick Calendar */}
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-md">Calendar</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CalendarComponent
+                    mode="single"
+                    selected={selectedDate}
+                    onSelect={handleDateSelect}
+                    className="pointer-events-auto border rounded-md"
+                    modifiers={{
+                      booked: (date) => {
+                        // Highlight dates with appointments (sample data)
+                        return [1, 5, 10, 15, 20, 25].includes(date.getDate());
+                      }
+                    }}
+                    modifiersStyles={{
+                      booked: {
+                        fontWeight: 'bold',
+                        border: '2px solid currentColor',
+                        color: 'var(--mcn-blue)'
+                      }
+                    }}
+                  />
+                  <div className="mt-2 space-y-1">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full justify-start gap-2"
+                      onClick={() => window.location.hash = 'visit-schedule'}
+                    >
+                      <Calendar className="h-4 w-4" />
+                      Schedule Manager
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full justify-start gap-2"
+                      onClick={() => window.location.hash = 'appointments'}
+                    >
+                      <Video className="h-4 w-4" />
+                      View Appointments
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+              
               {/* Clinical Alerts */}
               <ClinicalAlerts />
               

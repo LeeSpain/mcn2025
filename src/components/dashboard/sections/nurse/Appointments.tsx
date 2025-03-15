@@ -12,14 +12,21 @@ import {
   Calendar as CalendarIcon, 
   Clock, 
   Plus, 
-  Check, 
-  X,
-  AlertCircle,
-  FileText,
-  MoreHorizontal,
+  Search,
   Filter,
-  Search
+  MoreHorizontal,
+  FileText,
+  AlertCircle,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { format, addDays, subDays, startOfWeek, endOfWeek, eachDayOfInterval, isToday, isSameDay } from 'date-fns';
+import { useLanguage } from '@/context/LanguageContext';
 
 // Sample appointments data
 const upcomingAppointments = [
@@ -75,6 +82,7 @@ const upcomingAppointments = [
   },
 ];
 
+// Sample past appointments data
 const pastAppointments = [
   { 
     id: 101, 
@@ -122,14 +130,43 @@ const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
 const Appointments: React.FC = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
+  const [weekStart, setWeekStart] = useState<Date>(startOfWeek(new Date(), { weekStartsOn: 1 }));
   const [activeTab, setActiveTab] = useState('upcoming');
+  const { t } = useLanguage();
+
+  // Generate week dates
+  const weekDates = eachDayOfInterval({
+    start: weekStart,
+    end: endOfWeek(weekStart, { weekStartsOn: 1 })
+  });
+
+  // Find appointments for the selected date
+  const getTodaysAppointments = () => {
+    if (!date) return [];
+    return upcomingAppointments.filter(apt => {
+      if (apt.date === 'Today' && isToday(date)) return true;
+      if (apt.date === 'Tomorrow' && isToday(addDays(date, -1))) return true;
+      
+      // For other dates, we'd ideally parse them properly
+      // This is a simplified approach
+      return apt.date.includes(format(date, 'MMM d'));
+    });
+  };
+
+  // Go to previous/next week
+  const previousWeek = () => setWeekStart(subDays(weekStart, 7));
+  const nextWeek = () => setWeekStart(addDays(weekStart, 7));
+  const currentWeek = () => setWeekStart(startOfWeek(new Date(), { weekStartsOn: 1 }));
 
   // Generate the schedule grid data
   const scheduleGrid = timeSlots.map(time => {
     const row: any = { time };
-    weekDays.forEach(day => {
+    weekDays.forEach((day, index) => {
       // Randomly add some appointments for demo purposes
-      if (Math.random() > 0.8) {
+      // In a real app, you'd match actual appointments from your data
+      const currentDate = weekDates[index];
+      const random = Math.random();
+      if (random > 0.8 || (isToday(currentDate) && random > 0.5)) {
         const types = ['Video Call', 'Phone Call'];
         const clients = ['Elizabeth W.', 'Robert J.', 'Patricia D.', 'James M.', 'Mary T.'];
         row[day] = {
@@ -194,57 +231,75 @@ const Appointments: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2">
           <Card>
-            <CardHeader>
-              <CardTitle>Today's Schedule</CardTitle>
-              <CardDescription>Your remote appointments for today</CardDescription>
+            <CardHeader className="pb-3">
+              <div className="flex justify-between items-center">
+                <div>
+                  <CardTitle>{date ? format(date, 'MMMM d, yyyy') : 'Today\'s'} Schedule</CardTitle>
+                  <CardDescription>Your remote appointments for the selected day</CardDescription>
+                </div>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button variant="outline" size="sm">
+                      <CalendarIcon className="h-4 w-4 mr-2" />
+                      Select Date
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="end">
+                    <Calendar
+                      mode="single"
+                      selected={date}
+                      onSelect={setDate}
+                      className="pointer-events-auto"
+                    />
+                  </PopoverContent>
+                </Popover>
+              </div>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {upcomingAppointments
-                  .filter(apt => apt.date === 'Today')
-                  .map(appointment => (
-                    <div 
-                      key={appointment.id} 
-                      className="p-4 border rounded-lg flex items-center justify-between"
-                    >
-                      <div className="flex items-center">
-                        <div className="p-2 rounded-full bg-blue-50 mr-4">
-                          {getTypeIcon(appointment.type)}
-                        </div>
-                        <div>
-                          <div className="font-medium">{appointment.client}</div>
-                          <div className="text-sm text-gray-500">
-                            {appointment.time} • {appointment.duration} • {appointment.purpose}
-                          </div>
-                        </div>
+                {getTodaysAppointments().map(appointment => (
+                  <div 
+                    key={appointment.id} 
+                    className="p-4 border rounded-lg flex items-center justify-between"
+                  >
+                    <div className="flex items-center">
+                      <div className="p-2 rounded-full bg-blue-50 mr-4">
+                        {getTypeIcon(appointment.type)}
                       </div>
-                      <div className="flex items-center space-x-2">
-                        {getStatusBadge(appointment.status)}
-                        <Button 
-                          size="sm" 
-                          className="gap-1"
-                          disabled={appointment.status !== 'Confirmed'}
-                        >
-                          {appointment.type === 'Video Call' ? (
-                            <>
-                              <Video className="h-4 w-4" />
-                              Start
-                            </>
-                          ) : (
-                            <>
-                              <Phone className="h-4 w-4" />
-                              Call
-                            </>
-                          )}
-                        </Button>
+                      <div>
+                        <div className="font-medium">{appointment.client}</div>
+                        <div className="text-sm text-gray-500">
+                          {appointment.time} • {appointment.duration} • {appointment.purpose}
+                        </div>
                       </div>
                     </div>
-                  ))}
+                    <div className="flex items-center space-x-2">
+                      {getStatusBadge(appointment.status)}
+                      <Button 
+                        size="sm" 
+                        className="gap-1"
+                        disabled={appointment.status !== 'Confirmed'}
+                      >
+                        {appointment.type === 'Video Call' ? (
+                          <>
+                            <Video className="h-4 w-4" />
+                            Start
+                          </>
+                        ) : (
+                          <>
+                            <Phone className="h-4 w-4" />
+                            Call
+                          </>
+                        )}
+                      </Button>
+                    </div>
+                  </div>
+                ))}
                 
-                {upcomingAppointments.filter(apt => apt.date === 'Today').length === 0 && (
+                {getTodaysAppointments().length === 0 && (
                   <div className="text-center p-8 text-gray-500">
                     <Calendar className="h-12 w-12 mx-auto text-gray-300 mb-2" />
-                    <p>No appointments scheduled for today</p>
+                    <p>No appointments scheduled for {date ? format(date, 'MMMM d, yyyy') : 'today'}</p>
                     <Button variant="outline" size="sm" className="mt-4 gap-1">
                       <Plus className="h-4 w-4" />
                       Schedule Appointment
@@ -260,13 +315,29 @@ const Appointments: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle>Calendar</CardTitle>
+              <CardDescription>Select a date to view appointments</CardDescription>
             </CardHeader>
             <CardContent>
               <Calendar
                 mode="single"
                 selected={date}
                 onSelect={setDate}
-                className="mx-auto"
+                className="mx-auto pointer-events-auto"
+                modifiers={{
+                  booked: (date) => {
+                    // Highlight dates with appointments
+                    // This is a simplified example - in a real app
+                    // you would check against actual appointment dates
+                    return [1, 5, 10, 15, 20, 25].includes(date.getDate());
+                  }
+                }}
+                modifiersStyles={{
+                  booked: {
+                    fontWeight: 'bold',
+                    border: '2px solid currentColor',
+                    color: 'var(--mcn-blue)'
+                  }
+                }}
               />
               <div className="mt-4 space-y-2">
                 <div className="flex items-center space-x-2">
@@ -284,9 +355,9 @@ const Appointments: React.FC = () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button variant="outline" className="w-full gap-1">
+              <Button variant="outline" className="w-full gap-1" onClick={() => setActiveTab('week')}>
                 <CalendarIcon className="h-4 w-4" />
-                View Full Calendar
+                View Weekly Schedule
               </Button>
             </CardFooter>
           </Card>
@@ -452,13 +523,21 @@ const Appointments: React.FC = () => {
                 <div>
                   <CardTitle>Weekly Schedule</CardTitle>
                   <CardDescription>
-                    Week of June 5 - 9, 2023
+                    Week of {format(weekStart, 'MMM d')} - {format(endOfWeek(weekStart, { weekStartsOn: 1 }), 'MMM d, yyyy')}
                   </CardDescription>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Button variant="outline" size="sm">Previous Week</Button>
-                  <Button variant="outline" size="sm">This Week</Button>
-                  <Button variant="outline" size="sm">Next Week</Button>
+                  <Button variant="outline" size="sm" onClick={previousWeek}>
+                    <ChevronLeft className="h-4 w-4" />
+                    Previous
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={currentWeek}>
+                    This Week
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={nextWeek}>
+                    Next
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
             </CardHeader>
@@ -468,8 +547,11 @@ const Appointments: React.FC = () => {
                   <TableHeader>
                     <TableRow>
                       <TableHead className="w-20">Time</TableHead>
-                      {weekDays.map(day => (
-                        <TableHead key={day}>{day}</TableHead>
+                      {weekDates.slice(0, 5).map((date, index) => (
+                        <TableHead key={index} className={isToday(date) ? "bg-blue-50" : ""}>
+                          <div>{weekDays[index]}</div>
+                          <div className="text-xs font-normal">{format(date, 'MMM d')}</div>
+                        </TableHead>
                       ))}
                     </TableRow>
                   </TableHeader>
@@ -477,8 +559,8 @@ const Appointments: React.FC = () => {
                     {scheduleGrid.map((slot, idx) => (
                       <TableRow key={idx}>
                         <TableCell className="font-medium">{slot.time}</TableCell>
-                        {weekDays.map(day => (
-                          <TableCell key={day} className="p-1">
+                        {weekDays.map((day, dayIndex) => (
+                          <TableCell key={day} className={`p-1 ${isToday(weekDates[dayIndex]) ? "bg-blue-50" : ""}`}>
                             {slot[day] ? (
                               <div className={`text-xs p-2 rounded-md ${
                                 slot[day].type === 'Video Call' ? 'bg-blue-50 border border-blue-200' : 
