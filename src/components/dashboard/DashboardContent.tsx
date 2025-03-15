@@ -85,7 +85,7 @@ const NurseAnalytics = () => (
 import NurseChat from './sections/nurse/NurseChat';
 
 const ClientCaseload = () => (
-  <div>
+  <div className="w-full max-w-full">
     <h2>Client Caseload</h2>
     <p>Manage client caseload here.</p>
   </div>
@@ -95,7 +95,7 @@ const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }
   const { t } = useLanguage();
 
   return (
-    <>
+    <div className="w-full max-w-full">
       {/* Member Portal Sections */}
       {activeSection === 'home' && <MemberDashboard />}
       {activeSection === 'care' && <CareManager />}
@@ -133,7 +133,7 @@ const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }
       {activeSection === 'patient-education' && <PatientEducation />}
       {activeSection === 'clinical-resources' && <ClinicalResources />}
       {activeSection === 'nurse-analytics' && <NurseAnalytics />}
-    </>
+    </div>
   );
 };
 

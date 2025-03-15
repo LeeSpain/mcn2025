@@ -26,7 +26,7 @@ const DashboardPage: React.FC = () => {
 
   return (
     <LanguageProvider>
-      <div className="w-full min-h-screen max-w-none overflow-hidden">
+      <div className="w-full min-h-screen max-w-none">
         <DashboardLayout />
       </div>
     </LanguageProvider>
