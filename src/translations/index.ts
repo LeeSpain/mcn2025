@@ -24,6 +24,7 @@ import { blogTranslations } from './blog';
 import { nurseTranslations } from './nurse';
 import { patientEducationTranslations } from './patient-education';
 import { popupTranslations } from './popup';
+import { aiAgentsTranslations } from './ai-agents';
 
 import { TranslationSet } from './types';
 
@@ -53,6 +54,7 @@ export const translations: TranslationSet = {
   ...nurseTranslations,
   ...patientEducationTranslations,
   ...popupTranslations,
+  ...aiAgentsTranslations,
 };
 
 // Export Language type from types.ts using 'export type'

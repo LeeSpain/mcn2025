@@ -11,8 +11,11 @@ import HowItWorksSection from '@/components/ai-agents/HowItWorksSection';
 import CallRecordingSection from '@/components/ai-agents/CallRecordingSection';
 import CTASection from '@/components/ai-agents/CTASection';
 import MemberDashboardAI from '@/components/ai-agents/MemberDashboardAI';
+import { useLanguage } from '@/context/LanguageContext';
 
 const AIAgentsPage: React.FC = () => {
+  const { t } = useLanguage();
+  
   // Effect to scroll to top when the component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +37,7 @@ const AIAgentsPage: React.FC = () => {
           {/* AI Call Agents Section with Flow Diagram */}
           <AICallAgentsSection />
 
-          {/* Member Dashboard AI Chat Section - NEW */}
+          {/* Member Dashboard AI Chat Section */}
           <MemberDashboardAI />
 
           {/* Staffing Efficiency Section */}
