@@ -10,7 +10,6 @@ import EnterprisePage from './pages/EnterprisePage';
 import ContactPage from './pages/ContactPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import AIAgentPage from './pages/AIAgentPage';
 import NotFound from './pages/NotFound';
 
 const App = () => {
@@ -26,7 +25,6 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/ai-agent" element={<AIAgentPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

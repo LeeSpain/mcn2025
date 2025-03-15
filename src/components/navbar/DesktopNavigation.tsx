@@ -2,50 +2,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
 
 const DesktopNavigation: React.FC = () => {
   const { t } = useLanguage();
   
   return (
-    <div className="hidden md:flex items-center space-x-2">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <Link to="/features" className="nav-link">
-              {t('nav.features')}
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link to="/clients" className="nav-link">
-              {t('nav.clients')}
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link to="/enterprise" className="nav-link">
-              {t('nav.enterprise')}
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link to="/ai-agent" className="nav-link">
-              {t('nav.aiAgent', 'AI Agent')}
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link to="/contact" className="nav-link">
-              {t('nav.contact')}
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+    <nav className="hidden md:flex items-center space-x-8">
+      <Link to="/features" className="text-foreground hover:text-mcn-blue transition-colors">
+        {t('nav.features')}
+      </Link>
+      <Link to="/clients" className="text-foreground hover:text-mcn-blue transition-colors">
+        {t('nav.clients')}
+      </Link>
+      <Link to="/enterprise" className="text-foreground hover:text-mcn-blue transition-colors">
+        {t('nav.enterprise')}
+      </Link>
+      <Link to="/contact" className="text-foreground hover:text-mcn-blue transition-colors">
+        {t('nav.contact')}
+      </Link>
+    </nav>
   );
 };
 

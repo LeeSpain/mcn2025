@@ -50,13 +50,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           {t('nav.enterprise')}
         </Link>
         <Link 
-          to="/ai-agent" 
-          className="text-xl font-medium border-b border-gray-100 pb-4"
-          onClick={onClose}
-        >
-          {t('nav.aiAgent', 'AI Agent')}
-        </Link>
-        <Link 
           to="/contact" 
           className="text-xl font-medium border-b border-gray-100 pb-4"
           onClick={onClose}
