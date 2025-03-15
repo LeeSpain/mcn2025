@@ -22,6 +22,13 @@ const ScrollableContent = memo(forwardRef<HTMLDivElement, ScrollableContentProps
     }
   };
 
+  // Force reset scroll position when the component mounts or is re-rendered
+  useEffect(() => {
+    if (innerRef.current) {
+      innerRef.current.scrollTop = 0;
+    }
+  }, [children]); // Re-run when children change, which happens on page change
+
   // Force enable the "Next" button if the content is not scrollable
   useEffect(() => {
     const checkIfScrollable = () => {
