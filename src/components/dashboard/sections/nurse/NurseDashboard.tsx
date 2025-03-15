@@ -24,8 +24,10 @@ import ClinicalAlerts from './dashboard/ClinicalAlerts';
 import PendingTasks from './dashboard/PendingTasks';
 import QuickActions from './dashboard/QuickActions';
 import { format } from 'date-fns';
+import { useLanguage } from '@/context/LanguageContext';
 
 const NurseDashboard: React.FC = () => {
+  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState('overview');
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
@@ -42,15 +44,15 @@ const NurseDashboard: React.FC = () => {
     <div className="nurse-dashboard space-y-6 w-full">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between w-full">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Nurse Dashboard</h1>
+          <h1 className="text-2xl font-bold tracking-tight">{t('nurse.dashboard.title', 'Nurse Dashboard')}</h1>
           <p className="text-muted-foreground">
-            Welcome, Monique! Manage your client caseload, remote sessions, and clinical interventions
+            {t('nurse.dashboard.welcome', 'Welcome, Monique! Manage your client caseload, remote sessions, and clinical interventions')}
           </p>
         </div>
         <div className="mt-3 sm:mt-0 flex space-x-2">
           <button className="flex items-center gap-1.5 px-3 py-1.5 bg-mcn-blue text-white rounded-md text-sm">
             <Bell className="h-4 w-4" />
-            <span>Clinical Alerts</span>
+            <span>{t('nurse.dashboard.clinicalAlerts', 'Clinical Alerts')}</span>
             <span className="ml-1 bg-white text-mcn-blue rounded-full h-5 w-5 flex items-center justify-center text-xs font-medium">5</span>
           </button>
         </div>
@@ -61,15 +63,15 @@ const NurseDashboard: React.FC = () => {
         <TabsList className="grid grid-cols-3 mb-6 w-full">
           <TabsTrigger value="overview" className="flex items-center gap-1">
             <Activity className="h-4 w-4" />
-            <span>Overview</span>
+            <span>{t('nurse.dashboard.tabs.overview', 'Overview')}</span>
           </TabsTrigger>
           <TabsTrigger value="clients" className="flex items-center gap-1">
             <Users className="h-4 w-4" />
-            <span>Client Caseload</span>
+            <span>{t('nurse.dashboard.tabs.clientCaseload', 'Client Caseload')}</span>
           </TabsTrigger>
           <TabsTrigger value="visits" className="flex items-center gap-1">
             <Video className="h-4 w-4" />
-            <span>Today's Relex</span>
+            <span>{t('nurse.dashboard.tabs.todaysRelex', 'Today\'s Relex')}</span>
           </TabsTrigger>
         </TabsList>
 
@@ -89,7 +91,7 @@ const NurseDashboard: React.FC = () => {
               {/* Quick Calendar */}
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-md">Calendar</CardTitle>
+                  <CardTitle className="text-md">{t('nurse.dashboard.calendar', 'Calendar')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CalendarComponent
@@ -119,7 +121,7 @@ const NurseDashboard: React.FC = () => {
                       onClick={() => window.location.hash = 'visit-schedule'}
                     >
                       <Calendar className="h-4 w-4" />
-                      Schedule Manager
+                      {t('nurse.dashboard.scheduleManager', 'Schedule Manager')}
                     </Button>
                     <Button 
                       variant="outline" 
@@ -128,7 +130,7 @@ const NurseDashboard: React.FC = () => {
                       onClick={() => window.location.hash = 'appointments'}
                     >
                       <Video className="h-4 w-4" />
-                      View Appointments
+                      {t('nurse.dashboard.viewAppointments', 'View Appointments')}
                     </Button>
                   </div>
                 </CardContent>

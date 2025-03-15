@@ -3,8 +3,11 @@ import React from 'react';
 import DashboardAIHeader from './dashboard/DashboardAIHeader';
 import AIFeatureGrid from './dashboard/AIFeatureGrid';
 import ChatPreview from './dashboard/ChatPreview';
+import { useLanguage } from '@/context/LanguageContext';
 
 const MemberDashboardAI: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

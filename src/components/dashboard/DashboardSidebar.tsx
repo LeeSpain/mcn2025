@@ -19,6 +19,7 @@ interface DashboardSidebarProps {
   isOpen: boolean;
   isStaffPortal?: boolean;
   isNursePortal?: boolean;
+  t: (key: string, fallback?: string) => string;
 }
 
 const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
@@ -27,7 +28,8 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   setActiveSection,
   isOpen,
   isStaffPortal = false,
-  isNursePortal = false
+  isNursePortal = false,
+  t
 }) => {
   return (
     <aside 
@@ -53,7 +55,12 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
           {/* Portal Label */}
           {isOpen && (
             <div className="mb-2 px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-              {isStaffPortal ? 'Customer Service Portal' : isNursePortal ? 'Nurse Portal' : 'Member Portal'}
+              {isStaffPortal 
+                ? t('dashboard.sidebar.customerServicePortal', 'Customer Service Portal') 
+                : isNursePortal 
+                  ? t('dashboard.sidebar.nursePortal', 'Nurse Portal') 
+                  : t('dashboard.sidebar.memberPortal', 'Member Portal')
+              }
             </div>
           )}
           
@@ -78,7 +85,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   "h-5 w-5",
                   isOpen ? "mr-3" : "mx-auto"
                 )} />
-                {isOpen && <span className="truncate">{item.label}</span>}
+                {isOpen && <span className="truncate">{t(item.label, item.label)}</span>}
               </button>
             ))}
           </div>
@@ -87,7 +94,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         {/* Version info at bottom */}
         {isOpen && (
           <div className="px-4 py-2 text-xs text-gray-500 border-t border-gray-200">
-            <p>MCN Healthcare v1.0.2</p>
+            <p>{t('dashboard.sidebar.version', 'MCN Healthcare v1.0.2')}</p>
           </div>
         )}
       </div>

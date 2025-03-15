@@ -4,8 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Phone, AlertTriangle, Bell, Calendar, Sparkles, HandHeart, Gift, CheckCheck } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import { useLanguage } from '@/context/LanguageContext';
 
 const WelcomeBanner: React.FC = () => {
+  const { t } = useLanguage();
   const location = useLocation();
   const isStaffDashboard = location.pathname.includes('staff') || location.hash === '#staff';
   const isNurseDashboard = location.hash === '#nurse-dashboard' || location.hash.includes('nurse');
@@ -25,11 +27,11 @@ const WelcomeBanner: React.FC = () => {
     // Set greeting based on time of day
     const hour = currentTime.getHours();
     if (hour < 12) {
-      setGreeting('Good Morning');
+      setGreeting(t('dashboard.greeting.morning', 'Good Morning'));
     } else if (hour < 18) {
-      setGreeting('Good Afternoon');
+      setGreeting(t('dashboard.greeting.afternoon', 'Good Afternoon'));
     } else {
-      setGreeting('Good Evening');
+      setGreeting(t('dashboard.greeting.evening', 'Good Evening'));
     }
     
     // Update time every minute
@@ -38,7 +40,7 @@ const WelcomeBanner: React.FC = () => {
     }, 60000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [currentTime, t]);
   
   const currentDate = currentTime.toLocaleDateString('en-US', { 
     weekday: 'long', 
@@ -77,21 +79,21 @@ const WelcomeBanner: React.FC = () => {
         
         <CardContent className="relative z-10">
           <div className="mb-4">
-            <p className="text-gray-600">We hope you're having a wonderful day. Here's your personal dashboard.</p>
+            <p className="text-gray-600">{t('dashboard.welcome.message', 'We hope you\'re having a wonderful day. Here\'s your personal dashboard.')}</p>
           </div>
           
           <div className="flex flex-wrap gap-2 sm:gap-4">
             <Button variant="secondary" size="sm" className="flex items-center gap-2 bg-white/60 hover:bg-white/80 text-mcn-blue border-mcn-blue/20 transition-all hover:scale-105">
               <Phone size={16} />
-              Call Family
+              {t('dashboard.welcome.callFamily', 'Call Family')}
             </Button>
             <Button variant="secondary" size="sm" className="flex items-center gap-2 bg-white/60 hover:bg-white/80 text-mcn-blue border-mcn-blue/20 transition-all hover:scale-105">
               <Phone size={16} />
-              Call Support
+              {t('dashboard.welcome.callSupport', 'Call Support')}
             </Button>
             <Button variant="secondary" size="sm" className="flex items-center gap-2 bg-red-100 hover:bg-red-200 text-red-600 border-red-200 transition-all hover:scale-105">
               <AlertTriangle size={16} />
-              Emergency
+              {t('dashboard.welcome.emergency', 'Emergency')}
             </Button>
           </div>
         </CardContent>
@@ -104,15 +106,15 @@ const WelcomeBanner: React.FC = () => {
       <div className="bg-white p-3 flex items-center justify-between border-t border-gray-100">
         <div className="flex items-center text-sm text-gray-600">
           <Gift className="mr-2 h-4 w-4 text-mcn-blue-light" />
-          <span>3 new features available</span>
+          <span>{t('dashboard.welcome.newFeatures', '3 new features available')}</span>
         </div>
         <div className="flex items-center text-sm text-gray-600">
           <Bell className="mr-2 h-4 w-4 text-mcn-blue-light" />
-          <span>2 notifications</span>
+          <span>{t('dashboard.welcome.notifications', '2 notifications')}</span>
         </div>
         <div className="flex items-center text-sm text-gray-600">
           <CheckCheck className="mr-2 h-4 w-4 text-mcn-blue-light" />
-          <span>All systems operational</span>
+          <span>{t('dashboard.welcome.systemStatus', 'All systems operational')}</span>
         </div>
       </div>
     </Card>
