@@ -2,9 +2,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   return (
     <footer className="bg-mcn-gray-light border-t border-mcn-gray relative overflow-hidden">
@@ -82,8 +84,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/health-view" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Health View
+                <Link to="/solutions" className="text-muted-foreground hover:text-mcn-blue transition-colors">
+                  All Solutions
                 </Link>
               </li>
             </ul>
