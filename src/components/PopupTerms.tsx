@@ -5,7 +5,8 @@ import {
   DialogContent,
   DialogFooter,
   DialogHeader,
-  DialogTitle 
+  DialogTitle,
+  DialogDescription
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/LanguageContext';
@@ -23,6 +24,7 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
   const [currentPage, setCurrentPage] = useState<1 | 2>(1);
   const [canProceed, setCanProceed] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const dialogDescriptionId = "popup-terms-description";
 
   // Reset states when dialog opens
   useEffect(() => {
@@ -55,13 +57,21 @@ const PopupTerms: React.FC<PopupTermsProps> = ({ isOpen, onClose }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-3xl">
+      <DialogContent 
+        className="max-w-3xl" 
+        aria-describedby={dialogDescriptionId}
+      >
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl font-display text-mcn-blue-dark">
             {currentPage === 1 
               ? t('popup.terms.title', 'The Future Is Now') 
               : t('popup.privacy.title', 'Understand The Platform')}
           </DialogTitle>
+          <DialogDescription id={dialogDescriptionId} className="sr-only">
+            {currentPage === 1 
+              ? 'Information about Mobile Care Nexus platform' 
+              : 'Privacy and platform details'}
+          </DialogDescription>
         </DialogHeader>
         
         <ScrollableContent onScroll={handleScrollToBottom} ref={scrollAreaRef}>

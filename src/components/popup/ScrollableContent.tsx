@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, ReactNode, forwardRef } from 'react';
+import React, { useEffect, useRef, ReactNode, forwardRef, memo } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface ScrollableContentProps {
@@ -7,7 +7,7 @@ interface ScrollableContentProps {
   onScroll: () => void;
 }
 
-const ScrollableContent = forwardRef<HTMLDivElement, ScrollableContentProps>(({ children, onScroll }, ref) => {
+const ScrollableContent = memo(forwardRef<HTMLDivElement, ScrollableContentProps>(({ children, onScroll }, ref) => {
   const innerRef = useRef<HTMLDivElement>(null);
   
   // Combine the forwarded ref with our internal ref
@@ -67,7 +67,7 @@ const ScrollableContent = forwardRef<HTMLDivElement, ScrollableContentProps>(({ 
       </div>
     </ScrollArea>
   );
-});
+}));
 
 ScrollableContent.displayName = 'ScrollableContent';
 

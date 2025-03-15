@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -27,9 +27,9 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, []);
   
-  const handleClosePopup = () => {
+  const handleClosePopup = useCallback(() => {
     setShowPopup(false);
-  };
+  }, []);
   
   return (
     <LanguageProvider>
@@ -54,13 +54,15 @@ const Index = () => {
         <Footer />
         
         {/* Terms & Conditions Popup */}
-        <PopupTerms 
-          isOpen={showPopup} 
-          onClose={handleClosePopup} 
-        />
+        {showPopup && (
+          <PopupTerms 
+            isOpen={showPopup} 
+            onClose={handleClosePopup} 
+          />
+        )}
       </div>
     </LanguageProvider>
   );
 };
 
-export default Index;
+export default React.memo(Index);

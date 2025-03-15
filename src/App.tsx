@@ -1,52 +1,63 @@
 
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '@/context/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
-import Index from './pages/Index';
-import DashboardPage from './pages/DashboardPage';
-import Features from './pages/Features';
-import ClientsPage from './pages/ClientsPage';
-import EnterprisePage from './pages/EnterprisePage';
-import ContactPage from './pages/ContactPage';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import NotFound from './pages/NotFound';
-import AIAgentsPage from './pages/AIAgentsPage';
-import SolutionsPage from './pages/SolutionsPage';
-import CareManagerPage from './pages/CareManagerPage';
-import SafetyMonitorPage from './pages/SafetyMonitorPage';
-import ConnectHubPage from './pages/ConnectHubPage';
-import ShopGatewayPage from './pages/ShopGatewayPage';
-import AboutPage from './pages/AboutPage';
-import CareersPage from './pages/CareersPage';
-import BlogPage from './pages/BlogPage';
+
+// Lazy load pages to reduce initial bundle size
+const Index = lazy(() => import('./pages/Index'));
+const DashboardPage = lazy(() => import('./pages/DashboardPage'));
+const Features = lazy(() => import('./pages/Features'));
+const ClientsPage = lazy(() => import('./pages/ClientsPage'));
+const EnterprisePage = lazy(() => import('./pages/EnterprisePage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const Login = lazy(() => import('./pages/Login'));
+const Signup = lazy(() => import('./pages/Signup'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const AIAgentsPage = lazy(() => import('./pages/AIAgentsPage'));
+const SolutionsPage = lazy(() => import('./pages/SolutionsPage'));
+const CareManagerPage = lazy(() => import('./pages/CareManagerPage'));
+const SafetyMonitorPage = lazy(() => import('./pages/SafetyMonitorPage'));
+const ConnectHubPage = lazy(() => import('./pages/ConnectHubPage'));
+const ShopGatewayPage = lazy(() => import('./pages/ShopGatewayPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const CareersPage = lazy(() => import('./pages/CareersPage'));
+const BlogPage = lazy(() => import('./pages/BlogPage'));
+
+// Simple loading component
+const LoadingFallback = () => (
+  <div className="min-h-screen flex items-center justify-center">
+    <div className="w-16 h-16 border-4 border-mcn-blue border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const App = () => {
   return (
     <LanguageProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/clients" element={<ClientsPage />} />
-          <Route path="/enterprise" element={<EnterprisePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/ai-agents" element={<AIAgentsPage />} />
-          <Route path="/solutions" element={<SolutionsPage />} />
-          <Route path="/care-manager" element={<CareManagerPage />} />
-          <Route path="/safety-monitor" element={<SafetyMonitorPage />} />
-          <Route path="/connect-hub" element={<ConnectHubPage />} />
-          <Route path="/shop-gateway" element={<ShopGatewayPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/features" element={<Features />} />
+            <Route path="/clients" element={<ClientsPage />} />
+            <Route path="/enterprise" element={<EnterprisePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/ai-agents" element={<AIAgentsPage />} />
+            <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/care-manager" element={<CareManagerPage />} />
+            <Route path="/safety-monitor" element={<SafetyMonitorPage />} />
+            <Route path="/connect-hub" element={<ConnectHubPage />} />
+            <Route path="/shop-gateway" element={<ShopGatewayPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </LanguageProvider>
   );
