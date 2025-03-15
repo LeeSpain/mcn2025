@@ -40,6 +40,9 @@ const DesktopActions: React.FC = () => {
           <DropdownMenuItem className="cursor-pointer">
             <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
           </DropdownMenuItem>
+          <DropdownMenuItem className="cursor-pointer">
+            <Link to="/dashboard#ai-agent" className="w-full">AI Agent</Link>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       
