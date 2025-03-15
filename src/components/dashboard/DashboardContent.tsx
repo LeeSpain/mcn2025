@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import MemberDashboard from '../dashboard/sections/MainDashboard';
@@ -22,15 +23,12 @@ import HelpSupport from './sections/HelpSupport';
 import VisitSchedule from './sections/nurse/VisitSchedule';
 import CarePlans from './sections/nurse/CarePlans';
 import ClinicalMonitoring from './sections/nurse/ClinicalMonitoring';
+import ClientCaseload from './sections/nurse/ClientCaseload';
+import MedicationManagement from './sections/nurse/MedicationManagement';
+import DocumentManagement from './sections/nurse/DocumentManagement';
+import QualitySafety from './sections/nurse/QualitySafety';
 
 // Create placeholder components for the missing modules
-const MedicationMgmt = () => (
-  <div>
-    <h2>Medication Management</h2>
-    <p>Manage medications and prescriptions here.</p>
-  </div>
-);
-
 const Documentation = () => (
   <div>
     <h2>Documentation</h2>
@@ -38,7 +36,7 @@ const Documentation = () => (
   </div>
 );
 
-const QualitySafety = () => (
+const QualitySafetyPlaceholder = () => (
   <div>
     <h2>Quality & Safety</h2>
     <p>Monitor quality and safety metrics here.</p>
@@ -83,18 +81,11 @@ const NurseAnalytics = () => (
 // Import the NurseChat component
 import NurseChat from './sections/nurse/NurseChat';
 
-const ClientCaseload = () => (
-  <div className="w-full max-w-full">
-    <h2>Client Caseload</h2>
-    <p>Manage client caseload here.</p>
-  </div>
-);
-
 const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }) => {
   const { t } = useLanguage();
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-full">
       {/* Member Portal Sections */}
       {activeSection === 'home' && <MemberDashboard />}
       {activeSection === 'care' && <CareManager />}
@@ -124,8 +115,8 @@ const DashboardContent: React.FC<{ activeSection: string }> = ({ activeSection }
       {activeSection === 'visit-schedule' && <VisitSchedule />}
       {activeSection === 'care-plans' && <CarePlans />}
       {activeSection === 'clinical-monitoring' && <ClinicalMonitoring />}
-      {activeSection === 'medication-mgmt' && <MedicationMgmt />}
-      {activeSection === 'documentation' && <Documentation />}
+      {activeSection === 'medication-mgmt' && <MedicationManagement />}
+      {activeSection === 'documentation' && <DocumentManagement />}
       {activeSection === 'quality-safety' && <QualitySafety />}
       {activeSection === 'vitals' && <VitalsTracking />}
       {activeSection === 'appointments' && <Appointments />}

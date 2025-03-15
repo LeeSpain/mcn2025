@@ -8,7 +8,7 @@ import {
   AlertCircle, 
   Users,
   HeartPulse,
-  Building2, // Changed from HospitalSquare to Building2 which is available in lucide
+  Building2,
 } from 'lucide-react';
 
 // Mock data
@@ -54,24 +54,61 @@ const priorityClients = [
     issues: 'Blood glucose monitoring', 
     lastVisit: '2 days ago',
     nextVisit: 'Tomorrow, 3:30 PM'
+  },
+  { 
+    id: 5, 
+    name: 'Thomas Visser', 
+    priority: 'low', 
+    issues: 'Regular checkup', 
+    lastVisit: '1 week ago',
+    nextVisit: 'Next week, Tuesday'
+  },
+  { 
+    id: 6, 
+    name: 'Sophie Klein', 
+    priority: 'low', 
+    issues: 'Medication review', 
+    lastVisit: '5 days ago',
+    nextVisit: 'Next week, Thursday'
   }
 ];
 
 interface ClientCaseloadOverviewProps {
   fullView?: boolean;
+  filterByRisk?: string;
 }
 
-const ClientCaseloadOverview: React.FC<ClientCaseloadOverviewProps> = ({ fullView = false }) => {
+const ClientCaseloadOverview: React.FC<ClientCaseloadOverviewProps> = ({ 
+  fullView = false,
+  filterByRisk
+}) => {
+  // Filter clients by risk level if specified
+  let filteredClients = priorityClients;
+  if (filterByRisk) {
+    const riskLevel = filterByRisk.toLowerCase();
+    filteredClients = priorityClients.filter(client => client.priority === riskLevel);
+  }
+  
   // Limit the number of clients shown unless in full view
-  const displayedClients = fullView ? priorityClients : priorityClients.slice(0, 3);
+  const displayedClients = fullView ? filteredClients : filteredClients.slice(0, 3);
   
   return (
     <Card>
       <CardHeader className="pb-2">
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle className="text-xl">Client Caseload</CardTitle>
-            <CardDescription>Prioritized by clinical need</CardDescription>
+            <CardTitle className="text-xl">
+              {filterByRisk 
+                ? `${filterByRisk} Priority Clients`
+                : 'Client Caseload'
+              }
+            </CardTitle>
+            <CardDescription>
+              {filterByRisk 
+                ? `Clients requiring ${filterByRisk.toLowerCase()} attention`
+                : 'Prioritized by clinical need'
+              }
+            </CardDescription>
           </div>
           {!fullView && (
             <button className="text-sm text-mcn-blue hover:underline">
@@ -109,56 +146,64 @@ const ClientCaseloadOverview: React.FC<ClientCaseloadOverviewProps> = ({ fullVie
                 <p className="text-xs text-gray-500">Recent Discharges</p>
                 <p className="text-xl font-semibold">{clientStats.recentDischarges}</p>
               </div>
-              <Building2 className="h-8 w-8 text-green-600 opacity-70" /> {/* Changed from HospitalSquare to Building2 */}
+              <Building2 className="h-8 w-8 text-green-600 opacity-70" />
             </div>
           </div>
         </div>
         
         {/* Priority Clients List */}
         <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-500 mb-2">PRIORITY CLIENTS</h3>
+          <h3 className="text-sm font-medium text-gray-500 mb-2">
+            {filterByRisk ? `${filterByRisk.toUpperCase()} PRIORITY CLIENTS` : 'PRIORITY CLIENTS'}
+          </h3>
           
-          {displayedClients.map(client => (
-            <div 
-              key={client.id} 
-              className="p-3 bg-white border rounded-lg flex items-start hover:shadow-sm transition-shadow cursor-pointer"
-            >
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 
-                ${client.priority === 'high' ? 'bg-red-100 text-red-600' : 
-                  client.priority === 'medium' ? 'bg-amber-100 text-amber-600' : 
-                  'bg-green-100 text-green-600'}`}
+          {displayedClients.length > 0 ? (
+            displayedClients.map(client => (
+              <div 
+                key={client.id} 
+                className="p-3 bg-white border rounded-lg flex items-start hover:shadow-sm transition-shadow cursor-pointer"
               >
-                {client.name.split(' ').map(n => n[0]).join('')}
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <div className="font-medium">{client.name}</div>
-                    <div className="text-xs text-gray-500 mt-0.5">{client.issues}</div>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 
+                  ${client.priority === 'high' ? 'bg-red-100 text-red-600' : 
+                    client.priority === 'medium' ? 'bg-amber-100 text-amber-600' : 
+                    'bg-green-100 text-green-600'}`}
+                >
+                  {client.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div className="flex-1">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <div className="font-medium">{client.name}</div>
+                      <div className="text-xs text-gray-500 mt-0.5">{client.issues}</div>
+                    </div>
+                    <div className={`text-xs px-2 py-0.5 rounded-full font-medium
+                      ${client.priority === 'high' ? 'bg-red-100 text-red-800' : 
+                        client.priority === 'medium' ? 'bg-amber-100 text-amber-800' : 
+                        'bg-green-100 text-green-800'}`}
+                    >
+                      {client.priority.charAt(0).toUpperCase() + client.priority.slice(1)}
+                    </div>
                   </div>
-                  <div className={`text-xs px-2 py-0.5 rounded-full font-medium
-                    ${client.priority === 'high' ? 'bg-red-100 text-red-800' : 
-                      client.priority === 'medium' ? 'bg-amber-100 text-amber-800' : 
-                      'bg-green-100 text-green-800'}`}
-                  >
-                    {client.priority.charAt(0).toUpperCase() + client.priority.slice(1)}
+                  <div className="flex mt-2 text-xs text-gray-500">
+                    <div className="flex items-center mr-4">
+                      <ArrowDownCircle className="h-3 w-3 mr-1" />
+                      <span>Last: {client.lastVisit}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <ArrowUpCircle className="h-3 w-3 mr-1" />
+                      <span>Next: {client.nextVisit}</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex mt-2 text-xs text-gray-500">
-                  <div className="flex items-center mr-4">
-                    <ArrowDownCircle className="h-3 w-3 mr-1" />
-                    <span>Last: {client.lastVisit}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <ArrowUpCircle className="h-3 w-3 mr-1" />
-                    <span>Next: {client.nextVisit}</span>
-                  </div>
-                </div>
               </div>
+            ))
+          ) : (
+            <div className="p-6 text-center text-gray-500">
+              No clients in this priority level
             </div>
-          ))}
+          )}
           
-          {fullView && (
+          {fullView && displayedClients.length > 0 && (
             <div className="flex justify-center mt-4">
               <button className="text-sm text-mcn-blue border border-mcn-blue rounded-md px-4 py-2 hover:bg-mcn-blue/5 transition-colors">
                 Load more clients
