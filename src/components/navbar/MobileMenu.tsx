@@ -50,13 +50,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           {t('nav.enterprise')}
         </Link>
         <Link 
-          to="/ai-agent" 
-          className="text-xl font-medium border-b border-gray-100 pb-4"
-          onClick={onClose}
-        >
-          {t('nav.aiAgent', 'AI Agent')}
-        </Link>
-        <Link 
           to="/contact" 
           className="text-xl font-medium border-b border-gray-100 pb-4"
           onClick={onClose}
@@ -82,6 +75,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
                 <Link to="/dashboard#nurse-dashboard" className="w-full">Nurse Dashboard</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
+                <Link to="/ai-agent" className="w-full">{t('nav.aiAgent', 'AI Agent')}</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

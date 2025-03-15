@@ -6,10 +6,10 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { LayoutDashboard } from 'lucide-react';
 
 const DesktopNavigation: React.FC = () => {
   const { t } = useLanguage();
@@ -34,9 +34,38 @@ const DesktopNavigation: React.FC = () => {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link to="/ai-agent" className="nav-link">
-              {t('nav.aiAgent', 'AI Agent')}
-            </Link>
+            <NavigationMenuTrigger className="nav-link">
+              <LayoutDashboard className="h-4 w-4 mr-1" />
+              Dashboard
+            </NavigationMenuTrigger>
+            <NavigationMenuContent className="bg-white p-2 rounded-md shadow-md border">
+              <div className="grid min-w-[200px]">
+                <Link 
+                  to="/dashboard#home" 
+                  className="block p-2 rounded hover:bg-gray-100"
+                >
+                  Member Dashboard
+                </Link>
+                <Link 
+                  to="/dashboard#staff" 
+                  className="block p-2 rounded hover:bg-gray-100"
+                >
+                  Staff Dashboard
+                </Link>
+                <Link 
+                  to="/dashboard#nurse-dashboard" 
+                  className="block p-2 rounded hover:bg-gray-100"
+                >
+                  Nurse Dashboard
+                </Link>
+                <Link 
+                  to="/ai-agent" 
+                  className="block p-2 rounded hover:bg-gray-100"
+                >
+                  {t('nav.aiAgent', 'AI Agent')}
+                </Link>
+              </div>
+            </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <Link to="/contact" className="nav-link">
