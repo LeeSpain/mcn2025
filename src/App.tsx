@@ -14,6 +14,10 @@ import Signup from './pages/Signup';
 import NotFound from './pages/NotFound';
 import AIAgentsPage from './pages/AIAgentsPage';
 import SolutionsPage from './pages/SolutionsPage';
+import CareManagerPage from './pages/CareManagerPage';
+import SafetyMonitorPage from './pages/SafetyMonitorPage';
+import ConnectHubPage from './pages/ConnectHubPage';
+import ShopGatewayPage from './pages/ShopGatewayPage';
 
 const App = () => {
   return (
@@ -31,6 +35,10 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/ai-agents" element={<AIAgentsPage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/care-manager" element={<CareManagerPage />} />
+          <Route path="/safety-monitor" element={<SafetyMonitorPage />} />
+          <Route path="/connect-hub" element={<ConnectHubPage />} />
+          <Route path="/shop-gateway" element={<ShopGatewayPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
