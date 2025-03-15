@@ -17,7 +17,7 @@ import { clientExperienceTranslations } from './client-experience';
 import { clientPricingTranslations } from './client-pricing';
 import { clientFeaturesTranslations } from './client-features';
 import { clientFamilyTranslations } from './client-family';
-import { clientCtaTranslations } from './client-cta';
+import { clientCTATranslations } from './client-cta';
 import { clientHeaderTranslations } from './client-header';
 import { pricingTranslations } from './pricing';
 import { blogTranslations } from './blog';
@@ -46,7 +46,7 @@ export const translations: TranslationSet = {
   ...clientPricingTranslations,
   ...clientFeaturesTranslations,
   ...clientFamilyTranslations,
-  ...clientCtaTranslations,
+  ...clientCTATranslations,
   ...clientHeaderTranslations,
   ...pricingTranslations,
   ...blogTranslations,
@@ -54,3 +54,6 @@ export const translations: TranslationSet = {
   ...patientEducationTranslations,
   ...popupTranslations,
 };
+
+// Export Language type from types.ts
+export { Language } from './types';
