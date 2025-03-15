@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import ContactHero from '@/components/contact/ContactHero';
@@ -11,6 +11,11 @@ import { useLanguage } from '@/context/LanguageContext';
 
 const ContactPage = () => {
   const { t } = useLanguage();
+  
+  // Effect to scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   return (
     <div className="min-h-screen">
