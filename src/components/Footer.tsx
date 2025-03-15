@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             </div>
             
             <p className="text-muted-foreground mb-6">
-              Mobile Care Nexus unifies healthcare monitoring, communication, and support in one seamless platform.
+              {t('footer.description', 'Mobile Care Nexus unifies healthcare monitoring, communication, and support in one seamless platform.')}
             </p>
             
             <div className="flex space-x-4">
@@ -61,74 +61,74 @@ const Footer: React.FC = () => {
           </div>
           
           <div>
-            <h3 className="font-semibold text-lg mb-4">Solutions</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.solutions.heading', 'Solutions')}</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/care-manager" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Care Manager
+                  {t('footer.solutions.careManager', 'Care Manager')}
                 </Link>
               </li>
               <li>
                 <Link to="/safety-monitor" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Safety Monitor
+                  {t('footer.solutions.safetyMonitor', 'Safety Monitor')}
                 </Link>
               </li>
               <li>
                 <Link to="/connect-hub" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Connect Hub
+                  {t('footer.solutions.connectHub', 'Connect Hub')}
                 </Link>
               </li>
               <li>
                 <Link to="/shop-gateway" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Shop Gateway
+                  {t('footer.solutions.shopGateway', 'Shop Gateway')}
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.company.heading', 'Company')}</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  About Us
+                  {t('footer.company.about', 'About Us')}
                 </Link>
               </li>
               <li>
                 <Link to="/careers" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Careers
+                  {t('footer.company.careers', 'Careers')}
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Blog
+                  {t('footer.company.blog', 'Blog')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-muted-foreground hover:text-mcn-blue transition-colors">
-                  Contact
+                  {t('footer.company.contact', 'Contact')}
                 </Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-semibold text-lg mb-4">Stay Updated</h3>
+            <h3 className="font-semibold text-lg mb-4">{t('footer.newsletter.heading', 'Stay Updated')}</h3>
             <p className="text-muted-foreground mb-4">
-              Subscribe to our newsletter for the latest updates and insights.
+              {t('footer.newsletter.description', 'Subscribe to our newsletter for the latest updates and insights.')}
             </p>
             
             <form className="mb-4">
               <div className="flex">
                 <input 
                   type="email" 
-                  placeholder="Your email address" 
+                  placeholder={t('footer.newsletter.placeholder', 'Your email address')}
                   className="flex-1 px-4 py-2 rounded-l-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-mcn-blue focus:border-transparent"
                 />
                 <button 
                   type="submit" 
                   className="bg-mcn-blue text-white px-4 py-2 rounded-r-lg border border-mcn-blue hover:bg-mcn-blue-dark transition-colors"
-                  aria-label="Subscribe"
+                  aria-label={t('footer.newsletter.subscribeLabel', 'Subscribe')}
                 >
                   <ArrowRight size={20} />
                 </button>
@@ -136,28 +136,28 @@ const Footer: React.FC = () => {
             </form>
             
             <p className="text-xs text-muted-foreground">
-              By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.
+              {t('footer.newsletter.disclaimer', 'By subscribing, you agree to our Privacy Policy and consent to receive updates from our company.')}
             </p>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-mcn-gray flex flex-col md:flex-row justify-between items-center">
           <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © {currentYear} Mobile Care Nexus. All rights reserved.
+            © {currentYear} {t('footer.copyright', 'Mobile Care Nexus. All rights reserved.')}
           </div>
           
           <div className="flex flex-wrap gap-4 md:gap-8">
             <Link to="/terms" className="text-sm text-muted-foreground hover:text-mcn-blue">
-              Terms of Service
+              {t('footer.legal.terms', 'Terms of Service')}
             </Link>
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-mcn-blue">
-              Privacy Policy
+              {t('footer.legal.privacy', 'Privacy Policy')}
             </Link>
             <Link to="/cookies" className="text-sm text-muted-foreground hover:text-mcn-blue">
-              Cookie Policy
+              {t('footer.legal.cookies', 'Cookie Policy')}
             </Link>
             <Link to="/accessibility" className="text-sm text-muted-foreground hover:text-mcn-blue">
-              Accessibility
+              {t('footer.legal.accessibility', 'Accessibility')}
             </Link>
           </div>
         </div>

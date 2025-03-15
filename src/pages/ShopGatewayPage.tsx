@@ -2,8 +2,11 @@
 import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ShopGatewayPage = () => {
+  const { t } = useLanguage();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -17,10 +20,10 @@ const ShopGatewayPage = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-display font-bold bg-gradient-to-r from-mcn-blue-dark to-mcn-blue bg-clip-text text-transparent mb-6">
-                Shop Gateway
+                {t('shopGateway.page.title', 'Shop Gateway')}
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                A convenient marketplace for healthcare essentials, medical devices, and wellness products.
+                {t('shopGateway.page.description', 'A convenient marketplace for healthcare essentials, medical devices, and wellness products.')}
               </p>
             </div>
           </div>
@@ -33,29 +36,30 @@ const ShopGatewayPage = () => {
                 <div className="aspect-video bg-white rounded-lg shadow-lg"></div>
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-display font-semibold mb-4">Everything You Need for Health & Wellness</h2>
+                <h2 className="text-3xl font-display font-semibold mb-4">
+                  {t('shopGateway.section.title', 'Everything You Need for Health & Wellness')}
+                </h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Our Shop Gateway provides patients and caregivers with easy access to recommended health products, 
-                  medical supplies, and wellness essentials—all in one convenient marketplace.
+                  {t('shopGateway.section.description', 'Our Shop Gateway provides patients and caregivers with easy access to recommended health products, medical supplies, and wellness essentials—all in one convenient marketplace.')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <div className="mr-3 mt-1 w-5 h-5 rounded-full bg-mcn-blue/20 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-mcn-blue"></div>
                     </div>
-                    <p>Curated selection of quality healthcare products</p>
+                    <p>{t('shopGateway.feature.products', 'Curated selection of quality healthcare products')}</p>
                   </li>
                   <li className="flex items-start">
                     <div className="mr-3 mt-1 w-5 h-5 rounded-full bg-mcn-blue/20 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-mcn-blue"></div>
                     </div>
-                    <p>Personalized recommendations based on care plans</p>
+                    <p>{t('shopGateway.feature.recommendations', 'Personalized recommendations based on care plans')}</p>
                   </li>
                   <li className="flex items-start">
                     <div className="mr-3 mt-1 w-5 h-5 rounded-full bg-mcn-blue/20 flex items-center justify-center">
                       <div className="w-2 h-2 rounded-full bg-mcn-blue"></div>
                     </div>
-                    <p>Subscription options for regular supplies</p>
+                    <p>{t('shopGateway.feature.subscriptions', 'Subscription options for regular supplies')}</p>
                   </li>
                 </ul>
               </div>
