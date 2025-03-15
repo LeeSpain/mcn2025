@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Heart, Activity, Thermometer, Lung, Droplets, ArrowUp, ArrowDown } from 'lucide-react';
+import { Heart, Activity, Thermometer, Stethoscope, Droplets, ArrowUp, ArrowDown } from 'lucide-react';
 
 const VitalsSummaryCards: React.FC = () => {
   return (
@@ -43,7 +43,7 @@ const VitalsSummaryCards: React.FC = () => {
       
       <Card className="bg-white">
         <CardContent className="p-4 flex flex-col items-center justify-center">
-          <Lung className="h-8 w-8 text-purple-500 mb-2" />
+          <Stethoscope className="h-8 w-8 text-purple-500 mb-2" />
           <div className="text-sm text-gray-500">Oxygen Saturation</div>
           <div className="text-2xl font-bold">98%</div>
           <div className="text-xs text-green-600 flex items-center">
