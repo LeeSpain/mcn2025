@@ -13,6 +13,7 @@ const PageOneContent: React.FC = () => {
         
         <h3 className="font-semibold text-lg mt-4 mb-2 font-display text-mcn-blue-dark">The Vision</h3>
         <p className="mb-3 text-foreground">MCN integrates all aspects of care delivery into one cohesive platform, connecting clients, caregivers, and support staff through intuitive digital interfaces. Rather than simply hiring more staff, this approach leverages technology to enhance service while reducing costs.</p>
+        <p className="mb-3 text-foreground">The platform is already fully available in both English and Dutch languages—I invite you to try switching between them as you explore to experience the seamless multilingual capabilities we can offer our clients.</p>
         
         <h3 className="font-semibold text-lg mt-4 mb-2 font-display text-mcn-blue-dark">What You'll See Today</h3>
         <p className="mb-2 text-foreground">As you explore the platform, you'll find four specialized portals:</p>
@@ -44,6 +45,8 @@ const PageOneContent: React.FC = () => {
           <li>Better decision-making through comprehensive data analytics</li>
           <li>Competitive differentiation in an increasingly digital marketplace</li>
         </ul>
+        
+        <p className="mb-3 text-foreground">I welcome you to explore the full functionality of the platform. Please feel free to test different features and language options—the system is fully operational and ready for your feedback.</p>
       </div>
       
       <div className="h-20 flex items-end justify-center text-center text-muted-foreground">
