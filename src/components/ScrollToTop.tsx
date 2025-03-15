@@ -14,11 +14,6 @@ export default function ScrollToTop() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // Also scroll to top on initial load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   // This component doesn't render anything
   return null;
 }

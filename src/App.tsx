@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '@/context/LanguageContext';
+import ScrollToTop from './components/ScrollToTop';
 import Index from './pages/Index';
 import DashboardPage from './pages/DashboardPage';
 import Features from './pages/Features';
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<DashboardPage />} />
