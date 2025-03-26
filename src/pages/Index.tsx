@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -9,26 +9,12 @@ import EnterpriseBenefits from '@/components/enterprise/EnterpriseBenefits';
 import EnterpriseDashboard from '@/components/enterprise/EnterpriseDashboard';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
-import PopupTerms from '@/components/PopupTerms';
 import { LanguageProvider } from '@/context/LanguageContext';
 
 const Index = () => {
-  const [showPopup, setShowPopup] = useState(false);
-  
   // Ensure scroll to top on initial load
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Show popup after 5 seconds
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 5000);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
-  const handleClosePopup = useCallback(() => {
-    setShowPopup(false);
   }, []);
   
   return (
@@ -52,14 +38,6 @@ const Index = () => {
         
         <TestimonialsSection />
         <Footer />
-        
-        {/* Terms & Conditions Popup */}
-        {showPopup && (
-          <PopupTerms 
-            isOpen={showPopup} 
-            onClose={handleClosePopup} 
-          />
-        )}
       </div>
     </LanguageProvider>
   );
