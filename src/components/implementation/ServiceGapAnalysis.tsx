@@ -31,7 +31,91 @@ const serviceGaps: ServiceGap[] = [
     solution: "Safety Monitor supports unconsciousness/hypothermia/epilepsy",
     tier: "Tier 3, Add-On for Tier 2"
   },
-  // Add all 26 gaps here
+  {
+    name: "BlueLine Room Limits",
+    solution: "Safety Monitoring Sensors note bedroom/bathroom scope",
+    tier: "Tier 2/3, Add-On for Tier 1"
+  },
+  {
+    name: "Mint Video Analysis",
+    solution: "Safety Monitoring Sensors include video clips",
+    tier: "Tier 3, Add-On for Tier 2"
+  },
+  {
+    name: "Google Translation",
+    solution: "BBrain/Connect Hub add multilingual support",
+    tier: "Tier 3 (Hub), Add-On for Tier 1/2"
+  },
+  {
+    name: "MyPIA WhatsApp",
+    solution: "Care Manager integrates WhatsApp reminders",
+    tier: "Tier 1/2/3"
+  },
+  {
+    name: "UF Wristband Vibrations",
+    solution: "Wearable Health Tracker adds vibrations",
+    tier: "Tier 2/3, Add-On for Tier 1"
+  },
+  {
+    name: "HelpSoq",
+    solution: "Shop Gateway lists it",
+    tier: "Tier 2/3, Add-On for Tier 1"
+  },
+  {
+    name: "Lavicta Body Dryer",
+    solution: "Shop Gateway/Home Automation Controls",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Exercise Coach Program",
+    solution: "Care Manager includes 12-week module",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Nettie Well-Organized",
+    solution: "Family Access/Care Manager add agenda",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "SeniorsTAB Dementia Design",
+    solution: "Connect Hub offers dementia-friendly interface",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "WAIT App Content",
+    solution: "Digital Photo Frame includes magazines/books",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Secure Email",
+    solution: "Provider Connectivity adds email export",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "DigitalHome Municipal Model",
+    solution: "Remote Setup Assistance coordinates",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "NCare Medication Checks",
+    solution: "ClientSync integrates NCare",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Demo Packages",
+    solution: "Dedicated Support offers demos",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Testing Opportunities",
+    solution: "Shop Gateway includes trials",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
+  {
+    name: "Alarm Protocols",
+    solution: "ClientSync provides flowchart/text templates",
+    tier: "Tier 3, Add-On for Tier 1/2"
+  },
   {
     name: "Return Processes",
     solution: "24/7 Technical Support, includes mail/pickup/regional pilot",
@@ -42,6 +126,21 @@ const serviceGaps: ServiceGap[] = [
     solution: "24/7 Technical Support adds email (support@mcncare.com), phone (+31 numbers)",
     tier: "All tiers"
   },
+  {
+    name: "NEN7510/ISO Certifications",
+    solution: "Confirmed in Privacy Policy/About Us",
+    tier: "All tiers"
+  },
+  {
+    name: "Connectivity Partnerships",
+    solution: "VodafoneZiggo/KPN IoT/Vivago listed as MCN partners",
+    tier: "All tiers"
+  },
+  {
+    name: "Client Registration",
+    solution: "Centralized Management uses questionnaires/Floortje AI",
+    tier: "All tiers"
+  }
 ];
 
 const ServiceGapAnalysis: React.FC = () => {
