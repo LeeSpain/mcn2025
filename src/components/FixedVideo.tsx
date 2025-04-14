@@ -43,11 +43,23 @@ const FixedVideo: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(true);
+  const [isPlayerDestroyed, setIsPlayerDestroyed] = useState(false);
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const playerContainerId = useRef(`youtube-player-container-${Math.random().toString(36).substring(2, 9)}`);
   const apiReadyRef = useRef<boolean>(false);
   const apiLoadingRef = useRef<boolean>(false);
+
+  // Safely remove an element from the DOM
+  const safeRemoveElement = (element: HTMLElement | null) => {
+    if (element && element.parentNode) {
+      try {
+        element.parentNode.removeChild(element);
+      } catch (error) {
+        console.error('Error removing element:', error);
+      }
+    }
+  };
 
   // Load YouTube API
   const loadYouTubeAPI = () => {
@@ -75,34 +87,48 @@ const FixedVideo: React.FC = () => {
     };
   };
 
+  // Clean up previous player and container
+  const cleanupPreviousPlayer = () => {
+    // Destroy previous player
+    if (playerRef.current) {
+      try {
+        playerRef.current.destroy();
+      } catch (error) {
+        console.error('Error destroying player:', error);
+      }
+      playerRef.current = null;
+    }
+
+    // Remove the previous player container if it exists
+    if (containerRef.current) {
+      // Find all potential player elements inside the container
+      const elements = containerRef.current.querySelectorAll(`[id^="youtube-player"]`);
+      elements.forEach(element => {
+        safeRemoveElement(element as HTMLElement);
+      });
+    }
+
+    setIsPlayerDestroyed(true);
+  };
+
   // Initialize YouTube player
   const initializePlayer = () => {
-    // If the container ref or player container doesn't exist, exit
+    // If the container ref doesn't exist, exit
     if (!containerRef.current) return;
     
-    // Get the player container or create it if it doesn't exist
-    let playerContainer = document.getElementById(playerContainerId.current);
-    
-    if (!playerContainer) {
-      playerContainer = document.createElement('div');
-      playerContainer.id = playerContainerId.current;
-      containerRef.current.appendChild(playerContainer);
-    }
+    // First cleanup any previous player
+    cleanupPreviousPlayer();
+
+    // Create a new player container
+    const newPlayerContainer = document.createElement('div');
+    newPlayerContainer.id = playerContainerId.current;
+    containerRef.current.appendChild(newPlayerContainer);
     
     // Reset states
     setIsLoaded(false);
     setVideoEnded(false);
     setError(null);
-    
-    // Clean up previous player instance
-    if (playerRef.current) {
-      try {
-        playerRef.current.destroy();
-      } catch (error) {
-        console.error('Error destroying previous player:', error);
-      }
-      playerRef.current = null;
-    }
+    setIsPlayerDestroyed(false);
     
     try {
       if (!window.YT || !window.YT.Player) {
@@ -112,7 +138,7 @@ const FixedVideo: React.FC = () => {
       
       console.log('Initializing YouTube player with container ID:', playerContainerId.current);
       
-      // Create new player
+      // Create new player with correct aspect ratio settings
       playerRef.current = new window.YT.Player(playerContainerId.current, {
         videoId: 'rRqZZwZuw4M',
         playerVars: {
@@ -128,6 +154,16 @@ const FixedVideo: React.FC = () => {
           onReady: (event) => {
             console.log('Player ready');
             setIsLoaded(true);
+            
+            // Set the iframe to maintain aspect ratio correctly
+            const iframe = event.target.getIframe();
+            if (iframe) {
+              iframe.style.width = '100%';
+              iframe.style.height = '100%';
+              iframe.style.position = 'absolute';
+              iframe.style.top = '0';
+              iframe.style.left = '0';
+            }
           },
           onStateChange: (event) => {
             // Video ended (state 0)
@@ -189,14 +225,7 @@ const FixedVideo: React.FC = () => {
     
     // Cleanup function
     return () => {
-      if (playerRef.current) {
-        try {
-          playerRef.current.destroy();
-          playerRef.current = null;
-        } catch (error) {
-          console.error('Error destroying player during cleanup:', error);
-        }
-      }
+      cleanupPreviousPlayer();
       
       // Clean up the global callback to avoid memory leaks
       window.onYouTubeIframeAPIReady = null;
@@ -211,10 +240,11 @@ const FixedVideo: React.FC = () => {
     <div className="fixed-video-container fixed top-24 right-6 z-30 md:right-8 lg:right-12 w-64 md:w-80 xl:w-96 shadow-xl rounded-xl overflow-hidden border-2 border-mcn-blue/30">
       {!videoEnded ? (
         <div className="relative w-full">
-          <AspectRatio ratio={16/9}>
+          <AspectRatio ratio={16/9} className="overflow-hidden">
             <div 
               ref={containerRef}
               className="absolute inset-0 w-full h-full bg-gray-100"
+              style={{ position: 'relative' }}
             >
               {!isLoaded && !error && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
