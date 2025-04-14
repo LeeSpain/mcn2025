@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '@/components/NavBar';
@@ -10,6 +9,7 @@ import EnterpriseBenefits from '@/components/enterprise/EnterpriseBenefits';
 import EnterpriseDashboard from '@/components/enterprise/EnterpriseDashboard';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import Footer from '@/components/Footer';
+import FixedVideo from '@/components/FixedVideo';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { Users, ShieldCheck, ArrowRight, Wrench, Heart, MessageCircle, Bot, Database } from 'lucide-react';
 
@@ -23,6 +23,7 @@ const Index = () => {
     <LanguageProvider>
       <div className="min-h-screen">
         <NavBar />
+        <FixedVideo />
         <Hero />
         <Features />
         <ClientSection />
