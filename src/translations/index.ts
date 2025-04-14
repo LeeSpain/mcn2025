@@ -16,7 +16,7 @@ import { clientExperienceTranslations } from './client-experience';
 import { clientFeaturesTranslations } from './client-features';
 import { clientPricingTranslations } from './client-pricing';
 import { clientFamilyTranslations } from './client-family';
-import { clientCtaTranslations } from './client-cta';
+import { clientCTATranslations } from './client-cta';
 import { enterpriseTranslations } from './enterprise';
 import { companyTranslations } from './company';
 import { pricingTranslations } from './pricing';
@@ -47,7 +47,7 @@ export const translations: TranslationSet = {
   ...clientFeaturesTranslations,
   ...clientPricingTranslations,
   ...clientFamilyTranslations,
-  ...clientCtaTranslations,
+  ...clientCTATranslations,
   ...enterpriseTranslations,
   ...companyTranslations,
   ...pricingTranslations,
