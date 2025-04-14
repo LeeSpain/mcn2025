@@ -17,10 +17,14 @@ declare global {
             modestbranding?: number;
             rel?: number;
             fs?: number;
+            origin?: string;
+            enablejsapi?: number;
+            host?: string;
           };
           events?: {
             onStateChange?: (event: { data: number }) => void;
             onReady?: (event: any) => void;
+            onError?: (event: any) => void;
           };
         }
       ) => {
@@ -33,6 +37,7 @@ declare global {
 const FixedVideo: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -65,11 +70,19 @@ const FixedVideo: React.FC = () => {
             modestbranding: 1,
             rel: 0, // Don't show related videos
             fs: 1, // Allow fullscreen
+            origin: window.location.origin,
+            enablejsapi: 1
           },
           events: {
-            onReady: () => {
+            onReady: (event) => {
               console.log('Player ready');
               setIsLoaded(true);
+              // Make sure iframe has proper sizing
+              const iframe = event.target.getIframe();
+              if (iframe) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+              }
             },
             onStateChange: (event) => {
               console.log('Player state changed:', event.data);
@@ -78,11 +91,16 @@ const FixedVideo: React.FC = () => {
                 console.log('Video ended, showing avatar');
                 setVideoEnded(true);
               }
+            },
+            onError: (event) => {
+              console.error('YouTube player error:', event);
+              setError('Failed to load video');
             }
           }
         });
       } catch (error) {
         console.error('Error initializing YouTube player:', error);
+        setError('Failed to initialize video player');
       }
     };
 
@@ -96,7 +114,7 @@ const FixedVideo: React.FC = () => {
         }
       }
       window.onYouTubeIframeAPIReady = null;
-      if (containerRef.current && playerElement) {
+      if (containerRef.current && playerElement && containerRef.current.contains(playerElement)) {
         containerRef.current.removeChild(playerElement);
       }
     };
@@ -106,13 +124,21 @@ const FixedVideo: React.FC = () => {
     <div className="fixed top-24 right-6 z-30 md:right-8 lg:right-12 w-64 md:w-80 xl:w-96 shadow-xl rounded-xl overflow-hidden border-2 border-mcn-blue/30">
       {!videoEnded ? (
         <div className="relative w-full pb-[56.25%]">
+          {/* The container div that holds our YouTube player */}
           <div 
             ref={containerRef}
             className="absolute inset-0 w-full h-full"
+            style={{ overflow: 'hidden' }}
           >
-            {!isLoaded && (
+            {!isLoaded && !error && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                 <div className="animate-spin h-8 w-8 border-4 border-mcn-blue border-t-transparent rounded-full"></div>
+              </div>
+            )}
+            
+            {error && (
+              <div className="absolute inset-0 flex items-center justify-center bg-red-50">
+                <p className="text-red-500">{error}</p>
               </div>
             )}
           </div>
