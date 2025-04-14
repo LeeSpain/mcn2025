@@ -4,8 +4,9 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { X, RefreshCw } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
-// Define the YouTube API types for TypeScript before using them
+// Define the YouTube API types for TypeScript
 declare global {
   interface Window {
     onYouTubeIframeAPIReady: (() => void) | null;
@@ -41,54 +42,51 @@ const FixedVideo: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState(true);
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const youtubeAPILoaded = useRef<boolean>(false);
-  const apiCallbackQueue = useRef<(() => void)[]>([]);
+  const playerContainerId = useRef(`youtube-player-container-${Math.random().toString(36).substring(2, 9)}`);
+  const apiReadyRef = useRef<boolean>(false);
+  const apiLoadingRef = useRef<boolean>(false);
 
-  // Safe DOM clearing function
-  const safeRemoveAllChildren = (element: HTMLElement | null) => {
-    if (!element) return;
-    
-    // Use a safer approach that doesn't cause DOM exceptions
-    while (element.firstChild) {
-      element.firstChild.remove();
-    }
-  };
-
-  // Load YouTube API if not already loaded
+  // Load YouTube API
   const loadYouTubeAPI = () => {
+    if (apiLoadingRef.current) return;
+    
+    apiLoadingRef.current = true;
+    
     if (document.getElementById('youtube-iframe-api')) {
       return;
     }
     
+    // Create API script
     const tag = document.createElement('script');
     tag.id = 'youtube-iframe-api';
     tag.src = 'https://www.youtube.com/iframe_api';
     const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    if (firstScriptTag.parentNode) {
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
     
+    // Set up global callback
     window.onYouTubeIframeAPIReady = () => {
-      youtubeAPILoaded.current = true;
-      // Process any pending callbacks
-      while (apiCallbackQueue.current.length > 0) {
-        const callback = apiCallbackQueue.current.shift();
-        callback && callback();
-      }
+      apiReadyRef.current = true;
+      initializePlayer();
     };
   };
 
-  const loadYouTubePlayer = () => {
+  // Initialize YouTube player
+  const initializePlayer = () => {
+    // If the container ref or player container doesn't exist, exit
     if (!containerRef.current) return;
     
-    // Clear previous player if it exists
-    if (playerRef.current) {
-      try {
-        playerRef.current.destroy();
-        playerRef.current = null;
-      } catch (error) {
-        console.error('Error destroying previous player:', error);
-      }
+    // Get the player container or create it if it doesn't exist
+    let playerContainer = document.getElementById(playerContainerId.current);
+    
+    if (!playerContainer) {
+      playerContainer = document.createElement('div');
+      playerContainer.id = playerContainerId.current;
+      containerRef.current.appendChild(playerContainer);
     }
     
     // Reset states
@@ -96,107 +94,99 @@ const FixedVideo: React.FC = () => {
     setVideoEnded(false);
     setError(null);
     
-    // Create a new div for the player
-    const playerElement = document.createElement('div');
-    playerElement.id = 'youtube-player-' + Math.random().toString(36).substring(2, 9); // Unique ID
+    // Clean up previous player instance
+    if (playerRef.current) {
+      try {
+        playerRef.current.destroy();
+      } catch (error) {
+        console.error('Error destroying previous player:', error);
+      }
+      playerRef.current = null;
+    }
     
-    // Clear container safely before appending
-    safeRemoveAllChildren(containerRef.current);
-    
-    // Append the new player element
-    containerRef.current.appendChild(playerElement);
-    
-    const initPlayer = () => {
-      if (!playerElement.isConnected) {
-        console.warn('Player element no longer in DOM, aborting player initialization');
+    try {
+      if (!window.YT || !window.YT.Player) {
+        console.log('YouTube API not yet loaded, will retry when ready');
         return;
       }
       
-      try {
-        console.log('YouTube API ready, initializing player');
-        playerRef.current = new window.YT.Player(playerElement.id, {
-          videoId: 'rRqZZwZuw4M',
-          playerVars: {
-            autoplay: 0,
-            controls: 1,
-            modestbranding: 1,
-            rel: 0, // Don't show related videos
-            fs: 1, // Allow fullscreen
-            origin: window.location.origin,
-            enablejsapi: 1
+      console.log('Initializing YouTube player with container ID:', playerContainerId.current);
+      
+      // Create new player
+      playerRef.current = new window.YT.Player(playerContainerId.current, {
+        videoId: 'rRqZZwZuw4M',
+        playerVars: {
+          autoplay: 0,
+          controls: 1,
+          modestbranding: 1,
+          rel: 0,
+          fs: 1,
+          origin: window.location.origin,
+          enablejsapi: 1
+        },
+        events: {
+          onReady: (event) => {
+            console.log('Player ready');
+            setIsLoaded(true);
           },
-          events: {
-            onReady: (event) => {
-              console.log('Player ready');
-              setIsLoaded(true);
-              // Make sure iframe still exists before trying to adjust it
-              const iframe = event.target.getIframe();
-              if (iframe && iframe.isConnected) {
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-              }
-            },
-            onStateChange: (event) => {
-              console.log('Player state changed:', event.data);
-              // Video ended (state 0)
-              if (event.data === 0) {
-                console.log('Video ended, showing avatar');
-                setVideoEnded(true);
-              }
-            },
-            onError: (event) => {
-              console.error('YouTube player error:', event);
-              setError('Failed to load video');
+          onStateChange: (event) => {
+            // Video ended (state 0)
+            if (event.data === 0) {
+              console.log('Video ended, showing avatar');
+              setVideoEnded(true);
             }
+          },
+          onError: (event) => {
+            console.error('YouTube player error:', event);
+            setError('Failed to load video');
           }
-        });
-      } catch (error) {
-        console.error('Error initializing YouTube player:', error);
-        setError('Failed to initialize video player');
-      }
-    };
-    
-    if (window.YT && window.YT.Player) {
-      initPlayer();
-    } else {
-      if (youtubeAPILoaded.current) {
-        initPlayer();
-      } else {
-        // Queue the initialization for when the API loads
-        apiCallbackQueue.current.push(initPlayer);
-        // Load YouTube API if not already loading
-        loadYouTubeAPI();
-      }
+        }
+      });
+    } catch (error) {
+      console.error('Error initializing YouTube player:', error);
+      setError('Failed to initialize video player');
     }
   };
 
   const handleWatchAgain = () => {
-    loadYouTubePlayer();
-    toast({
-      title: "Restarting video",
-      description: "The video will play from the beginning.",
-      duration: 3000,
-    });
-  };
-
-  const handleClose = () => {
-    // Hide the entire component by removing it from DOM flow
-    const videoElement = document.querySelector('.fixed-video-container');
-    if (videoElement) {
-      videoElement.classList.add('hidden');
+    if (apiReadyRef.current) {
+      initializePlayer();
       toast({
-        title: "Video closed",
-        description: "You can reload the page to show it again.",
+        title: "Restarting video",
+        description: "The video will play from the beginning.",
+        duration: 3000,
+      });
+    } else {
+      setError('Video player not ready. Please refresh the page.');
+      toast({
+        title: "Player not ready",
+        description: "Please refresh the page to try again.",
+        variant: "destructive",
         duration: 3000,
       });
     }
   };
 
+  const handleClose = () => {
+    setIsVisible(false);
+    toast({
+      title: "Video closed",
+      description: "You can reload the page to show it again.",
+      duration: 3000,
+    });
+  };
+  
+  // Initialize player when component mounts
   useEffect(() => {
-    // Load YouTube API first, then the player
+    // Load API and set up player
     loadYouTubeAPI();
-    loadYouTubePlayer();
-
+    
+    // Only initialize player if API is already loaded
+    if (window.YT && window.YT.Player) {
+      apiReadyRef.current = true;
+      initializePlayer();
+    }
+    
     // Cleanup function
     return () => {
       if (playerRef.current) {
@@ -204,35 +194,41 @@ const FixedVideo: React.FC = () => {
           playerRef.current.destroy();
           playerRef.current = null;
         } catch (error) {
-          console.error('Error destroying player:', error);
+          console.error('Error destroying player during cleanup:', error);
         }
       }
+      
+      // Clean up the global callback to avoid memory leaks
       window.onYouTubeIframeAPIReady = null;
     };
   }, []);
 
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <div className="fixed-video-container fixed top-24 right-6 z-30 md:right-8 lg:right-12 w-64 md:w-80 xl:w-96 shadow-xl rounded-xl overflow-hidden border-2 border-mcn-blue/30">
       {!videoEnded ? (
-        <div className="relative w-full pb-[56.25%]">
-          {/* The container div that holds our YouTube player */}
-          <div 
-            ref={containerRef}
-            className="absolute inset-0 w-full h-full"
-            style={{ overflow: 'hidden' }}
-          >
-            {!isLoaded && !error && (
-              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-                <div className="animate-spin h-8 w-8 border-4 border-mcn-blue border-t-transparent rounded-full"></div>
-              </div>
-            )}
-            
-            {error && (
-              <div className="absolute inset-0 flex items-center justify-center bg-red-50">
-                <p className="text-red-500">{error}</p>
-              </div>
-            )}
-          </div>
+        <div className="relative w-full">
+          <AspectRatio ratio={16/9}>
+            <div 
+              ref={containerRef}
+              className="absolute inset-0 w-full h-full bg-gray-100"
+            >
+              {!isLoaded && !error && (
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                  <div className="animate-spin h-8 w-8 border-4 border-mcn-blue border-t-transparent rounded-full"></div>
+                </div>
+              )}
+              
+              {error && (
+                <div className="absolute inset-0 flex items-center justify-center bg-red-50">
+                  <p className="text-red-500">{error}</p>
+                </div>
+              )}
+            </div>
+          </AspectRatio>
           
           {/* Branded overlay with subtle gradient */}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mcn-blue-dark/80 to-transparent p-3">
