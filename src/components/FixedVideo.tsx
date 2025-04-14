@@ -32,7 +32,7 @@ declare global {
 
 const FixedVideo: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
-  const playerRef = useRef<YT.Player | null>(null);
+  const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
