@@ -16,7 +16,21 @@ const DemoButton: React.FC<DemoButtonProps> = ({ text }) => {
       title: "Launching Staff Portal Demo",
       description: "Redirecting to the MCN Staff Portal demonstration",
     });
-    setTimeout(() => navigate('/staff-demo'), 1000);
+    // Use a try-catch to help debug any navigation issues
+    try {
+      // Use setTimeout to ensure the toast is visible before navigation
+      setTimeout(() => {
+        navigate('/staff-demo');
+        console.log('Navigation to /staff-demo attempted');
+      }, 1000);
+    } catch (error) {
+      console.error('Navigation error:', error);
+      toast({
+        title: "Navigation Error",
+        description: "Could not navigate to the demo page. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

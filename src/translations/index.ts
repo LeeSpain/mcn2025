@@ -1,62 +1,63 @@
 
-// Import all translation sets
+import { TranslationSet } from './types';
 import { navigationTranslations } from './navigation';
 import { heroTranslations } from './hero';
 import { featuresTranslations } from './features';
-import { staffTranslations } from './staff';
+import { clientBenefitsTranslations } from './client-benefits';
+import { testimonialsTranslations } from './testimonials';
+import { ctaTranslations } from './cta';
 import { footerTranslations } from './footer';
 import { popupTranslations } from './popup';
+import { staffTranslations } from './staff';
 import { solutionsTranslations } from './solutions';
-import { testimonialsTranslations } from './testimonials';
-import { enterpriseTranslations } from './enterprise';
-import { clientBenefitsTranslations } from './client-benefits';
-import { clientExperienceTranslations } from './client-experience';
-import { clientHeaderTranslations } from './client-header';
-import { clientCTATranslations } from './client-cta';
-import { clientFeaturesTranslations } from './client-features';
-import { clientFamilyTranslations } from './client-family';
-import { clientPricingTranslations } from './client-pricing';
-import { pricingTranslations } from './pricing';
-import { ctaTranslations } from './cta';
-import { companyTranslations } from './company';
 import { clientsTranslations } from './clients';
+import { clientHeaderTranslations } from './client-header';
+import { clientExperienceTranslations } from './client-experience';
+import { clientFeaturesTranslations } from './client-features';
+import { clientPricingTranslations } from './client-pricing';
+import { clientFamilyTranslations } from './client-family';
+import { clientCtaTranslations } from './client-cta';
+import { enterpriseTranslations } from './enterprise';
+import { companyTranslations } from './company';
+import { pricingTranslations } from './pricing';
 import { authTranslations } from './auth';
-import { blogTranslations } from './blog';
 import { aiAgentsTranslations } from './ai-agents';
-import { dashboardTranslations } from './dashboard';
-import { nurseTranslations } from './nurse';
-import { patientEducationTranslations } from './patient-education';
-import { nurseAnalyticsTranslations } from './nurse-analytics';
+import { blogTranslations } from './blog';
 import { implementationTranslations } from './implementation';
+import { dashboardTranslations } from './dashboard/index';
+import { dashboardUITranslations } from './dashboard-ui';
+import { nurseTranslations } from './nurse';
+import { nurseAnalyticsTranslations } from './nurse-analytics';
+import { patientEducationTranslations } from './patient-education';
 
-// Export all translations
-export const translations = {
+export const translations: TranslationSet = {
   ...navigationTranslations,
   ...heroTranslations,
   ...featuresTranslations,
-  ...staffTranslations,
+  ...clientBenefitsTranslations,
+  ...testimonialsTranslations,
+  ...ctaTranslations,
   ...footerTranslations,
   ...popupTranslations,
+  ...staffTranslations,
   ...solutionsTranslations,
-  ...testimonialsTranslations,
-  ...enterpriseTranslations,
-  ...clientBenefitsTranslations,
-  ...clientExperienceTranslations,
-  ...clientHeaderTranslations,
-  ...clientCTATranslations,
-  ...clientFeaturesTranslations,
-  ...clientFamilyTranslations,
-  ...clientPricingTranslations,
-  ...pricingTranslations,
-  ...ctaTranslations,
-  ...companyTranslations,
   ...clientsTranslations,
+  ...clientHeaderTranslations,
+  ...clientExperienceTranslations,
+  ...clientFeaturesTranslations,
+  ...clientPricingTranslations,
+  ...clientFamilyTranslations,
+  ...clientCtaTranslations,
+  ...enterpriseTranslations,
+  ...companyTranslations,
+  ...pricingTranslations,
   ...authTranslations,
-  ...blogTranslations,
   ...aiAgentsTranslations,
-  ...dashboardTranslations,
-  ...nurseTranslations,
-  ...patientEducationTranslations,
-  ...nurseAnalyticsTranslations,
+  ...blogTranslations,
   ...implementationTranslations,
+  ...dashboardTranslations,
+  ...dashboardUITranslations,
+  ...nurseTranslations,
+  ...nurseAnalyticsTranslations,
+  ...patientEducationTranslations,
 };
