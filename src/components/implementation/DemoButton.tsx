@@ -16,7 +16,7 @@ const DemoButton: React.FC<DemoButtonProps> = ({ text }) => {
       title: "Launching Staff Portal Demo",
       description: "Redirecting to the MCN Staff Portal demonstration",
     });
-    // Use a try-catch to help debug any navigation issues
+    
     try {
       // Use setTimeout to ensure the toast is visible before navigation
       setTimeout(() => {

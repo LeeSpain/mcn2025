@@ -2,52 +2,144 @@
 import { TranslationSet } from './types';
 
 export const clientPricingTranslations: TranslationSet = {
-  'pricing.simple.description': {
-    en: 'Choose the plan that best fits your needs with no hidden fees or long-term contracts.',
-    nl: 'Kies het plan dat het beste bij uw behoeften past zonder verborgen kosten of langlopende contracten.',
+  'pricing.title': {
+    en: 'Simple, Transparent Pricing',
+    nl: 'Eenvoudige, Transparante Prijzen',
   },
-  'pricing.limit.text': {
-    en: 'Includes all required safety equipment and digital services',
-    nl: 'Inclusief alle benodigde veiligheidsapparatuur en digitale diensten',
+  'pricing.subtitle': {
+    en: 'Choose the plan that works best for you or your loved one',
+    nl: 'Kies het plan dat het beste bij u of uw dierbare past',
   },
-  'pricing.products.title': {
-    en: 'Included Products',
-    nl: 'Inbegrepen Producten',
+  'pricing.monthly': {
+    en: 'Monthly',
+    nl: 'Maandelijks',
   },
-  'pricing.services.title': {
-    en: 'Included Services',
-    nl: 'Inbegrepen Diensten',
+  'pricing.yearly': {
+    en: 'Yearly',
+    nl: 'Jaarlijks',
   },
-  'pricing.choose': {
-    en: 'Choose',
-    nl: 'Kies',
+  'pricing.basic.title': {
+    en: 'Basic',
+    nl: 'Basis',
+  },
+  'pricing.basic.price': {
+    en: '$29',
+    nl: '€29',
+  },
+  'pricing.basic.period': {
+    en: '/month',
+    nl: '/maand',
+  },
+  'pricing.basic.description': {
+    en: 'Essential features for independent senior living',
+    nl: 'Essentiële functies voor zelfstandig wonen voor senioren',
+  },
+  'pricing.premium.title': {
+    en: 'Premium',
+    nl: 'Premium',
+  },
+  'pricing.premium.price': {
+    en: '$49',
+    nl: '€49',
+  },
+  'pricing.premium.period': {
+    en: '/month',
+    nl: '/maand',
+  },
+  'pricing.premium.description': {
+    en: 'Enhanced safety features and family connectivity',
+    nl: 'Verbeterde veiligheidsfuncties en gezinsconnectiviteit',
+  },
+  'pricing.complete.title': {
+    en: 'Complete',
+    nl: 'Compleet',
+  },
+  'pricing.complete.price': {
+    en: '$79',
+    nl: '€79',
+  },
+  'pricing.complete.period': {
+    en: '/month',
+    nl: '/maand',
+  },
+  'pricing.complete.description': {
+    en: 'Full access to all MCN features and premium support',
+    nl: 'Volledige toegang tot alle MCN-functies en premium ondersteuning',
+  },
+  'pricing.getStarted': {
+    en: 'Get Started',
+    nl: 'Aan de slag',
+  },
+  'pricing.learnMore': {
+    en: 'Learn More',
+    nl: 'Meer informatie',
+  },
+  'pricing.current': {
+    en: 'Current',
+    nl: 'Huidige',
   },
   'pricing.popular': {
-    en: 'Most Popular',
-    nl: 'Meest Gekozen',
+    en: 'Popular',
+    nl: 'Populair',
   },
-  'pricing.main.title': {
-    en: 'Complete Care',
-    nl: 'Complete Zorg',
+  'pricing.included': {
+    en: 'What\'s Included',
+    nl: 'Wat is inbegrepen',
   },
-  'pricing.main.price': {
-    en: '€89',
-    nl: '€89',
+  'pricing.careManager': {
+    en: 'Care Manager',
+    nl: 'Zorgmanager',
   },
-  'pricing.main.description': {
-    en: 'Our comprehensive package with all safety equipment and services included',
-    nl: 'Ons uitgebreide pakket met alle veiligheidsapparatuur en diensten inbegrepen',
+  'pricing.safetyMonitor': {
+    en: 'Safety Monitor',
+    nl: 'Veiligheidsmonitor',
   },
-  'pricing.family.title': {
-    en: 'Family Connect',
-    nl: 'Familie Verbinding',
+  'pricing.safetyMonitorAdvanced': {
+    en: 'Safety Monitor (advanced)',
+    nl: 'Veiligheidsmonitor (geavanceerd)',
   },
-  'pricing.family.price': {
-    en: '€19',
-    nl: '€19',
+  'pricing.healthView': {
+    en: 'Health View',
+    nl: 'Gezondheidsoverzicht',
   },
-  'pricing.family.description': {
-    en: 'Stay connected with your loved ones using the MCN family portal',
-    nl: 'Blijf verbonden met uw dierbaren via het MCN familieportaal',
+  'pricing.healthViewFull': {
+    en: 'Health View (full integration)',
+    nl: 'Gezondheidsoverzicht (volledige integratie)',
+  },
+  'pricing.connectHub': {
+    en: 'Connect Hub',
+    nl: 'Connect Hub',
+  },
+  'pricing.connectHubUnlimited': {
+    en: 'Connect Hub (unlimited video calls)',
+    nl: 'Connect Hub (onbeperkt videogesprekken)',
+  },
+  'pricing.bbrainVoice': {
+    en: 'BBrain voice integration',
+    nl: 'BBrain spraakintegratie',
+  },
+  'pricing.providerConnectivity': {
+    en: 'Provider Connectivity',
+    nl: 'Provider Connectiviteit',
+  },
+  'pricing.remoteSetup': {
+    en: 'Remote Setup Assistance',
+    nl: 'Hulp bij instellen op afstand',
+  },
+  'pricing.techSupport': {
+    en: '24/7 Technical Support',
+    nl: '24/7 Technische ondersteuning',
+  },
+  'pricing.questions.title': {
+    en: 'Have Questions?',
+    nl: 'Heeft u vragen?',
+  },
+  'pricing.questions.description': {
+    en: 'Contact our team to discuss custom plans for healthcare organizations and residential communities.',
+    nl: 'Neem contact op met ons team om aangepaste plannen te bespreken voor zorgorganisaties en woonwijken.',
+  },
+  'pricing.questions.button': {
+    en: 'Contact Sales',
+    nl: 'Contact Sales',
   },
 };
