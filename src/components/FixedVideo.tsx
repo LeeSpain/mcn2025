@@ -43,6 +43,40 @@ const FixedVideo: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const youtubeAPILoaded = useRef<boolean>(false);
+  const apiCallbackQueue = useRef<(() => void)[]>([]);
+
+  // Safe DOM clearing function
+  const safeRemoveAllChildren = (element: HTMLElement | null) => {
+    if (!element) return;
+    
+    // Use a safer approach that doesn't cause DOM exceptions
+    while (element.firstChild) {
+      element.firstChild.remove();
+    }
+  };
+
+  // Load YouTube API if not already loaded
+  const loadYouTubeAPI = () => {
+    if (document.getElementById('youtube-iframe-api')) {
+      return;
+    }
+    
+    const tag = document.createElement('script');
+    tag.id = 'youtube-iframe-api';
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
+    
+    window.onYouTubeIframeAPIReady = () => {
+      youtubeAPILoaded.current = true;
+      // Process any pending callbacks
+      while (apiCallbackQueue.current.length > 0) {
+        const callback = apiCallbackQueue.current.shift();
+        callback && callback();
+      }
+    };
+  };
 
   const loadYouTubePlayer = () => {
     if (!containerRef.current) return;
@@ -51,6 +85,7 @@ const FixedVideo: React.FC = () => {
     if (playerRef.current) {
       try {
         playerRef.current.destroy();
+        playerRef.current = null;
       } catch (error) {
         console.error('Error destroying previous player:', error);
       }
@@ -61,82 +96,77 @@ const FixedVideo: React.FC = () => {
     setVideoEnded(false);
     setError(null);
     
-    // Create a div for the player
+    // Create a new div for the player
     const playerElement = document.createElement('div');
-    playerElement.id = 'youtube-player';
+    playerElement.id = 'youtube-player-' + Math.random().toString(36).substring(2, 9); // Unique ID
     
-    // Clear container before appending
-    while (containerRef.current.firstChild) {
-      containerRef.current.removeChild(containerRef.current.firstChild);
-    }
+    // Clear container safely before appending
+    safeRemoveAllChildren(containerRef.current);
     
+    // Append the new player element
     containerRef.current.appendChild(playerElement);
     
-    if (window.YT && window.YT.Player) {
-      initializePlayer(playerElement.id);
-    } else {
-      // Load the YouTube API script if not already loaded
-      if (!document.getElementById('youtube-iframe-api')) {
-        const tag = document.createElement('script');
-        tag.id = 'youtube-iframe-api';
-        tag.src = 'https://www.youtube.com/iframe_api';
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-        
-        window.onYouTubeIframeAPIReady = () => {
-          initializePlayer(playerElement.id);
-        };
-      } else {
-        // API script exists but hasn't loaded yet
-        window.onYouTubeIframeAPIReady = () => {
-          initializePlayer(playerElement.id);
-        };
+    const initPlayer = () => {
+      if (!playerElement.isConnected) {
+        console.warn('Player element no longer in DOM, aborting player initialization');
+        return;
       }
-    }
-  };
-
-  const initializePlayer = (elementId: string) => {
-    try {
-      console.log('YouTube API ready, initializing player');
-      playerRef.current = new window.YT.Player(elementId, {
-        videoId: 'rRqZZwZuw4M',
-        playerVars: {
-          autoplay: 0,
-          controls: 1,
-          modestbranding: 1,
-          rel: 0, // Don't show related videos
-          fs: 1, // Allow fullscreen
-          origin: window.location.origin,
-          enablejsapi: 1
-        },
-        events: {
-          onReady: (event) => {
-            console.log('Player ready');
-            setIsLoaded(true);
-            // Make sure iframe has proper sizing
-            const iframe = event.target.getIframe();
-            if (iframe) {
-              iframe.style.width = '100%';
-              iframe.style.height = '100%';
-            }
+      
+      try {
+        console.log('YouTube API ready, initializing player');
+        playerRef.current = new window.YT.Player(playerElement.id, {
+          videoId: 'rRqZZwZuw4M',
+          playerVars: {
+            autoplay: 0,
+            controls: 1,
+            modestbranding: 1,
+            rel: 0, // Don't show related videos
+            fs: 1, // Allow fullscreen
+            origin: window.location.origin,
+            enablejsapi: 1
           },
-          onStateChange: (event) => {
-            console.log('Player state changed:', event.data);
-            // Video ended (state 0)
-            if (event.data === 0) {
-              console.log('Video ended, showing avatar');
-              setVideoEnded(true);
+          events: {
+            onReady: (event) => {
+              console.log('Player ready');
+              setIsLoaded(true);
+              // Make sure iframe still exists before trying to adjust it
+              const iframe = event.target.getIframe();
+              if (iframe && iframe.isConnected) {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+              }
+            },
+            onStateChange: (event) => {
+              console.log('Player state changed:', event.data);
+              // Video ended (state 0)
+              if (event.data === 0) {
+                console.log('Video ended, showing avatar');
+                setVideoEnded(true);
+              }
+            },
+            onError: (event) => {
+              console.error('YouTube player error:', event);
+              setError('Failed to load video');
             }
-          },
-          onError: (event) => {
-            console.error('YouTube player error:', event);
-            setError('Failed to load video');
           }
-        }
-      });
-    } catch (error) {
-      console.error('Error initializing YouTube player:', error);
-      setError('Failed to initialize video player');
+        });
+      } catch (error) {
+        console.error('Error initializing YouTube player:', error);
+        setError('Failed to initialize video player');
+      }
+    };
+    
+    if (window.YT && window.YT.Player) {
+      initPlayer();
+    } else {
+      if (youtubeAPILoaded.current) {
+        initPlayer();
+      } else {
+        // Queue the initialization for when the API loads
+        apiCallbackQueue.current.push(initPlayer);
+        // Load YouTube API if not already loading
+        loadYouTubeAPI();
+      }
     }
   };
 
@@ -163,6 +193,8 @@ const FixedVideo: React.FC = () => {
   };
 
   useEffect(() => {
+    // Load YouTube API first, then the player
+    loadYouTubeAPI();
     loadYouTubePlayer();
 
     // Cleanup function
@@ -170,6 +202,7 @@ const FixedVideo: React.FC = () => {
       if (playerRef.current) {
         try {
           playerRef.current.destroy();
+          playerRef.current = null;
         } catch (error) {
           console.error('Error destroying player:', error);
         }
