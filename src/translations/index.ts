@@ -7,7 +7,7 @@ import { staffTranslations } from './staff';
 import { footerTranslations } from './footer';
 import { popupTranslations } from './popup';
 import { solutionsTranslations } from './solutions';
-import { testimonialTranslations } from './testimonials';
+import { testimonialsTranslations } from './testimonials';
 import { enterpriseTranslations } from './enterprise';
 import { clientBenefitsTranslations } from './client-benefits';
 import { clientExperienceTranslations } from './client-experience';
@@ -36,7 +36,7 @@ export const translations = {
   ...footerTranslations,
   ...popupTranslations,
   ...solutionsTranslations,
-  ...testimonialTranslations,
+  ...testimonialsTranslations,
   ...enterpriseTranslations,
   ...clientBenefitsTranslations,
   ...clientExperienceTranslations,
