@@ -268,35 +268,41 @@ const FixedVideo: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-8 flex flex-col items-center justify-center h-full aspect-video">
-          <Avatar className="h-32 w-32 border-4 border-mcn-blue shadow-lg mb-4">
-            <AvatarImage src="/placeholder.svg" alt="MCN Avatar" />
-            <AvatarFallback className="bg-mcn-blue text-white text-xl">MCN</AvatarFallback>
-          </Avatar>
-          <h3 className="text-lg font-semibold text-mcn-blue text-center">Thanks for watching!</h3>
-          <p className="text-sm text-gray-600 text-center mt-2 mb-6">
-            Learn more about Mobile Care Nexus
-          </p>
-          
-          {/* Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full mt-2">
-            <Button 
-              variant="outline" 
-              className="flex-1 gap-2" 
-              onClick={handleWatchAgain}
-            >
-              <RefreshCw className="h-4 w-4" />
-              Watch Again
-            </Button>
-            <Button 
-              variant="secondary"
-              className="flex-1 gap-2"
-              onClick={handleClose}
-            >
-              <X className="h-4 w-4" />
-              Close
-            </Button>
-          </div>
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 flex flex-col items-center justify-center">
+          <AspectRatio ratio={16/9} className="w-full overflow-hidden">
+            <div className="w-full h-full flex flex-col items-center justify-center p-3">
+              <Avatar className="h-20 w-20 border-4 border-mcn-blue shadow-lg mb-4">
+                <AvatarImage src="/placeholder.svg" alt="MCN Avatar" />
+                <AvatarFallback className="bg-mcn-blue text-white text-xl">MCN</AvatarFallback>
+              </Avatar>
+              <h3 className="text-lg font-semibold text-mcn-blue text-center">Thanks for watching!</h3>
+              <p className="text-sm text-gray-600 text-center mt-2 mb-4">
+                Learn more about Mobile Care Nexus
+              </p>
+              
+              {/* Action buttons */}
+              <div className="flex flex-col sm:flex-row gap-2 w-full mt-2">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 gap-1 text-xs" 
+                  onClick={handleWatchAgain}
+                  size="sm"
+                >
+                  <RefreshCw className="h-3 w-3" />
+                  Watch Again
+                </Button>
+                <Button 
+                  variant="secondary"
+                  className="flex-1 gap-1 text-xs"
+                  onClick={handleClose}
+                  size="sm"
+                >
+                  <X className="h-3 w-3" />
+                  Close
+                </Button>
+              </div>
+            </div>
+          </AspectRatio>
         </div>
       )}
     </div>
