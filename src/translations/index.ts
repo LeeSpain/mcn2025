@@ -26,6 +26,7 @@ import { aiAgentsTranslations } from './ai-agents';
 import { dashboardTranslations } from './dashboard';
 import { nurseTranslations } from './nurse';
 import { patientEducationTranslations } from './patient-education';
+import { nurseAnalyticsTranslations } from './nurse-analytics';
 
 // Export all translations
 export const translations = {
@@ -55,4 +56,5 @@ export const translations = {
   ...dashboardTranslations,
   ...nurseTranslations,
   ...patientEducationTranslations,
+  ...nurseAnalyticsTranslations,
 };

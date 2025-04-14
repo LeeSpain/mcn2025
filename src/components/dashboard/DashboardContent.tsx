@@ -30,8 +30,9 @@ import DocumentManagement from './sections/nurse/DocumentManagement';
 import QualitySafety from './sections/nurse/QualitySafety';
 import VitalsTracking from './sections/nurse/VitalsTracking';
 import Appointments from './sections/nurse/Appointments';
-import PatientEducation from './sections/nurse/patient-education/PatientEducation';
+import PatientEducation from './sections/nurse/PatientEducation';
 import ClinicalResources from './sections/nurse/ClinicalResources';
+import NurseAnalytics from './sections/nurse/NurseAnalytics';
 
 interface DashboardContentProps {
   activeSection: string;
@@ -109,7 +110,7 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ activeSection }) =>
       case 'clinical-resources':
         return <ClinicalResources />;
       case 'nurse-analytics':
-        return <Analytics />;
+        return <NurseAnalytics />;
         
       // Default case
       default:
