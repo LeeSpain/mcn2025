@@ -2,6 +2,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
+// Define the YouTube API types for TypeScript before using them
+declare global {
+  interface Window {
+    onYouTubeIframeAPIReady: (() => void) | null;
+    YT: {
+      Player: new (
+        container: HTMLElement,
+        options: {
+          videoId: string;
+          playerVars?: {
+            autoplay?: number;
+            controls?: number;
+            modestbranding?: number;
+            rel?: number;
+            fs?: number;
+          };
+          events?: {
+            onStateChange?: (event: { data: number }) => void;
+            onReady?: (event: any) => void;
+          };
+        }
+      ) => {
+        destroy: () => void;
+      };
+    };
+  }
+}
+
 const FixedVideo: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
   const playerRef = useRef<YT.Player | null>(null);
@@ -18,7 +46,7 @@ const FixedVideo: React.FC = () => {
     window.onYouTubeIframeAPIReady = () => {
       if (!containerRef.current) return;
 
-      playerRef.current = new YT.Player(containerRef.current, {
+      playerRef.current = new window.YT.Player(containerRef.current, {
         videoId: 'rRqZZwZuw4M',
         playerVars: {
           autoplay: 0,
@@ -78,33 +106,5 @@ const FixedVideo: React.FC = () => {
     </div>
   );
 };
-
-// Define the YouTube API types for TypeScript
-declare global {
-  interface Window {
-    onYouTubeIframeAPIReady: (() => void) | null;
-    YT: {
-      Player: new (
-        container: HTMLElement,
-        options: {
-          videoId: string;
-          playerVars?: {
-            autoplay?: number;
-            controls?: number;
-            modestbranding?: number;
-            rel?: number;
-            fs?: number;
-          };
-          events?: {
-            onStateChange?: (event: { data: number }) => void;
-            onReady?: (event: any) => void;
-          };
-        }
-      ) => {
-        destroy: () => void;
-      };
-    };
-  }
-}
 
 export default FixedVideo;
