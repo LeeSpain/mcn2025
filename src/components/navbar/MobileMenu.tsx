@@ -68,7 +68,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
-                <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
+                <Link to="/dashboard" className="w-full">Member Dashboard</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer" onClick={onClose}>
                 <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>

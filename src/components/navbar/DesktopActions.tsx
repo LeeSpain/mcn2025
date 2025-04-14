@@ -32,7 +32,7 @@ const DesktopActions: React.FC = () => {
           <DropdownMenuLabel>Select Dashboard</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem className="cursor-pointer">
-            <Link to="/dashboard#home" className="w-full">Member Dashboard</Link>
+            <Link to="/dashboard" className="w-full">Member Dashboard</Link>
           </DropdownMenuItem>
           <DropdownMenuItem className="cursor-pointer">
             <Link to="/dashboard#staff" className="w-full">Staff Dashboard</Link>
