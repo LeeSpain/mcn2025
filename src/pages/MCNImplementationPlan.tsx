@@ -20,6 +20,7 @@ import {
   ActivitySquare, 
   Laptop
 } from 'lucide-react';
+import ServiceGapAnalysis from '@/components/implementation/ServiceGapAnalysis';
 
 const MCNImplementationPlan: React.FC = () => {
   const { t } = useLanguage();
@@ -308,6 +309,8 @@ const MCNImplementationPlan: React.FC = () => {
                 gaps={gapAnalysisData} 
                 onViewAllClick={() => {}} 
               />
+              
+              <ServiceGapAnalysis />
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
