@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '@/components/NavBar';
@@ -192,7 +191,7 @@ const MCNImplementationPlan: React.FC = () => {
   const supplierCategories = [
     {
       title: "Device Suppliers",
-      description: "All devices rebranded under MCN (e.g., "MCN FreeStyle Libre")",
+      description: "All devices rebranded under MCN (e.g., \"MCN FreeStyle Libre\")",
       suppliers: [
         "Abbott (FreeStyle Libre)",
         "Sidly",
@@ -206,7 +205,7 @@ const MCNImplementationPlan: React.FC = () => {
     },
     {
       title: "Connectivity Partners",
-      description: "Rebranded as "MCN Connectivity Partners" with fallback options",
+      description: "Rebranded as \"MCN Connectivity Partners\" with fallback options",
       suppliers: [
         "VodafoneZiggo",
         "KPN IoT",

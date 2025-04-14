@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckSquare } from 'lucide-react';
+import { CheckSquare, ArrowRightCircle } from 'lucide-react';
 
 interface SupplierCategory {
   title: string;
