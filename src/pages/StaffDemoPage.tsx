@@ -1,14 +1,14 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { LanguageProvider } from '@/context/LanguageContext';
-import { Check, Users, ShieldCheck, Heart, MessageCircle, BookOpen, BarChart, Activity, PieChart, TrendingUp, Database } from 'lucide-react';
+import { Check, Users, ShieldCheck, Heart, MessageCircle, BookOpen, BarChart, Activity, PieChart, TrendingUp, Database, GraduationCap, FileText, FolderCheck, Video, FileCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { toast } from "@/hooks/use-toast";
 
 const StaffDemoPage: React.FC = () => {
   const navigate = useNavigate();
@@ -65,6 +65,54 @@ const StaffDemoPage: React.FC = () => {
     { title: "Compliance Rate", value: "94.2%", change: "+2.1%", icon: Check, trend: "up" },
     { title: "Avg. Response Time", value: "2.4 min", change: "-18.2%", icon: TrendingUp, trend: "down" }
   ];
+
+  // Education resources data
+  const educationCategories = [
+    {
+      title: "Self-Care Management",
+      resources: [
+        { title: "Daily Health Routines", type: "guide", audience: "all", popularity: "high", new: true },
+        { title: "Medication Management", type: "video", audience: "seniors", popularity: "high" },
+        { title: "Home Exercise Programs", type: "interactive", audience: "all", popularity: "medium" },
+        { title: "Nutrition Guidelines", type: "guide", audience: "all", popularity: "medium" }
+      ]
+    },
+    {
+      title: "Chronic Condition Management",
+      resources: [
+        { title: "Diabetes Daily Care", type: "guide", audience: "adults", popularity: "high" },
+        { title: "Heart Health Essentials", type: "video", audience: "seniors", popularity: "high", new: true },
+        { title: "COPD Management", type: "interactive", audience: "seniors", popularity: "medium" },
+        { title: "Arthritis Pain Relief", type: "guide", audience: "seniors", popularity: "high" }
+      ]
+    },
+    {
+      title: "Mental Health & Wellness",
+      resources: [
+        { title: "Stress Management Techniques", type: "video", audience: "all", popularity: "high" },
+        { title: "Anxiety Coping Strategies", type: "interactive", audience: "all", popularity: "medium" },
+        { title: "Depression Awareness", type: "guide", audience: "all", popularity: "medium", new: true },
+        { title: "Sleep Improvement Guide", type: "guide", audience: "all", popularity: "high" }
+      ]
+    },
+    {
+      title: "Technology Tutorials",
+      resources: [
+        { title: "Using Your Health Wearable", type: "video", audience: "seniors", popularity: "high" },
+        { title: "Mobile App Navigation Guide", type: "interactive", audience: "seniors", popularity: "high" },
+        { title: "Virtual Visit Setup", type: "guide", audience: "all", popularity: "medium", new: true },
+        { title: "BBrain Assistant Tutorial", type: "video", audience: "all", popularity: "medium" }
+      ]
+    }
+  ];
+  
+  const handleResourceClick = (resourceTitle: string) => {
+    toast({
+      title: "Resource Selected",
+      description: `${resourceTitle} has been added to your client's curriculum.`,
+      duration: 3000,
+    });
+  };
   
   return (
     <LanguageProvider>
@@ -83,6 +131,7 @@ const StaffDemoPage: React.FC = () => {
               <TabsList className="w-full max-w-md mx-auto mb-6">
                 <TabsTrigger value="features" className="flex-1">Features</TabsTrigger>
                 <TabsTrigger value="analytics" className="flex-1">Analytics Dashboard</TabsTrigger>
+                <TabsTrigger value="education" className="flex-1">Education Resources</TabsTrigger>
                 <TabsTrigger value="improvements" className="flex-1">Improvements</TabsTrigger>
               </TabsList>
               
@@ -202,6 +251,98 @@ const StaffDemoPage: React.FC = () => {
                         </div>
                       </CardContent>
                     </Card>
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="education" className="mt-4">
+                <div className="bg-white shadow-md rounded-lg p-6 mb-8">
+                  <div className="mb-6">
+                    <h2 className="text-xl font-semibold">Patient Education Resources</h2>
+                    <p className="text-gray-600">
+                      Comprehensive educational content for clients and their families, organized by category and optimized for different learning styles.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+                    {educationCategories.map((category, index) => (
+                      <Card key={index} className="border shadow-sm">
+                        <CardHeader className="pb-2 bg-blue-50">
+                          <CardTitle className="text-lg flex items-center gap-2">
+                            <GraduationCap className="h-5 w-5 text-blue-600" />
+                            {category.title}
+                          </CardTitle>
+                          <CardDescription>
+                            {category.resources.length} resources available
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="pt-4">
+                          <div className="space-y-3">
+                            {category.resources.map((resource, idx) => (
+                              <div 
+                                key={idx} 
+                                className="p-3 bg-gray-50 rounded-md flex items-center justify-between hover:bg-blue-50 cursor-pointer transition-colors"
+                                onClick={() => handleResourceClick(resource.title)}
+                              >
+                                <div className="flex items-center gap-3">
+                                  {resource.type === 'guide' && <FileText className="h-4 w-4 text-blue-600" />}
+                                  {resource.type === 'video' && <Video className="h-4 w-4 text-red-600" />}
+                                  {resource.type === 'interactive' && <Activity className="h-4 w-4 text-green-600" />}
+                                  <div>
+                                    <span className="font-medium">{resource.title}</span>
+                                    {resource.new && (
+                                      <span className="ml-2 text-xs font-medium text-white bg-green-500 px-1.5 py-0.5 rounded-full">
+                                        NEW
+                                      </span>
+                                    )}
+                                    <div className="text-xs text-gray-500 mt-0.5">
+                                      <span className="capitalize">{resource.type}</span> • {resource.audience === 'all' ? 'All Audiences' : resource.audience === 'seniors' ? 'Senior Focus' : 'Adult Focus'}
+                                    </div>
+                                  </div>
+                                </div>
+                                <Button variant="ghost" size="sm" className="h-8 text-xs">
+                                  <FileCheck className="h-3.5 w-3.5 mr-1" />
+                                  Assign
+                                </Button>
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+
+                  <div className="bg-blue-50 rounded-lg p-5 mt-6">
+                    <h3 className="text-lg font-semibold mb-3 flex items-center">
+                      <FolderCheck className="h-5 w-5 mr-2 text-blue-600" />
+                      Resource Management Features
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Assign educational content directly to client portals</span>
+                      </div>
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Track completion and engagement metrics</span>
+                      </div>
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Create custom learning paths based on client needs</span>
+                      </div>
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Filter resources by condition, format, and audience</span>
+                      </div>
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Schedule automated content delivery</span>
+                      </div>
+                      <div className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5" />
+                        <span>Generate progress reports for care teams</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </TabsContent>
