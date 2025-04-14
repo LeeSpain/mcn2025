@@ -27,6 +27,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 
 // MCN Implementation Pages
 const MCNImplementationDashboard = lazy(() => import('./pages/MCNImplementationDashboard'));
+const MCNImplementationPlan = lazy(() => import('./pages/MCNImplementationPlan'));
 const MCNComponentDetailPage = lazy(() => import('./pages/MCNComponentDetailPage'));
 const StaffDemoPage = lazy(() => import('./pages/StaffDemoPage'));
 
@@ -64,6 +65,7 @@ const App = () => {
             
             {/* MCN Implementation Routes */}
             <Route path="/mcn-implementation-dashboard" element={<MCNImplementationDashboard />} />
+            <Route path="/mcn-implementation-plan" element={<MCNImplementationPlan />} />
             <Route path="/mcn-component/:componentId" element={<MCNComponentDetailPage />} />
             <Route path="/staff-demo" element={<StaffDemoPage />} />
             

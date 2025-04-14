@@ -27,6 +27,7 @@ import { dashboardTranslations } from './dashboard';
 import { nurseTranslations } from './nurse';
 import { patientEducationTranslations } from './patient-education';
 import { nurseAnalyticsTranslations } from './nurse-analytics';
+import { implementationTranslations } from './implementation';
 
 // Export all translations
 export const translations = {
@@ -57,4 +58,5 @@ export const translations = {
   ...nurseTranslations,
   ...patientEducationTranslations,
   ...nurseAnalyticsTranslations,
+  ...implementationTranslations,
 };
