@@ -8,7 +8,7 @@ declare global {
     onYouTubeIframeAPIReady: (() => void) | null;
     YT: {
       Player: new (
-        container: HTMLElement,
+        container: HTMLElement | string,
         options: {
           videoId: string;
           playerVars?: {
@@ -32,10 +32,19 @@ declare global {
 
 const FixedVideo: React.FC = () => {
   const [videoEnded, setVideoEnded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Create a div for the player
+    const playerElement = document.createElement('div');
+    playerElement.id = 'youtube-player';
+    
+    if (containerRef.current) {
+      containerRef.current.appendChild(playerElement);
+    }
+
     // Load the YouTube API script
     const tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/iframe_api';
@@ -44,34 +53,52 @@ const FixedVideo: React.FC = () => {
 
     // Initialize the player once the API is ready
     window.onYouTubeIframeAPIReady = () => {
-      if (!containerRef.current) return;
-
-      playerRef.current = new window.YT.Player(containerRef.current, {
-        videoId: 'rRqZZwZuw4M',
-        playerVars: {
-          autoplay: 0,
-          controls: 1,
-          modestbranding: 1,
-          rel: 0, // Don't show related videos
-          fs: 1, // Allow fullscreen
-        },
-        events: {
-          onStateChange: (event) => {
-            // Video ended (state 0)
-            if (event.data === 0) {
-              setVideoEnded(true);
+      if (!playerElement) return;
+      
+      try {
+        console.log('YouTube API ready, initializing player');
+        playerRef.current = new window.YT.Player(playerElement.id, {
+          videoId: 'rRqZZwZuw4M',
+          playerVars: {
+            autoplay: 0,
+            controls: 1,
+            modestbranding: 1,
+            rel: 0, // Don't show related videos
+            fs: 1, // Allow fullscreen
+          },
+          events: {
+            onReady: () => {
+              console.log('Player ready');
+              setIsLoaded(true);
+            },
+            onStateChange: (event) => {
+              console.log('Player state changed:', event.data);
+              // Video ended (state 0)
+              if (event.data === 0) {
+                console.log('Video ended, showing avatar');
+                setVideoEnded(true);
+              }
             }
           }
-        }
-      });
+        });
+      } catch (error) {
+        console.error('Error initializing YouTube player:', error);
+      }
     };
 
     // Cleanup function
     return () => {
       if (playerRef.current) {
-        playerRef.current.destroy();
+        try {
+          playerRef.current.destroy();
+        } catch (error) {
+          console.error('Error destroying player:', error);
+        }
       }
       window.onYouTubeIframeAPIReady = null;
+      if (containerRef.current && playerElement) {
+        containerRef.current.removeChild(playerElement);
+      }
     };
   }, []);
 
@@ -82,7 +109,13 @@ const FixedVideo: React.FC = () => {
           <div 
             ref={containerRef}
             className="absolute inset-0 w-full h-full"
-          />
+          >
+            {!isLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+                <div className="animate-spin h-8 w-8 border-4 border-mcn-blue border-t-transparent rounded-full"></div>
+              </div>
+            )}
+          </div>
           
           {/* Branded overlay with subtle gradient */}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-mcn-blue-dark/80 to-transparent p-3">
