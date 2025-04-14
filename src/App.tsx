@@ -25,6 +25,10 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const CareersPage = lazy(() => import('./pages/CareersPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 
+// MCN Implementation Pages
+const MCNImplementationDashboard = lazy(() => import('./pages/MCNImplementationDashboard'));
+const MCNComponentDetailPage = lazy(() => import('./pages/MCNComponentDetailPage'));
+
 // Simple loading component
 const LoadingFallback = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -56,6 +60,11 @@ const App = () => {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            
+            {/* MCN Implementation Routes */}
+            <Route path="/mcn-implementation-dashboard" element={<MCNImplementationDashboard />} />
+            <Route path="/mcn-component/:componentId" element={<MCNComponentDetailPage />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
