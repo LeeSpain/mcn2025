@@ -4,102 +4,130 @@ import { TranslationSet } from './types';
 export const nurseTranslations: TranslationSet = {
   'nurse.dashboard.title': {
     en: 'Nurse Dashboard',
-    nl: 'Verpleegkundig Dashboard',
+    nl: 'Verpleegkundige Dashboard',
+  },
+  'nurse.dashboard.welcome': {
+    en: 'Welcome to your nursing portal',
+    nl: 'Welkom bij uw verpleegkundigenportaal',
+  },
+  'nurse.dashboard.summary': {
+    en: 'Quick overview of your caseload and tasks',
+    nl: 'Snel overzicht van uw caseload en taken',
   },
   'nurse.caseload.title': {
     en: 'Client Caseload',
-    nl: 'Cliënt Caseload',
+    nl: 'Cliëntenbestand',
   },
-  'nurse.chat.title': {
-    en: 'Chat',
-    nl: 'Chat',
+  'nurse.caseload.search': {
+    en: 'Search clients...',
+    nl: 'Zoek cliënten...',
   },
-  'nurse.schedule.title': {
-    en: 'Remote Schedule',
-    nl: 'Externe Agenda',
-  },
-  'nurse.schedule.subtitle': {
-    en: 'Manage your remote video and call sessions with clients',
-    nl: 'Beheer uw externe video- en belsessies met cliënten',
-  },
-  'nurse.schedule.filter': {
+  'nurse.caseload.filter': {
     en: 'Filter',
     nl: 'Filter',
   },
-  'nurse.schedule.newSession': {
-    en: 'New Session',
-    nl: 'Nieuwe Sessie',
+  'nurse.caseload.add': {
+    en: 'Add Client',
+    nl: 'Cliënt Toevoegen',
   },
-  'nurse.schedule.day': {
-    en: 'Day',
-    nl: 'Dag',
+  'nurse.visit.title': {
+    en: 'Visit Schedule',
+    nl: 'Bezoekschema',
   },
-  'nurse.schedule.week': {
-    en: 'Week',
-    nl: 'Week',
+  'nurse.visit.upcoming': {
+    en: 'Upcoming Visits',
+    nl: 'Aankomende Bezoeken',
   },
-  'nurse.schedule.month': {
-    en: 'Month',
-    nl: 'Maand',
+  'nurse.visit.schedule': {
+    en: 'Schedule Visit',
+    nl: 'Bezoek Plannen',
   },
-  'nurse.schedule.weekly': {
-    en: 'Weekly Remote Calendar',
-    nl: 'Wekelijkse Externe Agenda',
+  'nurse.care.title': {
+    en: 'Care Plans',
+    nl: 'Zorgplannen',
   },
-  'nurse.schedule.monthly': {
-    en: 'Monthly Remote Calendar',
-    nl: 'Maandelijkse Externe Agenda',
+  'nurse.care.create': {
+    en: 'Create Plan',
+    nl: 'Plan Maken',
   },
-  'nurse.schedule.weeklyDescription': {
-    en: 'Weekly schedule would be displayed here',
-    nl: 'Wekelijks schema zou hier worden weergegeven',
+  'nurse.care.review': {
+    en: 'Review Plan',
+    nl: 'Plan Beoordelen',
   },
-  'nurse.schedule.monthlyDescription': {
-    en: 'Monthly schedule would be displayed here',
-    nl: 'Maandelijks schema zou hier worden weergegeven',
+  'nurse.monitoring.title': {
+    en: 'Clinical Monitoring',
+    nl: 'Klinische Monitoring',
   },
-  'nurse.today.schedule': {
-    en: 'Today\'s Remote Schedule',
-    nl: 'Externe Agenda Vandaag',
+  'nurse.monitoring.alerts': {
+    en: 'Alerts',
+    nl: 'Waarschuwingen',
   },
-  'nurse.viewFull.schedule': {
-    en: 'View full schedule',
-    nl: 'Bekijk volledige agenda',
+  'nurse.medication.title': {
+    en: 'Medication Management',
+    nl: 'Medicatiebeheer',
   },
-  'nurse.visit.client': {
-    en: 'Client',
-    nl: 'Cliënt',
+  'nurse.medication.review': {
+    en: 'Review Medications',
+    nl: 'Medicatie Beoordelen',
   },
-  'nurse.visit.time': {
-    en: 'Time',
-    nl: 'Tijd',
+  'nurse.documentation.title': {
+    en: 'Documentation',
+    nl: 'Documentatie',
   },
-  'nurse.visit.status': {
-    en: 'Status',
-    nl: 'Status',
+  'nurse.documentation.notes': {
+    en: 'Clinical Notes',
+    nl: 'Klinische Notities',
   },
-  'nurse.visit.scheduled': {
-    en: 'Scheduled',
-    nl: 'Gepland',
+  'nurse.quality.title': {
+    en: 'Quality & Safety',
+    nl: 'Kwaliteit & Veiligheid',
   },
-  'nurse.visit.completed': {
-    en: 'Completed',
-    nl: 'Voltooid',
+  'nurse.quality.incidents': {
+    en: 'Incident Reports',
+    nl: 'Incidentenrapporten',
   },
-  'nurse.visit.startVideo': {
-    en: 'Start Video',
-    nl: 'Start Video',
+  'nurse.vitals.title': {
+    en: 'Vitals Tracking',
+    nl: 'Vitale Functies Tracking',
   },
-  'nurse.visit.startCall': {
-    en: 'Start Call',
-    nl: 'Start Gesprek',
+  'nurse.vitals.record': {
+    en: 'Record Vitals',
+    nl: 'Vitale Functies Vastleggen',
   },
-  'nurse.visit.reschedule': {
-    en: 'Reschedule',
-    nl: 'Herpland',
+  'nurse.appointments.title': {
+    en: 'Appointments',
+    nl: 'Afspraken',
   },
-  'nurse.viewWeekly': {
-    en: 'View Weekly Schedule',
-    nl: 'Bekijk Wekelijkse Agenda',
+  'nurse.appointments.schedule': {
+    en: 'Schedule Appointment',
+    nl: 'Afspraak Plannen',
+  },
+  'nurse.resources.title': {
+    en: 'Clinical Resources',
+    nl: 'Klinische Hulpmiddelen',
+  },
+  'nurse.resources.search': {
+    en: 'Search Resources',
+    nl: 'Zoek Hulpmiddelen',
+  },
+  'nurse.analytics.title': {
+    en: 'Nurse Analytics',
+    nl: 'Verpleegkundige Statistieken',
+  },
+  'nurse.analytics.performance': {
+    en: 'Performance Metrics',
+    nl: 'Prestatiemetriek',
+  },
+  'nurse.clinicalTasks.title': {
+    en: 'Clinical Tasks',
+    nl: 'Klinische Taken',
+  },
+  'nurse.clinicalTasks.pending': {
+    en: 'Pending Tasks',
+    nl: 'Openstaande Taken',
+  },
+  'nurse.clinicalTasks.complete': {
+    en: 'Complete Task',
+    nl: 'Taak Voltooien',
   },
 };

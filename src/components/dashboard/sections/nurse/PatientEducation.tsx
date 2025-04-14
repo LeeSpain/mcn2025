@@ -1,5 +1,9 @@
 
 import React from 'react';
-import PatientEducation from './patient-education/PatientEducation';
+import PatientEducationComponent from './patient-education/PatientEducation';
+
+const PatientEducation: React.FC = () => {
+  return <PatientEducationComponent />;
+};
 
 export default PatientEducation;

@@ -1,75 +1,64 @@
 
 import React from 'react';
-import { Users, Bookmark, GraduationCap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { clientHealthTopics, topicTrendsData, clientRecommendations } from '../utils/data';
-import { getTypeIcon } from '../utils/helpers';
-import { useLanguage } from '@/context/LanguageContext';
+import { Badge } from '@/components/ui/badge';
+import { clientHealthTopics, clientRecommendations, topicTrendsData } from '../utils/data';
+import { Tags, Edit, Lightbulb, BarChart } from 'lucide-react';
 
 const ClientTopicsTab: React.FC = () => {
-  const { t } = useLanguage();
-
   return (
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>{t('patientEd.clientTopics.title')}</CardTitle>
+          <CardTitle>Client Health Topics</CardTitle>
           <CardDescription>
-            {t('patientEd.clientTopics.subtitle')}
+            Manage educational topics based on client health needs
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="overflow-x-auto rounded-md border">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t('patientEd.clientTopics.client')}</TableHead>
-                  <TableHead>{t('patientEd.clientTopics.healthTopics')}</TableHead>
-                  <TableHead>{t('patientEd.clientTopics.recentAssignments')}</TableHead>
-                  <TableHead>{t('patientEd.clientTopics.preferredFormat')}</TableHead>
-                  <TableHead>{t('patientEd.clientTopics.actions')}</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {clientHealthTopics.map((client, idx) => (
-                  <TableRow key={idx}>
-                    <TableCell className="font-medium">{client.client}</TableCell>
-                    <TableCell>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left py-3 px-4 font-medium text-gray-600">Client</th>
+                  <th className="text-left py-3 px-4 font-medium text-gray-600">Health Topics</th>
+                  <th className="text-left py-3 px-4 font-medium text-gray-600">Recent Assignments</th>
+                  <th className="text-left py-3 px-4 font-medium text-gray-600">Preferred Format</th>
+                  <th className="text-left py-3 px-4 font-medium text-gray-600">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {clientHealthTopics.map((client, index) => (
+                  <tr key={index} className="border-b hover:bg-gray-50">
+                    <td className="py-3 px-4">{client.client}</td>
+                    <td className="py-3 px-4">
                       <div className="flex flex-wrap gap-1">
-                        {client.topics.map(topic => (
-                          <span 
-                            key={topic}
-                            className="bg-blue-50 text-blue-800 px-2 py-1 rounded-full text-xs"
-                          >
+                        {client.topics.map((topic, i) => (
+                          <Badge key={i} variant="outline" className="bg-blue-50">
                             {topic}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
-                    </TableCell>
-                    <TableCell>{client.recentAssignments}</TableCell>
-                    <TableCell>
-                      <span className={`px-2 py-1 rounded-full text-xs ${
-                        client.preferredFormat === 'Video' ? 'bg-blue-100 text-blue-800' : 
-                        client.preferredFormat === 'Article' ? 'bg-green-100 text-green-800' : 
-                        client.preferredFormat === 'Interactive' ? 'bg-purple-100 text-purple-800' : 
-                        'bg-red-100 text-red-800'
-                      }`}>
-                        {client.preferredFormat}
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex space-x-1">
-                        <Button variant="outline" size="sm">{t('patientEd.clientTopics.recommend')}</Button>
-                        <Button variant="outline" size="sm">{t('patientEd.clientTopics.editTopics')}</Button>
+                    </td>
+                    <td className="py-3 px-4 text-center">{client.recentAssignments}</td>
+                    <td className="py-3 px-4">{client.preferredFormat}</td>
+                    <td className="py-3 px-4">
+                      <div className="flex space-x-2">
+                        <Button variant="outline" size="sm" className="gap-1">
+                          <Lightbulb className="h-4 w-4" />
+                          Recommend
+                        </Button>
+                        <Button variant="outline" size="sm" className="gap-1">
+                          <Edit className="h-4 w-4" />
+                          Edit
+                        </Button>
                       </div>
-                    </TableCell>
-                  </TableRow>
+                    </td>
+                  </tr>
                 ))}
-              </TableBody>
-            </Table>
+              </tbody>
+            </table>
           </div>
         </CardContent>
       </Card>
@@ -77,66 +66,62 @@ const ClientTopicsTab: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>{t('patientEd.clientTopics.recommendedResources')}</CardTitle>
-            <CardDescription>
-              {t('patientEd.clientTopics.basedOnProfiles')}
-            </CardDescription>
+            <div className="flex items-center gap-2">
+              <Lightbulb className="h-5 w-5 text-amber-500" />
+              <CardTitle>Recommended Resources</CardTitle>
+            </div>
+            <CardDescription>Based on client health profiles</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {clientRecommendations.map((rec, idx) => (
-                <div key={idx} className="p-3 border rounded-lg">
-                  <h3 className="font-medium mb-2">{rec.client}</h3>
+                <div key={idx} className="border rounded-md p-3">
+                  <div className="font-medium mb-2">{rec.client}</div>
                   <div className="space-y-2">
                     {rec.resources.map((resource, i) => (
                       <div key={i} className="flex items-center justify-between bg-gray-50 p-2 rounded">
                         <div className="flex items-center">
-                          {getTypeIcon(resource.type)}
-                          <span className="ml-2 text-sm">{resource.title}</span>
+                          <span className="text-sm">{resource.title}</span>
+                          <Badge className="ml-2 text-xs" variant="outline">{resource.type}</Badge>
                         </div>
-                        <Button variant="ghost" size="sm">
-                          <Bookmark className="h-4 w-4" />
-                        </Button>
+                        <Button size="sm" variant="ghost">Assign</Button>
                       </div>
                     ))}
                   </div>
-                  <Button variant="outline" size="sm" className="mt-2 w-full">{t('patientEd.clientTopics.assignAll')}</Button>
                 </div>
               ))}
             </div>
           </CardContent>
+          <CardFooter>
+            <Button className="w-full">Generate More Recommendations</Button>
+          </CardFooter>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>{t('patientEd.clientTopics.topicTrends')}</CardTitle>
-            <CardDescription>
-              {t('patientEd.clientTopics.mostCommon')}
-            </CardDescription>
+            <div className="flex items-center gap-2">
+              <BarChart className="h-5 w-5 text-blue-500" />
+              <CardTitle>Topic Trends</CardTitle>
+            </div>
+            <CardDescription>Most common health education topics</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] w-full">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={topicTrendsData}
-                  margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="topic" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="count" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <div className="p-2 border rounded-md flex items-center">
-                <div className="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                <span className="text-sm">{t('patientEd.clientTopics.educationalResources')}</span>
-              </div>
-              <div className="p-2 border rounded-md flex items-center">
-                <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
-                <span className="text-sm">{t('patientEd.clientTopics.assignedTopics')}</span>
+            <div className="h-64 flex items-center justify-center">
+              <div className="w-full">
+                {topicTrendsData.map((topic, idx) => (
+                  <div key={idx} className="mb-2">
+                    <div className="flex justify-between mb-1 text-sm">
+                      <span>{topic.topic}</span>
+                      <span>{topic.count} clients</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div 
+                        className="bg-blue-600 h-2 rounded-full" 
+                        style={{ width: `${(topic.count / 5) * 100}%` }}>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </CardContent>

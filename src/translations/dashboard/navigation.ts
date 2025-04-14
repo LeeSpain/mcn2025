@@ -2,10 +2,9 @@
 import { TranslationSet } from '../types';
 
 export const dashboardNavigationTranslations: TranslationSet = {
-  // Dashboard navigation items
   'dashboard.nav.home': {
     en: 'Home',
-    nl: 'Thuis',
+    nl: 'Home',
   },
   'dashboard.nav.care': {
     en: 'Care',
@@ -28,8 +27,8 @@ export const dashboardNavigationTranslations: TranslationSet = {
     nl: 'Winkel',
   },
   'dashboard.nav.bbrain': {
-    en: 'B-Brain',
-    nl: 'B-Brein',
+    en: 'BBrain',
+    nl: 'BBrain',
   },
   'dashboard.nav.account': {
     en: 'Account',
@@ -43,6 +42,7 @@ export const dashboardNavigationTranslations: TranslationSet = {
     en: 'Family',
     nl: 'Familie',
   },
+  // Staff Portal
   'dashboard.nav.staff': {
     en: 'Dashboard',
     nl: 'Dashboard',
@@ -69,12 +69,13 @@ export const dashboardNavigationTranslations: TranslationSet = {
   },
   'dashboard.nav.analytics': {
     en: 'Analytics',
-    nl: 'Analyses',
+    nl: 'Statistieken',
   },
   'dashboard.nav.knowledge': {
     en: 'Knowledge',
     nl: 'Kennis',
   },
+  // Nurse Portal
   'dashboard.nav.nurseDashboard': {
     en: 'Dashboard',
     nl: 'Dashboard',
@@ -84,8 +85,8 @@ export const dashboardNavigationTranslations: TranslationSet = {
     nl: 'Cliëntenbestand',
   },
   'dashboard.nav.nurseChat': {
-    en: 'Chat',
-    nl: 'Chat',
+    en: 'Communication',
+    nl: 'Communicatie',
   },
   'dashboard.nav.visitSchedule': {
     en: 'Visit Schedule',
@@ -120,57 +121,15 @@ export const dashboardNavigationTranslations: TranslationSet = {
     nl: 'Afspraken',
   },
   'dashboard.nav.patientEducation': {
-    en: 'Patient Education',
-    nl: 'Patiënteducatie',
+    en: 'Education',
+    nl: 'Educatie',
   },
   'dashboard.nav.clinicalResources': {
-    en: 'Clinical Resources',
-    nl: 'Klinische Bronnen',
+    en: 'Resources',
+    nl: 'Hulpmiddelen',
   },
   'dashboard.nav.nurseAnalytics': {
     en: 'Analytics',
-    nl: 'Analyses',
-  },
-  // Dashboard sidebar specific translations
-  'dashboard.sidebar.memberPortal': {
-    en: 'Member Portal',
-    nl: 'Ledenportaal',
-  },
-  'dashboard.sidebar.customerServicePortal': {
-    en: 'Customer Service Portal',
-    nl: 'Klantenserviceportaal',
-  },
-  'dashboard.sidebar.nursePortal': {
-    en: 'Nurse Portal',
-    nl: 'Verpleegkundigenportaal',
-  },
-  'dashboard.sidebar.version': {
-    en: 'MCN Healthcare v1.0.2',
-    nl: 'MCN Gezondheidszorg v1.0.2',
-  },
-  // Header translations
-  'header.memberPortal': {
-    en: 'Member Portal',
-    nl: 'Ledenportaal',
-  },
-  'header.staffPortal': {
-    en: 'Staff Portal',
-    nl: 'Personeelsportaal',
-  },
-  'header.nursePortal': {
-    en: 'Nurse Portal',
-    nl: 'Verpleegkundigenportaal',
-  },
-  'header.toggleMenu': {
-    en: 'Toggle Menu',
-    nl: 'Menu Schakelen',
-  },
-  'header.notifications': {
-    en: 'Notifications',
-    nl: 'Meldingen',
-  },
-  'header.logout': {
-    en: 'Logout',
-    nl: 'Uitloggen',
+    nl: 'Statistieken',
   },
 };
