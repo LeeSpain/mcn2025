@@ -4,13 +4,18 @@ import { toast } from '@/hooks/use-toast';
 import YouTubePlayer from './video/YouTubePlayer';
 import ThankYouView from './video/ThankYouView';
 import { useYouTubeAPI } from './video/useYouTubeAPI';
+import { useLanguage } from '@/context/LanguageContext';
 
 const FixedVideo: React.FC = () => {
+  const { language } = useLanguage();
   const [videoEnded, setVideoEnded] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [apiInitialized, setApiInitialized] = useState(false);
+  
+  // Define video IDs based on language
+  const videoId = language === 'en' ? 'rRqZZwZuw4M' : 'mVbXuomTEGU';
   
   // Initialize YouTube API
   const { isAPIReady, apiLoaded } = useYouTubeAPI(() => {
@@ -25,6 +30,13 @@ const FixedVideo: React.FC = () => {
       setApiInitialized(true);
     }
   }, [apiLoaded]);
+
+  // Reset video when language changes
+  useEffect(() => {
+    if (videoEnded) {
+      setVideoEnded(false);
+    }
+  }, [language]);
 
   const handleVideoEnd = () => {
     setVideoEnded(true);
@@ -108,7 +120,7 @@ const FixedVideo: React.FC = () => {
             </div>
           ) : (
             <YouTubePlayer
-              videoId="rRqZZwZuw4M"
+              videoId={videoId}
               onVideoEnd={handleVideoEnd}
               onPlayerReady={handlePlayerReady}
               onError={handlePlayerError}
